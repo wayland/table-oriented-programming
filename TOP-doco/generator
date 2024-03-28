@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use	File::Basename;
+use	Text::Template;
+
+foreach my $source (<src/pages/*>) {
+	my($basename, $dirname, $suffix) = fileparse($source);
+	my($dest) = "generated/$basename";
+	print "Processing from $source to $dest\n";
+
+	$template = Text::Template->new(
+		TYPE => 'FILE',
+		SOURCE => 'src/templates/main.html',
+		DELIMITERS => ['<?', '?>'],
+	);
+
+	$text = $template->fill_in(HASH => {
+		source => $source,
+	});
+
+	open(FILE, '>' . $dest) or die "Error: Unable to open file '$dest': $!";
+	print FILE $text;
+	close(FILE) or die "Error: Unable to close file '$dest': $!";
+}
+
+exit;
+
+
+
