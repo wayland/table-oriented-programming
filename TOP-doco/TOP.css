@@ -1,0 +1,109 @@
+body {
+	font-family: "Crimson Text", serif;
+	font-weight: 400;
+	font-style: normal;
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+.main-box {
+	width: 640px;
+	margin: auto;
+}
+
+.wide-box {
+	width: 1000px;
+	margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Quattrocento", serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: bold;
+}
+
+h1 {
+	text-align: center;
+}
+
+.title {
+	font-family: "Urbanist", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 900;
+	font-style: bold;
+	font-size: 48pt;
+	text-align: center;
+
+	margin-top: 24pt;
+	margin-bottom: 24pt;
+}
+
+.blockquote {
+	font-family: "Forum", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
+	padding: 10pt;
+
+	background-color: #ffffee;
+	border-radius: 4pt;
+	border-color: #eede8c;
+	border-style: solid;
+	border-width: 1pt;
+}
+
+.blockquote > b {
+	font-weight: 900;
+}
+
+.reference {
+	margin-top: 5pt;
+}
+.reference::before {
+	content: "\2014 ";
+}
+
+.tagline {
+	text-align: right;
+	margin-top: 5pt;
+	margin-bottom: 5pt;
+}
+
+table {
+	margin: auto;
+}
+
+tr:nth-child(even) {
+	background-color: #eeeeee;
+}
+
+th, td {
+	padding: 2pt;
+}
+
+.blockquote tr:nth-child(even) {
+	background-color: #ffffdd;
+}
+
+pre {
+	color: #7f3f00;
+	background-color: #ffffdd;
+	text-align: left;
+
+	border-radius: 4pt;
+	border-color: #eede8c;
+	border-style: solid;
+	border-width: 1pt;
+
+	padding: 10pt;
+}
+
+code {
+	font-family: "Courier Prime", monospace;
+	font-weight: 400;
+	font-style: normal;
+
+	white-space: pre;
+}
