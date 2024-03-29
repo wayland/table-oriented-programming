@@ -1,29 +1,98 @@
 #!/usr/bin/perl
 
+use	warnings;
+use	strict;
+
 use	File::Basename;
 use	Text::Template;
+use	File::Find;
+use	Cwd;
 
-foreach my $source (<src/pages/*>) {
-	my($basename, $dirname, $suffix) = fileparse($source);
-	my($dest) = "generated/$basename";
-	print "Processing from $source to $dest\n";
+my(%locations) = (
+	'local' => 'file:///home/wayland/src/TOP/TOP-doco/generated/',
+	'github' => 'https://wayland.github.io/table-oriented-programming/TOP-doco/generated/',
+);
 
-	$template = Text::Template->new(
-		TYPE => 'FILE',
-		SOURCE => 'src/templates/main.html',
-		DELIMITERS => ['<?', '?>'],
-	);
+my($location) = @ARGV;
 
-	$text = $template->fill_in(HASH => {
-		source => $source,
-	});
+exists($locations{$location}) or die "Error: location must be one of: " . join(', ', sort keys %locations) . "\n";
 
-	open(FILE, '>' . $dest) or die "Error: Unable to open file '$dest': $!";
-	print FILE $text;
-	close(FILE) or die "Error: Unable to close file '$dest': $!";
-}
+my($script_base) = cwd();
+my($source_base) = 'src/pages';
+find(\&wanted, $source_base);
 
 exit;
 
+sub	wanted {
+	my($source) = $File::Find::name;
+	my($dest) = $source;
+	$dest =~ s#$source_base#generated#;
 
+	my $oldpwd;
+	MAIN_BLOCK: {
+		$oldpwd = pushd($script_base);
 
+		-d $source and do {
+			print "Making directory '$dest'\n";
+			mkdir $dest;
+			last MAIN_BLOCK;
+		};
+		if(! -f $source or (-e $dest and ! -f $dest)) {
+			print "Skipping unknown file type $source or $dest\n";
+			last MAIN_BLOCK;
+		}
+		$dest =~ s/\.tmpl$// and do {
+			print "Processing from $source to $dest\n";
+
+			*GenTemplate::include = \&include;
+			$GenTemplate::docroot = $locations{$location};
+			$GenTemplate::source = $source;
+
+			my $text = include('src/templates/main.html');
+
+			open(FILE, '>' . $dest) or die "Error: Unable to open file '$dest': $!";
+			print FILE $text;
+			close(FILE) or die "Error: Unable to close file '$dest': $!";
+
+			last MAIN_BLOCK;
+		};
+		# Default action
+		do_cmd("cp $source $dest");
+	}
+
+	chdir($oldpwd);
+}
+
+sub	do_cmd {
+	my($cmd) = @_;
+
+	print "+ $cmd\n";
+	print `$cmd`;
+
+	return $?
+}
+
+sub	pushd {
+	my($dir) = @_;
+
+	my($olddir) = cwd();
+	chdir($dir) or die "Error changing directory to '$dir': $!";
+
+	return $olddir;
+}
+
+sub	include {
+	my($filename) = @_;
+
+	my $template = Text::Template->new(
+		TYPE => 'FILE',
+		SOURCE => $filename,
+		DELIMITERS => ['<?', '?>'],
+	);
+
+	my $text = $template->fill_in(
+		PACKAGE => 'GenTemplate',
+	);
+
+	return $text;
+}

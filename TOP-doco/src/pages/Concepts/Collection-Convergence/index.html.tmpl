@@ -1,0 +1,165 @@
+<div class="title">Collection Convergence</div>
+
+<p>The short version of this page is "Raku already does these things"</p>
+
+<div class="blockquote">
+
+<p>There is a pattern to many of the recommendations (ie. <a 
+href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> 
+and <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>): 
+Collection Convergence.</p>
+
+<div align="center">
+<img src="<? $docroot ?>Concepts/Collection-Convergence/converge.gif" border="0" alt="convergence diagram">
+</div>
+
+<p>Right now many systems have roughly four different collections protocols or 
+protocol types. 
+Is there a reason for this? One may argue that different collections have different 
+needs, and thus specialization is required. Although this is certainly true for the 
+<b>implementation</b> much of the time, I find this generally not to be the case with the 
+collection <b>protocols</b> themselves. The primary reason is that requirements change too often. 
+A collection may start out as a tree or a stack, but <b>morphs</b> 
+into a more general-looking collection as more requirements are needed. 
+I have experienced this process on several occasions.
+(See <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm#taxonomy">
+The Collection Taxonomy Trap</a>  for more about this, and
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm#dispatch">
+The Multi-Dispatch Pattern</a> for some source code management ideas).</p>
+
+<div class="sidebar">
+ You may notice that my rejection of strong protocol taxonomies 
+parallels my distaste for heavy use of sub-classing, also known as 
+sub-typing and IS-A thinking. Software engineering has over-emphasized 
+IS-A thinking. Perhaps in some niches it has an important place, but not 
+for custom business applications.
+</div>
+
+<p>Besides morphability and scalability (described in previous
+section), another benefit is <b>easier training</b>. 
+Instead of learning four or more <b>different</b> collection 
+management systems, one should only have to learn a single protocol. 
+Fine adjustments and specialized extensions can then be added 
+on as needed (such as a Pop(x) "wrapper" function for stack-like activity).</p>
+
+<p>A third advantage is that the same collection system can be
+used for all the different collection types and variations.
+Rather than build a class/code
+browser, an RDBMS browser, an array browser, etc.; vendors
+can <b>focus</b> on building one grand collection system
+and browser that does it all. It could even be modular such
+that you can attach different text browsing engines that
+highlight code keywords, etc. </p>
+
+<p>Even if you disagree with my specific protocol and/or syntax proposals, 
+the idea of a consistent collection protocol should ring through 
+as a very logical idea.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Raku has gone with the "everything-is-an-object" model prevalent in modern 
+programming languages (this is the heavy use of sub-classing that they are 
+complaining about).  From a usability point of view, this model is a good thing, 
+as long as it is also acknowledged "most things are not <i>just</i> an object" 
+(and here I may be disagreeing with Findy Services and B. Jacobs).  Raku has 
+been fairly good about this in most areas, though there are some areas where 
+objects could be supplemented with alternate syntaxes (concurrency springs to 
+mind).</p>
+
+<p>What this means for TOP in Raku is that all collections are objects, and have
+fairly
+consistent interfaces (roles), including:</p>
+
+<ul>
+	<li><b>Associative Arrays:</b> objects where items can be gotten with string 
+		keys</li>
+	<ul>
+		<li>Documented at <a href="https://docs.raku.org/language/hashmap">Hashes and maps</a></li>
+		<li>Examples at <a href="https://uzluisf.gitlab.io/raku-by-example/hashes/">
+			Raku by Example: Hashes</a></li>
+        <li>In-depth at role <a href="https://docs.raku.org/type/Associative">Associative</a></li>
+	</ul>
+	<li><b>Positional arrays:</b> objects where items can be gotten using a 
+		numeric positional key</li>
+	<ul>
+		<li>Documented at <a href="https://docs.raku.org/language/list">Lists, sequences, and arrays</a></li>
+		<li>Examples at <a href="https://uzluisf.gitlab.io/raku-by-example/lists-and-arrays/">
+			Raku by Example: Lists and Arrays</li>
+        <li>In-depth at role <a href="https://docs.raku.org/type/Positional">Positional</a></li>
+	</ul>
+	<li><b>Iterators:</b> objects that will loop over items and return values 
+		one after another</li>
+	<ul>
+		<li>Documented at <a href="https://docs.raku.org/language/iterating">
+			Iterating</a></li>
+		<li>Examples at <a href="https://uzluisf.gitlab.io/raku-by-example/loops/">
+			Raku by Example: Loops</a>; these examples use iterators, but 
+			don't really explain them (which can be a good thing)</li>
+        <li>In-depth at role <a href="https://docs.raku.org/type/Iterator">Iterator</a></li>
+	</ul>
+</ul>
+
+<p>Note that, while these appear from the linked documentation to be quite 
+complex, if you look at the examples, you'll see that using them is quite 
+simple.</p>
+
+<p>None of the above are tables, but can be used as building blocks to construct 
+objects that will represent tables</p>
+
+<h3>Type Convergence</h3>
+
+<div class="blockquote">
+The proliferation of field types has made data more
+difficult to transfer or share data between different
+applications and generates confusion. TOP has only
+two fundamental data types: numeric and character, and
+perhaps a byte type for conversion purposes.
+(I have been kicking around 
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/L.htm">
+ideas</a> for having only one type).
+The pre- and post-validators give any special
+handling needed by the field. A format string
+can be provided for various items like dates ("99/99/99"),
+Social-Security-Numbers ("999-99-9999"), and so forth.
+(Input formats are not shown in our sample DD).
+<p>
+Types like dates and SSN's can be internally represented (stored) just fine with characters or possibly integers. For example, December 31, 1998 could be represented as "19981231". This provides a natural sort order.
+<p>
+Booleans can be represented with "Y" and "N" (yes and no)
+and blank for uninitialized. This has the advantage of
+adding more codes in the future if 2 turn out not to be enough.
+Further, I have witnessed RDBMS numeric ID numbers being changed into
+strings and visa verse. Being type-agnostic reduces or
+eliminates the code changes needed after external or data
+source type changes. (Fortunately, ID numbers rarely are
+compared with greater-than and/or less-than operators. There
+are drawbacks to type-agnosticism, but overall I think
+the benefits are greater).
+<p>
+Enforcement of format can be done via validation specifiers
+(both built-in and custom).
+Fewer language types increases the share-ability and portability of data.
+(See also 
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/miscoop.htm#blackbox">
+Black Box Bye Bye</a>).
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Raku has gone one better, with the following features:</p>
+
+<ul>
+	<li><b>Scalars:</b> This is the Perl feature that has made its way into many 
+		scripting languages including Raku (and was probably not original to 
+		Perl).  This is a single type that represents numbers, strings, or 
+		whatever</li> 
+	<li><b>Gradual typing:</b> A type system where some variables and 
+		expressions may be given types, and others not.  See Wikipedia's 
+		<a href="https://en.wikipedia.org/wiki/Gradual_typing">Gradual 
+		Typing</a> article.</li> 
+</li>

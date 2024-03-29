@@ -1,0 +1,301 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="file:///home/wayland/src/TOP/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li><a href="">Main</a></li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Eight Concepts</a>
+		<div class="dropdown-content">
+			<section>
+				<span class="dropdown-header">Language Features</span>
+				<a href="Concepts/Collection-Convergence/">Collection Convergence</a>
+				<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+				<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+				<a href="#">Memory-Mapping Reduction</a>
+				<a href="#">File Directory Management</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Stylistic Features</span>
+				<a href="#">Control Tables</a>
+				<a href="#">Code Management</a>
+			</section>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
+<div class="title">Database Engine Neutrality</div>
+
+<div class="blockquote">
+<a name="ceiling"></a>
+<h2> No Ceilings!</h2>
+
+<p>Many current approaches to collection processing have practical
+ceilings that require arbitrary interface changes to move to
+the next step.
+When these ceilings are reached, the programmer is
+forced to revamp the existing code to take advantage of
+the next level of power. Such revamping is a waste of time
+and resources. (<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/meyer1.htm">Bertrand Meyer</a> calls
+this the "Continuity Problem", where a small change in the
+requirements results in a large change in program code).
+<b>It would be like having to steer with your elbow if on
+a bicycle, steer with your nose if in a car, and then
+steer with your foot if in an 18-wheel rig.</b></p>
+
+<p>Fortunately, the
+transportation industry pretty much standardized on 
+steering by turning a wheel with one's hands regardless
+of the vehicle size or task. (Well,
+the bike uses a bar, but close enough). The software
+collections industry is not this wise yet. They still
+want to <b>divide</b> collections into things like stacks,
+queues, sets, dictionaries, trees, etc.; letting
+short-lived operational needs drive the protocol chosen.
+Collection needs change and grow over time repeatedly
+in my experience. Thus, one should pick a flexible
+collections protocol. Once a stack always a stack? Nooooo
+waaaay. It may continue still acting
+as a stack for some operations,
+but often will need other views as well.</p>
+
+<p>These ceilings are usually either complexity ceilings
+or size ceilings (such as RAM). Let's look at a common Perl
+approach and then some SQL problems that tend to be
+ceiling bound.</p>
+
+<h3>Perl</h3>
+
+<div class="sidebar">
+Note that I have proposed using associative arrays elsewhere
+quite a few times. This may seem like a contradiction. However,
+those uses are generally an interface mechanism and not
+data collection management.
+</div>
+
+<p>Perlers often use lists of lists and/or pointers to lists
+to store and process collections. Perl "associative
+arrays" are basically a RAM table with 2 columns and
+one index (to the "key" column).
+If the requirements suddenly change, such as
+the need for 3 columns, or 2 indexes with persistence, one then
+has to completely <b>revamp</b> the way fields and/or indexing
+is done. Perlers usually add a second level of complexity
+in the form of a list of pointer or a list of lists.
+In TOP, or even XBase, these additions would be dirt simple.
+There is nothing magic about the limit of 2 columns and
+one index, so why does Perl and array-centric
+thinking impose this <b>arbitrary limit</b></p>
+
+
+<p>Although I find pointers to pointers 
+nasty and error-prone to work with in almost any form, let
+us just assume that this approach is fine in some cases.
+However, if the complexity of the structure, the quantity
+and variety of operations keeps growing, or the size of such
+structures increase beyond a certain amount; then the
+typical response is to use a more powerful relational
+database add-in.
+Aside from the fact that database API's can be bureaucratic to work
+with, one has to <b>convert</b> the native pointer structure and much
+of its processing into something the DB API's can use.</p>
+
+<p>
+Thus, there are roughly 3 different kinds of interfaces
+one has to use as a collection graduates from simple to middle-level to
+complex:
+<ol>
+<li> A regular or associative array.
+<li> An array of arrays (or a list of pointers) if
+     the structure grows beyond 2 columns or 1 index.
+     (A "doubling-up," if you will).
+<li> Relational API's when heavy persistence, concurrency,
+     or size is needed.
+</ol>
+<p>
+I see no reason why the same basic interface cannot be used
+from baby collections to Oracle-size collections. Why
+the industry tolerates this, I have no idea. Perhaps because
+they have not seen collections done right.
+<p>
+Note that there may
+be some minor setting differences as collections
+scale. For example, transaction markers and concurrency
+error handling may need to be specified for the
+higher-end collections. However, these can be treated
+as <b>additions</b> to the existing code, <b>not overhauls</b>.
+
+<h3>SQL</h3>
+<p>
+Now let's look at traditional SQL operations. SQL is
+usually fine for fairly simple processing stuff. However, as the
+number of expressions, links (joins), and/or fields
+increase; SQL can get nasty at times. Standard SQL lacks many
+block-box (subroutines) and reference reduction (factoring)
+techniques found in most programming
+languages (and promoted as "a good practice").
+In standard SQL you usually cannot assign variables,
+macros, subroutines, etc. to complex or repeating parts
+in order to break the logic and sequence down into
+<b>more manageable parts</b>. You simply end up with one big, messy
+string with lots of parenthesis. Beyond a certain
+complexity point one has to break the statement into
+2 or more separate SQL statements.
+<p>
+Further, if set-oriented operations are no longer
+sufficient to handle the complexity of the job,
+the <b>entire</b> SQL statement has to be
+<b>converted</b> into a cursor-oriented approach
+that deals better with one record at a time. It is like
+having to stop, backup for several miles, and then
+start again on a different path.
+(See <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Criticism</a>).
+<p>
+TOP offers several techniques to avoid or reduce overhauls
+from complexity and size changes. The primary technique
+is the provision of a built-in set of standard, common,
+rudimentary, yet powerful collection operations
+(described above). Other techniques include
+<a href="#sql_eval">internal-aware expression evaluation</a> (FIX/TODO: Needs to link to Summary of Benefits)
+and the blurring of set-orientation versus cursor-orientation
+in database commands. (Set-oriented operations have
+some significant advantages in traditional client/server
+setups, however, one should have a choice, especially
+if the bandwidth between the client and the server is
+sufficient).
+
+<p>
+"Complexity Scaling" can also be horizontal as well
+as vertical. For example, an API that is dedicated
+to a stack collection can get cumbersome if the needs
+grow outside of the traditional parameters of stacks.
+I encounter the need to use and view stacks, trees,
+queues, etc. in ways outside of these narrow collection
+"subtypes" all the time. Requirements change and
+your collections interface should be <b>ready</b> for such
+<b>changes</b>.
+<p>
+<div align="center">
+<b>See Also:</b>
+  <br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/array1.htm">Array Problems</a>
+  <br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm#taxonomy">Taxonomy Trap</a>
+</div>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p></p>
+
+<div class="blockquote">
+<h4>Database Engine Neutrality</h4>
+	<p>ITOP does not propose or expect any particular file format or physical 
+		table grouping. The source or storage technique of tables should be 
+		assumed to take on many different forms. ITOP should be able to access 
+		and produce the common table formats in use, such as DBF, MS-Access, and 
+		ODBC sources. There are basically 3 levels of table 
+		implementations:</p>
+	<ol>
+		<li><b>RAM Tables:</b>These are tables that reside entirely in memory. 
+			Arrays and multiple C++ object instances of the same class are 
+			common examples. TOP avoids or de-emphasizes these types of 
+			constructs because of their size limitations and lack of automatic 
+			persistence.<span style="red">TODO What were you saying about 
+			scaling?</span></li>
+		<li><b>File-Based Tables:</b> These are tables that are either on a 
+			local hard-drive or on a file server.  The trade press tends to shun 
+			this type of table in favor of the RAM or DB-Server types.  However, 
+			for many medium-sized tables and fairly large read-only tables, this 
+			type can be very efficient and economical. With memory caching 
+			active, this table type can be almost as fast as RAM tables. Note 
+			that these can be temporary files if needed. This type can be 
+			subdivided into the following two types:
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Fixed-record</th>
+				<th>Variable-record</th>
+				<th>Comments</th>
+			</tr>
+			<tr>
+				<th>Record Length</th>
+				<td>Fixed</td>
+				<td>Variable</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Reliability</th>
+				<td>More</td>
+				<td>Less</td>
+				<td>Variable has a more complex internal structure</td>
+			</tr>
+			<tr>
+				<th>Flexibility</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Compactness</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Examples</th>
+				<td></td>
+				<td>MS-Access</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Standardisation</th>
+				<td>More</td>
+				<td>Less</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Annoying version changes</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+		</table>
+		<li><b>DB Server Tables:</b> These are tables that are accessed via a 
+			formal database server, such as Oracle and Sybase systems. The 
+			application must go through the DB server's access protocols to 
+			reach these tables. These types of tables are useful for 
+			mission-critical transaction processing and very large data 
+			collections. They are also fairly expensive to setup and 
+			manage.</li>
+	</ol>
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

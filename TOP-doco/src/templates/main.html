@@ -5,31 +5,46 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../TOP.css"/>
+<base href="<? $docroot ?>">
+
+<link rel="stylesheet" href="TOP.css"/>
+
 </head>
 <body>
 
+<div class="wide-box">
 <div class="navbar"><ul>
-	<li><a href="Table-Oriented-Programming.html">Main</a></li>
+	<li><a href="">Main</a></li>
 	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Eight Concepts</a>
 		<div class="dropdown-content">
-			<a href="#">Consistent Collections</a>
-			<a href="#">Table-Friendly Syntax</a>
-			<a href="#">Database Engine Neutrality</a>
-			<a href="#">Data Dictionaries</a>
-			<a href="#">Memory-Mapping Reduction</a>
-			<a href="#">File Directory Management</a>
-			<a href="#">Control Tables</a>
-			<a href="#">Code Management</a>
+			<section>
+				<span class="dropdown-header">Language Features</span>
+				<a href="Concepts/Collection-Convergence/">Collection Convergence</a>
+				<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+				<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+				<a href="#">Memory-Mapping Reduction</a>
+				<a href="#">File Directory Management</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Stylistic Features</span>
+				<a href="#">Control Tables</a>
+				<a href="#">Code Management</a>
+			</section>
 		</div>
 	</li>
 	
 </ul></div>
+</div>
 
 <div class="main-box">
 
-<? qx{ cat $source }; ?>
+
+<? include($source) ?>
 
 </div>
 

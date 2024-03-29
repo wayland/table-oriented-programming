@@ -4,11 +4,14 @@ body {
 	font-style: normal;
 	text-align: justify;
 	text-justify: inter-word;
+
+	margin: 0pt;
 }
 
 .main-box {
-	width: 640px;
 	margin: auto;
+	padding-top: 40pt;
+	width: 640px;
 }
 
 .wide-box {
@@ -83,6 +86,10 @@ th, td {
 	padding: 2pt;
 }
 
+th {
+	background-color: #efcf00;
+}
+
 .blockquote tr:nth-child(even) {
 	background-color: #ffffdd;
 }
@@ -108,13 +115,26 @@ code {
 	white-space: pre;
 }
 
+.blockquote .sidebar {
+	float:right;
+	position: relative;
+	width: 25%;
+	background-color:#ffffdd;
+	padding: 10pt;
+	margin-left: 10pt;
+}
+
 /* Code for CSS dropdown menus */
 .navbar ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+/*	overflow: hidden; */
 	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 1000px;
+	z-index: 1;
 }
 
 .navbar li {
@@ -130,7 +150,7 @@ code {
 }
 
 .navbar li a:hover, .navbar .dropdown:hover .navbar .dropbtn {
-	background-color: red;
+	background-color: #4f4f4f;
 }
 
 .navbar li.dropdown {
@@ -157,5 +177,20 @@ code {
 .navbar .dropdown-content a:hover {background-color: #f1f1f1;}
 
 .navbar .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
+}
+
+.navbar .dropdown-header {
+	font-weight: 900;
+	font-size: 130%;
+	background-color: #bfbfbf;
+	padding: 4pt 4pt;
+
+	display: inline-block;
+	width: 100%;
+}
+
+.navbar section {
+	/* padding: <vertical> <horizontal> */
+	margin: 0px 16px;
 }

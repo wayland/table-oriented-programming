@@ -1,3 +1,49 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="file:///home/wayland/src/TOP/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li><a href="">Main</a></li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Eight Concepts</a>
+		<div class="dropdown-content">
+			<section>
+				<span class="dropdown-header">Language Features</span>
+				<a href="Concepts/Collection-Convergence/">Collection Convergence</a>
+				<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+				<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+				<a href="#">Memory-Mapping Reduction</a>
+				<a href="#">File Directory Management</a>
+			</section>
+			<section>
+				<span class="dropdown-header">Stylistic Features</span>
+				<a href="#">Control Tables</a>
+				<a href="#">Code Management</a>
+			</section>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
 <div class="title">Table-Oriented Programming (TOP)</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
@@ -73,30 +119,24 @@ categories:</p>
 
 <h2>Language Features</h2>
 
-<h3>Fundamental and Consistent Collection Operations</h3>
+<h3>Collection Convergence</h3>
 
 <div class="blockquote">
-A base set of operations (interface) that all collections (tables, trees, 
+<h4 style="display: inline">Fundamental and Consistent Collection Operations</h4>
+
+<p>A base set of operations (interface) that all collections (tables, trees, 
 stacks, lists, etc.) should have easy or built-in access to regardless of a 
 collection's current size or complexity. (Arrays are evil! Arrays are the Goto 
-of the collections world.)
+of the collections world.)</p>
 <div class="reference">
 	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
 </div>
 </div>
 
-<p>Raku has gone with the 
-"everything-is-an-object" model prevalent in modern programming languages.  This 
-is a good thing, as long as it is also acknowledged "most things are not 
-<i>just</i> an object; Raku has been fairly good about this in most areas</p>
+<p>For further information, see <a href="Concepts/Collection-Convergence.html">Collection 
+Convergence</a>.</p>
 
-<p>What this means for TOP is that all collections are objects, and have fairly 
-consistent interfaces (roles), including:</p>
-<ul>
-	<li>role <a href="https://docs.raku.org/type/Associative">Associative</a></li>
-	<li>role <a href="https://docs.raku.org/type/Positional">Positional</a></li>
-	<li>role <a href="https://docs.raku.org/type/Iterator">Iterator</a></li>
-</ul>
+<p>Raku has this built in</p>
 
 <h3>Table-Friendly Syntax</h3>
 
@@ -104,14 +144,18 @@ consistent interfaces (roles), including:</p>
 Syntax and language constructs that make dealing with tables and T.O.P. 
 easier and more natural. This includes overcoming the weaknesses of SQL. 
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a 
+href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, 
+Findy Services and B. Jacobs, 1998-2002
 </div>
 </div>
 
 <p>Raku doesn't support this out of the box, but should be implementable using 
 an appropriate set of classes</p>
 
-<p>See <a href="Table-Friendly-Syntax-Data.html">Table Friendly Syntax - Data</a></p>
+<p>See <a href="Concepts/Table-Friendly-Syntax-Data.html">Table Friendly Syntax - Data</a></p>
+
+<h2>Implementation Features</h2>
 
 <h3>Database Engine Neutrality</h3>
 
@@ -127,6 +171,8 @@ mind.
 <p>For Raku, this would be an implementation feature of the above-mentioned 
 classes.  Also, this should be read as "backends" -- not all of them need be 
 what we would call a "database engine" today.</p>
+
+<p>See <a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> for details</p>
 
 <h3>Data Dictionaries</h3>
 
@@ -144,7 +190,7 @@ built-in introspection system (cf. the <a
 href="https://docs.raku.org/language/mop">Metaobject Protocol</a>).  We might be 
 able to leverage this as well.  </p>
 
-<p>See <a href="Data-Dictionaries.html">Data Dictionaries</a> for details</p>
+<p>See <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a> for details</p>
 
 <h3>Memory-Mapping Reduction</h3>
 
@@ -208,3 +254,9 @@ omni-paradigm advocate.  I would restate it as "Relational tables are in
 numerous instances a much more appropriate tool for managing complex and 
 multi-faceted collections of programming code than OO classes or files".</p>
 
+
+
+</div>
+
+</body>
+</html>
