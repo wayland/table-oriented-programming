@@ -1,185 +1,3 @@
-
-<html>
-<head>
-<title>Introduction to Collection Convergence :: Table-Oriented Programming (TOP)</title>
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Noto+Emoji:wght@300..700&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<!-- jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
-</script>
-
-<script type="text/javascript">
-<!--
-$(document).ready(function() {
-	$("h1,h2").each(function(i) {
-		var heading = $(this);
-		if(heading.attr('id')) {
-			var headingId = heading.attr("id");
-			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
-			var fontstring = "'Noto Emoji'";
-			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
-		}
-	});
-})
--->
-</script>
-
-<!-- Links and stylesheet -->
-<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
-
-<link rel="stylesheet" href="TOP.css"/>
-
-</head>
-<body>
-
-<div class="wide-box">
-<div class="navbar"><ul>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
-		<div class="dropdown-content">
-			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
-			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
-			<a href="Introduction/Terminology.html">Terminology</a>
-			<a href="Introduction/History.html">History</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
-		<div class="dropdown-content">
-			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence</a>
-			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
-			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
-			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
-		<div class="dropdown-content">
-			<a href="Language-Support/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
-			<a href="">Tables</a>
-			<a href="">Views</a>
-			<a href="">Forms</a>
-			<a href="">Reports</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
-		<div class="dropdown-content">
-			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
-			<a href="">Code Management</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
-		<div class="dropdown-content">
-			<a href="">OOP</a>
-			<a href="">SQL</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Comparisons</a>
-		<div class="dropdown-content">
-			<a href="">Comparison of Raku TOP and xBase</a>
-			<a href="Other-Items/Paradigm-Comparisons.html">Paradigm Comparisons</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
-		<div class="dropdown-content">
-			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
-			<section>
-				<span class="dropdown-header">Implementation Features</span>
-			<a href="">File Directory Management</a>
-
-			</section>
-			<a href="">Why Table-Oriented Programming?</a>
-			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming</a>
-			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
-			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
-
-		</div>
-	</li>
-	
-</ul></div>
-</div>
-
-<div class="main-box">
-
-<div class="title">Introduction to Collection Convergence</div>
-
-<h2>Overview</h2>
-
-<div class="blockquote">
-
-<div style="float:right; margin-left: 6pt; margin-bottom: 6pt">
-<img src="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/Collection-Convergence/Introduction/converge.gif" 
-	border="0" alt="convergence diagram">
-</div>
-<p>There is a pattern to many of the recommendations (ie. <a 
-href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> 
-and <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>): 
-Collection Convergence.</p>
-
-<p>...</p>
-
-<p>Besides morphability and scalability [described in the refactoring section of 
-<a href="file:///home/wayland/src/TOP/TOP-doco/generated/Introduction/Why.html"> 
-Why Table-Oriented Programming</a>], another benefit is <b>easier training</b>. 
-Instead of learning four or more <b>different</b> collection management systems, 
-one should only have to learn a single protocol. Fine adjustments and 
-specialized extensions can then be added on as needed...</p>
-
-<p>A third advantage is that the same collection system can be used for all the 
-different collection types and variations. Rather than build a class/code 
-browser [by browser, he means a GUI tool that assists with coding], an RDBMS 
-browser, an array browser, etc.; vendors can <b>focus</b> on building one grand 
-collection system and browser that does it all. It could even be modular such 
-that you can attach different text browsing engines that highlight code 
-keywords, etc. </p>
-
-<p>Even if you disagree with my specific protocol and/or syntax proposals, 
-the idea of a consistent collection protocol should ring through 
-as a very logical idea.
-
-<div class="reference">
-        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
-</div>
-</div>
-
-<p>Raku has gone with the "everything-is-an-object" model prevalent in modern 
-programming languages.  From a usability point of view, this model is a good 
-thing, as long as it is also acknowledged "most things are not <i>just</i> an 
-object".  Raku has been fairly good about this in most areas, though there are 
-some areas where objects could be supplemented with alternate syntaxes 
-(concurrency springs to mind).</p>
-
-<p>What this means for TOP in Raku is that all collections are objects, and have
-fairly consistent interfaces (roles), including Associative, Positional, and 
-Iterator.  None of these are tables, but will be used as building blocks to 
-construct objects that will represent tables.  </p>
-
-<p>The big idea here is that all collections, including Tables and Views, should 
-have the same API.  In Raku TOP, this will be implemented with a Tablish class, 
-which will be a role used by both the Table and View classes.  This role will 
-also draw in the Associative, Positional, and Iterative roles, which are used by 
-other Raku collections.  </p>
-
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -263,7 +81,7 @@ other Raku collections.  </p>
    xlink:href=""
    id="a12707" />
     <a
-       xlink:href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/Language-Support/Table.html"
+       xlink:href="<# $docroot #>Language-Support/Table.html"
        xlink:title="Table"
        id="a218">
             <ellipse
@@ -296,7 +114,7 @@ other Raku collections.  </p>
    xlink:href=""
    id="a12715" />
     <a
-       xlink:href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/Collection-Convergence/Introduction/"
+       xlink:href="<# $docroot #>Collection-Convergence/Introduction/"
        xlink:title="Tablish"
        id="a218">
             <ellipse
@@ -383,7 +201,9 @@ other Raku collections.  </p>
          y="-158.3"
          font-family="FreeSans"
          font-size="14px"
+         fill="#6666ff"
          id="text233"
+         style="fill:#000000;fill-opacity:1"
          transform="matrix(0.64166991,0,0,0.64166991,17.628627,198.5714)">Positional</text>
     </a>
     <g
@@ -413,7 +233,9 @@ other Raku collections.  </p>
              y="-158.3"
              font-family="FreeSans"
              font-size="14px"
-             id="text243">Iterable</text>
+             fill="#6666ff"
+             id="text243"
+             style="fill:#000000;fill-opacity:1">Iterable</text>
         </a>
       </g>
     </g>
@@ -484,7 +306,7 @@ other Raku collections.  </p>
    xlink:href=""
    id="a12752" />
     <a
-       xlink:href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/Language-Support/View.html"
+       xlink:href="<# $docroot #>Language-Support/View.html"
        xlink:title="View"
        id="a12731">
             <ellipse
@@ -524,65 +346,3 @@ other Raku collections.  </p>
        transform="matrix(0.57450347,-0.28580769,0.28580769,0.57450347,46.34725,245.66285)" />
   </g>
 </svg>
-
-
-<p>Since this page is all about converging features of collections, we will 
-immediately introduce...</p>
-
-<h1>The Tableish</h1>
-
-<p>The Tableish is a role that represents all features common to Tables and 
-Views.  Features include:</p>
-
-<h3>Column Access</h3>
-
-<p>In a Raku TOP Tablish, columns are accessed using the Associative role.  This 
-means that we can use <code>$table&lt;column&gt;</code> or 
-<code>$table{$column-name}</code> access methods (the second used when the 
-name of the column is in a variable).  </p>
-
-<h3>Row Access</h3>
-
-<p>In a Raku TOP Tablish, rows are accessed using the Positional role.  This 
-means that we can use <code>$table[$rownum]</code> to pick out a particular row.  
-</p>
-
-<h3>Row Iteration</h3>
-
-<p>When we choose to iterate over a table, it will by default iterate over the 
-rows of the table (rather than, say, the columns).  </p>
-
-
-<h3>Transferring</h3>
-
-<div class="blockquote">
-
-This is the easy ability to transfer or copy information from one collection to
-another. 
-
-<div class="reference">
-	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
-		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
-</div>
-</div>
-
-
-</div>
-
-<p/>
-
-<div class="wide-box">
-<div class="footer">
-	<span class="left">			<a href="Introduction/History.html">&lt;&lt; History</a>
-</span>
-	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality &gt;&gt;</a>
-</span>
-</div>
-<p/>
-<div class="copyright">© Copyright Tim Nelson, 2024</div>
-</div>
-<p/>
-
-</body>
-</html>

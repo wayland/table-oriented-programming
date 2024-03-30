@@ -71,7 +71,7 @@ my(@structure) = (
 			]},
 			{ title => 'Why Table-Oriented Programming?', url => '' },
 			{ title => 'Benefits of Good Table-Oriented Programming', url => 'Other-Items/Benefits.html' },
-			{ title => 'Type Convergence', url => '' },
+			{ title => 'Scalar Type Convergence', url => 'Other-Items/Scalar-Type-Convergence.html' },
 			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
 		],
 # TODO: 
@@ -178,6 +178,7 @@ sub	wanted {
 			my $text;
 			$dest =~ /\.html$/ and do {
 				*GenTemplate::include = \&include;
+				*GenTemplate::include_fixed = \&include_fixed;
 				*GenTemplate::include_footer = \&include_footer;
 				*GenTemplate::set_footer = \&set_footer;
 				$GenTemplate::docroot = $locations{$location};
@@ -229,7 +230,7 @@ sub	include {
 	my $template = Text::Template->new(
 		TYPE => 'FILE',
 		SOURCE => $filename,
-		DELIMITERS => ['<?', '?>'],
+		DELIMITERS => ['<#', '#>'],
 	);
 
 	my $text = $template->fill_in(
@@ -244,6 +245,7 @@ sub	set_footer {
 	my($dest) = @_;
 	my $url = $dest;
 	$url =~ s#^generated/##;
+	$url =~ s#index.html$##;
 
 	print "Fetched $url\n";
 
@@ -261,4 +263,14 @@ sub	include_footer {
 		: '&lt;&lt; ' . $newhash{title};
 
 	include($filename, HASH => \%newhash);
+}
+
+sub	include_fixed {
+	my($filename) = @_;
+
+	open(FILE, $filename) or die "Error: can't open file '$filename': $!";
+	my(@lines) = <FILE>;
+	close(FILE) or die "Error: can't close file '$filename': $!";
+
+	return(join '', @lines);
 }

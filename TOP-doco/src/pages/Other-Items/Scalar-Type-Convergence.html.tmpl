@@ -1,0 +1,56 @@
+<div class="title">Scalar Type Convergence</div>
+
+<p>The short version of this page is "Raku already does these things".</p>
+
+<div class="blockquote">
+The proliferation of field types has made data more
+difficult to transfer or share data between different
+applications and generates confusion. TOP has only
+two fundamental data types: numeric and character, and
+perhaps a byte type for conversion purposes.
+(I have been kicking around 
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/L.htm">
+ideas</a> for having only one type).
+The pre- and post-validators give any special
+handling needed by the field. A format string
+can be provided for various items like dates ("99/99/99"),
+Social-Security-Numbers ("999-99-9999"), and so forth.
+(Input formats are not shown in our sample DD).
+<p>
+Types like dates and SSN's can be internally represented (stored) just fine with characters or possibly integers. For example, December 31, 1998 could be represented as "19981231". This provides a natural sort order.
+<p>
+Booleans can be represented with "Y" and "N" (yes and no)
+and blank for uninitialized. This has the advantage of
+adding more codes in the future if 2 turn out not to be enough.
+Further, I have witnessed RDBMS numeric ID numbers being changed into
+strings and visa verse. Being type-agnostic reduces or
+eliminates the code changes needed after external or data
+source type changes. (Fortunately, ID numbers rarely are
+compared with greater-than and/or less-than operators. There
+are drawbacks to type-agnosticism, but overall I think
+the benefits are greater).
+<p>
+Enforcement of format can be done via validation specifiers
+(both built-in and custom).
+Fewer language types increases the share-ability and portability of data.
+(See also 
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/miscoop.htm#blackbox">
+Black Box Bye Bye</a>).
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>Raku has gone one better, with the following features:</p>
+
+<ul>
+	<li><b>Scalars:</b> This is the Perl feature that has made its way into many 
+		scripting languages including Raku (and was probably not original to 
+		Perl).  This is a single type that represents numbers, strings, or 
+		whatever</li> 
+	<li><b>Gradual typing:</b> A type system where some variables and 
+		expressions may be given types, and others not.  See Wikipedia's 
+		<a href="https://en.wikipedia.org/wiki/Gradual_typing">Gradual 
+		Typing</a> article.</li> 
+</ul>

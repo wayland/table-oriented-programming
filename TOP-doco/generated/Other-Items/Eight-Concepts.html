@@ -1,10 +1,33 @@
+
 <html>
 <head>
-<title>Table-Oriented Programming (TOP)</title>
+<title>Eight Concepts :: Table-Oriented Programming (TOP)</title>
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Noto+Emoji:wght@300..700&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$("h1,h2").each(function(i) {
+		var heading = $(this);
+		if(heading.attr('id')) {
+			var headingId = heading.attr("id");
+			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
+			var fontstring = "'Noto Emoji'";
+			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+		}
+	});
+})
+-->
+</script>
+
+<!-- Links and stylesheet -->
 <base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
 
 <link rel="stylesheet" href="TOP.css"/>
@@ -87,22 +110,24 @@
 			</section>
 			<a href="">Why Table-Oriented Programming?</a>
 			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming</a>
-			<a href="">Type Convergence</a>
+			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
 			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
 
 		</div>
 	</li>
-foo	
+	
 </ul></div>
 </div>
 
 <div class="main-box">
 
+<div class="title">Eight Concepts</div>
 
-<p>In 1998-2002, as the table-oriented languages were falling out of use, "Findy 
-Services and B. Jacobs" wrote a series of articles on "Table-Oriented Programming".  
-These were, in their own words, unstructured and piecemeal.  These advocated for various 
-features prevalent in these languages, and a few ideas of their own.  </p>
+<p>In 1998-2002, as the table-oriented languages were falling out of use, 
+Tablizer/TOPMind, aka "Findy Services and B. Jacobs" wrote a series of articles 
+on "Table-Oriented Programming".  These were, in their own words, unstructured 
+and piecemeal.  These advocated for various features prevalent in these 
+languages, and a few ideas of their own.  </p>
 
 <h1>Overview</h1>
 
@@ -153,7 +178,7 @@ stacks, lists, etc.) should have easy or built-in access to regardless of a
 collection's current size or complexity. (<span style="color: red">Arrays are evil!</a> Arrays are the Goto 
 of the collections world.)</p>
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -169,7 +194,7 @@ Syntax and language constructs that make dealing with tables and T.O.P.
 easier and more natural. This includes overcoming the weaknesses of SQL. 
 <div class="reference">
 	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, 
-Findy Services and B. Jacobs, 1998-2002
+Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -187,7 +212,7 @@ A T.O.P. system should be able to access a wide variety of database engines.
 There are some practical limitations to this, but the goal should be kept in 
 mind. 
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -203,7 +228,7 @@ what we would call a "database engine" today.</p>
 Special Control Tables for storing processing, decision, and attribute logic 
 for relational database fields and/or UI fields.
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -223,7 +248,7 @@ memory variables to and from table fields and to and from the UI (screens).
 (This process should be invisible to the programmer regardless of the fact that 
 internal implementation usually uses memory-based copies.)
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -244,7 +269,7 @@ Hierarchies are too narrow in scope and too restrictive. It is time for
 multi-aspect thinking. One search key (the hierarchy) is not enough. [cf. 
 <a href="https://web.archive.org/web/20120918011340/http://geocities.com/tablizer/sets1.htm">Alternatives to Trees</a>]
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 
 </div>
@@ -256,7 +281,7 @@ multi-aspect thinking. One search key (the hierarchy) is not enough. [cf.
 <div class="blockquote">
 A way of organizing processing, decision, and attribute logic.
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -267,23 +292,21 @@ Relational tables are a potentially much more sophisticated tool for managing
 complex and multi-faceted collections of programming code than OO classes or 
 files.
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
-<p>Here, for the first time, I must partially disagree with Findy Services and 
-B. Jacobs; this is because he is a pure TOP advocate, whereas I am an 
-omni-paradigm advocate.  I would restate it as "Relational tables are in 
-numerous instances a much more appropriate tool for managing complex and 
-multi-faceted collections of programming code than OO classes or files".</p>
+<p>Here, for the first time, I must partially disagree with Tablizer/TOPMind; 
+this is because he is a pure TOP advocate, whereas I am an omni-paradigm 
+advocate.  I would restate it as "Relational tables are in numerous instances a 
+much more appropriate tool for managing complex and multi-faceted collections of 
+programming code than OO classes or files".</p>
 
 
 
 </div>
 
 <p/>
-
-
 
 <div class="wide-box">
 <div class="footer">
@@ -292,9 +315,10 @@ multi-faceted collections of programming code than OO classes or files".</p>
 	<span class="centre">-</span>
 	<span class="right"></span>
 </div>
+<p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
 </div>
-
+<p/>
 
 </body>
 </html>

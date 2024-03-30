@@ -1,10 +1,33 @@
+
 <html>
 <head>
-<title>Table-Oriented Programming (TOP)</title>
+<title>What is Table-Oriented Programming? :: Table-Oriented Programming (TOP)</title>
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Noto+Emoji:wght@300..700&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$("h1,h2").each(function(i) {
+		var heading = $(this);
+		if(heading.attr('id')) {
+			var headingId = heading.attr("id");
+			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
+			var fontstring = "'Noto Emoji'";
+			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+		}
+	});
+})
+-->
+</script>
+
+<!-- Links and stylesheet -->
 <base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
 
 <link rel="stylesheet" href="TOP.css"/>
@@ -87,19 +110,18 @@
 			</section>
 			<a href="">Why Table-Oriented Programming?</a>
 			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming</a>
-			<a href="">Type Convergence</a>
+			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
 			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
 
 		</div>
 	</li>
-foo	
+	
 </ul></div>
 </div>
 
 <div class="main-box">
 
-
-<div class="title">What is Table-Oriented Programming (TOP)</div>
+<div class="title">What is Table-Oriented Programming?</div>
 
 <p>Table-oriented programming is, on the surface, an extremely high level of 
 programming language support for tables.  Most languages don't even get 
@@ -123,8 +145,6 @@ Why Table-Oriented Programming?</a>
 
 <p/>
 
-
-
 <div class="wide-box">
 <div class="footer">
 	<span class="left"></span>
@@ -132,9 +152,10 @@ Why Table-Oriented Programming?</a>
 	<span class="right">			<a href="Introduction/Why.html">Why Table-Oriented Programming &gt;&gt;</a>
 </span>
 </div>
+<p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
 </div>
-
+<p/>
 
 </body>
 </html>

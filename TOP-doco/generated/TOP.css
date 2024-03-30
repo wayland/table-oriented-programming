@@ -25,7 +25,18 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Quattrocento", serif;
 	font-optical-sizing: auto;
 	font-weight: 700;
-	font-style: bold;
+
+	/* So that linking to headings doesn't put them behind the menubar */
+	padding-top:50px;
+	margin-top:-30px;
+}
+
+.heading-link {
+	text-decoration: none;
+}
+
+a:hover.heading-link  {
+	text-decoration: underline;
 }
 
 h1 {
@@ -193,6 +204,7 @@ code {
 
 	display: inline-block;
 	width: 100%;
+	border-radius: 4pt;
 }
 
 .navbar section {
@@ -251,8 +263,21 @@ code {
 }
 .footer span {
 	flex: 1;
+	padding: 14px 2px;
 }
 
+.footer a {
+	color: white;
+	padding: 10px 16px;
+/*	border: 1px solid red; */
+}
+
+.footer a:hover {
+	background-color: #7f7f7f;
+	border-radius: 4pt;
+}
+
+/*
 .footer :link {
 	color: #bfbfff;
 }
@@ -260,9 +285,9 @@ code {
 .footer :visited {
 	color: #ffbfff;
 }
-
+*/
 .footer .left {
-	float: left;
+/*	float: left; */
 }
 
 .footer .centre {
@@ -272,10 +297,21 @@ code {
 }
 
 .footer .right {
-	float: right;
+/*	float: right; */
 	text-align: right;
 }
 
 .copyright {
 	text-align: center;
 }
+
+
+/* SVG hover, etc */
+svg text {
+	pointer-events: auto;
+	fill: blue;
+} 
+svg text:hover {
+	pointer-events: auto;
+	fill: red;
+} 
