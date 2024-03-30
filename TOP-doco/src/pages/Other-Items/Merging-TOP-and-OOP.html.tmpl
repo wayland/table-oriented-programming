@@ -37,73 +37,24 @@ hampered by the following restrictions:</p>
 		often closer than desirable.  </li>
 </ul>
 
+<p>Any objections to the merger that was dependent on either of the above 
+restrictions won't be addressed (unless the restrictions above are shown 
+valid).</p>
+
 <h1>Objections Answered</h1>
 
-<p>Some of these objections were about such a merger being possible; others were 
-to the idea of implementing TOP features in C++ and Java (the primary OOP 
-languages of the day).  </p>
-
 <div class="blockquote">
-Algorithms (methods) and Data are <b>not</b> tightly
-     integrated in TOP. This tends to offer less
-     method-to-data mapping "protection" than OOP, but results
-     in less preprocessing and mapping of the data to be used
-     within TOP.
-<div class="reference">
-        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
-</div>
-</div>
-
-
-<p>This objection only applies if 
-<p/>
-
-<div class="blockquote">
-TOP uses sets and relations in place of
-     class hierarchies. It is thus a different
-     form of inheritance. (TOP does not value
-     hierarchies as highly as OOP because they
-     are seen as too inflexible to change. Changes
-     often do not occur in a hierarchical way).
-
-<p>
+TOP attempts to have a built-in relationship with relational systems to reduce 
+or minimize data mapping.
 
 <div class="reference">
         <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
 </div>
 </div>
 
-<p/>
-
-<div class="blockquote">
-TOP attempts to have a built-in relationship
-     with relational systems to reduce or minimize
-     data mapping.
-
-<div class="reference">
-        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
-</div>
-</div>
-
-<p>In the more decoupled model used in multi-paradigm programming, these are by 
-no means insurmountable.  
-
-<p>The third item is certainly reconcilable -- just make the relationship 
-between the table and the relational system optional; if you want the automatic 
-data mapping, then set a setting, and it will happen.  If not, then don't.  </p>
-
-<p>The above will likely mean that certain styles of TOP are not possible in a 
-TOP+OOP language, but this doesn't invalidate all the other benefits that TOP 
-can bring to a language.  It just means that Findy Services and B. Jacobs 
-
-won't be able to use some of their favourite
- TOP idioms.  </p>
-
-<p>See also:</p>
-	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/funcs.htm">Notes on Syntax</a></li>
-	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging OOP and TOP</a></li>
-	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Patterns using Procedural/Relational Paradigm</a></li>
-
+<p>The key here is to make the relationship between the table and the relational 
+system optional; if you want the automatic data mapping, then set a setting, and 
+it will happen.  If not, then don't.  </p>
 
 <p>Findy Services and B. Jacobs also highlighted the weaknesses of C++ and Java 
 (the primary OOP languages of his time) that prevent them from properly 
@@ -189,4 +140,10 @@ allows both.  If someone were really desperate to have clause-based parameters,
 it would be achievable via a Slang.  An example would be 
 <a href="https://raku.land/zef:tony-o/Slang::SQL">Slang::SQL</a>, which allows 
 SQL code to be embedded directly in Raku.</p>
+
+<p>Other articles by Findy Services and B. Jacobs on the topic are:</p>
+<ul>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging OOP and TOP</a></li>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Patterns using Procedural/Relational Paradigm</a></li>
+</ul>
 

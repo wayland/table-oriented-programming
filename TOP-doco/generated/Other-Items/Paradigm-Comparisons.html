@@ -1,0 +1,363 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<div class="dropdown-content">
+			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
+			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
+			<a href="Introduction/Terminology.html">Terminology</a>
+			<a href="Introduction/History.html">History</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
+		<div class="dropdown-content">
+			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence</a>
+			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
+			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
+		<div class="dropdown-content">
+			<a href="Language-Support/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			<a href="">Tables</a>
+			<a href="">Views</a>
+			<a href="">Forms</a>
+			<a href="">Reports</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
+		<div class="dropdown-content">
+			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
+			<a href="">Code Management</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
+		<div class="dropdown-content">
+			<a href="">OOP</a>
+			<a href="">SQL</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Comparisons</a>
+		<div class="dropdown-content">
+			<a href="">Comparison of Raku TOP and xBase</a>
+			<a href="Other-Items/Paradigm-Comparisons.html">Paradigm Comparisons</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
+		<div class="dropdown-content">
+			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+			<a href="">File Directory Management</a>
+
+			</section>
+			<a href="">Why Table-Oriented Programming?</a>
+			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming</a>
+			<a href="">Type Convergence</a>
+			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+
+		</div>
+	</li>
+foo	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
+<div class="title">Paradigm Comparisons</div>
+
+<p>Each programming paradigm is a tool in your toolbox.  The more paradigms a 
+programming language allows for, the more tools you have in your toolbox.  
+Each paradigm not available is one less tool in your toolbox.  </p>
+
+<p>With this in mind, the best way to get the benefits of table-oriented 
+programming (TOP) is not to use a TOP programming language, but to integrate TOP 
+into a language which is already multi-paradigm.  My personal preference is 
+Raku.</p>
+
+<h1>Most Multi-Paradigm Languages</h1>
+
+<p>These are the languages with the most paradigms available.  To make the 
+table, your number of paradigms had to be over 10.</p>
+
+<p>Information in the table below (except Comments) from 
+<a href="https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages">
+Wikipedia: Comparison of multi-paradigm programming languages</a>
+
+<table>
+	<tr>
+		<th>Language</th>
+		<th>Direct Paradigms</th>
+		<th>With Libraries</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>Raku</td>
+		<td>10</td>
+		<td>11</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>C++</td>
+		<td>7</td>
+		<td>15</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Common Lisp</td>
+		<td>7</td>
+		<td>14</td>
+		<td>Functional</td>
+	</tr>
+	<tr>
+		<td>Haskell</td>
+		<td>8</td>
+		<td>15</td>
+		<td>Functional</td>
+	</tr>
+	<tr>
+		<td>Julia</td>
+		<td>9</td>
+		<td>17</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Oz</td>
+		<td>11</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Wolfram (Mathematica)</td>
+		<td>13</td>
+		<td>(14)</td>
+		<td>Proprietary</td>
+	</tr>
+</table>
+
+<p>My thoughts in choosing Raku were:</p>
+<ul>
+	<li>Raku has the most non-library paradigms except Oz and Wolfram</li>
+	<li>Eliminating:</li>
+		<li>I chose Raku over C++ because Raku has built-in grammars, so I can 
+			modify the language itself if I need to</li>
+		<li>I chose Raku over the functional languages because, in my experience, 
+			Raku has most of the benefits, but without the restrictions</li>
+		<li>I chose Raku over the Proprietary languages</li>
+		<li>With the above 3 restrictions, that leaves Raku, Julia, and Oz; of 
+			the three, I'm most familiar with Raku</li>
+	</ul>
+</ul>
+
+<h1>Comparison of Paradigms of TOP languages</h1>
+
+<p>Related to <a href="https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages">
+Comparison of multi-paradigm programming languages</a></p>
+
+<table>
+	<tr>
+		<th>Paradigm</th>
+		<th>Raku</th>
+		<th>SQL</th>
+		<th>xHarbour</th>
+		<th>???</th>
+	</tr>
+	<tr>
+		<th>Paradigm Count</th>
+		<td>10</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Concurrent</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/concurrency">
+				Channels and Other Mechanisms</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Constraints</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/type/Signature#Type_Constraints">
+				Class Signature</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Dataflow</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/routine/==%3E">
+				Feed Operator</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Declarative</th>
+		<td>No</td>
+		<td>Yes</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Distributed</th>
+		<td>Library<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://github.com/perl6/doc/issues/1744#issuecomment-360565196">
+				Cro Module</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Functional</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Metaprogramming</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2011/12/14/meta-programming-what-why-and-how/">
+				Meta-programming: What, why and how</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Generic</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2009/12/18/day-18-roles/">
+				Parameterised Roles</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Imperative</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Logic</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Reflection</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/mop">
+				Meta-object Protocol (MOP)</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Object-oriented</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/classtut">
+				Classes and Roles</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Pipelines</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Reactive</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Table-oriented</th>
+		<td>Library Soon (hopefully)</td>
+		<td>Yes</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<th>Visual</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Rule-based</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+
+
+</div>
+
+<p/>
+
+
+
+<div class="wide-box">
+<div class="footer">
+	<span class="left">			<a href="">&lt;&lt; Tables</a>
+</span>
+	<span class="centre">-</span>
+	<span class="right">			<a href="Other-Items/Eight-Concepts.html">Eight Concepts &gt;&gt;</a>
+</span>
+</div>
+<div class="copyright">© Copyright Tim Nelson, 2024</div>
+</div>
+
+
+</body>
+</html>

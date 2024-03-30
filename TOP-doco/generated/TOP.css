@@ -240,3 +240,42 @@ code {
 
 	background-color: #ffffee;
 }
+
+/* Code for footer */
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	background-color: #333;
+	color: white;
+}
+.footer span {
+	flex: 1;
+}
+
+.footer :link {
+	color: #bfbfff;
+}
+
+.footer :visited {
+	color: #ffbfff;
+}
+
+.footer .left {
+	float: left;
+}
+
+.footer .centre {
+	/* display: inline-block; */
+	text-align: center;
+	margin: auto;
+}
+
+.footer .right {
+	float: right;
+	text-align: right;
+}
+
+.copyright {
+	text-align: center;
+}

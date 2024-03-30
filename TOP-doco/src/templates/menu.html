@@ -1,0 +1,26 @@
+<?
+	$title = $menu->{title};
+
+#use Data::Dumper; 
+#	$title . Dumper $menu;
+	"";
+?>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn"><? $title ?></a>
+		<div class="dropdown-content">
+<?
+	$menu_out = '';
+	foreach $menuitem (@{ $menu->{items} }) {
+		if($menuitem->{type} eq 'section') {
+#print "== Doing section " . $menuitem->{title} . " ==\n";
+			$menu_out .= include('src/templates/menu-section.html', HASH => $menuitem);
+		} else {
+#print "== Doing item " . $menuitem->{title} . " ==\n";
+			$menu_out .= include('src/templates/menu-item.html', HASH => $menuitem);
+		}
+	}
+
+	$menu_out;
+?>
+		</div>
+	</li>

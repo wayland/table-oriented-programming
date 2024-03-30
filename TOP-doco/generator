@@ -7,11 +7,142 @@ use	File::Basename;
 use	Text::Template;
 use	File::Find;
 use	Cwd;
+use	Data::Dumper;
+
+my(@structure) = (
+	{
+		title => 'Introduction',
+		items => [
+			{ title => 'What is Table-Oriented Programming?', url => 'Introduction/What.html' },
+			{ title => 'Why Table-Oriented Programming', url => 'Introduction/Why.html' },
+			{ title => 'Terminology', url => 'Introduction/Terminology.html' },
+			{ title => 'History', url => 'Introduction/History.html' },
+		],
+	},
+	{
+		title => 'Collection Convergence',
+		items => [
+			{ title => 'Introduction to Collection Convergence', url => 'Collection-Convergence/Introduction/' },
+			{ title => 'Database Engine Neutrality', url => 'Collection-Convergence/Database-Engine-Neutrality.html' },
+			{ title => 'Memory-Mapping Reduction', url => 'Collection-Convergence/Memory-Mapping-Reduction.html' },
+			{ title => 'Data Dictionaries', url => 'Collection-Convergence/Data-Dictionaries.html' },
+		],
+	},
+	{
+		title => 'Language Support',
+		items => [
+			# TODO/FIX: Split up Table-Friendly Syntax into the other pages
+			{ title => 'Table-Friendly Syntax', url => 'Language-Support/Table-Friendly-Syntax.html' },
+			{ title => 'Tables', url => '' },
+			{ title => 'Views', url => '' },
+			{ title => 'Forms', url => '' },
+			{ title => 'Reports', url => '' },
+		],
+	},
+	{
+		title => 'Stylistic Features',
+		items => [
+			{ title => 'Control Tables', url => 'Stylistic-Features/Control-Tables/' },
+			{ title => 'Code Management', url => '' },
+		],
+	},
+	{
+		title => 'Critiques',
+		items => [
+			# TODO: These should be me selecting the valid critiques from those he makes
+			{ title => 'OOP', url => '' },
+			{ title => 'SQL', url => '' },
+			# TODO There should be others here
+		],
+	},
+	{
+		title => 'Comparisons',
+		items => [
+			{ title => 'Comparison of Raku TOP and xBase', url => '' },
+			{ title => 'Paradigm Comparisons', url => 'Other-Items/Paradigm-Comparisons.html' },
+		],
+	},
+	{
+		title => 'Other Material',
+		items => [
+			{ title => 'Eight Concepts', url => 'Other-Items/Eight-Concepts.html' },
+			{ type => 'section', 'title' => 'Implementation Features', items => [
+				{ title => 'File Directory Management', url => '' },
+			]},
+			{ title => 'Why Table-Oriented Programming?', url => '' },
+			{ title => 'Benefits of Good Table-Oriented Programming', url => 'Other-Items/Benefits.html' },
+			{ title => 'Type Convergence', url => '' },
+			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
+		],
+# TODO: 
+#Write an article about how:
+#- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
+#- Derailed by:
+#  - The necessities of scaling (multiple developers, larger systems)
+#  - The web (a good move, but with drawbacks)
+#  - Fragmentation of the market (ie. many more programming languages)
+#  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
+#  - Poor OOP
+#TODO Maybe write an article about why Raku is the perfect programming language for research, because:
+#-       Flexible grammar, slangs
+#-       Already has many paradigms -- no need to reinvent the wheel
+
+	},
+#	{
+#		title => '',
+#		items => [
+#			{ title => '', url => '' },
+#			{ title => '', url => '' },
+#		],
+#	},
+);
 
 my(%locations) = (
 	'local' => 'file:///home/wayland/src/TOP/TOP-doco/generated/',
 	'github' => 'https://wayland.github.io/table-oriented-programming/TOP-doco/generated/',
 );
+
+my(%sources);
+my($previous) = undef;
+foreach my $menu (@structure) {
+	foreach my $menuitem (@{ $menu->{items} }) {
+		if(exists($menuitem->{type}) and $menuitem->{type} eq 'section') {
+			foreach my $menu_section_item (@{ $menuitem->{items} }) {
+				do_menu_item($menu_section_item, $previous);
+				$previous = $sources{$menu_section_item->{url}};
+			}
+			next;
+		}
+		if(! defined($menuitem->{url})) {
+			warn "No url defined for menu item: " . Dumper $menuitem;
+			next;
+		}
+		do_menu_item($menuitem, $previous);
+		$previous = $sources{$menuitem->{url}};
+	}
+}
+
+sub	do_menu_item {
+	my($menu_item, $previous) = @_;
+	my($url, $title) = map { $menu_item->{$_} } qw(url title);
+
+	exists($sources{$url}) and do {
+		warn sprintf "Warning: source for url $url already defined as %s\n", $sources{$url}->{title};
+		return;
+	};
+	$sources{$url} = {
+		previous => $previous,
+		title => $title,
+		url => $url,
+	};
+	if(defined($previous)) {
+		exists($previous->{next}) and do {
+			warn sprintf "Warning: next for url $url already defined as %s\n", $previous->{title};
+			return;
+		};
+		$previous->{next} = $sources{$url};
+	}
+}
 
 my($location) = @ARGV;
 
@@ -47,8 +178,12 @@ sub	wanted {
 			my $text;
 			$dest =~ /\.html$/ and do {
 				*GenTemplate::include = \&include;
+				*GenTemplate::include_footer = \&include_footer;
+				*GenTemplate::set_footer = \&set_footer;
 				$GenTemplate::docroot = $locations{$location};
 				$GenTemplate::source = $source;
+				$GenTemplate::dest = $dest;
+				$GenTemplate::structure = \@structure;
 
 				$text = include('src/templates/main.html');
 			};
@@ -89,7 +224,7 @@ sub	pushd {
 }
 
 sub	include {
-	my($filename) = @_;
+	my($filename, @other) = @_;
 
 	my $template = Text::Template->new(
 		TYPE => 'FILE',
@@ -99,7 +234,31 @@ sub	include {
 
 	my $text = $template->fill_in(
 		PACKAGE => 'GenTemplate',
+		@other
 	);
 
 	return $text;
+}
+
+sub	set_footer {
+	my($dest) = @_;
+	my $url = $dest;
+	$url =~ s#^generated/##;
+
+	print "Fetched $url\n";
+
+	return($sources{$url});
+}
+
+sub	include_footer {
+	my($filename, $supplement, $hash) = @_;
+	defined($hash) or return;
+	my(%newhash) = map { $_ => $hash->{$_} } keys %$hash;
+
+	$filename = 'src/templates/' . $filename;
+	$newhash{title} = $supplement eq 'next'
+		? $newhash{title} . ' &gt;&gt;'
+		: '&lt;&lt; ' . $newhash{title};
+
+	include($filename, HASH => \%newhash);
 }
