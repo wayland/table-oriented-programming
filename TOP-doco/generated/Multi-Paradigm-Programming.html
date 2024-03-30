@@ -1,0 +1,425 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="file:///home/wayland/src/TOP/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Table-Oriented Programming</a>
+		<div class="dropdown-content">
+			<a href="">Introduction to Table-Oriented Programming</a>
+			<a href="Multi-Paradigm-Programming.html">Multi-Paradigm</a>
+			<a href="Refactoring-Simplicity.html">Refactoring Simplicity</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Collection-Convergence/">Introduction to Collection Convergence</a>
+			<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+			<a href="Concepts/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
+			<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			<!-- TODO: Split the above into tables, views, forms, and reports -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Control-Tables/">Control Tables</a>
+			<a href="#">Code Management</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
+		<!-- TODO: These should be me selecting the valid critiques from those he makes -->
+		<div class="dropdown-content">
+			<a href="#">OOP</a>
+			<a href="#">SQL</a>
+			<!-- TODO There should be others here -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
+		<div class="dropdown-content">
+			<a href="">Comparison of Raku TOP and xBase</a>
+			<a href="">Eight Concepts</a>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="#">File Directory Management</a>
+			</section>
+			<a href="">Why Table-Oriented Programming?</a>
+			<a href="">Benefits of Good Table-Oriented Programming?</a>
+			<a href="">Type Convergence</a>
+			<a href="Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+			<a href="Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
+<div class="title">Multi-paradigm Programming</div>
+
+<p>Each programming paradigm is a tool in your toolbox.  The more paradigms a 
+programming language allows for, the more tools you have in your toolbox.  
+Each paradigm not available is one less tool in your toolbox.  </p>
+
+<p>With this in mind, the best way to get the benefits of table-oriented 
+programming (TOP) is not to use a TOP programming language, but to integrate TOP 
+into a language which is already multi-paradigm.  My personal preference is 
+Raku; see <a href="https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages">
+Wikipedia: Comparison of multi-paradigm programming languages</a> for other good 
+options; the top contenders are C++ (with libraries), Common Lisp (with 
+libraries), Haskell (with libraries), Julia (with libraries), Oz, and "Wolfram 
+Language & Mathematica".</p>
+
+<h2>Merging TOP and OOP?</h2>
+
+<p>The originators of Table-Oriented Programming, Findy Services and B. Jacobs, 
+were interested in the possibility of merging TOP and OOP.  Their thought that 
+<a href="https://web.archive.org/web/20121111044000/http://www.geocities.com/tablizer/merge.htm">
+objects be stored in a relational format</a> have been borne out by many of the 
+current uses that relational databases are put to, especially via ORMs.  </p>
+
+<div class="blockquote">
+Perhaps the best of TOP and OOP can be combined into a
+very useful programming language. There are enough
+similarities between the two to spark new thinking.
+It is our opinion that OOP designers have been too
+caught up in building structures in memory that they
+neglected flexible persistent storage techniques,
+among others.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Their desire, however, was that there be an automatic mapping between objects 
+and table (or view) rows.  This level of integration is, while useful at times, 
+often closer than desirable.  </p>
+
+<p>They also believed that the following differences 
+prevented this from happening, and were "probably irreconcilable":</p>
+
+<div class="blockquote">
+<ol>
+<li> Algorithms (methods) and Data are <b>not</b> tightly
+     integrated in TOP. This tends to offer less
+     method-to-data mapping "protection" than OOP, but results
+     in less preprocessing and mapping of the data to be used
+     within TOP.
+
+<p>
+<li> TOP uses sets and relations in place of
+     class hierarchies. It is thus a different
+     form of inheritance. (TOP does not value
+     hierarchies as highly as OOP because they
+     are seen as too inflexible to change. Changes
+     often do not occur in a hierarchical way).
+
+<p>
+<li> TOP attempts to have a built-in relationship
+     with relational systems to reduce or minimize
+     data mapping.
+</ol>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>In the more decoupled model used in multi-paradigm programming, these are by 
+no means insurmountable.  
+
+<p>The third item is certainly reconcilable -- just make the relationship 
+between the table and the relational system optional; if you want the automatic 
+data mapping, then set a setting, and it will happen.  If not, then don't.  </p>
+
+<p>The above will likely mean that certain styles of TOP are not possible in a 
+TOP+OOP language, but this doesn't invalidate all the other benefits that TOP 
+can bring to a language.  It just means that Findy Services and B. Jacobs 
+
+won't be able to use some of their favourit
+ TOP idioms.  </p>
+
+<p>See also:</p>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/funcs.htm">Notes on Syntax</a></li>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging OOP and TOP</a></li>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Patterns using Procedural/Relational Paradigm</a></li>
+
+
+<h1>Comparison of Paradigms of TOP languages</h1>
+
+<p>Related to <a href="https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages">
+Comparison of multi-paradigm programming languages</a></p>
+
+<table>
+	<tr>
+		<th>Paradigm</th>
+		<th>Raku</th>
+		<th>SQL</th>
+		<th>xHarbour</th>
+		<th>???</th>
+	</tr>
+	<tr>
+		<th>Paradigm Count</th>
+		<td>10</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Concurrent</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/concurrency">
+				Channels and Other Mechanisms</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Constraints</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/type/Signature#Type_Constraints">
+				Class Signature</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Dataflow</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/routine/==%3E">
+				Feed Operator</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Declarative</th>
+		<td>No</td>
+		<td>Yes</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Distributed</th>
+		<td>Library<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://github.com/perl6/doc/issues/1744#issuecomment-360565196">
+				Cro Module</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Functional</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Metaprogramming</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2011/12/14/meta-programming-what-why-and-how/">
+				Meta-programming: What, why and how</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Generic</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2009/12/18/day-18-roles/">
+				Parameterised Roles</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Imperative</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Logic</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Reflection</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/mop">
+				Meta-object Protocol (MOP)</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Object-oriented</th>
+		<td>Yes<span class="hover-parent">
+			<span class="hover-anchor">[ref]</span>
+			<span class="hover-text"><a href="https://docs.perl6.org/language/classtut">
+				Classes and Roles</a></span>
+		</span></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Pipelines</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Reactive</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Table-oriented</th>
+		<td>Library Soon (hopefully)</td>
+		<td>Yes</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<th>Visual</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Rule-based</th>
+		<td>No</td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<h1>Raku's Strengths</h1>
+
+<p>Findy Services and B. Jacobs also highlighted the weaknesses of C++ and Java 
+(the primary OOP languages of his time) that prevent them from properly 
+supporting TOP.  These missing features were:</p>
+
+<div class="blockquote">
+
+<b>Ability to evaluate strings with internal functions.</b>
+  This ability is crucial to
+  <a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/cntrl1.htm">
+Control Tables</a> and useful for
+  many other purposes. Although a "side language" can be added
+  to Java and C++, this approach has many limitations. For one, it
+  splits your code between the regular language and the side
+  language where each language has a tough time communicating
+  with the other.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/funcs.htm">Notes on Syntax</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Raku's quoting constructs include double-quoted strings which have the 
+<a href="https://docs.raku.org/language/quoting#Quoting_constructs">Ability to 
+evaluate strings with internal functions</a>.  It may be necessary to 
+combine this with Raku's anonymous functions, found in the Blocks and Lambdas 
+section of <a href="https://docs.raku.org/language/functions">Functions</a>, to 
+experience the full power of Raku here.  </li>
+
+<div class="blockquote">
+
+<b>Adequate Context Reduction.</b> This is the ability
+  to avoid redundancy in syntax that repeats itself over large
+  stretches of code. Reducing this repetition not only reduces
+  typing, but also makes the relevant information more visible
+  to the reader, reducing reading errors.
+  The "with table" example above shows an example
+  of Context Reduction. You can also read about variations
+  in our
+  <a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/newlang.htm#context">
+proposed TOP language</a>
+  discussion. Note that avoiding quotes for field names is also a
+  form of context reduction.
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/funcs.htm">Notes on Syntax</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>One of Raku's inheritances from Perl is a great awareness of context.  The 
+cited <a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/funcs.htm">
+"with table" example</a> can be easily done in Raku using a 
+<a href="https://docs.raku.org/language/control#given">"given" block</a> which 
+basically performs the same function.</p>
+
+<p>Having said that, one of the down sides of a multi-paradigm language is 
+balancing the needs of all the paradigms; we can't quite reduce context to the 
+level of avoiding quotes on field names, but we might be able get away with 
+using angle-quotes as both the associative array indicator and the quotation 
+marks, as per <a href="https://docs.raku.org/language/subscripts#Subscripts">
+Associative Subscripting</a>.</p>
+
+<div class="blockquote">
+
+<b>Clause-based syntax</b>.
+  Clause-based syntax is a kind of compromise between
+  position-based parameters and named parameters.
+  The "copy from" example above shows an example of
+  clause-based syntax and discusses some of it's
+  advantages. Some implementation suggestions can
+  be found in our
+  <a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/newlang.htm#clause">
+proposed TOP language</a>
+  discussion.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121111044032/http://www.geocities.com/tablizer/funcs.htm">Notes on Syntax</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Raku, rather than compromising between positional and named parameters, 
+allows both.  If someone were really desperate to have clause-based parameters, 
+it would be achievable via a Slang.  An example would be 
+<a href="https://raku.land/zef:tony-o/Slang::SQL">Slang::SQL</a>, which allows 
+SQL code to be embedded directly in Raku.</p>
+
+
+
+
+-	B Jacobs wants to make almost everything a table -- this, like the 
+	"everything is *only* an object" people, is going too far.  
+-	In his unification of Tables and Objects, he wants to automatically map from 
+	objects to table rows and back again.  
+
+
+</div>
+
+</body>
+</html>

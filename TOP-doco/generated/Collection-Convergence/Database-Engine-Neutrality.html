@@ -1,3 +1,93 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<div class="dropdown-content">
+			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
+			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
+			<a href="Introduction/Multi-Paradigm-Programming.html">Multi-Paradigm</a>
+			<a href="Introduction/Refactoring-Simplicity.html">Refactoring Simplicity</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Collection-Convergence/">Introduction to Collection Convergence</a>
+			<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+			<a href="Concepts/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
+			<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			<!-- TODO: Split the above into tables, views, forms, and reports -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Control-Tables/">Control Tables</a>
+			<a href="#">Code Management</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
+		<!-- TODO: These should be me selecting the valid critiques from those he makes -->
+		<div class="dropdown-content">
+			<a href="#">OOP</a>
+			<a href="#">SQL</a>
+			<!-- TODO There should be others here -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
+		<div class="dropdown-content">
+			<a href="">Comparison of Raku TOP and xBase</a>
+			<!-- TODO: 
+Write an article about how:
+- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
+- Derailed by:
+  - The necessities of scaling (multiple developers, larger systems)
+  - The web (a good move, but with drawbacks)
+  - Fragmentation of the market (ie. many more programming languages)
+  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
+  - Poor OOP
+-->
+			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="#">File Directory Management</a>
+			</section>
+			<a href="">Why Table-Oriented Programming?</a>
+			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming?</a>
+			<a href="">Type Convergence</a>
+			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+			<a href="Other-Items/Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
 <div class="title">Database Engine Neutrality</div>
 
 <div class="blockquote">
@@ -175,7 +265,7 @@ your collections interface should be <b>ready</b> for such
 			Arrays and multiple C++ object instances of the same class are 
 			common examples. TOP avoids or de-emphasizes these types of 
 			constructs because of their size limitations and lack of automatic 
-			persistence.<span style="red">TODO What were you saying about 
+			persistence.<span style="color: red">TODO What were you saying about 
 			scaling?</span></li>
 		<li><b>File-Based Tables:</b> These are tables that are either on a 
 			local hard-drive or on a file server.  The trade press tends to shun 
@@ -247,3 +337,9 @@ your collections interface should be <b>ready</b> for such
         <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
 </div>
 </div>
+
+
+</div>
+
+</body>
+</html>

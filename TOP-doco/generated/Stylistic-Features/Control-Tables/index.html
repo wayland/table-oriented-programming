@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<div class="dropdown-content">
+			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
+			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
+			<a href="Introduction/Multi-Paradigm-Programming.html">Multi-Paradigm</a>
+			<a href="Introduction/Refactoring-Simplicity.html">Refactoring Simplicity</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Collection-Convergence/">Introduction to Collection Convergence</a>
+			<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+			<a href="Concepts/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
+			<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			<!-- TODO: Split the above into tables, views, forms, and reports -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Control-Tables/">Control Tables</a>
+			<a href="#">Code Management</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
+		<!-- TODO: These should be me selecting the valid critiques from those he makes -->
+		<div class="dropdown-content">
+			<a href="#">OOP</a>
+			<a href="#">SQL</a>
+			<!-- TODO There should be others here -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
+		<div class="dropdown-content">
+			<a href="">Comparison of Raku TOP and xBase</a>
+			<!-- TODO: 
+Write an article about how:
+- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
+- Derailed by:
+  - The necessities of scaling (multiple developers, larger systems)
+  - The web (a good move, but with drawbacks)
+  - Fragmentation of the market (ie. many more programming languages)
+  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
+  - Poor OOP
+-->
+			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="#">File Directory Management</a>
+			</section>
+			<a href="">Why Table-Oriented Programming?</a>
+			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming?</a>
+			<a href="">Type Convergence</a>
+			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+			<a href="Other-Items/Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
+<div class="title">Control Panels</div>
+
+<div class="blockquote">
+
+<h2> Tables as Concise Control Panels </h2>
+
+<div class="sidebar">
+Note that situations where putting code in
+tables is either somewhat limited or best
+kept separate from the control (feature
+selection) information. This may depend on,
+for example, if there is a common one-to-one
+relationship between instances and
+implementation. If implementations tend to
+come from picking <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm#strategy">strategies</a>
+potentially shared by multiple instances, then putting
+code in tables may not make much sense (at least
+not in the same table). This is roughly equivalent to
+factoring out common code into a shared subroutine
+rather than repeating it for each instance. Putting
+code in tables is more useful for competing with
+artificial OOP examples which try to justify merging
+data with behavior at almost any cost, than it is for real world use.
+An application can roughly be
+split into data, control information, and implementation.
+I am planning on writing
+more about this issue in the future. Even when I do
+put code in tables, it is usually very small snippets
+that call other functions/services. Thus, they are actually
+a hybrid of code and strategy specifiers.
+</div>
+
+Even if you don't put code directly in tables, tables
+make a very nice "control panel" to manage "high-level"
+information. Unlike OOP classes, tables usually
+don't mix implementation information with the
+"settings" of the switches and knobs. Tables usually
+tell <b>what</b> to do, not how to do it.
+You don't have the equivalent of OOP
+method code <b>mixed in</b> with
+simple attribute assignments.
+This is what allows tables to be
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/oopbad.htm#melding">shared</a> with
+many different languages and paradigms.
+OO fans proudly call the mixing "encapsulation."
+However, I call it mucking up potentially
+simple, concise information by mixing it
+with nitty-gritty implementation details. OO
+misses a grand opportunity for separation of
+concerns. The information content of table-based
+control information is roughly 5 to 20 times
+more dense than algorithm code per character
+I would estimate. It tells more in less space.
+<p>
+A flag or code in a table may say, "I do
+feature X", but one does not have to bathe
+in the details about how feature X is
+actually implemented right then and there.
+The simple "what" is not mixed up with the
+complex "how". Mixing them <b>drags them
+both down</b>. A tabular bus schedule tells when and
+where the busses will be, but does not
+bring up <b>how</b> the busses will get
+there. If we mixed such information together,
+few would bother to ride the bus. You would
+have to slog through information or structures about diesel
+combustion in order to find the arrival times.
+
+<div align="center">
+<img src="Concepts/Control-Tables/knobs.gif" alt="Control Panel" border="0">
+<br>
+<small>
+  <font face="arial">
+    The table user <b>only sees the settings</b>;
+    <br>the implementation is hidden behind the
+    panel.
+    <br> (May your tables be simpler than this box).
+  </font>
+</small>
+</div>
+<p>
+
+Tables are also more compact than OOP classes
+for viewing high-level control information because
+tables lay out information using 2 dimensions
+instead of the single (linear) dimension of
+OOP classes.
+<p>
+UNIX-based architectures stumbled upon a simple yet powerful
+conceptual framework: the use of files and text streams as
+an inter-process communication medium. This paradigm (or
+sub-paradigm) makes it easy to mix different languages
+and makes a clear and inspect-able "communications gathering
+point", the file/stream, regardless of how
+complicated or messy the algorithms and code is.
+One could always look at the file or stream to
+get a "neutral point of reference".
+("The Unix Philosophy", ISBN: 1555581234. Note that
+I am not promoting UNIX itself. OS's are one of the
+few things I don't have strong opinions about, other than
+perhaps case-sensitivity and file systems).
+<p>
+Tables provide the <b>next generation</b> of this
+concept. They provide a concise communications gathering point
+and can be shared by many different languages and
+paradigms. Making convoluted code is unfortunately
+much easier than making a convoluted table.  Further,
+there is more incentive to keep them clean because
+non-programmers can also read tables for the most
+part, including your boss. And, unlike files and
+streams, you don't have to keep copying the same
+data over and over for each step; and you get concurrency.
+<p>
+It is like everybody going to Ebay to bargain instead
+of having different little bargaining rules for each store.
+(I hope you are getting the notion by now because I am
+running out of analogies).
+
+
+<p>
+<div align="center">
+See Also:
+<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm#theory">Control Table Theory (1D v. 2D)</a>
+<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/bank.htm">Bank Example</a>
+<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/miscoop.htm#blackbox">Black Boxes and Skinny Wires</a>
+</div>
+
+
+
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p/>
+
+<div class="blockquote">
+
+<h2>Future of TOP</h2>
+
+This set of documents is not meant to be the final
+word on TOP. There are many aspects to be explored
+and evaluated by different  personalities
+with different perspectives. Concepts such as
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">Control Tables</a> and
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">Standard Collection Operations</a> (SCO)
+could possibly be carried to deeper levels
+than given here in order to see what new ideas and issues
+arise.
+<p>
+What if <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/allway.htm">all subclass code</a>
+was in
+Control Tables instead of just stubs and
+expressions? What if all collections
+were represented and linked within SCO?
+What if the concepts of
+Control Tables and SCO were tightly
+combined? How does the world look if
+you start to view or model it as collections
+based on SCO. Questions like these have
+not be explored very well yet.
+
+<p>
+Taking concepts to the extreme many not
+by itself produce practical results, but can
+often trigger new ways of thinking.
+I believe there is plenty of room for
+brainstorming. It is hard to believe
+that OOP (by itself) is the pinnacle
+of paradigms.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+See also:
+<li><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></li>
+<li><a href="https://web.archive.org/web/20121111043956/http://www.geocities.com/tablizer/allway.htm">Going All the Way with Control Tables</a></li>
+
+
+</div>
+
+</body>
+</html>

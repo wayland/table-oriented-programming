@@ -1,3 +1,5 @@
+
+
 body {
 	font-family: "Crimson Text", serif;
 	font-weight: 400;
@@ -129,7 +131,6 @@ code {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-/*	overflow: hidden; */
 	background-color: #333;
 	position: fixed;
 	top: 0;
@@ -172,9 +173,13 @@ code {
 	text-decoration: none;
 	display: block;
 	text-align: left;
+	border-radius: 4pt;
 }
 
-.navbar .dropdown-content a:hover {background-color: #f1f1f1;}
+.navbar .dropdown-content a:hover {
+	border-radius: 4pt;
+	background-color: #f1f1f1;
+}
 
 .navbar .dropdown:hover .dropdown-content {
 	display: block;
@@ -193,4 +198,45 @@ code {
 .navbar section {
 	/* padding: <vertical> <horizontal> */
 	margin: 0px 16px;
+}
+
+.navbar .unimportant {
+	background-color: #7fbfff;
+}
+
+.navbar a:hover.unimportant {
+	background-color: #dfefff;
+}
+
+/* Code for CSS hover text */
+.hover-parent {
+	display: inline;
+}
+
+.hover-anchor {
+	color: blue;
+	text-decoration: underline;
+}
+
+.hover-anchor:hover + .hover-text {
+	display: block;
+}
+
+.hover-text:hover {
+	display: block;
+}
+
+.hover-text {
+	z-index: 1;
+	position: absolute;
+	display: none;
+
+	width: 400px;
+	margin-left: 36pt;
+	margin-top: -14pt;
+	border: 2px solid #eede8c;
+	border-radius: 4pt;
+	padding: 10px;
+
+	background-color: #ffffee;
 }

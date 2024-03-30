@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>Table-Oriented Programming (TOP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+
+<link rel="stylesheet" href="TOP.css"/>
+
+</head>
+<body>
+
+<div class="wide-box">
+<div class="navbar"><ul>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<div class="dropdown-content">
+			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
+			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
+			<a href="Introduction/Multi-Paradigm-Programming.html">Multi-Paradigm</a>
+			<a href="Introduction/Refactoring-Simplicity.html">Refactoring Simplicity</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Collection-Convergence/">Introduction to Collection Convergence</a>
+			<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
+			<a href="Concepts/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
+			<a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
+			<!-- TODO: Split the above into tables, views, forms, and reports -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
+		<div class="dropdown-content">
+			<a href="Concepts/Control-Tables/">Control Tables</a>
+			<a href="#">Code Management</a>
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
+		<!-- TODO: These should be me selecting the valid critiques from those he makes -->
+		<div class="dropdown-content">
+			<a href="#">OOP</a>
+			<a href="#">SQL</a>
+			<!-- TODO There should be others here -->
+		</div>
+	</li>
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
+		<div class="dropdown-content">
+			<a href="">Comparison of Raku TOP and xBase</a>
+			<!-- TODO: 
+Write an article about how:
+- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
+- Derailed by:
+  - The necessities of scaling (multiple developers, larger systems)
+  - The web (a good move, but with drawbacks)
+  - Fragmentation of the market (ie. many more programming languages)
+  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
+  - Poor OOP
+-->
+			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
+			<section>
+				<span class="dropdown-header">Implementation Features</span>
+				<a href="#">File Directory Management</a>
+			</section>
+			<a href="">Why Table-Oriented Programming?</a>
+			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming?</a>
+			<a href="">Type Convergence</a>
+			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+			<a href="Other-Items/Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
+		</div>
+	</li>
+	
+</ul></div>
+</div>
+
+<div class="main-box">
+
+
+<div class="blockquote">
+<h2> Summary of Benefits of Good TOP </h2>
+
+Here is a list of some of the benefits provided by
+TOP that are for the most part not OOP benefits.
+It may be possible to implement many of these features
+using OOP, but it would be a lot of work, and subject you to the
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/oopbad.htm#addins">risks</a> 
+that all function (method) libraries and wizards have.
+Details backing this list are found above.
+<p>
+
+<ol>
+<li>
+All collections (tables) have <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">built-in, 
+ready-to-use operations</a>
+that can be used on them. Other paradigms often require explicit effort to
+build or link in such operations. Thus, ITOP cuts down on development time.
+<p>
+<li> Groups of fields can be chosen simply by supplying a group name, rather than coding the name of each field. (Great for tables with many fields.)
+<p>
+<li> The behavior of a field is controlled in one spot (DD) no matter which screen, grid, data-entry form, or report the field appears on. Other approaches require one to recode field behavior for each of these, also requiring separate changes in all four.
+<p>
+<li> Less reliance on WYSIWYG screen and report builders. Most data-entry and grid screens can almost <u>build themselves</u> based on DD information. 
+<p>
+<li> A consistent collections handling interface regardless
+     of collection size and complexity.
+<p>
+<li> Support for high, medium, and low formality tables.
+ Other languages usually give you only one
+way to deal with tables and assume tables are either large and formal, or small and featureless.
+<p>
+<li> Easier to make software changes because only <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">control tables</a> (such as DD's) need be changed in many instances. It is easier to go to a table for changes than hunt around 20,000 lines program of code. <u>A table (grid) is a much easier structure to use for viewing, comparing, and changing properties of similar "objects" than program code.</u> This is because grids 
+are two-dimensional structures, while program code is basically a one-dimensional structure.
+<p>
+<li> Field variables can be referenced easily without converting back and forth between memory variables and actual table fields. An example might be "$amount = $rate * hours" where the $ sign marks field variables ("hours" is a memory variable). Note that a "with"-like structure may make the table reference unnecessary; however, an optional table reference should be permitted. Example: "x = mytable$amount".
+<p>
+<li>
+Allows tables to hold internal function calls and expressions, not just values or SQL expressions. This helps build powerful <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">control tables</a>, including the DD. Note that usually an interpreter is needed for this; however, compiled languages such as Clipper allowed this. This was done by evaluating a string stored in a table.
+<p>
+<a name="sql_eval"></a>
+<li>
+Ability to evaluate table processing calls with internal
+expressions and functions, not just SQL. For example,
+in XBase a statement like "replace all pay with
+CalcRate() * hours" calculates all employee paychecks
+in a table. In SQL this could resemble:
+<tt>"Update emp set pay = CalcRate() * hours"</tt>.
+However, in standard SQL you cannot "pass" the CalcRate function
+to the SQL processor; you are stuck with SQL's built-in
+functions or proprietary "stored" procedure calls that are separate
+from your code. (Note that CalcRate may use many fields in a record.
+Thus, it cannot be "blind" to the "current" record.)
+Working with SQL is like having a wall
+that separates your code from SQL's table processing.
+ITOP breaks down this wall.
+<p>
+<li>
+Easy-to-use array and list structures that are not limited to memory (RAM) size. For example, automatic "temp" file buffering would happen if the array or vector grew too large for memory. Most OOP languages rely on classes and structures that are assumed and limited to reside entirely in memory. (These languages
+are said to be "memory-centric".)
+<p>
+<li>
+Using persistent or semi-persistent storage allows easier modulerization and testing
+because one does not have to
+load and run the whole shebang in order to test
+the pieces. This is because ITOP applications and
+components often
+pass information using powerful tables instead of
+fleeting memory constructs. Communications between
+components can often be via tables. These tables
+can exist without having all parts
+active in memory. In fact, dummy tables are easy
+to construct for testing. Recreating a bunch of
+memory-bound OOP structures in order to test
+parts can be a real pain. 
+Even when the OOP parts are ready, it is 
+tough to get a view of the tangled 
+classes and structures in memory. Tables, on
+the other hand,
+are a snap to inspect during testing and
+troubleshooting.
+<p>
+<li> Less of a learning curve than OOP because
+tables are a more familiar structure than
+OOP. (OOP should really be called "Category"
+Oriented Programming instead because it has no
+improved relationship to real-world objects.)
+Table structures can be found in reports, spreadsheets,
+travel schedules, tax schedules, the Battleship game, etc.
+Thus, tables will always be easier to relate too and more
+intuitive than OOT.
+(I have yet to see an OO bus schedule.)
+<p>
+</ol>
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

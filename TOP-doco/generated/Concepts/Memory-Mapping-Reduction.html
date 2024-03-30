@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dosis:wght@200..800&family=Forum&family=Quattrocento:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+<base href="file:///home/wayland/src/TOP/TOP-doco/generated/">
 
 <link rel="stylesheet" href="TOP.css"/>
 
@@ -15,12 +15,11 @@
 <div class="wide-box">
 <div class="navbar"><ul>
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<a href="javascript:void(0)" class="dropbtn">Table-Oriented Programming</a>
 		<div class="dropdown-content">
-			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
-			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
-			<a href="Introduction/Multi-Paradigm-Programming.html">Multi-Paradigm</a>
-			<a href="Introduction/Refactoring-Simplicity.html">Refactoring Simplicity</a>
+			<a href="">Introduction to Table-Oriented Programming</a>
+			<a href="Multi-Paradigm-Programming.html">Multi-Paradigm</a>
+			<a href="Refactoring-Simplicity.html">Refactoring Simplicity</a>
 		</div>
 	</li>
 	<li class="dropdown">
@@ -59,26 +58,16 @@
 		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
 		<div class="dropdown-content">
 			<a href="">Comparison of Raku TOP and xBase</a>
-			<!-- TODO: 
-Write an article about how:
-- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
-- Derailed by:
-  - The necessities of scaling (multiple developers, larger systems)
-  - The web (a good move, but with drawbacks)
-  - Fragmentation of the market (ie. many more programming languages)
-  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
-  - Poor OOP
--->
-			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
+			<a href="">Eight Concepts</a>
 			<section>
 				<span class="dropdown-header">Implementation Features</span>
 				<a href="#">File Directory Management</a>
 			</section>
 			<a href="">Why Table-Oriented Programming?</a>
-			<a href="Other-Items/Benefits.html">Benefits of Good Table-Oriented Programming?</a>
+			<a href="">Benefits of Good Table-Oriented Programming?</a>
 			<a href="">Type Convergence</a>
-			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
-			<a href="Other-Items/Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
+			<a href="Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
+			<a href="Merging-Objections-Addressed.html" class="unimportant">Objections to Merging TOP and OOP addressed</a>
 		</div>
 	</li>
 	
@@ -88,17 +77,33 @@ Write an article about how:
 <div class="main-box">
 
 
-<div class="title">Welcome to Table-Oriented Programming</div>
+<div class="title">Memory-Mapping Reduction</div>
 
-<p>Table-Oriented Programming is a programming paradigm that can usefully be 
-added to some programming languages which will increase developer productivity 
-by making their lives easier.</p>
+<p>Findy Services and B. Jacobs believed that:</p>
 
-<p>Good places to start might include:</p>
-<ul>
-	<li><a href="Introduction/What.html">What is Table-Oriented Programming</a></li>
-	<li><a href="Introduction/Why.html">Why use Table-Oriented Programming</a></li>
-</li>
+<div class="blockquote">
+...current implementations of OOP tend to
+be much more memory-centric than TOP (collections presumed
+to reside fully in memory instead of disk), however, this
+appears to be out of tradition rather than an inherent
+aspect of OOP.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+</div>
+
+<p>Their preference, as opposed to a memory-centric approach, was to have a 
+unified approach that was the same whether information was stored on memory, or 
+on disk, or whatever.  </p>
+
+<div class="blockquote">
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Findy Services and B. Jacobs, 1998-2002
+</div>
+
+</div>
 
 
 </div>

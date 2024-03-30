@@ -44,11 +44,18 @@ sub	wanted {
 		$dest =~ s/\.tmpl$// and do {
 			print "Processing from $source to $dest\n";
 
-			*GenTemplate::include = \&include;
-			$GenTemplate::docroot = $locations{$location};
-			$GenTemplate::source = $source;
+			my $text;
+			$dest =~ /\.html$/ and do {
+				*GenTemplate::include = \&include;
+				$GenTemplate::docroot = $locations{$location};
+				$GenTemplate::source = $source;
 
-			my $text = include('src/templates/main.html');
+				$text = include('src/templates/main.html');
+			};
+			$dest =~ /\.css$/ and do {
+				$GenTemplate::location = $location;
+				$text = include($source);
+			};
 
 			open(FILE, '>' . $dest) or die "Error: Unable to open file '$dest': $!";
 			print FILE $text;
