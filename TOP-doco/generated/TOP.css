@@ -16,6 +16,10 @@ body {
 	width: 640px;
 }
 
+div.notfirst {
+	padding-top: 0;
+}
+
 .wide-box {
 	width: 1000px;
 	margin: auto;
@@ -25,10 +29,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Quattrocento", serif;
 	font-optical-sizing: auto;
 	font-weight: 700;
+}
 
-	/* So that linking to headings doesn't put them behind the menubar */
-	padding-top:50px;
-	margin-top:-30px;
+/* Positions headings so they're not behind the menubar */
+.pre-heading {
+	position: relative;
+	top: -50px;
+	z-index: 1;
 }
 
 .heading-link {
@@ -39,8 +46,26 @@ a:hover.heading-link  {
 	text-decoration: underline;
 }
 
+h1, h2, h3 {
+	padding: 10pt;
+}
+
 h1 {
 	text-align: center;
+	background-color: #ffeeee;
+}
+
+h2 {	background-color: #efffef;	}
+h3 {	background-color: #eff7ff;	}
+
+.blockquote h1,
+.blockquote h2,
+.blockquote h3,
+.blockquote h4,
+.blockquote h5,
+.blockquote h6
+{
+	background-color: transparent;
 }
 
 .title {
@@ -72,6 +97,11 @@ h1 {
 
 .blockquote > b {
 	font-weight: 900;
+}
+
+/* First paragraph in a blockquote should have no top-margin */
+.blockquote > p:first-child {
+	margin-top: 0;
 }
 
 .reference {

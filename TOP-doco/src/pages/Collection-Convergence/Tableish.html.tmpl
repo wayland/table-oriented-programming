@@ -1,0 +1,159 @@
+<h1>The Tableish</h1>
+
+<p>The Tableish is a role that represents all features common to Tables and 
+Views.  Features include:</p>
+
+<h3>Column Access</h3>
+
+<p>In a Raku TOP Tableish, columns are accessed using the Associative role.  This 
+means that we can use <code>$table&lt;column&gt;</code> or 
+<code>$table{$column-name}</code> access methods (the second used when the 
+name of the column is in a variable).  </p>
+
+<h3>Row Access</h3>
+
+<p>In a Raku TOP Tableish, rows are accessed using the Positional role.  This 
+means that we can use <code>$table[$rownum]</code> to pick out a particular row.  
+</p>
+
+<h3>Row Iteration</h3>
+
+<p>When we choose to iterate over a table, it will by default iterate over the 
+rows of the table (rather than, say, the columns).  </p>
+
+
+<h3>Transferring</h3>
+
+<div class="blockquote">
+
+This is the easy ability to transfer or copy information from one collection to
+another. 
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+
+
+<h3>Exporting/Importing</h3>
+
+<p>Transferring and export/import are essentially the same; we just have to 
+write drivers for all the things (as per 
+<a href="Collection-Convergence/Database-Engine-Neutrality.html">
+Database Engine Neutrality</a>).  </p>
+
+<div class="blockquote">
+
+<p>This is similar to Transferring, except that the result is intended for or 
+comes from some source external to the current system. The minimum supported 
+formats should be common ASCII formats such as comma and quote delimited, tab 
+delimited, and fixed-column width (SDF). Other common formats include .DIF (Data 
+Interchange Format), .DBF tables (XBase original format), HTML and/or XML, and 
+.WK1 (an old Lotus spreadsheet format). There are many other formats to 
+consider, but these are usually proprietary or subject to constant format 
+revisions.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Access Modes</h3>
+
+<p>Question: What about cursors?</p>
+
+<div class="blockquote">
+
+<p>Have 2 access modes: "direct" and "transactional". Direct access
+mode allows one to access a field as if it was a memory variable,
+and know that any changes will be written into the field. Transactional
+mode is a bit more formal; you have to explicitly issue a Save
+operation to save the record. Note that Direct Access mode may still
+buffer actual writes to improve I/O, but the programmer need
+not worry about this. Here is an example of each:
+<pre>
+   t = DBopen("tableA"  #<b>direct</b>)   // open table or view
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'    // change name from Fred to Bob
+   }
+   close t
+   // '#' mark named parameters
+
+Transactional:
+
+   t = DBopen("tableA"  #<b>transact</b>)
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'
+      if not save(t) {   // needed or no save is done
+        // handle error
+      }
+   }
+   close t     // (may not be necessary in some langs)
+</pre>
+The direct approach can be used if you know there will not
+be resource conflict issues with other users or processes,
+such as if you have exclusive access to the table. Note
+that although this example can be easily done with SQL,
+more interactive behavior would require more steps in SQL.
+Example:
+<pre>
+   t = DBopen("tableA" #direct)   // open table or view
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'    // change name from Fred to Bob
+   } else {
+      display "Error, Fred not found."
+   }
+   close t 
+</pre>
+SQL would require one query to request the change, and another
+to verify the change. Either that, one qurey to see if the
+target is there, and another to change it.
+<pre>
+  s = "select from tableA where name = 'Fred' "
+  t = DBopen(#sql s)
+  if found(t) {
+     s2 = "update tableA set name = 'Bob' "
+     DBexecute  s2
+  } else {
+     display "Error, Fred not found."
+  }
+</pre>     
+
+In this case it is not that much more code, but
+in many situations it gets cluttered. Direct SQL makes it
+tougher to mix reads and writes, usually requiring the issuing
+of new queries. (Perhaps the direct approach could be
+implemented via SQL underneath, but not something the
+programmer has to concern him/herself with.)
+
+<p>
+Note that <tt>recCnt(t) &gt; 0</tt> could replace <tt>found(t)</tt>
+where <tt>recCnt</tt> is short for "Record Count". This example
+assumes there is only one Fred.
+
+<div align="center">
+See Also: <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Critique</a>
+</div>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Query Time Limits</h3>
+
+<div class="blockquote">
+
+<p>A way to limit the upper size or time of a query result. Users generating 
+"runaway" queries is a common cause of performance bottlenecks.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>

@@ -11,7 +11,13 @@ use	Data::Dumper;
 
 my(@structure) = (
 	{
-		title => 'Introduction',
+		title => 'Progamming Productivity',
+		items => [
+			{ title => 'Introduction to Programming Productivity', url => 'Programming-Productivity.html' },
+		],
+	},
+	{
+		title => 'TOP',
 		items => [
 			{ title => 'What is Table-Oriented Programming?', url => 'Introduction/What.html' },
 			{ title => 'Why Table-Oriented Programming', url => 'Introduction/Why.html' },
@@ -23,6 +29,7 @@ my(@structure) = (
 		title => 'Collection Convergence',
 		items => [
 			{ title => 'Introduction to Collection Convergence', url => 'Collection-Convergence/Introduction/' },
+			{ title => 'role Tableish', url => 'Collection-Convergence/Tableish.html' },
 			{ title => 'Database Engine Neutrality', url => 'Collection-Convergence/Database-Engine-Neutrality.html' },
 			{ title => 'Memory-Mapping Reduction', url => 'Collection-Convergence/Memory-Mapping-Reduction.html' },
 			{ title => 'Data Dictionaries', url => 'Collection-Convergence/Data-Dictionaries.html' },
@@ -31,12 +38,24 @@ my(@structure) = (
 	{
 		title => 'Language Support',
 		items => [
-			# TODO/FIX: Split up Table-Friendly Syntax into the other pages
 			{ title => 'Table-Friendly Syntax', url => 'Language-Support/Table-Friendly-Syntax.html' },
-			{ title => 'Tables', url => '' },
-			{ title => 'Views', url => '' },
-			{ title => 'Forms', url => '' },
-			{ title => 'Reports', url => '' },
+			{ title => 'class Table', url => 'Language-Support/Table.html' },
+			{ title => 'class View', url => 'Language-Support/View.html' },
+		],
+	},
+	{
+		title => 'RAD',
+		items => [
+			{ title => 'Code Editors', url => 'RAD/Code-Editors.html' }, 
+#include:
+#1.	Regular code editors
+#2.	Tablish code editors (spreadsheet)
+#3.	Dataflow code editors (n8n, nodered)
+#4.	Source Code Management
+			{ title => 'GUI editors', url => 'RAD/GUI-Editors.html' }, # include Forms
+			{ title => 'Document editors', url => 'RAD/Document-Editors.html' }, # include Reports
+#			{ title => '', url => '' }, 
+#			{ title => '', url => '' }, 
 		],
 	},
 	{
@@ -52,6 +71,8 @@ my(@structure) = (
 			# TODO: These should be me selecting the valid critiques from those he makes
 			{ title => 'OOP', url => '' },
 			{ title => 'SQL', url => '' },
+			{ title => 'Trees', url => '' },
+			{ title => 'Arrays', url => '' },
 			# TODO There should be others here
 		],
 	},
@@ -74,15 +95,6 @@ my(@structure) = (
 			{ title => 'Scalar Type Convergence', url => 'Other-Items/Scalar-Type-Convergence.html' },
 			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
 		],
-# TODO: 
-#Write an article about how:
-#- individual developer productivity was higher in the 90s because of RAD, and DSLs like TOP and the like
-#- Derailed by:
-#  - The necessities of scaling (multiple developers, larger systems)
-#  - The web (a good move, but with drawbacks)
-#  - Fragmentation of the market (ie. many more programming languages)
-#  - Tooling that now assumes every task is going to need to scale (and probably not wrongly)
-#  - Poor OOP
 #TODO Maybe write an article about why Raku is the perfect programming language for research, because:
 #-       Flexible grammar, slangs
 #-       Already has many paradigms -- no need to reinvent the wheel

@@ -14,13 +14,16 @@
 <script type="text/javascript">
 <!--
 $(document).ready(function() {
-	$("h1,h2").each(function(i) {
+	$("h1,h2,h3,h4,h5,h6").each(function(i) {
 		var heading = $(this);
 		if(heading.attr('id')) {
+			heading.addClass('linkable');
 			var headingId = heading.attr("id");
+			heading.before('<p id="' + headingId + '" class="pre-heading"/>');
 			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
 			var fontstring = "'Noto Emoji'";
 			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+			heading.removeAttr("id");
 		}
 	});
 })
@@ -51,6 +54,8 @@ $(document).ready(function() {
 <div class="main-box">
 
 <div class="title"><# $footer->{title} #></div>
+
+<div class="tagline">Tim Nelson, 2024</div>
 
 <# include($source) #>
 

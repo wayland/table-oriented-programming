@@ -14,13 +14,16 @@
 <script type="text/javascript">
 <!--
 $(document).ready(function() {
-	$("h1,h2").each(function(i) {
+	$("h1,h2,h3,h4,h5,h6").each(function(i) {
 		var heading = $(this);
 		if(heading.attr('id')) {
+			heading.addClass('linkable');
 			var headingId = heading.attr("id");
+			heading.before('<p id="' + headingId + '" class="pre-heading"/>');
 			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
 			var fontstring = "'Noto Emoji'";
 			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+			heading.removeAttr("id");
 		}
 	});
 })
@@ -39,7 +42,15 @@ $(document).ready(function() {
 <div class="navbar"><ul>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<a href="javascript:void(0)" class="dropbtn">Progamming Productivity</a>
+		<div class="dropdown-content">
+			<a href="Programming-Productivity.html">Introduction to Programming Productivity</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">TOP</a>
 		<div class="dropdown-content">
 			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
@@ -53,6 +64,7 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
 		<div class="dropdown-content">
 			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence</a>
+			<a href="Collection-Convergence/Tableish.html">role Tableish</a>
 			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
 			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
 			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries</a>
@@ -64,10 +76,18 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
 		<div class="dropdown-content">
 			<a href="Language-Support/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
-			<a href="">Tables</a>
-			<a href="">Views</a>
-			<a href="">Forms</a>
-			<a href="">Reports</a>
+			<a href="Language-Support/Table.html">class Table</a>
+			<a href="Language-Support/View.html">class View</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/GUI-Editors.html">GUI editors</a>
+			<a href="RAD/Document-Editors.html">Document editors</a>
 
 		</div>
 	</li>
@@ -86,6 +106,8 @@ $(document).ready(function() {
 		<div class="dropdown-content">
 			<a href="">OOP</a>
 			<a href="">SQL</a>
+			<a href="">Trees</a>
+			<a href="">Arrays</a>
 
 		</div>
 	</li>
@@ -124,6 +146,23 @@ $(document).ready(function() {
 <div class="title">Why Table-Oriented Programming</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
+
+<h1>Benefits of Table-Oriented Programming (TOP)</h1>
+
+<p>Have any of the following ever happened to you?  If so, you would have 
+benefitted from Table-Oriented Programming</p>
+
+<ul>
+	<li>You used a spreadsheet, and thought "I'd like to use a feature from my 
+		favourite programming language"?</li> 
+	<li>You used a programming language, and thought "This part of the task 
+		would be easier if this were a spreadsheet"?  </li>
+	<li>You wanted to add a new piece of data to your program, and had to 
+		significantly refactor</li>
+	<li>You wanted to change the data storage of your program (eg. between 
+		in-memory and a database server), and you had to significantly 
+		refactor</li>
+</ul>
 
 <h1>Multi-paradigm Programming</h1>
 

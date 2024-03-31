@@ -1,6 +1,36 @@
-<div class="title">Data Dictionaries</div>
+<div class="blockquote">
 
-<div class="tagline">Tim Nelson, 2024</div>
+Data dictionaries (DD's) are sort of a <b>table describing a table(s).</b> A DD 
+differs from a common table structure list in that it may apply to more than one 
+table, and it can also assign functions or behavior to handle common or related 
+operations. DD's are often described as only a documentation tool in some 
+literature; however, we are extending or allowing them to also be used for the 
+centralized storage of field-related properties and/or operations actually used 
+in software.
+
+<p>Under ideal conditions, the DD provides enough information to generate input 
+screens, multi-row grids, and reports without programming these from scratch. It 
+keeps all logic related to a field or column in <b>one central place</b>, 
+similar to the goal of an OOP class or subclass. It is much easier to find and 
+change information in DD tables than hunting through separate modules or 
+subclasses in program code. DD's are not intended to replace all program code, 
+just reduce the need for it except down at the true customization level where it 
+belongs.</p>
+
+...
+
+<h3>Standard Collection Operations</h3>
+
+<p>A good table-oriented system gives every collection (such as tables) a 
+standard set of operations that can be used on <b>all</b> tables. 
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>The implication is that the collection operations above can also be applied 
+to Data Dictionaries.  </p>
 
 <p>The sections in yellow are an edited quote from Tablizer/TOPMind.  
 The 
@@ -14,8 +44,7 @@ primary changes are:</p>
 
 <div class="blockquote">
 
-<p>First, we will present an example data dictionary portion. Data dictionaries 
-are an important concept to TOP. We will refer to parts of it below to explain 
+<p>First, we will present an example data dictionary portion. ... We will refer to parts of it below to explain 
 certain concepts. </p>
 
 </div>
@@ -74,44 +103,26 @@ certain concepts. </p>
 
 </div>
 </div>
-<div class="main-box">
+<div class="main-box notfirst">
 <div class="blockquote">
 
 <p><b>Brief Table Legend:</b></p>
 <ul>
-<li><b>Table-Name:</b> Table or field-set specifier. (Fields can be virtual.)</li>
-<li><b>Field-Name:</b> - Abbreviation for field name.</li>
-<li><b>Field-Display-Name:</b> - Descriptive field title</li>
-<li><b>Pre-Function:</b> - Pre-validation function. Similar to an OOP constructor.</li>
-<li><b>Post-Function:</b> - Post-validation function. May also perform formatting for display.</li>
-<li><b>Group:</b> - Groups that field belongs to. (There are many ways to represent these).</li>
-<li><b>Sort-1:</b> - 1st Sorting order of fields as displayed on table and reports. (May have other sorts.)</li>
-<li><b>Pick-Function:</b> - Function called if user double-clicks on field.</li>
-<li><b>Total-able:</b> - 'Y' if field can be totaled on a report.</li>
+<li><b>Table-Name:</b> Table or field-set specifier. (Fields can be virtual).</li>
+<li><b>Field-Name:</b> Abbreviation for field name.</li>
+<li><b>Field-Display-Name:</b> Descriptive field title</li>
+<li><b>Pre-Function:</b> Pre-validation function. Similar to an OOP constructor.</li>
+<li><b>Post-Function:</b> Post-validation function. May also perform formatting for display.</li>
+<li><b>Group:</b> Groups that field belongs to. (There are many ways to represent these).</li>
+<li><b>Sort-1:</b> 1st Sorting order of fields as displayed on table and reports. (May have other sorts).</li>
+<li><b>Pick-Function:</b> Function called if user double-clicks on field.</li>
+<li><b>Total-able:</b> 'Y' if field can be totaled on a report.</li>
 </ul>
 <p>Note that a Data Dictionary can have many more columns than shown and can be 
 organized in <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">different ways</a>.
 </p>
 
-
-Data dictionaries (DD's) are sort of a <b>table describing a table(s).</b> 
-A DD differs from a common table structure list in that it may apply
-to more than one table, and it can also assign functions or
-behavior to handle common or related operations. DD's
-are often described as only a documentation tool in some literature;
-however, we are
-extending or allowing them to also be used for the centralized
-storage of field-related properties and/or operations actually used
-in software.
-<p>
-Under ideal conditions, the DD provides enough information to generate input 
-screens, multi-row grids, and reports without programming these from scratch. It 
-keeps all logic related to a field or column in <b>one central place</b>, 
-similar to the goal of an OOP class or subclass.
-It is much easier to find and change information in DD tables than hunting through
-saparate modules or subclasses in program code.
-DD's are not intended to replace all program code, just reduce
-the need for it except down at the true customization level where it belongs.
+...
 
 <p>See an <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm"> 
 actual data dictionary</a> for more examples and specifics. Note that the linked 
@@ -155,7 +166,7 @@ tables</a> as well as DD's.  Code that repeats
 similar, but slightly different constructs or assignments over and over again is 
 sometimes called "comb" code, or "E" code because of it's repetitous appearance. 
 (Stacked E's resemble a <a 
-href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/buzzword.htm#comb">comb</a>.)
+href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/buzzword.htm#comb">comb</a>).
 
 <h3> Optional Data Dictionary </h3>
 
@@ -169,12 +180,23 @@ focus on just large or just small tables. Tables may be quick, ad-hoc array-like
 structures, billion-record IRS transactions, or something in-between. DD's 
 should not be shoved down one's throat. </p>
 
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>This is an area where Raku's 
+<a href="https://en.wikipedia.org/wiki/Gradual_typing">Gradual Typing</a> system 
+is very much aligned with the goal here.  </p>
+
+<div class="blockquote">
+
 <h3> Detached Data Dictionary </h3>
 
 <p>In addition to being optional, DD's should not be built into the table file 
 itself. This is where Microsoft Access goes wrong. DD's cannot be shared as 
 easily if there must be a one-to-one relationship with each table. (One-to-one 
-DD's can still be built if desired.) For example, sometimes the same or similar 
+DD's can still be built if desired). For example, sometimes the same or similar 
 structures and operations are used with many different tables.</p>
 
 <p>Allowing all such tables to share one or few DD's makes maintanence much 
@@ -194,7 +216,7 @@ table, an asterisk is put in the TableSpec column to serve as a wild-card.</p>
 <h3> Extendable Data Dictionary </h3>
 
 <p>In addition to being optional, the DD should also be extendable if
-needed by the application. ITOP should only expect that a certain minimum
+needed by the application. TOP should only expect that a certain minimum
 set of fields be included. The developer should be able to add 
 fields to the data dictionary as needed. </p>
 
@@ -210,7 +232,7 @@ standards.</p>
 allow consistent processing of fields regardless of where they are entered or 
 displayed. For example, the pre-validation function executes regardless of 
 whether the data was entered in a form, a grid, or any other input approach 
-(assuming a short-cut outside of ITOP is not used).</p>
+(assuming a short-cut outside of TOP is not used).</p>
 
 <p>The pre-validation function serves two purposes. First, it checks the data to 
 see that it is correct, and second, formats the field data for storage. For 
@@ -236,7 +258,7 @@ entered "12/32/1998", then the function would return a value of 'false' indicati
 
 <p>Notes:</p>
 <ul>
-	<li>Curfld, Curmsg, and Curout are pre-assigned variables.  The ITOP system 
+	<li>Curfld, Curmsg, and Curout are pre-assigned variables.  The TOP system 
 		automatically prepares and uses these variables before and after the 
 		function is triggered by user or batch actions. </li> 
 	<li>Curfld is the current field as entered by the user</li>
@@ -251,6 +273,9 @@ entered "12/32/1998", then the function would return a value of 'false' indicati
 pre-validation routines; depending on the programming language, it may be better 
 to pass these as function parameters instead.</p>
 
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
 </div>
 
 <p>In Raku, these would definitely be done with function parameters, and 
@@ -265,8 +290,11 @@ is "19981231", then the post-validation function can turn it into "12/31/1998".
 In short, the post-validation function makes the output prettier or easier to 
 read. The example above uses Datefmt1(2). This sample function returns the date 
 with years shown as 2-digits. (The function may get the original value from a 
-Curfld-like variable as shown in the pre-validation example.)</p>
+Curfld-like variable as shown in the pre-validation example).</p>
 
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
 </div>
 
 <p>I've noticed a weakness -- the post-validation might happen too early, and 
@@ -288,6 +316,9 @@ to re-invent the wheel for similar field types. Although the programmer is
 expected to build all the validation functions, a pre-built set could be 
 included in the DD kit to save steps or serve as examples.</p>
 
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
 </div>
 
 <p>...and this is where Raku shines -- the stringification and formatting 
@@ -306,27 +337,7 @@ less useful.</p>
 and screens. In our example the fields are given an order in the Sort-1 column.
 The DD could also have a Sort-2 column, Sort-3 column, etc.</p>
 
-
-<h3>Standard Collection Operations</h3>
-
-<p>A good table-oriented system gives every collection (such as tables) a 
-standard set of operations that can be used on <b>all</b> tables. One is
-not limited just to the operations that the programmer can see in advance
-and explicitly builds in for a given collection. Building or adding
-each of these operations in one at a time as the needs arise can be very
-time-consuming.</p>
-
-<p>These operations include filtering, ordering, searching, auto caching and 
-persistence, grouping and totaling, transferring, import and export, 
-field/property selection, inserting, deleting, updating, and joining or 
-relating.</p>
-
-<p><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">Click here for more details</a> on these fundamental 
-operations.</p>
-
 <div class="reference">
 	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
-
-See also <a href="https://web.archive.org/web/20121111044013/http://www.geocities.com/tablizer/ddsamp.htm">Sample Data Dictionaries</a>

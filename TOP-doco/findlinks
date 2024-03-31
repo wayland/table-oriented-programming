@@ -30,7 +30,6 @@ my(%url_patterns) = (
 );
 
 # Order to do these:
-# -	Go through General and either categorise these better, or figure out where the material goes
 # -	Do any based on Concepts
 # -	Do any Multi-Paradigm ones
 # -	Do the Q&A one responding to criticisms of trees; try to distribute these out to the concepts

@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Memory-Mapping Reduction :: Table-Oriented Programming (TOP)</title>
+<title>class Table :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,29 +143,79 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">Memory-Mapping Reduction</div>
+<div class="title">class Table</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
+
+<h3> Definition of "Table" </h3>
+
 <div class="blockquote">
-The goal of reducing or eliminating the need to manually map and/or transfer 
-memory variables to and from table fields and to and from the UI (screens). 
-(This process should be invisible to the programmer regardless of the fact that 
-internal implementation usually uses memory-based copies.)
+
+I define a relational table as a collection of "rows". Rows are basically 
+[associative arrays] with field names and corresponding values. Rows have 
+"potential" fields. (I prefer "field" over "column" because column implies fixed 
+field widths, which is not a prerequisite for "table"). "Potential field" means 
+that a row does not have to actually contain a given field or even a placeholder 
+for it.
+
+<p>Potential fields are kept in a central list [the 
+<a href="file:///home/wayland/src/TOP/TOP-doco/generated/Collection-Convergence/Data-Dictionaries.html">
+Data Dictionary</a>], meaning that each row does not necessarily have to know of 
+the entire potential field list. If a request is made for a field that is in the 
+potential list, but that the row does not actually contain, then a blank or 
+empty value is returned. (If a row contains a field name that is not in the 
+central list, that field it is not considered part of the table).</p>
+
+<p>
+Tables also potentially have multiple temporary and multiple
+permanent indexes. Indexes allow one to find specific rows or
+row sets without sequential traversal of the entire table.
+<p>
+Note that there is <b>no</b> necessary size or content
+restriction on the fields. "Types" or length limits are
+not a prerequisite. In fact, such restrictions can make
+certain operations harder to implement. However, in practice,
+such limits are often imposed on a product for performance reasons
+or to fit a given standard, such as SQL.
+<p>
+Another way to identify or define "tables" is by their
+<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">operations</a> rather than structure.
+
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
-<p>Another feature that is invisible to the programmer, but saves lots of 
-work.</p>
 
-<p>Here it also becomes clear that TOP also requires UI support.  Raku again 
-doesn't support this out-of-the-box.  Various UIs have been added, but these UIs 
-don't have consistent interfaces (eg. a curses-based form can't be turned into a 
-HTML form with minimal effort).</p>
+<h3>Miscellanous Table Features</h3>
 
-<p>This would require another set of language features -- forms and reports.</p>
+<div class="blockquote">
+<ul>
+	<li>Because tables may come from many different sources, TOP should provide 
+		a way to query to see which features are available. For example, there 
+		should be a way to query a table source to see if the query limit 
+		feature (FIX: described above) is available on a given table.</li>
+	<li>ITOP should be able to generate temporary tables that automaticaly last 
+		only as long as the program is running or until explicitly closed. These 
+		tables should have a unique identity (automatically generated) to avoid 
+		multi-user conflicts.</li>
+	<li>Easy way to make a memory or temporary version or copy of a record, and 
+		then be able to load this to and from a multi-record table when 
+		needed.</li>
+	<li>TOP should have the ability to evaluate internal-aware expression 
+		strings, similar to the Perl EVAL() function (xbase uses "&amp;").  This 
+		allows expressions with internal syntax and function calls (not just 
+		SQL) to be stored in tables. This is a very powerful language feature. 
+		Note that this is not the same as a general-purpose expression evaluator 
+		because we often need a way to call <b>internal</b> functions. (A way to 
+		test the validity of the expression should also be provided).</li>
+</ul>
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
 
 
 </div>
@@ -174,10 +224,10 @@ HTML form with minimal effort).</p>
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">&lt;&lt; Database Engine Neutrality</a>
+	<span class="left">			<a href="Language-Support/Table-Friendly-Syntax.html">&lt;&lt; Table-Friendly Syntax</a>
 </span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries &gt;&gt;</a>
+	<span class="right">			<a href="Language-Support/View.html">class View &gt;&gt;</a>
 </span>
 </div>
 <p/>

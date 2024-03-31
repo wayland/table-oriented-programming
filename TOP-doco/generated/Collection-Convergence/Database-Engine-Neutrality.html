@@ -14,13 +14,16 @@
 <script type="text/javascript">
 <!--
 $(document).ready(function() {
-	$("h1,h2").each(function(i) {
+	$("h1,h2,h3,h4,h5,h6").each(function(i) {
 		var heading = $(this);
 		if(heading.attr('id')) {
+			heading.addClass('linkable');
 			var headingId = heading.attr("id");
+			heading.before('<p id="' + headingId + '" class="pre-heading"/>');
 			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
 			var fontstring = "'Noto Emoji'";
 			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+			heading.removeAttr("id");
 		}
 	});
 })
@@ -39,7 +42,15 @@ $(document).ready(function() {
 <div class="navbar"><ul>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<a href="javascript:void(0)" class="dropbtn">Progamming Productivity</a>
+		<div class="dropdown-content">
+			<a href="Programming-Productivity.html">Introduction to Programming Productivity</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">TOP</a>
 		<div class="dropdown-content">
 			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
@@ -53,6 +64,7 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
 		<div class="dropdown-content">
 			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence</a>
+			<a href="Collection-Convergence/Tableish.html">role Tableish</a>
 			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
 			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
 			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries</a>
@@ -64,10 +76,18 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
 		<div class="dropdown-content">
 			<a href="Language-Support/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
-			<a href="">Tables</a>
-			<a href="">Views</a>
-			<a href="">Forms</a>
-			<a href="">Reports</a>
+			<a href="Language-Support/Table.html">class Table</a>
+			<a href="Language-Support/View.html">class View</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/GUI-Editors.html">GUI editors</a>
+			<a href="RAD/Document-Editors.html">Document editors</a>
 
 		</div>
 	</li>
@@ -86,6 +106,8 @@ $(document).ready(function() {
 		<div class="dropdown-content">
 			<a href="">OOP</a>
 			<a href="">SQL</a>
+			<a href="">Trees</a>
+			<a href="">Arrays</a>
 
 		</div>
 	</li>
@@ -122,6 +144,219 @@ $(document).ready(function() {
 <div class="main-box">
 
 <div class="title">Database Engine Neutrality</div>
+
+<div class="tagline">Tim Nelson, 2024</div>
+
+<div class="blockquote">
+	<p>TOP does not propose or expect any particular file format or physical 
+		table grouping. The source or storage technique of tables should be 
+		assumed to take on many different forms. TOP should be able to access 
+		and produce the common table formats in use.
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>Collections have a right to...</p>
+
+<div class="blockquote">
+
+<h2>Multi-Sized Table Access</h2>
+
+<p>This is the ability to use or connect to a wide range and/or variety of table 
+sizes and engines, not just a formal SQL engine or just a pinkie-sized array. 
+Many languages and environments seem to focus either too much attention on 
+large, formal collections (SQL Tables), or smaller memory-bound structures like 
+lists or arrays. Few dare to span both ends AND cover the often-ignored middle 
+well.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+
+<h1>Categories of Database Engine</h1>
+
+<p>There are three major categories of table backends 
+(implementations/drivers/engines):</p>
+<ol>
+	<li>RAM Tables</li>
+	<li>File-based Tables</li>
+	<li>Database Server Tables</li>
+</ol>
+
+<h2>RAM Tables</h2>
+
+<p>These reside entirely in memory.  While these are the ideal starting point 
+for all collections, TOP has traditionally avoided elevating these types of 
+constructs because of their size limitations and lack of automatic persistence.  
+To make them useful, add the following feature:</p>
+
+<div class="blockquote">
+Lists and array-like structures that can expand beyond memory space. 
+		(The language automatically creates and handles temporary file buffering 
+		if needed).  This is a contrast to constructs like Java VECTORs that 
+		have a limit in size and quantity (related to memory constraints).
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>On a slightly-related note:</p>
+
+<div class="blockquote">
+...current implementations of OOP tend to
+be much more memory-centric than TOP (collections presumed
+to reside fully in memory instead of disk), however, this
+appears to be out of tradition rather than an inherent
+aspect of OOP.
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>Note that the quote above observes that OOP doesn't go in for the features 
+mentioned in <a href="Collection-Convergence/Database-Engine-Neutrality.html">
+Database Engine Neutrality</a>.  
+
+
+<h2>File-Based Tables</h2>
+
+<p>These live in files on the file system (whether locally or on a file server).  
+Examples would be CSV, HTML tables, JSON, DBF files, and the like.  They can be 
+very quick (with memory caching enabled), but allow one to exceed the size of 
+the available memory.  The files in question can also be temporary.  This type 
+can be subdivided into the following two types:</p>
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Fixed-record</th>
+				<th>Variable-record</th>
+				<th>Comments</th>
+			</tr>
+			<tr>
+				<th>Record Length</th>
+				<td>Fixed</td>
+				<td>Variable</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Reliability</th>
+				<td>More</td>
+				<td>Less</td>
+				<td>Variable has a more complex internal structure</td>
+			</tr>
+			<tr>
+				<th>Flexibility</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Compactness</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Examples</th>
+				<td></td>
+				<td>MS-Access</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Standardisation</th>
+				<td>More</td>
+				<td>Less</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Annoying version changes</th>
+				<td>Less</td>
+				<td>More</td>
+				<td></td>
+			</tr>
+		</table>
+
+<h2>Database Server Tables</h2>
+
+<p>These are tables accessed via a database server (usually SQL, though with the 
+rise of NoSQL, that's not guaranteed).  
+
+<div class="blockquote">
+The application must go through the DB 
+server's access protocols to reach these tables. These types of tables are 
+useful for mission-critical transaction processing and very large data 
+collections. They are also fairly expensive to setup and manage
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>... in time, cash, or both.</p>
+
+<h1>Features</h1>
+
+<p>For the non-RAM collections, the following features are desirable.</p>
+
+<div class="blockquote">
+
+<h2>Easy Persistence</h2>
+
+<p>This is the ability to be saved to permanent storage such as disk. It is 
+usually related to Virtual Size Caching since the mechanisms are similar.  </p>
+
+<h2>Virtual Size Caching</h2>
+
+<p>If the collection grows beyond available or practical RAM, it should be 
+automatically cached on disk or storage such that all the standard operations 
+can still be performed regardless of RAM availability. This preferably should be 
+automatic and not something that the programmer has to explicitly turn on if RAM 
+usage is suspect.</p>
+
+
+<h2>Active Portion Sharing</h2>
+
+<p>This is the ability to share portions of the collection with other processes 
+or users without having to close or suspend access to the entire collection. In 
+RDBMS this is usually done via record or segment locking.</p>
+
+
+<h2>Multiple Permanent [Indices]</h2>
+
+<p>Because there are often frequently requested orderings, such as displaying a 
+phone book in name order, there should be a way to avoid having to physically 
+re-sort the collection for every similar request or query. This shortcut 
+mechanism is called an "index". It is usually a small subset of the original 
+data that is kept in an order that facilitates fast retrieval and/or ordering 
+information.</p>
+
+<p>Often there needs to be more than one of these per collection or table. For 
+example, the phone book application may display ordering by either first name or 
+last name.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h2>Automatic Buffering</h2>
+
+<div class="blockquote">
+Automatic control of data buffering during input and changes. The 
+		programmer should be able to simply specify whether "optimistic" or 
+		"pessimistic" record locking occurs, for example. He or she should not 
+		have to create buffer variables and so forth.</li> 
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Why Database Engine Neutrality</h1>
 
 <div class="blockquote">
 <a name="ceiling"></a>
@@ -271,101 +506,7 @@ queues, etc. in ways outside of these narrow collection
 "subtypes" all the time. Requirements change and
 your collections interface should be <b>ready</b> for such
 <b>changes</b>.
-<p>
-<div align="center">
-<b>See Also:</b>
-  <br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/array1.htm">Array Problems</a>
-  <br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm#taxonomy">Taxonomy Trap</a>
-</div>
 
-<div class="reference">
-        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
-</div>
-</div>
-
-<p></p>
-
-<div class="blockquote">
-<h4>Database Engine Neutrality</h4>
-	<p>ITOP does not propose or expect any particular file format or physical 
-		table grouping. The source or storage technique of tables should be 
-		assumed to take on many different forms. ITOP should be able to access 
-		and produce the common table formats in use, such as DBF, MS-Access, and 
-		ODBC sources. There are basically 3 levels of table 
-		implementations:</p>
-	<ol>
-		<li><b>RAM Tables:</b>These are tables that reside entirely in memory. 
-			Arrays and multiple C++ object instances of the same class are 
-			common examples. TOP avoids or de-emphasizes these types of 
-			constructs because of their size limitations and lack of automatic 
-			persistence.<span style="color: red">TODO What were you saying about 
-			scaling?</span></li>
-		<li><b>File-Based Tables:</b> These are tables that are either on a 
-			local hard-drive or on a file server.  The trade press tends to shun 
-			this type of table in favor of the RAM or DB-Server types.  However, 
-			for many medium-sized tables and fairly large read-only tables, this 
-			type can be very efficient and economical. With memory caching 
-			active, this table type can be almost as fast as RAM tables. Note 
-			that these can be temporary files if needed. This type can be 
-			subdivided into the following two types:
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Fixed-record</th>
-				<th>Variable-record</th>
-				<th>Comments</th>
-			</tr>
-			<tr>
-				<th>Record Length</th>
-				<td>Fixed</td>
-				<td>Variable</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Reliability</th>
-				<td>More</td>
-				<td>Less</td>
-				<td>Variable has a more complex internal structure</td>
-			</tr>
-			<tr>
-				<th>Flexibility</th>
-				<td>Less</td>
-				<td>More</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Compactness</th>
-				<td>Less</td>
-				<td>More</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Examples</th>
-				<td></td>
-				<td>MS-Access</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Standardisation</th>
-				<td>More</td>
-				<td>Less</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Annoying version changes</th>
-				<td>Less</td>
-				<td>More</td>
-				<td></td>
-			</tr>
-		</table>
-		<li><b>DB Server Tables:</b> These are tables that are accessed via a 
-			formal database server, such as Oracle and Sybase systems. The 
-			application must go through the DB server's access protocols to 
-			reach these tables. These types of tables are useful for 
-			mission-critical transaction processing and very large data 
-			collections. They are also fairly expensive to setup and 
-			manage.</li>
-	</ol>
 <div class="reference">
         <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
@@ -378,7 +519,7 @@ your collections interface should be <b>ready</b> for such
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="Collection-Convergence/Introduction/">&lt;&lt; Introduction to Collection Convergence</a>
+	<span class="left">			<a href="Collection-Convergence/Tableish.html">&lt;&lt; role Tableish</a>
 </span>
 	<span class="centre">-</span>
 	<span class="right">			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction &gt;&gt;</a>

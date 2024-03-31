@@ -1,0 +1,200 @@
+<p>Much like in SQL, views are selections of data from one or more collections 
+(descendents of Tablish).  However, unlike SQL, we should expect views to be 
+local, writable, and objects.  </p>
+
+
+<h1>Selecting Data</h1>
+
+<h2>Selecting Fields</h2>
+
+<p>This is roughly equivalent to the field list clause in SQL.  </p>
+
+<h3>Field/Property Selection</h3>
+
+<div class="blockquote">
+
+Some operations may only need be done a subset of fields/properties.
+For example, one may want to export only a subset of all the fields/properties
+available in a collection.
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Field Groups</h3>
+
+<div class="blockquote">
+
+One of the most time-wasting process in programming table processing with 
+many of the popular languages is having to type the names of all the fields that 
+will show up on a screen or report. It would be much easier to specify the name 
+of a set, and all fields belonging to that set would then be used. Although sets 
+could be pnumonic names, we chose to use letters in our example for 
+simplicity.
+
+<p>Suppose that we had to make a report that showed customer transaction detail, 
+but which ommited customer names for reasons of confidentiality. With our setup, 
+we could just ask for a report on all fields in set "B" (See the Groups column 
+above).  When dealing with tables with 50 plus fields, specifying a set name is 
+much simpler than typing 50 names or building a field loop.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h2>Selecting Rows</h2>
+
+<p>This is roughly equivalent to the WHERE in SQL.  </p>
+
+<h3>Filtering</h3>
+
+<div class="blockquote">
+
+This is the ability to view or access a collection through a filter.
+Sometimes this is called a "view" (although views can involve
+multiple tables or collections, see Joins below.)
+It is generally analogous to using a "Where" clause in SQL.
+Many of the operations below are to recognize any active
+filter(s).
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Searching</h3>
+<div class="blockquote">
+
+This is the ability to easily search through a collection to find a specific
+row or instance. There are usually indexed searches and un-indexed 
+searches. Indexed searches are faster, but require the generation of
+an index first (if not already in place). 
+
+<p>SQL generally combines searching with filtering using the Where
+clause; however, for non-set-oriented processes, this is sometimes
+not the most effective way to approach searching.
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Ordering</h1>
+
+<h3>Multiple Virtual Orderings</h3>
+<div class="blockquote">
+
+Virtual Ordering is the ordering or
+sorting of the collection. "Sorting" usually refers to
+a permanent ordering, while "Indexing" refers to a temporary or virtual
+sort. Virtual sorts are preferred for large or wide data-sets so that all
+actual fields/attributes do not have to be physically moved. (Indexing essentially
+uses pointers, but these pointers are not directly visible or accessible
+to the programmer.)  
+
+<p>There are usually temporary and permanent
+indexes or their equivalent. Temporary indexes are only kept for the duration of 
+a loaded application or a predetermined process. Permanent indexes
+are kept for the life of a given table or collection that is kept
+on disk or long-term storage. (Note that temporary indexes may
+still use disk space, but it is assumed that they will be cleaned up
+when no longer in use. Thus, they are not limited to RAM size.)
+
+<p>Ideally, each element of the collection should be able to be extracted
+or read in a specified order. This could be with a filter applied or the
+entire collection.
+
+<p>A given collection should be able to have
+multiple virtual orderings, although
+only one need be active (influencing) at a given time. The ordering
+should be maintained even during data changes. Changing the data
+should not require an explicit new Order command to restore virtual order
+(unless explicitly overridden).
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Grouping and Totalling</h3>
+<div class="blockquote">
+
+This is the ability to obtain summary information based on categories within
+the collection or the entire collection. Typical examples include total
+sales by region, average sales for the entire collection, etc. SQL usually
+performs these using the  "Group By" clause or by aggregate operations
+such as Avg(*), Sum(*), Count(*), and so forth. Averages, sums, and counts
+can be obtained for sub-categories within the collection or on the entire
+collection. 
+<p>
+For category grouping, usually a new collection is generated which contains
+the summary information in a similar format to the original. For example,
+thousands of sales records my be summarized into five (generated) records
+where there is one record for each region (north, south, east, west, and central).
+
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Joining Collections</h1>
+
+<h3>Joins</h3>
+<div class="blockquote">
+
+Some mechanism should be provided for the virtual joining
+or relating of two or more collections so that they can be
+treated as one collection using the standard operations listed
+above. It is sometimes also called "look-up" or "cross-referencing".
+Ideally "calculated joins" should be possible so that indexes
+or link lists don't have to be manually created in advanced.
+(Some operations may not be applicable or practical on virtual joined
+collections. This is a controversial topic in the relational
+world.)
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p/>
+
+<div class="blockquote">
+
+<p>Ability to temporarily "join" several tables into one virtual table and 
+perform operations on it as if it were an actual table. ... This provides 
+similar functionality as inherited properties in OOP.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Transferring</h1>
+
+<p>Just a note on Transferring (see <a href="Collection-Convergence/Tableish.html">
+role Tablish</a>):</p>
+
+<div class="blockquote">
+
+This is the easy ability to transfer or copy information from one collection to
+another. Note that filtering and sorting operations can be used to control the
+order and subset of the collection(s) being moved. Either matching field/property
+names are used to map one collection into another, and/or an explicit field/property
+mapping is provided.
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
+		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+

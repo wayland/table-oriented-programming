@@ -14,13 +14,16 @@
 <script type="text/javascript">
 <!--
 $(document).ready(function() {
-	$("h1,h2").each(function(i) {
+	$("h1,h2,h3,h4,h5,h6").each(function(i) {
 		var heading = $(this);
 		if(heading.attr('id')) {
+			heading.addClass('linkable');
 			var headingId = heading.attr("id");
+			heading.before('<p id="' + headingId + '" class="pre-heading"/>');
 			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
 			var fontstring = "'Noto Emoji'";
 			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+			heading.removeAttr("id");
 		}
 	});
 })
@@ -39,7 +42,15 @@ $(document).ready(function() {
 <div class="navbar"><ul>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">Introduction</a>
+		<a href="javascript:void(0)" class="dropbtn">Progamming Productivity</a>
+		<div class="dropdown-content">
+			<a href="Programming-Productivity.html">Introduction to Programming Productivity</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">TOP</a>
 		<div class="dropdown-content">
 			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
@@ -53,6 +64,7 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Collection Convergence</a>
 		<div class="dropdown-content">
 			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence</a>
+			<a href="Collection-Convergence/Tableish.html">role Tableish</a>
 			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality</a>
 			<a href="Collection-Convergence/Memory-Mapping-Reduction.html">Memory-Mapping Reduction</a>
 			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries</a>
@@ -64,10 +76,18 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Language Support</a>
 		<div class="dropdown-content">
 			<a href="Language-Support/Table-Friendly-Syntax.html">Table-Friendly Syntax</a>
-			<a href="">Tables</a>
-			<a href="">Views</a>
-			<a href="">Forms</a>
-			<a href="">Reports</a>
+			<a href="Language-Support/Table.html">class Table</a>
+			<a href="Language-Support/View.html">class View</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/GUI-Editors.html">GUI editors</a>
+			<a href="RAD/Document-Editors.html">Document editors</a>
 
 		</div>
 	</li>
@@ -86,6 +106,8 @@ $(document).ready(function() {
 		<div class="dropdown-content">
 			<a href="">OOP</a>
 			<a href="">SQL</a>
+			<a href="">Trees</a>
+			<a href="">Arrays</a>
 
 		</div>
 	</li>
@@ -122,6 +144,8 @@ $(document).ready(function() {
 <div class="main-box">
 
 <div class="title">Introduction to Collection Convergence</div>
+
+<div class="tagline">Tim Nelson, 2024</div>
 
 <h2>Overview</h2>
 
@@ -175,7 +199,7 @@ Iterator.  None of these are tables, but will be used as building blocks to
 construct objects that will represent tables.  </p>
 
 <p>The big idea here is that all collections, including Tables and Views, should 
-have the same API.  In Raku TOP, this will be implemented with a Tablish class, 
+have the same API.  In Raku TOP, this will be implemented with a Tableish class, 
 which will be a role used by both the Table and View classes.  This role will 
 also draw in the Associative, Positional, and Iterative roles, which are used by 
 other Raku collections.  </p>
@@ -190,7 +214,7 @@ other Raku collections.  </p>
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="Tablish.svg"
+   sodipodi:docname="Tableish.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -290,14 +314,14 @@ other Raku collections.  </p>
        class="node"
        transform="matrix(0.57979972,0,0,0.57979972,22.338006,113.26948)">
       <title
-         id="title168">Tablish</title>
+         id="title168">Tableish</title>
       <g
          id="a_node7"><a
    xlink:href=""
    id="a12715" />
     <a
        xlink:href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/Collection-Convergence/Introduction/"
-       xlink:title="Tablish"
+       xlink:title="Tableish"
        id="a218">
             <ellipse
    fill="none"
@@ -314,7 +338,7 @@ other Raku collections.  </p>
    font-family="FreeSans"
    font-size="14px"
    fill="#000000"
-   id="text172">Tablish</text>
+   id="text172">Tableish</text>
 </g>
     </g>
   </g>
@@ -529,42 +553,6 @@ other Raku collections.  </p>
 <p>Since this page is all about converging features of collections, we will 
 immediately introduce...</p>
 
-<h1>The Tableish</h1>
-
-<p>The Tableish is a role that represents all features common to Tables and 
-Views.  Features include:</p>
-
-<h3>Column Access</h3>
-
-<p>In a Raku TOP Tablish, columns are accessed using the Associative role.  This 
-means that we can use <code>$table&lt;column&gt;</code> or 
-<code>$table{$column-name}</code> access methods (the second used when the 
-name of the column is in a variable).  </p>
-
-<h3>Row Access</h3>
-
-<p>In a Raku TOP Tablish, rows are accessed using the Positional role.  This 
-means that we can use <code>$table[$rownum]</code> to pick out a particular row.  
-</p>
-
-<h3>Row Iteration</h3>
-
-<p>When we choose to iterate over a table, it will by default iterate over the 
-rows of the table (rather than, say, the columns).  </p>
-
-
-<h3>Transferring</h3>
-
-<div class="blockquote">
-
-This is the easy ability to transfer or copy information from one collection to
-another. 
-
-<div class="reference">
-	<i><a href="https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm">
-		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
-</div>
-</div>
 
 
 </div>
@@ -576,7 +564,7 @@ another.
 	<span class="left">			<a href="Introduction/History.html">&lt;&lt; History</a>
 </span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">Database Engine Neutrality &gt;&gt;</a>
+	<span class="right">			<a href="Collection-Convergence/Tableish.html">role Tableish &gt;&gt;</a>
 </span>
 </div>
 <p/>
