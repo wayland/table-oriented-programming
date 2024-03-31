@@ -10,56 +10,14 @@ that all function (method) libraries and wizards have.
 Details backing this list are found above.
 <p>
 
-<ol>
-<li>
-All collections (tables) have <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">built-in, 
-ready-to-use operations</a>
-that can be used on them. Other paradigms often require explicit effort to
-build or link in such operations. Thus, ITOP cuts down on development time.
-<p>
-<li> Groups of fields can be chosen simply by supplying a group name, rather than coding the name of each field. (Great for tables with many fields.)
-<p>
-<li> The behavior of a field is controlled in one spot (DD) no matter which screen, grid, data-entry form, or report the field appears on. Other approaches require one to recode field behavior for each of these, also requiring separate changes in all four.
-<p>
-<li> Less reliance on WYSIWYG screen and report builders. Most data-entry and grid screens can almost <u>build themselves</u> based on DD information. 
-<p>
-<li> A consistent collections handling interface regardless
-     of collection size and complexity.
-<p>
-<li> Support for high, medium, and low formality tables.
+<ul>
+<li> 6. Support for high, medium, and low formality tables.
  Other languages usually give you only one
 way to deal with tables and assume tables are either large and formal, or small and featureless.
 <p>
-<li> Easier to make software changes because only <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">control tables</a> (such as DD's) need be changed in many instances. It is easier to go to a table for changes than hunt around 20,000 lines program of code. <u>A table (grid) is a much easier structure to use for viewing, comparing, and changing properties of similar "objects" than program code.</u> This is because grids 
-are two-dimensional structures, while program code is basically a one-dimensional structure.
+<li> 8. Field variables can be referenced easily without converting back and forth between memory variables and actual table fields. An example might be "$amount = $rate * hours" where the $ sign marks field variables ("hours" is a memory variable). Note that a "with"-like structure may make the table reference unnecessary; however, an optional table reference should be permitted. Example: "x = mytable$amount".
 <p>
-<li> Field variables can be referenced easily without converting back and forth between memory variables and actual table fields. An example might be "$amount = $rate * hours" where the $ sign marks field variables ("hours" is a memory variable). Note that a "with"-like structure may make the table reference unnecessary; however, an optional table reference should be permitted. Example: "x = mytable$amount".
-<p>
-<li>
-Allows tables to hold internal function calls and expressions, not just values or SQL expressions. This helps build powerful <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">control tables</a>, including the DD. Note that usually an interpreter is needed for this; however, compiled languages such as Clipper allowed this. This was done by evaluating a string stored in a table.
-<p>
-<a name="sql_eval"></a>
-<li>
-Ability to evaluate table processing calls with internal
-expressions and functions, not just SQL. For example,
-in XBase a statement like "replace all pay with
-CalcRate() * hours" calculates all employee paychecks
-in a table. In SQL this could resemble:
-<tt>"Update emp set pay = CalcRate() * hours"</tt>.
-However, in standard SQL you cannot "pass" the CalcRate function
-to the SQL processor; you are stuck with SQL's built-in
-functions or proprietary "stored" procedure calls that are separate
-from your code. (Note that CalcRate may use many fields in a record.
-Thus, it cannot be "blind" to the "current" record.)
-Working with SQL is like having a wall
-that separates your code from SQL's table processing.
-ITOP breaks down this wall.
-<p>
-<li>
-Easy-to-use array and list structures that are not limited to memory (RAM) size. For example, automatic "temp" file buffering would happen if the array or vector grew too large for memory. Most OOP languages rely on classes and structures that are assumed and limited to reside entirely in memory. (These languages
-are said to be "memory-centric".)
-<p>
-<li>
+<li>12.
 Using persistent or semi-persistent storage allows easier modulerization and testing
 because one does not have to
 load and run the whole shebang in order to test
@@ -79,19 +37,7 @@ classes and structures in memory. Tables, on
 the other hand,
 are a snap to inspect during testing and
 troubleshooting.
-<p>
-<li> Less of a learning curve than OOP because
-tables are a more familiar structure than
-OOP. (OOP should really be called "Category"
-Oriented Programming instead because it has no
-improved relationship to real-world objects.)
-Table structures can be found in reports, spreadsheets,
-travel schedules, tax schedules, the Battleship game, etc.
-Thus, tables will always be easier to relate too and more
-intuitive than OOT.
-(I have yet to see an OO bus schedule.)
-<p>
-</ol>
+</ul>
 <div class="reference">
 	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>

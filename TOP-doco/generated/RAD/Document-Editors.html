@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Memory-Mapping Reduction :: Table-Oriented Programming (TOP)</title>
+<title> :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@ $(document).ready(function() {
 </script>
 
 <!-- Links and stylesheet -->
-<base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/">
+<base href="file:///home/wayland/src/TOP/TOP-doco/generated/">
 
 <link rel="stylesheet" href="TOP.css"/>
 
@@ -45,6 +45,16 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Progamming Productivity</a>
 		<div class="dropdown-content">
 			<a href="Programming-Productivity.html">Introduction to Programming Productivity</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/GUI-Editor.html">GUI editor</a>
+			<a href="RAD/Document-Editor.html">Document editor</a>
 
 		</div>
 	</li>
@@ -85,7 +95,6 @@ $(document).ready(function() {
 	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
 		<div class="dropdown-content">
-			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style</a>
 			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
 			<a href="">Code Management</a>
 
@@ -113,21 +122,6 @@ $(document).ready(function() {
 	</li>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">RAD</a>
-		<div class="dropdown-content">
-			<section>
-				<span class="dropdown-header">Editors</span>
-			<a href="RAD/Database-Design-Editor.html">Database Design Editor</a>
-			<a href="RAD/Code-Editors.html">Code Editors</a>
-			<a href="RAD/UI-Editors.html">UI editors (Forms &amp; Reports)</a>
-
-			</section>
-			<a href="RAD/Backend-to-Frontend-Design.html">Backend-to-Frontend Design</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
 		<div class="dropdown-content">
 			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
@@ -149,29 +143,47 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">Memory-Mapping Reduction</div>
+<div class="title"></div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
+<h1>Overview</h1>
+
+<p>For our purposes, a Document Editor allows people to edit a document that 
+could be made into a report.  This would be influenced by word processors, and 
+by the Notebook model (cf. Jupyter)</p>
+
+<h1>Built-in Reports</h1>
+
+<p/>
+
 <div class="blockquote">
-The goal of reducing or eliminating the need to manually map and/or transfer 
-memory variables to and from table fields and to and from the UI (screens). 
-(This process should be invisible to the programmer regardless of the fact that 
-internal implementation usually uses memory-based copies.)
+
+<h2> Related Information and Links </h2>
+<ul>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/whypr.htm">Why I prefer procedural/relational over OOP</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm">More on T.O.P.</a> (including stored procedures)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">Control Tables</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/oopbad.htm">OOP Criticism</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Criticism</a> (boy, I sure like to criticize)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging TOP and OOP?</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Table Patterns</a> (GOF meet TOP)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/array1.htm">Array Criticisms</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/table_qa.htm">Table Q &amp; A</a> 
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/buzzword.htm">Buzz-Words</a> (ITOP and OOP)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">Standard Collection Operations</a> (Collection Bill of Rights)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">More on Data Dictionaries and Table Browsers</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm#setget">How Tables Simplify Interfaces</a> (Avoiding set/get's and other interface bloat)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/newlang.htm">ITOP Language Brainstorming Notes</a>
+</ul>
+
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
+<ul>
+</ul>
 
-<p>Another feature that is invisible to the programmer, but saves lots of 
-work.</p>
-
-<p>Here it also becomes clear that TOP also requires UI support.  Raku again 
-doesn't support this out-of-the-box.  Various UIs have been added, but these UIs 
-don't have consistent interfaces (eg. a curses-based form can't be turned into a 
-HTML form with minimal effort).</p>
-
-<p>This would require another set of language features -- forms and reports.</p>
 
 
 </div>
@@ -180,11 +192,9 @@ HTML form with minimal effort).</p>
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">&lt;&lt; Database Engine Neutrality</a>
-</span>
+	<span class="left"></span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries &gt;&gt;</a>
-</span>
+	<span class="right"></span>
 </div>
 <p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>

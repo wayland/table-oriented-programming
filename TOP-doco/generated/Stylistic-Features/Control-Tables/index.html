@@ -83,18 +83,9 @@ $(document).ready(function() {
 	</li>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">RAD</a>
-		<div class="dropdown-content">
-			<a href="RAD/Code-Editors.html">Code Editors</a>
-			<a href="RAD/GUI-Editors.html">GUI editors</a>
-			<a href="RAD/Document-Editors.html">Document editors</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
 		<div class="dropdown-content">
+			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style</a>
 			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
 			<a href="">Code Management</a>
 
@@ -117,6 +108,21 @@ $(document).ready(function() {
 		<div class="dropdown-content">
 			<a href="">Comparison of Raku TOP and xBase</a>
 			<a href="Other-Items/Paradigm-Comparisons.html">Paradigm Comparisons</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<section>
+				<span class="dropdown-header">Editors</span>
+			<a href="RAD/Database-Design-Editor.html">Database Design Editor</a>
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/UI-Editors.html">UI editors (Forms &amp; Reports)</a>
+
+			</section>
+			<a href="RAD/Backend-to-Frontend-Design.html">Backend-to-Frontend Design</a>
 
 		</div>
 	</li>
@@ -147,6 +153,24 @@ $(document).ready(function() {
 
 <div class="tagline">Tim Nelson, 2024</div>
 
+<h1>Overview</h1>
+
+<div class="blockquote">
+
+<p> Control Tables are tables that control the program flow or play a major part 
+in program control. Control Tables often have expressions or function references 
+stored in them. Control Tables reduce the need for programming similar 
+structures over and over again. The two-dimensional nature of tables makes them 
+easier to view and update than the one-dimensional nature of program code. In 
+some cases, non-programmers can be assigned to maintain the control tables. <p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p/>
+
 <div class="blockquote">
 
 <p>All <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">
@@ -156,6 +180,61 @@ used to protect such tables from direct access by users if needed.</p>
 
 <div class="reference">
         <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Benefits</h1>
+
+<p>The following are some of the benefits of Control Tables.</p>
+
+<h3>Easy to Change</h3>
+
+<div class="blockquote">
+
+<p>Easier to make software changes because only control tables (such as DD's) 
+need be changed in many instances. It is easier to go to a table for changes 
+than hunt around 20,000 lines program of code. <u>A table (grid) is a much 
+easier structure to use for viewing, comparing, and changing properties of 
+similar "objects" than program code.</u> This is because grids are 
+two-dimensional structures, while program code is basically a one-dimensional 
+structure.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>See <a href="RAD/Code-Editors.html#Tablish">Tablish Code Editor</a> for more 
+information on editing grids</p>
+
+<h3>Anonymous Function Calls</h3>
+
+<p>Anonymous functions can be stored in control tables, and called when 
+relevant, unlike SQL, which doesn't allow you to store code in tables</p>
+
+<div class="blockquote">
+
+<ul>
+	<li>Allows tables to hold internal function calls and expressions, not just 
+		values or SQL expressions. This helps build powerful control tables, 
+		including the DD. ...
+	<a name="sql_eval"></a>
+	<li>Ability to evaluate table processing calls with internal expressions and 
+		functions, not just SQL. For example, in XBase a statement like 
+		<code>replace all pay with CalcRate() * hours</code> calculates all 
+		employee paychecks in a table. In SQL this could resemble:
+		<code>"Update emp set pay = CalcRate() * hours"</code>.  However, in 
+		standard SQL you cannot "pass" the CalcRate function to the SQL 
+		processor; you are stuck with SQL's built-in functions or proprietary 
+		"stored" procedure calls that are separate from your code. (Note that 
+		CalcRate may use many fields in a record.  Thus, it cannot be "blind" to 
+		the "current" record).  Working with SQL is like having a wall that 
+		separates your code from SQL's table processing.  TOP breaks down this 
+		wall.</li>
+</ul>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
 
@@ -277,18 +356,6 @@ of having different little bargaining rules for each store.
 (I hope you are getting the notion by now because I am
 running out of analogies).
 
-
-<p>
-<div align="center">
-See Also:
-<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm#theory">Control Table Theory (1D v. 2D)</a>
-<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/bank.htm">Bank Example</a>
-<br><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/miscoop.htm#blackbox">Black Boxes and Skinny Wires</a>
-</div>
-
-
-
-
 <div class="reference">
         <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
@@ -296,50 +363,15 @@ See Also:
 
 <p/>
 
-<div class="blockquote">
-
-<h2>Future of TOP</h2>
-
-This set of documents is not meant to be the final
-word on TOP. There are many aspects to be explored
-and evaluated by different  personalities
-with different perspectives. Concepts such as
-<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">Control Tables</a> and
-<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm">Standard Collection Operations</a> (SCO)
-could possibly be carried to deeper levels
-than given here in order to see what new ideas and issues
-arise.
-<p>
-What if <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/allway.htm">all subclass code</a>
-was in
-Control Tables instead of just stubs and
-expressions? What if all collections
-were represented and linked within SCO?
-What if the concepts of
-Control Tables and SCO were tightly
-combined? How does the world look if
-you start to view or model it as collections
-based on SCO. Questions like these have
-not be explored very well yet.
-
-<p>
-Taking concepts to the extreme many not
-by itself produce practical results, but can
-often trigger new ways of thinking.
-I believe there is plenty of room for
-brainstorming. It is hard to believe
-that OOP (by itself) is the pinnacle
-of paradigms.
-
-<div class="reference">
-        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
-</div>
-</div>
-
-See also:
-<li><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></li>
-<li><a href="https://web.archive.org/web/20121111043956/http://www.geocities.com/tablizer/allway.htm">Going All the Way with Control Tables</a></li>
-
+<p>See also:</p>
+<ul>
+	<li><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></li>
+	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/bank.htm">Bank Example</a></li>
+	<li><a href="https://web.archive.org/web/20121111043956/http://www.geocities.com/tablizer/allway.htm">Going All the Way with Control Tables</a></li>
+	<li>For ideas about what could be done with control tables, see 
+		<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm#future">
+		Table Oriented Programming - Future of TOP and ITOP</a></li>
+</ul>
 
 
 </div>
@@ -348,7 +380,7 @@ See also:
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="RAD/Document-Editors.html">&lt;&lt; Document editors</a>
+	<span class="left">			<a href="Stylistic-Features/Introduction.html">&lt;&lt; Introduction to TOP Style</a>
 </span>
 	<span class="centre">-</span>
 	<span class="right">			<a href="">Code Management &gt;&gt;</a>

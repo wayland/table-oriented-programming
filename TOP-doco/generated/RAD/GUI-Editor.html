@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title> :: Table-Oriented Programming (TOP)</title>
+<title>GUI editor (Forms) :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,16 +50,6 @@ $(document).ready(function() {
 	</li>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">RAD</a>
-		<div class="dropdown-content">
-			<a href="RAD/Code-Editors.html">Code Editors</a>
-			<a href="RAD/GUI-Editor.html">GUI editor</a>
-			<a href="RAD/Document-Editor.html">Document editor</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">TOP</a>
 		<div class="dropdown-content">
 			<a href="Introduction/What.html">What is Table-Oriented Programming?</a>
@@ -95,6 +85,7 @@ $(document).ready(function() {
 	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
 		<div class="dropdown-content">
+			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style</a>
 			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
 			<a href="">Code Management</a>
 
@@ -122,6 +113,22 @@ $(document).ready(function() {
 	</li>
 
 	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<section>
+				<span class="dropdown-header">Editors</span>
+			<a href="RAD/Database-Design-Editor.html">Database Design Editor</a>
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/GUI-Editor.html">GUI editor (Forms)</a>
+			<a href="RAD/Document-Editor.html">Document editor (Reports)</a>
+
+			</section>
+			<a href="RAD/Backend-to-Frontend-Design.html">Backend-to-Frontend Design</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Other Material</a>
 		<div class="dropdown-content">
 			<a href="Other-Items/Eight-Concepts.html">Eight Concepts</a>
@@ -143,9 +150,11 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title"></div>
+<div class="title">GUI editor (Forms)</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
+
+<h1>GUI Editor (Forms)</h1>
 
 <h1>Overview</h1>
 
@@ -153,9 +162,16 @@ $(document).ready(function() {
 visual, drag-and-drop manner.  From a TOP perspective, these are called Forms.  
 </p>
 
-<p>
+<p>Our goals here are:</p>
+<ul>
+	<li>As much as possible, get the forms to build themselves based on the Data 
+		Dictionary</li>
+	<li>Where necessary, let developers drag and drop components onto forms</li>
+	<li>Allow the forms to be re-themed by front-end developers/designers, 
+		probably using XSLT, CSS, and Javascript</li> 
+</ul>
 
-<h1>Built-in Forms</h1>
+<h1>Self-building Forms</h1>
 
 <div class="blockquote">
 
@@ -172,16 +188,75 @@ past.</p>
 </div>
 </div>
 
+<p>
 
-<p><b>User interface Markup:</b> Many 
-<a href="https://en.wikipedia.org/wiki/User_interface_markup_language"> user 
-interface markup languages</a> have been proposed.  The current winner is HTML, 
-which is not what HTML was designed for.  The linked Wikipedia page doesn't even 
-mention XForms.  If an XML-based one were implemented using the technique at 
+<div class="blockquote">
+
+<p>Less reliance on WYSIWYG screen and report builders. Most data-entry and 
+grid screens can almost <u>build themselves</u> based on DD information.
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>User Interface Markup</h3>
+
+<p>The above would be assisted by a standard User Interface Markup Language. 
+Many <a href="https://en.wikipedia.org/wiki/User_interface_markup_language">
+user interface markup languages</a> have been proposed.  The current winner is 
+HTML, which is not what HTML was designed for.  The linked Wikipedia page 
+doesn't even mention XForms, which was slated to become part of XHTML2 until it 
+got steam-rollered by HTML5.  This was the one part of XHTML2 I was really 
+looking forward to.  </p>
+
+<p>If an XML-based one were implemented using the 
+technique at 
 <a href="https://stackoverflow.com/questions/42073103/for-what-reason-browser-side-xslt-is-not-widely-used-by-web-developers"> 
 For what reason browser side XSLT is not widely used by web-developers?</a>, 
 this would make it easier to separate design and development tools.  The UI 
-markup language could be produced by RAD tools, and </p>
+markup language could be produced by RAD tools (based on the Data Dictionary), 
+and the theming could be done by the designers.</p>
+
+<h1>Document Editor (Reports)</h1>
+
+<h1>Overview</h1>
+
+<p>For our purposes, a Document Editor allows people to edit a document that 
+could be made into a report.  This would be influenced by word processors, and 
+by the Notebook model (cf. Jupyter)</p>
+
+<h1>Built-in Reports</h1>
+
+<p/>
+
+<div class="blockquote">
+
+<h2> Related Information and Links </h2>
+<ul>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/whypr.htm">Why I prefer procedural/relational over OOP</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm">More on T.O.P.</a> (including stored procedures)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">Control Tables</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/oopbad.htm">OOP Criticism</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Criticism</a> (boy, I sure like to criticize)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging TOP and OOP?</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Table Patterns</a> (GOF meet TOP)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/array1.htm">Array Criticisms</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/table_qa.htm">Table Q &amp; A</a> 
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/buzzword.htm">Buzz-Words</a> (ITOP and OOP)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">Standard Collection Operations</a> (Collection Bill of Rights)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">More on Data Dictionaries and Table Browsers</a>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm#setget">How Tables Simplify Interfaces</a> (Avoiding set/get's and other interface bloat)
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/newlang.htm">ITOP Language Brainstorming Notes</a>
+</ul>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+<ul>
+</ul>
+
 
 
 </div>
@@ -190,9 +265,11 @@ markup language could be produced by RAD tools, and </p>
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left"></span>
+	<span class="left">			<a href="RAD/Code-Editors.html">&lt;&lt; Code Editors</a>
+</span>
 	<span class="centre">-</span>
-	<span class="right"></span>
+	<span class="right">			<a href="RAD/Document-Editor.html">Document editor (Reports) &gt;&gt;</a>
+</span>
 </div>
 <p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>

@@ -44,23 +44,9 @@ my(@structure) = (
 		],
 	},
 	{
-		title => 'RAD',
-		items => [
-			{ title => 'Code Editors', url => 'RAD/Code-Editors.html' }, 
-#include:
-#1.	Regular code editors
-#2.	Tablish code editors (spreadsheet)
-#3.	Dataflow code editors (n8n, nodered)
-#4.	Source Code Management
-			{ title => 'GUI editors', url => 'RAD/GUI-Editors.html' }, # include Forms
-			{ title => 'Document editors', url => 'RAD/Document-Editors.html' }, # include Reports
-#			{ title => '', url => '' }, 
-#			{ title => '', url => '' }, 
-		],
-	},
-	{
 		title => 'Stylistic Features',
 		items => [
+			{ title => 'Introduction to TOP Style', url => 'Stylistic-Features/Introduction.html' },
 			{ title => 'Control Tables', url => 'Stylistic-Features/Control-Tables/' },
 			{ title => 'Code Management', url => '' },
 		],
@@ -81,6 +67,21 @@ my(@structure) = (
 		items => [
 			{ title => 'Comparison of Raku TOP and xBase', url => '' },
 			{ title => 'Paradigm Comparisons', url => 'Other-Items/Paradigm-Comparisons.html' },
+		],
+	},
+	{
+		title => 'RAD',
+		items => [
+			{
+				type => 'section', 
+				'title' => 'Editors', 
+				items => [
+					{ title => 'Database Design Editor', url => 'RAD/Database-Design-Editor.html' },
+					{ title => 'Code Editors', url => 'RAD/Code-Editors.html' }, 
+					{ title => 'UI editors (Forms &amp; Reports)', url => 'RAD/UI-Editors.html' },
+				],
+			},
+			{ title => 'Backend-to-Frontend Design', url => 'RAD/Backend-to-Frontend-Design.html' },
 		],
 	},
 	{
@@ -142,6 +143,11 @@ sub	do_menu_item {
 		warn sprintf "Warning: source for url $url already defined as %s\n", $sources{$url}->{title};
 		return;
 	};
+	my($sourcefile) = $url;
+	$sourcefile or $sourcefile = 'index.html';
+	$sourcefile =~ s#/$#/index.html#;
+	$sourcefile = "src/pages/${sourcefile}.tmpl";
+	-e $sourcefile or do { warn "Warning: menu references '$sourcefile', but it doesn't exist\n"; };
 	$sources{$url} = {
 		previous => $previous,
 		title => $title,
@@ -189,6 +195,17 @@ sub	wanted {
 
 			my $text;
 			$dest =~ /\.html$/ and do {
+				# Check if the menu links here
+				my($this_item) = set_footer($dest);
+				my($this_url) = $this_item->{url};
+				if(
+					! $this_url or
+					! exists($sources{$this_url})
+				) {
+					warn "Warning: Couldn't find menu link for $dest\n";
+				}
+
+				# Set up functions/variables for use in templates
 				*GenTemplate::include = \&include;
 				*GenTemplate::include_fixed = \&include_fixed;
 				*GenTemplate::include_footer = \&include_footer;

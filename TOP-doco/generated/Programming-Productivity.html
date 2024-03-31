@@ -83,18 +83,9 @@ $(document).ready(function() {
 	</li>
 
 	<li class="dropdown">
-		<a href="javascript:void(0)" class="dropbtn">RAD</a>
-		<div class="dropdown-content">
-			<a href="RAD/Code-Editors.html">Code Editors</a>
-			<a href="RAD/GUI-Editors.html">GUI editors</a>
-			<a href="RAD/Document-Editors.html">Document editors</a>
-
-		</div>
-	</li>
-
-	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
 		<div class="dropdown-content">
+			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style</a>
 			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
 			<a href="">Code Management</a>
 
@@ -117,6 +108,21 @@ $(document).ready(function() {
 		<div class="dropdown-content">
 			<a href="">Comparison of Raku TOP and xBase</a>
 			<a href="Other-Items/Paradigm-Comparisons.html">Paradigm Comparisons</a>
+
+		</div>
+	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">RAD</a>
+		<div class="dropdown-content">
+			<section>
+				<span class="dropdown-header">Editors</span>
+			<a href="RAD/Database-Design-Editor.html">Database Design Editor</a>
+			<a href="RAD/Code-Editors.html">Code Editors</a>
+			<a href="RAD/UI-Editors.html">UI editors (Forms &amp; Reports)</a>
+
+			</section>
+			<a href="RAD/Backend-to-Frontend-Design.html">Backend-to-Frontend Design</a>
 
 		</div>
 	</li>
@@ -343,6 +349,8 @@ paradigms, and will improve our data handling.</p>
 
 <h3>What can we learn from RAD IDEs?</h3>
 
+<h4>Lessons from RAD IDEs</h4>
+
 <p>The lesson here is easier for me to identify, probably because I've spent 
 more time over the years using various RAD IDEs.  The big lesson is, in many 
 cases, visual editors of various sorts make people more productive.  I think I 
@@ -350,48 +358,80 @@ can best express this by making a bullet list of the things that I think should
 be implemented in an IDE that fully supports Programming Productivity:</p>
 
 <ul>
-	<li><b>Code Editors</b></li>
+	<li><b><a href="RAD/Database-Design-Editor.html">Database Design 
+		Editor</a></b>: Lets you visually edit the design of your database</li>
+	<li><b><a href="RAD/Code-Editors.html">Code Editors</a></b></li>
 	<ul>
-		<li><i>Regular code editors:</i> These are standard; no explanation 
+		<li><b>Regular Code Editor:</b> These are standard; no explanation 
 			needed</li>
-		<li><i>Source control visual tools:</i> To reduce the time spent managing 
+		<li><b>Source control visual tools:</b> To reduce the time spent managing 
 			the code</li>
-		<li><i>Tablish Code Editors:</i> In Table-Oriented Programming, both 
-			code and data can be stored in tables.  There should be a visual 
-			editor for the tables in question, though it should have a way of 
-			editing the cell in a separate window (so we can have the table on 
-			one screen, and the code for a particular cell on another).  Think 
-			of this as being like a spreadsheet, but you can compile it).</li>
-		<li><i>Dataflow Code Editors:</i> In dataflow programming (such as 
-			node-red or n8n, but also any language that has concurrency 
-			features), there's a diagram that represents how the data flows.  
-			Some of the nodes in the diagram have code inside them.  In my 
-			experience, the best interface is that of n8n, which stores the 
-			dataflow from previous runs, and, when a code node is clicked, it 
-			shows you the code in the centre, on the left the data from the 
-			previous run, and on the right, what your current code would turn 
-			that data into.  n8n only really handles json though.  </li>
+		<li><b>Tablish Code Editors:</b> In Table-Oriented Programming, both 
+			code and data can be stored in tables.  Think of this as being like 
+			a spreadsheet, but you can compile it.</li> 
+		<li><b>Dataflow Code Editors:</b> In dataflow programming, there's a 
+			diagram that represents how the data flows.  Some of the nodes in 
+			the diagram have code inside them.  We should be able to edit it.  
+			</li> 
 	</ul>
-	<li><b>GUI Editor:</b> Something that allows editing the GUI in a visual, 
+	<li><b><a href="RAD/GUI-Editor.html">GUI Editor</a>:</b> Something that allows editing the GUI in a visual, 
 		drag-and-drop manner (Forms)</li>
-	<li><b>Document Editor:</b> This allows people to edit a document that could 
+	<li><b><a href="RAD/Document-Editor.html">Document Editor</a>:</b> This allows people to edit a document that could 
 		be made into a report.  This would be influenced by word processors, 
 		and by the Notebook model (cf. Jupyter)</li>
 </ul>
 
-<hr/>
+<h3 id="UI-churn">UI Churn/Volatility</h3>
 
-	<li><b>User interface Markup:</b> Many <a href="https://en.wikipedia.org/wiki/User_interface_markup_language">
-		user interface markup languages</a> have been proposed.  The current 
-		winner is HTML, which is not what HTML was designed for.  The linked 
-		Wikipedia page doesn't even mention XForms.  If an XML-based on were 
-		implemented using the technique at 
-<a href="https://stackoverflow.com/questions/42073103/for-what-reason-browser-side-xslt-is-not-widely-used-by-web-developers">
-		For what reason browser side XSLT is not widely used by 
-		web-developers?</a>, this would make it easier to separate design and 
-		development tools.  The UI markup language could be produced by RAD 
-tools, and 
-</li>
+<p>One final lesson -- this isn't from RAD or DSLs, but from the SmartDB 
+advocates.  
+
+<div class="blockquote">
+
+<img src="TechnologyStackStabilityJava.png" style="width: 80%; margin: auto; 
+display: block">
+
+<div class="reference" style="display: flex">
+<div style="display: inline-table">Slides for <i>The Database: Persistence Layer 
+(NoPlsql) or Processing Engine (SmartDB)?</i>, Toon Koppelaars</div>
+</div>
+</div>
+
+<p>In the talk referenced, Toon Koppelaars made points similar to the following:
+</p>
+<ul>
+	<li>The closer the technology is to the user, the higher the technology 
+		churn rate.  The closer it is to the database, the lower the technology 
+		churn rate.  The image given specifically references Java, but his 
+		slides showed that the rate for Javascript was even higher.  On the 
+		other hand, the closer the technology is to the database, the lower the 
+		technology churn rate.  </li>
+	<li>If layers in your chosen technology stacks are volatile, then you ought 
+		to use them "thinly".  Do not do business logic in them; instead, push 
+		business logic further down into code-stack where stable layers exist.  
+		Why? Because the top-layers change more quickly than does your business 
+		logic.  If you don't, you'll end up with a maintenance nightmare (ie. 
+		old technology that doesn't upgrade well)</li> 
+	<li>UI and Database developers have quite different focuses:</li>
+	<ul>
+		<li>Database developers focus on: correctness, maintainability, 
+			performance and scalability (solid)</li>
+		<li>UI developers focus on: extremely friendly UI experience (UX) 
+			(hip, trendy)</li>
+	</ul>
+	<li>Organisationally, Backend and Frontend must co-operate.  Database 
+		developers will need to understand UI-developers' world, but NOT <i>vice 
+		versa</i></li> 
+	<ul>
+		<li>Frontend will be "decoupled" via API's</li>
+		<li>Frontend only need to know enough architectural concepts to 
+			communicate effectively and jointly design API-layer</li>
+	</ul>
+	<li>Thus, database developers, <b>must</b> be in the lead.  Why?  They own 
+		the database design and business logic</li>
+</ul>
+
+<p>This is why I added a database design tool to the list of editors</p>
 
 
 </div>

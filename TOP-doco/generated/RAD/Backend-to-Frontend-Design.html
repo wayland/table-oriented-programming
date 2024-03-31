@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Memory-Mapping Reduction :: Table-Oriented Programming (TOP)</title>
+<title>Backend-to-Frontend Design :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,29 +149,35 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">Memory-Mapping Reduction</div>
+<div class="title">Backend-to-Frontend Design</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
+<p>As per <a href="Programming-Productivity.html#UI-churn">Introduction to 
+Programming Productivity</a>, the database experts should be in control of the 
+architecture.  </p>
+
+<p>Where possible, this should automatically flow through to the frontend.  When 
+someone adds a database field to a form, there should be the possibility that 
+the correct editing control will be recommended by the form editor, which means 
+that that information should be stored in the database.  Not a control to 
+<i>always</i> use, but a recommendation to the frontend developer.</p>
+
+</p>
+
 <div class="blockquote">
-The goal of reducing or eliminating the need to manually map and/or transfer 
-memory variables to and from table fields and to and from the UI (screens). 
-(This process should be invisible to the programmer regardless of the fact that 
-internal implementation usually uses memory-based copies.)
+
+<p>Use of checkboxes, icons, etc. as representations of fields should be 
+definable in the DD. Perhaps this can be done by having the post-validation 
+function return a string with a special code for GUI components. For example, a 
+checkbox might be specified with "@gui:checkbox value=on". An icon could be 
+represented as such: "@gui:icon file='folder.gif'".</p>
+
+</ul>
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
-
-<p>Another feature that is invisible to the programmer, but saves lots of 
-work.</p>
-
-<p>Here it also becomes clear that TOP also requires UI support.  Raku again 
-doesn't support this out-of-the-box.  Various UIs have been added, but these UIs 
-don't have consistent interfaces (eg. a curses-based form can't be turned into a 
-HTML form with minimal effort).</p>
-
-<p>This would require another set of language features -- forms and reports.</p>
 
 
 </div>
@@ -180,10 +186,10 @@ HTML form with minimal effort).</p>
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">&lt;&lt; Database Engine Neutrality</a>
+	<span class="left">			<a href="RAD/UI-Editors.html">&lt;&lt; UI editors (Forms &amp; Reports)</a>
 </span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries &gt;&gt;</a>
+	<span class="right">			<a href="Other-Items/Eight-Concepts.html">Eight Concepts &gt;&gt;</a>
 </span>
 </div>
 <p/>

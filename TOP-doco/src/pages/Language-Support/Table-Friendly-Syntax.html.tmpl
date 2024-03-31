@@ -13,3 +13,22 @@ first-class citizens.  </p>
 	<li><b><a href="Language-Support/View.html">class View</a>:</b> Like an SQL 
 		view, but local, and an object</li>
 </ul>
+
+<h3>Table Self-Reference</h3>
+
+<p>There is at least one other thing needed for table-friendly syntax.  There 
+needs to be a <i>convenient</i> way for code stored in a table cell to refer to 
+other cells in the table (like a spreadsheet does).  The spreadsheet notation is 
+not suitable, because we have named columns, and because it's often useful to 
+use any of the following in reference to rows:</p>
+<ul>
+	<li>Number (like a spreadsheet)</li>
+	<li>"previous" and "next"</li>
+	<li>Primary Key</li>
+</ul>
+
+<p>Just as Raku OOP has "self" as a self-referential item, so we need to have a 
+self-referential item for the cell to refer, not to itself, but to the table 
+it's in.  Maybe just pass in an object representing the cell, which has a .table 
+method, and then ensure that $_ is set to the object representing the cell, so 
+we can just go with .table as our reference</p>

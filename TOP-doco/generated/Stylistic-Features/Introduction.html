@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Memory-Mapping Reduction :: Table-Oriented Programming (TOP)</title>
+<title>Introduction to TOP Style :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,29 +149,56 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">Memory-Mapping Reduction</div>
+<div class="title">Introduction to TOP Style</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
+<h1> Thinking "Tablely" </h1>
+
 <div class="blockquote">
-The goal of reducing or eliminating the need to manually map and/or transfer 
-memory variables to and from table fields and to and from the UI (screens). 
-(This process should be invisible to the programmer regardless of the fact that 
-internal implementation usually uses memory-based copies.)
+
+<p>Thinking in terms of ITOP is more than just storing data, it is using tables 
+to organize programs and program logic. Often big programs are nothing more than 
+repeated code with slight variations. Rather than store this similarity in code, 
+putting it in tables makes it easier to organize because tables are 2D and code 
+is 1D. This was demonstrated numerically in our 
+<a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/top.htm#linear">
+Data Dictionary</a> example.
+
+<p> Not all software can be organized this way...., [b]ut the opportunity arises 
+fairly often if you know what to look for. ...</p>
+
+<p> Just like OOP, it takes time and practice to learn how to organize software 
+using control tables, but will eventually pay off in software that is easier to 
+maintain. Unlike OOP, tables are a familiar organizational concept. Just look at 
+a city bus schedule.</p>
+
+<p>While [some paradigms] attempts to keep you on course by putting up edge 
+barriers, control tables keep you on course by giving you a better view of the 
+course.</p>
+
 <div class="reference">
-	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
+
 </div>
 
-<p>Another feature that is invisible to the programmer, but saves lots of 
-work.</p>
+<h1>Major TOP Programming Techniques</h1>
 
-<p>Here it also becomes clear that TOP also requires UI support.  Raku again 
-doesn't support this out-of-the-box.  Various UIs have been added, but these UIs 
-don't have consistent interfaces (eg. a curses-based form can't be turned into a 
-HTML form with minimal effort).</p>
+<ul>
+	<li><a href="Stylistic-Features/Control-Tables.html">Control Tables</a></li>
+	<li><a href="">Code Management</a></li>
+</ul>
 
-<p>This would require another set of language features -- forms and reports.</p>
+<h1>Further examples of TOP</h1>
+
+<p>Examples of Table-Oriented Programming (not using Raku):</p>
+
+<ul>
+	<li><a href="prpats.htm"><nobr>P/R Patterns (GOF)</nobr></a></li>
+	<li><a href="shapes.htm">Shapes Example</a></li>
+	<li><a href="lib.htm"><nobr>Publications Example</nobr></a></li>
+</ul>
 
 
 </div>
@@ -180,10 +207,10 @@ HTML form with minimal effort).</p>
 
 <div class="wide-box">
 <div class="footer">
-	<span class="left">			<a href="Collection-Convergence/Database-Engine-Neutrality.html">&lt;&lt; Database Engine Neutrality</a>
+	<span class="left">			<a href="Language-Support/View.html">&lt;&lt; class View</a>
 </span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="Collection-Convergence/Data-Dictionaries.html">Data Dictionaries &gt;&gt;</a>
+	<span class="right">			<a href="Stylistic-Features/Control-Tables/">Control Tables &gt;&gt;</a>
 </span>
 </div>
 <p/>
