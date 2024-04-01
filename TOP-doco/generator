@@ -111,6 +111,7 @@ my(@structure) = (
 
 my(%locations) = (
 	'local' => 'file:///home/wayland/src/TOP/TOP-doco/generated/',
+	'local-server' => 'http://localhost:8000/',
 	'github' => 'https://wayland.github.io/table-oriented-programming/TOP-doco/generated/',
 );
 
