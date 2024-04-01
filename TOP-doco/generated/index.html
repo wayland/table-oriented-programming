@@ -13,20 +13,113 @@
 
 <script type="text/javascript">
 <!--
+class	StackItem {
+	Item = null;
+	ParentList = null;
+
+	constructor(item, parent, stack) {
+		this.Item = item;
+		this.ParentList = parent;
+		stack.push(this);
+	}
+}
+
+// If heading has an ID, make it anchor better
+// Also, generate table of contents
 $(document).ready(function() {
+	// Start TOC code
+	$("table-of-contents").empty();                                                            
+
+	// jQuery stacks
+	var HeadingStack = [];
+	var prevHLevel = 0;
+
+	var index = 0;                                                                    
+	// End TOC code
+
 	$("h1,h2,h3,h4,h5,h6").each(function(i) {
-		var heading = $(this);
-		if(heading.attr('id')) {
-			heading.addClass('linkable');
-			var headingId = heading.attr("id");
-			heading.before('<p id="' + headingId + '" class="pre-heading"/>');
-			heading.wrap('<a class="heading-link" href="' + window.location.href + '#' + headingId + '"></a>');
-			var fontstring = "'Noto Emoji'";
-			heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
-			heading.removeAttr("id");
+		var jQuery_Heading = $(this);
+		var DOM_Heading = jQuery_Heading.get(0);
+
+		//console.log('Starting: ' + jQuery_Heading.text());
+		// if ($('#table-of-contents').is(':empty')){	console.log("Empty TOC-4!" + jQuery_Heading.text()); }
+
+		// Create Anchor
+		var anchor
+		var anchor_name
+		if(jQuery_Heading.attr('id')) {
+			anchor_name = jQuery_Heading.attr("id");
+		} else {
+			anchor_name = DOM_Heading.nodeName + index;
 		}
+		var link_target = window.location.href + '#' + anchor_name;
+		jQuery_Heading.before('<a name="' + anchor_name + '" class="pre-heading"/>');
+		// End Create Anchor
+
+		var originalText = jQuery_Heading.text();
+
+		// Mark up named anchors
+		if(jQuery_Heading.attr('id')) {
+			jQuery_Heading.addClass('linkable');
+			var headingId = jQuery_Heading.attr("id");
+			jQuery_Heading.wrap('<a class="heading-link" href="' + link_target + '"></a>');
+			var fontstring = "'Noto Emoji'";
+			jQuery_Heading.append(' <span style="font-family: ' + fontstring + '">⚓</span>');
+			jQuery_Heading.removeAttr("id");
+		}
+		// End Mark up named anchors
+
+		// Start TOC code
+		jQuery_Heading.before(anchor);                                     
+
+		var	DOM_li = "<li><a href='" + link_target + "'>" + originalText + "</a></li>";
+		var	jQuery_li = $(DOM_li);
+
+		var thisHLevel = DOM_Heading.nodeName.substring(1,2);
+		var thisHDiff = thisHLevel - prevHLevel;
+
+		// console.log('t3==' + thisHDiff + '==' + thisHLevel + '==' + anchor_name);
+
+		if(thisHDiff > 0) {
+			for(let step = prevHLevel; step < thisHLevel; step++) {
+				console.log('Starting step: ' + step);
+				// Set up parent
+				parent = HeadingStack[HeadingStack.length - 1];
+				// Set up new stack item (including parent list) and push
+				var isLast = step == (thisHLevel - 1);
+				CurrentStackItem = new StackItem(
+					isLast ? jQuery_li : null, 
+					$('<ul foo="' + anchor_name + '-' + step + '"></ul>'),
+					HeadingStack
+				);
+				if(isLast) {
+					// Add item to list
+					CurrentStackItem.ParentList.append(CurrentStackItem.Item);
+				}
+				// console.log(CurrentStackItem.ParentList.get(0));
+
+				// Add list to list
+				var useGrandParent = (typeof parent == 'undefined') ? "#table-of-contents" : parent.ParentList;
+				// if(typeof useGrandParent == 'object') { console.log(useGrandParent.get(0)); }
+				CurrentStackItem.ParentList.appendTo(useGrandParent);
+			}
+			// console.log(JSON.parse(JSON.stringify(HeadingStack)));
+		} else if(thisHDiff == 0) {
+			// Add to existing list
+			CurrentStackItem.ParentList.append(jQuery_li);
+		} else {
+			for(let step = prevHLevel; step > thisHLevel; step--) {
+				HeadingStack.pop();
+			}
+			parent = HeadingStack[HeadingStack.length - 1];
+			parent.ParentList.append(jQuery_li);
+		}
+		prevHLevel = thisHLevel;
+		index++;                                                    
+		// End TOC code
 	});
 })
+
 -->
 </script>
 
@@ -152,6 +245,8 @@ $(document).ready(function() {
 <div class="title">Code Management</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
+
+<div id="table-of-contents"></div>
 
 <div class="title">Welcome to Table-Oriented Programming</div>
 
