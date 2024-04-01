@@ -179,8 +179,8 @@ $(document).ready(function() {
 		<a href="javascript:void(0)" class="dropbtn">Stylistic Features</a>
 		<div class="dropdown-content">
 			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style</a>
+			<a href="Stylistic-Features/Code-Management.html">TOP Code Management</a>
 			<a href="Stylistic-Features/Control-Tables/">Control Tables</a>
-			<a href="">Code Management</a>
 
 		</div>
 	</li>
@@ -188,10 +188,10 @@ $(document).ready(function() {
 	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Critiques</a>
 		<div class="dropdown-content">
-			<a href="">OOP</a>
-			<a href="">SQL</a>
-			<a href="">Trees</a>
-			<a href="">Arrays</a>
+			<a href="Critiques/OOP.html">OOP</a>
+			<a href="Critiques/SQL.html">SQL</a>
+			<a href="Critiques/Trees.html">Trees</a>
+			<a href="Critiques/Arrays.html">Arrays</a>
 
 		</div>
 	</li>
@@ -235,17 +235,25 @@ $(document).ready(function() {
 
 		</div>
 	</li>
+
+	<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">AI</a>
+		<div class="dropdown-content">
+			<a href="">gpt-pilot</a>
+			<a href=""></a>
+
+		</div>
+	</li>
 	
 </ul></div>
-</div>
+
+<div id="table-of-contents"></div>
 
 <div class="main-box">
 
 <div class="title">Code Editors</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
-
-<div id="table-of-contents"></div>
 
 <h1>Overview</h1>
 
@@ -256,7 +264,7 @@ $(document).ready(function() {
 			needed</li>
 		<li><b>Source control visual tools:</b> To reduce the time spent managing 
 			the code</li>
-		<li><b>Tablish Code Editors:</b> In Table-Oriented Programming, both 
+		<li><b>Tableish Code Editors:</b> In Table-Oriented Programming, both 
 			code and data can be stored in tables.  Think of this as being like 
 			a spreadsheet, but you can compile it.</li> 
 		<li><b>Dataflow Code Editors:</b> In dataflow programming, there's a 
@@ -283,7 +291,7 @@ are:</p>
 <p>One with lots of features; probably draw on <a href="https://git-scm.com/downloads/guis">
 Git GUI Clients for inspiration.  </a>
 
-<h1>Tablish Code Editor</h1>
+<h1 id="Tableish">Tableish Code Editor</h1>
 
 <p>In Table-Oriented Programming, both code and data can be stored in tables.  
 There should be a visual editor for the tables in question, though it should 
@@ -310,7 +318,7 @@ represented as such: "@gui:icon file='folder.gif'".</li>
 </div>
 
 
-<h1>Dataflow Code Editor</h1>
+<h1 id="Dataflow">Dataflow Code Editor</h1>
 
 <p>In dataflow programming (such as node-red or n8n, but also any language that 
 has concurrency features), there's a diagram that represents how the data flows.  
@@ -323,9 +331,6 @@ would turn that data into.  n8n only really handles json though.</p>
 
 </div>
 
-<p/>
-
-<div class="wide-box">
 <div class="footer">
 	<span class="left">			<a href="RAD/Database-Design-Editor.html">&lt;&lt; Database Design Editor</a>
 </span>

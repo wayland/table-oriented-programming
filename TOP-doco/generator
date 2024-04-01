@@ -47,18 +47,18 @@ my(@structure) = (
 		title => 'Stylistic Features',
 		items => [
 			{ title => 'Introduction to TOP Style', url => 'Stylistic-Features/Introduction.html' },
+			{ title => 'TOP Code Management', url => 'Stylistic-Features/Code-Management.html' },
 			{ title => 'Control Tables', url => 'Stylistic-Features/Control-Tables/' },
-			{ title => 'Code Management', url => '' },
 		],
 	},
 	{
 		title => 'Critiques',
 		items => [
 			# TODO: These should be me selecting the valid critiques from those he makes
-			{ title => 'OOP', url => '' },
-			{ title => 'SQL', url => '' },
-			{ title => 'Trees', url => '' },
-			{ title => 'Arrays', url => '' },
+			{ title => 'OOP', url => 'Critiques/OOP.html' },
+			{ title => 'SQL', url => 'Critiques/SQL.html' },
+			{ title => 'Trees', url => 'Critiques/Trees.html' },
+			{ title => 'Arrays', url => 'Critiques/Arrays.html' },
 			# TODO There should be others here
 		],
 	},
@@ -99,6 +99,13 @@ my(@structure) = (
 #-       Flexible grammar, slangs
 #-       Already has many paradigms -- no need to reinvent the wheel
 
+	},
+	{
+		title => 'AI',
+		items => [
+			{ title => 'gpt-pilot', url => '' },
+			{ title => '', url => '' },
+		],
 	},
 #	{
 #		title => '',

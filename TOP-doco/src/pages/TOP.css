@@ -1,14 +1,26 @@
-<#
-	$blockquote_background_colour = '#ffffee';
-	$blockquote_border_colour = '#eede8c';
-	$th_background_colour = '#efcf00';
+@property --blockquote-background-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #ffffee;
+}
 
-	$link_visited = $location eq 'local' ? "background-color: red;" : '';
+@property --blockquote-border-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #eede8c;
+}
 
-	"";
-#>
+@property --th-background-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #efcf00;
+}
 
 body {
+	--blockquote-background-color: #ffffee;
+	--blockquote-border-color: #eede8c;
+	--th-background-color: #efcf00;
+
 	font-family: "Crimson Text", serif;
 	font-weight: 400;
 	font-style: normal;
@@ -19,9 +31,15 @@ body {
 }
 
 .main-box {
-	margin: auto;
-	padding-top: 40pt;
-	width: 640px;
+	margin-right: 0;
+	right: 0;
+	
+	overflow: auto;
+	padding: 0 5pt;
+	max-height: 98%;
+	
+	grid-column-start: 2;
+	grid-row-start: 2;
 }
 
 div.notfirst {
@@ -29,8 +47,24 @@ div.notfirst {
 }
 
 .wide-box {
+	position: fixed;
+	top:        0;
+	bottom:     0;
+	overflow:   hidden;
+	background: white;
+	left: 25%;
 	width: 1000px;
+
 	margin: auto;
+	display: grid;
+	
+	grid-template-columns: 25% 75%;
+/*	grid-template-rows: 100px 200px 100px; */
+
+	grid-template-areas:
+		"sitemenu sitemenu"
+		"docmenu main main"
+		"footer footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,9 +131,9 @@ h3 {	background-color: #eff7ff;	}
 
 	padding: 10pt;
 
-	background-color: <# $blockquote_background_colour #>;
+	background-color: var(--blockquote-background-color);
 	border-radius: 4pt;
-	border-color: <# $blockquote_border_colour #>;
+	border-color: var(--blockquote-border-color);
 	border-style: solid;
 	border-width: 1pt;
 }
@@ -139,7 +173,7 @@ th, td {
 }
 
 th {
-	background-color: <# $th_background_colour #>;
+	background-color: var(--th-background-color);
 }
 
 .blockquote tr:nth-child(even) {
@@ -176,20 +210,63 @@ code {
 	margin-left: 10pt;
 }
 
-/* Code for CSS dropdown menus */
-.navbar ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	background-color: #333;
-	position: fixed;
-	top: 0;
-	width: 1000px;
-	z-index: 1;
+.myth {
+	background-color: var(--blockquote-background-color);
+	border-radius: 4pt;
+	border-color: var(--blockquote-border-color);
+	border-style: solid;
+	border-width: 1pt;
 }
 
-.navbar li {
-	float: left;
+/* Code for CSS dropdown menus */
+#table-of-contents {
+	z-index: 1;
+	margin-top: 20pt;
+	border-width: 1px;
+	border-radius: 4pt;
+	border-color: var(--blockquote-border-color);
+	padding-left: 5pt;
+	
+	grid-column-start: 1;
+}
+
+#table-of-contents ul {
+	list-style-type: none;	
+	margin: 0;
+	padding-left: 5pt;
+	text-align: left;
+}
+
+#table-of-contents ul li {
+	padding: 6pt 0pt;
+}
+
+#table-of-contents ul li a {
+	color: black;
+}
+
+#table-of-contents ul li a:link {
+	text-decoration-style: dotted;
+}
+
+#table-of-contents ul li a:visited {
+	text-decoration-style: dashed;
+}
+
+#table-of-contents ul li a:hover {
+	text-decoration-style: solid;
+}
+
+.navbar ul {
+	top: 0;
+	width: 1000px;
+	height: fit-content; 
+
+	margin: 0;
+	padding: 0;
+
+	list-style-type: none;
+	background-color: #333;
 }
 
 .navbar li a, .navbar .dropbtn {
@@ -285,11 +362,11 @@ code {
 	width: 400px;
 	margin-left: 36pt;
 	margin-top: -14pt;
-	border: 2px solid <# $blockquote_border_colour #>;
+	border: 2px solid var(--blockquote-border-color);
 	border-radius: 4pt;
 	padding: 10px;
 
-	background-color: <# $blockquote_background_colour #>;
+	background-color: var(--blockquote-background-color);
 }
 
 /* Code for footer */
@@ -299,7 +376,10 @@ code {
 	justify-content: space-between;
 	background-color: #333;
 	color: white;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
+
 .footer span {
 	flex: 1;
 	padding: 14px 2px;

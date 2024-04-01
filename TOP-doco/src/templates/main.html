@@ -142,7 +142,8 @@ $(document).ready(function() {
 	$out;
 #>	
 </ul></div>
-</div>
+
+<div id="table-of-contents"></div>
 
 <div class="main-box">
 
@@ -150,15 +151,10 @@ $(document).ready(function() {
 
 <div class="tagline">Tim Nelson, 2024</div>
 
-<div id="table-of-contents"></div>
-
 <# include($source) #>
 
 </div>
 
-<p/>
-
-<div class="wide-box">
 <div class="footer">
 	<span class="left"><# include_footer('menu-item.html', 'previous', $footer->{previous}) #></span>
 	<span class="centre">-</span>

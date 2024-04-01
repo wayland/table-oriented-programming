@@ -2,3 +2,5 @@ s/ITOP/TOP/
 s/.)/)./
 
 Search for FIX and TODO and fix these things
+-	Final date for website was 2006
+-	Made citation into a template
