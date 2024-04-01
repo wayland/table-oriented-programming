@@ -91,8 +91,7 @@ my(@structure) = (
 			{ type => 'section', 'title' => 'Implementation Features', items => [
 				{ title => 'File Directory Management', url => '' },
 			]},
-			{ title => 'Why Table-Oriented Programming?', url => '' },
-			{ title => 'Benefits of Good Table-Oriented Programming', url => 'Other-Items/Benefits.html' },
+			{ title => 'Why Table-Oriented Programming?', url => 'Other-Items/Why-Table-Oriented-Programming.html' },
 			{ title => 'Scalar Type Convergence', url => 'Other-Items/Scalar-Type-Convergence.html' },
 			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
 		],
