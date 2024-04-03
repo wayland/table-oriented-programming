@@ -23,6 +23,7 @@ my(@structure) = (
 			{ title => 'Why Table-Oriented Programming', url => 'Introduction/Why.html' },
 			{ title => 'Terminology', url => 'Introduction/Terminology.html' },
 			{ title => 'History', url => 'Introduction/History.html' },
+			{ title => 'TOP and the Language Analogy', url => 'Introduction/Language-Analogy.html', width => 'huge' },
 		],
 	},
 	{
@@ -94,6 +95,8 @@ my(@structure) = (
 			{ title => 'Why Table-Oriented Programming?', url => 'Other-Items/Why-Table-Oriented-Programming.html' },
 			{ title => 'Scalar Type Convergence', url => 'Other-Items/Scalar-Type-Convergence.html' },
 			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
+			{ title => 'Zealot-Oriented Programming', url => 'Other-Items/Zealot-Oriented-Programming/' },
+			{ title => 'English Analysis', url => 'Other-Items/English-Analysis.html', width => 'huge' },
 		],
 #TODO Maybe write an article about why Raku is the perfect programming language for research, because:
 #-       Flexible grammar, slangs
@@ -104,7 +107,6 @@ my(@structure) = (
 		title => 'AI',
 		items => [
 			{ title => 'gpt-pilot', url => '' },
-			{ title => '', url => '' },
 		],
 	},
 #	{
@@ -159,6 +161,7 @@ sub	do_menu_item {
 		previous => $previous,
 		title => $title,
 		url => $url,
+		width => $menu_item->{width},
 	};
 	if(defined($previous)) {
 		exists($previous->{next}) and do {

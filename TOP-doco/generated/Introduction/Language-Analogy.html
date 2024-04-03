@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Database Design Editor :: Table-Oriented Programming (TOP)</title>
+<title>TOP and the Language Analogy :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,7 @@ $(document).ready(function() {
 </head>
 <body>
 
-<div class="wide-box ">
+<div class="wide-box huge">
 <div class="navbar"><ul>
 
 	<li class="dropdown">
@@ -253,33 +253,402 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">Database Design Editor</div>
+<div class="title">TOP and the Language Analogy</div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
-<h1>Overview</h1>
-<p>Lets you visually edit the design of your database</p>
 
-<h1>Recommendation</h1>
+<p style="background-color: red">Warning: This page is definitely incomplete; probably skip it for now</p>
 
-<p>My recommendation is that we use Eric Lendvai's "DataWharf".</p>
+<p>In understanding programming languages, it can be helpful to understand the 
+parts of speech in natural language.  The table below compares natural language 
+terminology, and the terminology of a few programming paradigms.</p>
 
-<ul>
-	<li><a href="https://github.com/EricLendvai/DataWharf">DataWharf GitHub 
-		repo</li>
-	<li><a href="https://www.youtube.com/channel/UC52bB1wkczRyIFhX7HlRTOw">
-		YouTube tutorials</a> on DataWharf</li>
-</ul>
+
+<table>
+	<tr>
+		<th>Natural Language</th>
+		<th>Object-Oriented</th>
+		<th>Procedural</th>
+		<th>Table-Oriented</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>Noun</td>
+		<td>Object</td>
+		<td>Variable</td>
+		<td></td>
+		<td>Names an object</td>
+	</tr>
+	<tr>
+		<td>Adjective</td>
+		<td>property/attribute</td>
+		<td>Related variable</td>
+		<td></td>
+		<td>Describes a noun</td>
+	</tr>
+	<tr>
+		<td>Verb</td>
+		<td>method</td>
+		<td>function/procedure/subroutine</td>
+		<td></td>
+		<td>Doing word</td>
+	</tr>
+	<tr>
+		<td>Adverb</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>Describes a verb</td>
+	</tr>
+	<tr>
+		<td>Pronoun</td>
+		<td>Context variable</td>
+		<td>Context variable</td>
+		<td></td>
+		<td>Stands in for a noun; value derived from context</td>
+	</tr>
+	<tr>
+		<td>Preposition</td>
+		<td>named method parameter (or default parameter)</td>
+		<td>named function parameter (or default parameter)</td>
+		<td></td>
+		<td>Introduces a phrase describing a verb or noun</td>
+	</tr>
+	<tr>
+		<td>Conjunction</td>
+		<td>?Maybe boolean operators</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Interjection (not used)</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Pro-forms</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+cf. 
+https://www.quora.com/How-many-parts-of-speech-are-covered-in-English-8-or-9
+
+<h3>Parts of Speech Grid</h3>
+
+https://en.wikipedia.org/wiki/Pro-form
+
+<table>
+	<tr>
+		<th>Base Item</th>
+		<th>Adpart</th>
+		<th>Introducing Adpart clause</th>
+		<th>Base Proform</th>
+		<th>Adpart Proform</th>
+	</tr><tr>
+		<td>Noun</td>
+		<td>Adjective</td>
+		<td>Preposition</td>
+		<td>Pronoun</td>
+		<td>Proadjective</td>
+	</tr><tr>
+		<td>Verb</td>
+		<td>Adverb</td>
+		<td>Preposition, conjunctive adverb (aka subordinating conjunction)</td>
+		<td>(Pro-verb)</td>
+		<td>Pro-adverb</td>
+	</tr><tr>
+		<td>Conjunction</td>
+		<td></td>
+		<td>(on the one hand...but on the other hand)</td>
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td>Interjection</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<h3>Pro-form programming</h3>
+
+<p>The table below is derived from the Wikipedia
+<a href="https://en.wikipedia.org/wiki/Pro-form#Table_of_correlatives">
+Table of Correlatives</a>.  </p>
+
+<table class="scrolltable">
+	<caption><b>Table of correlatives</b></caption>
+	<thead>
+		<tr>
+			<th colspan="2" rowspan="2"></th>
+			<th rowspan="2">interrogative / relative</th>
+			<th colspan="3">demonstrative</th>
+			<th colspan="5">quantifier</th>
+		</tr>
+		<tr>
+			<th>proximal</th>
+			<th>medial</th>
+			<th>distal</th>
+			<th>assertive <br /> existential</th>
+			<th>elective/dubitative <br /> existential</th>
+			<th>universal</th>
+			<th>negatory</th>
+			<th>positive <br /> alternative</th>
+		</tr>
+	</thead>
+<tbody class="scrollContent">
+<tr>
+<th colspan="2">determiner
+</th>
+<td>which<br />what
+</td>
+<td>this (sg.)<br />these (pl.)
+</td>
+<td>that (sg.)<br />those (pl.)
+</td>
+<td>yon<br />yonder
+</td>
+<td>some
+</td>
+<td>any<br />whichever<br />whichsoever
+</td>
+<td>every<br />each<br />all
+</td>
+<td>no
+</td>
+<td>another
+</td></tr>
+<tr>
+<th rowspan="4">pronoun
+</th>
+<th>human
+</th>
+<td>who<br />whom (obj.)
+</td>
+<td>this (one) (sg.)<br />these (ones) (pl.)
+</td>
+<td>that (one) (sg.)<br />those (ones) (pl.)
+</td>
+<td>yon<br />yonder
+</td>
+<td>someone<br />somebody
+</td>
+<td>anyone<br />anybody<br />whoever<br />whomever (obj.)<br />whosoever<br />whomsoever (obj.)
+</td>
+<td>everyone<br />everybody<br />all
+</td>
+<td>no one<br />nobody
+</td>
+<td>another<br />someone else<br />somebody else
+</td></tr>
+<tr>
+<th>nonhuman
+</th>
+<td>what
+</td>
+<td>this (one) (sg.)<br />these (ones) (pl.)
+</td>
+<td>that (one) (sg.)<br />those (ones) (pl.)
+</td>
+<td>yon<br />yonder
+</td>
+<td>something
+</td>
+<td>anything<br />whatever<br />whatsoever
+</td>
+<td>everything<br />all
+</td>
+<td>nothing
+</td>
+<td>something else<br />else<br />other
+</td></tr>
+<tr>
+<th>out of two <br /> (dual)
+</th>
+<td rowspan="2">which
+</td>
+<td rowspan="2">this one (sg.)<br />these (ones) (pl.)
+</td>
+<td rowspan="2">that one (sg.)<br />those (ones) (pl.)
+</td>
+<td rowspan="2">yon<br />yonder
+</td>
+<td>one
+</td>
+<td>either<br />whichever<br />whichsoever
+</td>
+<td>both
+</td>
+<td>neither
+</td>
+<td>other
+</td></tr>
+<tr>
+<th>out of many <br /> (plural)
+</th>
+<td>some (pl.)<br />one (sg.)
+</td>
+<td>any<br />whichever<br />whichsoever
+</td>
+<td>each<br />all
+</td>
+<td>none
+</td>
+<td>another
+</td></tr>
+<tr>
+<th rowspan="6">pro-adverb
+</th>
+<th>location
+</th>
+<td>where
+</td>
+<td>here
+</td>
+<td>there
+</td>
+<td>yonder
+</td>
+<td>somewhere
+</td>
+<td>anywhere<br />wherever<br />wheresoever
+</td>
+<td>everywhere
+</td>
+<td>nowhere
+</td>
+<td>elsewhere
+</td></tr>
+<tr>
+<th>source
+</th>
+<td>whence
+</td>
+<td>hence
+</td>
+<td>thence
+</td>
+<td>
+</td>
+<td>somewhence
+</td>
+<td>anywhence<br />whencever<br />whencesoever
+</td>
+<td>everywhence
+</td>
+<td>nowhence
+</td>
+<td>elsewhence
+</td></tr>
+<tr>
+<th>goal
+</th>
+<td>whither
+</td>
+<td>hither
+</td>
+<td>thither
+</td>
+<td>
+</td>
+<td>somewhither
+</td>
+<td>anywhither<br />whitherever<br />whithersoever
+</td>
+<td>everywhither
+</td>
+<td>nowhither
+</td>
+<td>elsewhither
+</td></tr>
+	<tr>
+		<th>time</th>
+		<td><span class="smallquote">when</span> Seek more info (AI?)</td>
+		<td><span class="smallquote">now</span> The default</td>
+		<td><span class="smallquote">then</span> At a context-derived time 
+			in the future</td>
+		<td></td>
+		<td><span class="smallquote">sometime, somewhen</span> At an 
+			unspecified time (maybe not useful)</td>
+		<td><span class="smallquote">anytime, anywhen, whenever, whensoever</span>
+			anytime: at a time of your choosing
+			whenever: As an adverb, same as anytime; as a conjunction, it's 
+event-driven programming (trigger on condition)
+</td>
+		<td><span class="smallquote">ever<br />always<br />everywhen</span></td>
+		<td><span class="smallquote">never<br />nowhen</span></td>
+		<td><span class="smallquote">elsewhen<br />another time</span></td>
+	</tr><tr>
+<th>manner
+</th>
+<td>how<br />whereby
+</td>
+<td>thus<br />hereby
+</td>
+<td>thereby
+</td>
+<td>
+</td>
+<td>somehow
+</td>
+<td>anyhow<br />however<br />howsoever
+</td>
+<td>everyway
+<p>everywise
+</p>
+</td>
+<td>no way
+<p>nowise
+</p>
+</td>
+<td>otherwise
+<p>elsewise
+</p>
+</td></tr>
+<tr>
+<th>reason
+</th>
+<td>why<br />wherefore
+</td>
+<td>herefore
+</td>
+<td>therefore
+</td>
+<td>
+</td>
+<td>somewhy
+<p>for some reason
+</p>
+</td>
+<td>whyever<br />whysoever
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+</tbody></table>
+
 
 
 
 </div>
 
 <div class="footer">
-	<span class="left">			<a href="Other-Items/Paradigm-Comparisons.html">&lt;&lt; Paradigm Comparisons</a>
+	<span class="left">			<a href="Introduction/History.html">&lt;&lt; History</a>
 </span>
 	<span class="centre">-</span>
-	<span class="right">			<a href="RAD/Code-Editors.html">Code Editors &gt;&gt;</a>
+	<span class="right">			<a href="Collection-Convergence/Introduction/">Introduction to Collection Convergence &gt;&gt;</a>
 </span>
 </div>
 <p/>

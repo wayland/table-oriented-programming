@@ -1,0 +1,15 @@
+-	Make the Language Analogy a separate page; pull in the noun-verb priority stuff
+-	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
+
+
+
+-	Maybe make another page (based on the TOPMind stuff) that talks about how categorisation systems have to be fit-for-purpose
+-	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
+-	Make the multiple categorisations point
+
+
+
+-	Redo the site in xsl.  What we need is:
+	-	One xml schema for the UI
+	-	One XML schema for the site map (to generate the menu)
+	-	One XML schema for the content (mostly just HTML -- or can we just use HTML in an iframe?)

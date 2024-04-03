@@ -131,7 +131,7 @@ $(document).ready(function() {
 </head>
 <body>
 
-<div class="wide-box">
+<div class="wide-box <# defined($footer->{width}) ? $footer->{width} : '' #>">
 <div class="navbar"><ul>
 <#
 	my $out = '';

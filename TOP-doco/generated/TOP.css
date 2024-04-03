@@ -1,3 +1,15 @@
+@property --wide-box-left {
+	syntax: "<dimension>";
+	inherits: false;
+	initial-value: 25%;
+}
+
+@property --wide-box-width {
+	syntax: "<dimension>";
+	inherits: false;
+	initial-value: 1000px;
+}
+
 @property --blockquote-background-color {
 	syntax: "<color>";
 	inherits: false;
@@ -20,6 +32,8 @@ body {
 	--blockquote-background-color: #ffffee;
 	--blockquote-border-color: #eede8c;
 	--th-background-color: #efcf00;
+	--wide-box-left: 25%;
+	--wide-box-width: 1000px;
 
 	font-family: "Crimson Text", serif;
 	font-weight: 400;
@@ -35,12 +49,13 @@ body {
 	right: 0;
 	
 	overflow: auto;
-	padding: 0 5pt;
+	padding-right: 20pt;
 	max-height: 98%;
 	
 	grid-column-start: 2;
 	grid-row-start: 2;
 }
+
 
 div.notfirst {
 	padding-top: 0;
@@ -52,20 +67,26 @@ div.notfirst {
 	bottom:     0;
 	overflow:   hidden;
 	background: white;
-	left: 25%;
-	width: 1000px;
+	left: var(--wide-box-left);
+	width: var(--wide-box-width);
 
 	margin: auto;
 	display: grid;
 	
 	grid-template-columns: 25% 75%;
-/*	grid-template-rows: 100px 200px 100px; */
 
 	grid-template-areas:
 		"sitemenu sitemenu"
 		"docmenu main main"
 		"footer footer";
 }
+
+.wide-box.huge {
+	left: 0;
+	width: 100%;
+	grid-template-columns: 10% 90%;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Quattrocento", serif;
@@ -164,7 +185,7 @@ table {
 	margin: auto;
 }
 
-tr:nth-child(even) {
+table:not(.table-special-background) tr:nth-child(even) {
 	background-color: #eeeeee;
 }
 
@@ -210,7 +231,7 @@ code {
 	margin-left: 10pt;
 }
 
-.myth {
+.smallquote {
 	background-color: var(--blockquote-background-color);
 	border-radius: 4pt;
 	border-color: var(--blockquote-border-color);
@@ -221,9 +242,11 @@ code {
 /* Code for CSS dropdown menus */
 #table-of-contents {
 	z-index: 1;
-	margin: 20pt 0;
+	margin-top: 20pt;
+	border-width: 1px;
+	border-radius: 4pt;
+	border-color: var(--blockquote-border-color);
 	padding-left: 5pt;
-	background-color: #333;
 	
 	grid-column-start: 1;
 }
@@ -233,7 +256,6 @@ code {
 	margin: 0;
 	padding-left: 5pt;
 	text-align: left;
-
 }
 
 #table-of-contents ul li {
@@ -241,16 +263,30 @@ code {
 }
 
 #table-of-contents ul li a {
-	color: white;
+	color: black;
+}
+
+#table-of-contents ul li a:link {
+	text-decoration-style: dotted;
+}
+
+#table-of-contents ul li a:visited {
+	text-decoration-style: dashed;
+}
+
+#table-of-contents ul li a:hover {
+	text-decoration-style: solid;
 }
 
 .navbar {
-	z-index: 2;	
+	z-index: 2;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 .navbar ul {
 	top: 0;
-	width: 1000px;
+	width: 100%;
 	height: fit-content; 
 
 	margin: 0;
@@ -387,27 +423,12 @@ code {
 	border-radius: 4pt;
 }
 
-/*
-.footer :link {
-	color: #bfbfff;
-}
-
-.footer :visited {
-	color: #ffbfff;
-}
-*/
-.footer .left {
-/*	float: left; */
-}
-
 .footer .centre {
-	/* display: inline-block; */
 	text-align: center;
 	margin: auto;
 }
 
 .footer .right {
-/*	float: right; */
 	text-align: right;
 }
 
@@ -425,3 +446,13 @@ svg text:hover {
 	pointer-events: auto;
 	fill: red;
 } 
+
+/* Scrollable table content 
+
+wasn't able to get the headings and body to line up while doing this. (at least not on the language analogy page)
+*/
+
+tbody.scrollContent {
+	height: 262px;
+	overflow-y: scroll;
+}
