@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>TOP/Critiques/Trees.xml</filename>
+<content>
+<div class="blockquote">
+
+<p>[Even though...] it has been known since 1847 that classifications are 
+dependent on the purpose of the classification, people continue to believe that 
+it is possible to create a classification system that is context-independent. </p>
+
+<div class="reference">
+	Haim Kilov on comp.object, 6/01, quoted in 
+	<i><a href="https://www.oocities.org/tablizer/subtypes.htm">Subtype 
+		Proliferation Myth</a></i>, by Tablizer/TOPMind
+</div>
+
+</div>
+
+<p>I'm not sure what 6/01 means here; are those numbers days, months, or years?  
+</p>
+
+<h1>The Critiques</h1>
+
+<p>Tablizer/TOPMind made a number of criticisms of Trees. Like the other 
+Critiques, some are no longer relevant. These can be summarised as:</p>
+
+<ul>
+	<li>Paths bad: <span class="smallquote">There is a concept in 
+		computer-science called "<a href="https://en.wikipedia.org/wiki/Law_of_Demeter">
+		Law of Demeter</a>" which warns against heavy dependence on the "path" 
+		to an item.</span></li> 
+	<li>Orthogonal traits/multiple taxonomies: If there are two orthogonal 
+		traits, the path to them could be structured either way</li>
+	<li>People are often bad about following the tree structure (though this is 
+		true of his alternative as well)</li>
+</ul>
+
+<p>Having said that, he said that <span class="smallquote">trees views and sets 
+are not mutually-exclusive.</span>  This means that people can look at it as a 
+tree while it's a set under the hood for those who need it.  </p>
+
+<p>His conclusion was that tables were a better way of doing things.  Each 
+orthogonal taxonomy can have a separate field in the table.  If useful, the 
+taxonomies can be ranked in order of importance.  He discussed user interface 
+possibilities.  His examples are better than nothing, but not amazing.</p>
+
+<h1>My Thoughts on Trees</h1>
+
+<p>Writing in the current era, I want to highlight a few kinds of taxonomy 
+systems, from strictest to least strict:</p>
+
+<ul>
+	<li>Graph family (trees)</li>
+	<ul>
+		<li><a href="https://en.wikipedia.org/wiki/Arborescence_(graph_theory)">
+			Arborescence</a>: A tree with one root, and the links pointing 
+			away from the root</li>
+		<li><a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">
+			Directed Acyclic Graph</a> (DAG): Basically trees with 
+			shortcuts/links, but no loops.</li>
+		<li><a href="https://en.wikipedia.org/wiki/Directed_graph">Directed 
+			Graph</a>: Same as above, but allows loops</li> 
+	</ul>
+	<li>Set Family</li>
+	<ul>
+		<li>Sets/Tables with defined columns</li>
+		<li>Sets/tables with ad-hoc columns (aka key-value tags)</li>
+	</ul>
+	<li>Tag Soup</li>
+	<ul>
+		<li>Value-only tags</li>
+	</ul>
+</ul>
+
+<p>I personally think that all of the above are suited for certain tasks, but 
+the sweet spots are generally:</p>
+<ul>
+	<li>The Directed Graph: has its strengths and weaknesses, but is the 
+		most flexible tree</li>
+	<li>Sets/tables with ad-hoc taxonomy columns (or maybe a mix of defined 
+		and ad-hoc): not too strict (like a graph/tree), but not too lax (like 
+		value-only tags, which are not nearly as good for finding things).</li>
+</ul>
+
+<p>I object to tags that aren't key/value.  His recommended solution steers the 
+middle way between value-only tags and trees.  </p>
+
+<p>In the specific case of documents (in an XML-like language), I'd be 
+interested in a structure more like the 
+<a href="https://en.wikipedia.org/wiki/Multitree">Multitree</a>, where multiple 
+taxonomies of the document can be represented simultaneously; this is less 
+important in standard business documents, but it'd be very useful in things 
+like critical editions of works derived from many manuscripts.  </p>
+
+</content>
+</page>

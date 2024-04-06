@@ -149,7 +149,6 @@ $(document).ready(function() {
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
 			<a href="Introduction/Terminology.html">Terminology</a>
 			<a href="Introduction/History.html">History</a>
-			<a href="Introduction/Language-Analogy.html">TOP and the Language Analogy</a>
 
 		</div>
 	</li>
@@ -192,7 +191,6 @@ $(document).ready(function() {
 			<a href="Critiques/OOP.html">OOP</a>
 			<a href="Critiques/SQL.html">SQL</a>
 			<a href="Critiques/Trees.html">Trees</a>
-			<a href="Critiques/Arrays.html">Arrays</a>
 
 		</div>
 	</li>
@@ -234,7 +232,6 @@ $(document).ready(function() {
 			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
 			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
 			<a href="Other-Items/Zealot-Oriented-Programming/">Zealot-Oriented Programming</a>
-			<a href="Other-Items/English-Analysis.html">English Analysis</a>
 
 		</div>
 	</li>
@@ -259,7 +256,10 @@ $(document).ready(function() {
 
 <p>Much like in SQL, views are selections of data from one or more collections 
 (descendents of Tableish).  However, unlike SQL, we should expect views to be 
-local, writable, and objects.  </p>
+local, writable, and objects.  Another notable difference is that it would be 
+perfectly normal to declare a view on one table, so as to get a sort order 
+or something similar (in SQL terms, they function as a combination of a View 
+and a Cursor).  </p>
 
 
 <h1>Selecting Data</h1>
@@ -459,7 +459,7 @@ mapping is provided.
 
 
 
-</div>
+</div> <!-- main-box -->
 
 <div class="footer">
 	<span class="left">			<a href="Language-Support/Table.html">&lt;&lt; class Table</a>
@@ -468,10 +468,8 @@ mapping is provided.
 	<span class="right">			<a href="Stylistic-Features/Introduction.html">Introduction to TOP Style &gt;&gt;</a>
 </span>
 </div>
-<p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
-</div>
-<p/>
+</div> <!-- wide-box -->
 
 </body>
 </html>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>TOP/Stylistic-Features/Code-Management.xml</filename>
+<content>
+<h1>Overview</h1>
+
+<p>One of the key components to Table-Oriented Programming is that tables aren't 
+just for data -- you can also store your <i>code</i> in a table, just like a 
+spreadsheet.  </p>
+
+<p>We've all heard (if not seen) the horror stories, of hugely complex 
+spreadsheets, that are all over the place, but key to running some business, and 
+only one person knows how they work.  However, we hear the same stories about 
+undocumented codebases.  </p>
+
+<ul>
+	<li>This is only a superior code management tool if you have a nice GUI 
+		table editor -- see <a href="RAD/UI-Editors.html#GUI-Editor">GUI 
+		Editor</a> for more details.  Note that this shouldn't replace the 
+		standard code editor, but rather supplement it.  If done correctly, this 
+		should make your code easier to find, because grids are two dimensional, 
+		whereas code is one-dimensional</li>
+	<li>It's important to know when to use a table, and when not to.  If you've 
+		ever wanted to use regular code in a spreadsheet, or use a spreadsheet 
+		for a programming task, then you've already begun to develop the 
+		instinct for when to use tables, and when not.  </li>
+</ul>
+
+<div class="blockquote">
+
+<p>Allows tables to hold internal function calls and expressions, not just 
+values or SQL expressions. This helps build powerful control tables, including 
+the DD.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>It's important to note that this is a departure from SQL, which doesn't 
+easily store code in tables.  </p>
+
+<h1>Benefits</h1>
+
+<p>The following are some of the benefits of TOP code management.</p>
+
+<div class="blockquote">
+
+	<a name="sql_eval"></a>
+
+<p>Ability to evaluate table processing calls with internal expressions and 
+functions, not just SQL. For example, in XBase a statement like <code>replace 
+all pay with CalcRate() * hours</code> calculates all employee paychecks in a 
+table. In SQL this could resemble: <code>"Update emp set pay = CalcRate() * 
+hours"</code>.  However, in standard SQL you cannot "pass" the CalcRate function 
+to the SQL processor; you are stuck with SQL's built-in functions or proprietary 
+"stored" procedure calls that are separate from your code. (Note that CalcRate 
+may use many fields in a record.  Thus, it cannot be "blind" to the "current" 
+record).  Working with SQL is like having a wall that separates your code from 
+SQL's table processing.  TOP breaks down this wall.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1>Tips for Thinking Tablely</h1>
+
+<p>One useful prompt to think tablely was a statement by Tablizer/TOPMind that 
+self-handling verbs are equally as useful as self-handling nouns.  This was in a 
+context of objects (nouns) vs action (verbs).  It would be useful to be able to 
+have a table that has a list of objects OR classes (two different tables), and 
+each column is a property or method of that object.  This might be tricky to 
+implement, but might also be really handy for debugging.  </p>
+</content>
+</page>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>TOP/Collection-Convergence/Memory-Mapping-Reduction.xml</filename>
+<content>
+<div class="blockquote">
+The goal of reducing or eliminating the need to manually map and/or transfer 
+memory variables to and from table fields and to and from the UI (screens). 
+(This process should be invisible to the programmer regardless of the fact that 
+internal implementation usually uses memory-based copies.)
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>Another feature that is invisible to the programmer, but saves lots of 
+work.</p>
+
+<p>Here it also becomes clear that TOP also requires UI support.  Raku again 
+doesn't support this out-of-the-box.  Various UIs have been added, but these UIs 
+don't have consistent interfaces (eg. a curses-based form can't be turned into a 
+HTML form with minimal effort).  See <a href="RAD/UI-Editors.html">UI 
+editors</a> for the plan.</p>
+
+<p>This would require another set of language features -- forms and reports.</p>
+<div class="blockquote">
+
+<p>Field variables can be referenced easily without converting back and forth 
+between memory variables and actual table fields. An example might be 
+<code>$amount = 
+$rate * hours</code> where the $ sign marks field variables ("hours" is a memory 
+variable). Note that a "with"-like structure may make the table reference 
+unnecessary; however, an optional table reference should be permitted. Example: 
+<code>x = mytable$amount</code>.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>This last is basically what Raku already does.</p>
+</content>
+</page>

@@ -149,7 +149,6 @@ $(document).ready(function() {
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
 			<a href="Introduction/Terminology.html">Terminology</a>
 			<a href="Introduction/History.html">History</a>
-			<a href="Introduction/Language-Analogy.html">TOP and the Language Analogy</a>
 
 		</div>
 	</li>
@@ -192,7 +191,6 @@ $(document).ready(function() {
 			<a href="Critiques/OOP.html">OOP</a>
 			<a href="Critiques/SQL.html">SQL</a>
 			<a href="Critiques/Trees.html">Trees</a>
-			<a href="Critiques/Arrays.html">Arrays</a>
 
 		</div>
 	</li>
@@ -234,7 +232,6 @@ $(document).ready(function() {
 			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
 			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
 			<a href="Other-Items/Zealot-Oriented-Programming/">Zealot-Oriented Programming</a>
-			<a href="Other-Items/English-Analysis.html">English Analysis</a>
 
 		</div>
 	</li>
@@ -326,7 +323,7 @@ past.</p>
 Many <a href="https://en.wikipedia.org/wiki/User_interface_markup_language">
 user interface markup languages</a> have been proposed.  The current winner is 
 HTML, which is not what HTML was designed for.  The linked Wikipedia page 
-doesn't even mention XForms, which was slated to become part of XHTML2 until it 
+barely mentions XForms, which was slated to become part of XHTML2 until it 
 got steam-rollered by HTML5.  This was the one part of XHTML2 I was really 
 looking forward to.  </p>
 
@@ -343,6 +340,18 @@ JSON/YAML?"  In some contexts, that's rightly true, but certainly in the case of
 documents (reports), and arguably in the case of forms, XML is still our best 
 solution; this is what it was designed for, and it still does it better than 
 JSON or YAML, which don't support content nearly as well</p>
+
+<p>Ideally, we'd use:</p>
+
+<ul>
+	<li>One XML schema for the UI (probably 
+		<a href="https://www.w3.org/TR/2009/REC-xforms-20091020/">XForms</a>) 
+		</li>
+	<li>One XML schema for the site map (to generate the menu, etc)</li>
+	<li>An import link for the content: <code>
+&lt;link rel="import" href="http://example.com/elements.html"/&gt;
+</code></li>
+</ul>
 
 <h1>Document Editor (Reports)</h1>
 
@@ -414,7 +423,7 @@ by the Notebook model (cf. Jupyter)</p>
 </table>
 
 
-</div>
+</div> <!-- main-box -->
 
 <div class="footer">
 	<span class="left">			<a href="RAD/Code-Editors.html">&lt;&lt; Code Editors</a>
@@ -423,10 +432,8 @@ by the Notebook model (cf. Jupyter)</p>
 	<span class="right">			<a href="RAD/Backend-to-Frontend-Design.html">Backend-to-Frontend Design &gt;&gt;</a>
 </span>
 </div>
-<p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
-</div>
-<p/>
+</div> <!-- wide-box -->
 
 </body>
 </html>

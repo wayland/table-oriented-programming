@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>Other-Items/Zealot-Oriented-Programming/</filename>
+<content>
+<p>Just had to quote this in full...</p>
+
+<div class="blockquote">
+
+<h2> One Mind Fits All? </h2>
+
+<center><img src="Other-Items/Zealot-Oriented-Programming/brain.gif" border="0" width="119" height="99"/></center>
+
+<p>It seems that paradigms are like colors, cars,
+and clothes--everybody has their favorite.
+What works for one person, culture, or application 
+may not work well for another.
+To say that object paradigms are the best organization
+tool in a general sense strikes us as arrogant.
+It is like saying, "Yellow is the best color for everybody."</p>
+<p/>
+<!-- [example suppressed for now]
+Think about school. Some learned more at lectures, some learned
+more by reading the textbook, others liked note-cards. Some
+related to diagrams, others related to analogies better, etc.
+We each have different ways of organizing information in
+our minds. It is a [b]mistake[/b] to assume that others
+will think and work best if they try to organize information like you.
+(Some crossover may happen given enough exposure, but this
+is not proof that it is best for most.)
+-->
+
+  <center>
+  <img src="Other-Items/Zealot-Oriented-Programming/desk1.gif" border="0" alt="desk"/>
+  </center>
+
+
+<p>What if somebody walked
+up to your desk and started telling
+you <b>how</b> to organize your desk's contents?
+Most would say that this is
+silly. However, this is almost exactly what is being done with
+OOP. Paradigms are about organizing software information to make
+it easier for <b>developers</b> to work with it. It has nothing
+to do with users nor the <a href="#model">outside world</a>
+(as long as specifications
+and good UI design principles are followed). It is all about
+modeling the developer's mind, and no OO proponent knows my
+mind better than me.</p>
+<p>
+You can tell a wood craftsman how you
+want the <b>end result</b>, but you are foolish to tell him how
+to construct it.
+If you are also a wood crafter, then you can
+offer tips, but only each individual knows what works best
+for themself in the end. (There are issues of maintenance teams,
+but this is too involved to discuss here).</p>
+<p>
+There are 
+<a href="paradgms.htm">other paradigms</a>
+ that are not heard about in the press
+and brochures, or perhaps not yet fully explored, that could be
+an equal or better approach for an entity 
+(person, culture, or application) than
+object paradigms. Even procedural programming is under-explored
+in some cases. Also, many programmers mistakenly use C as
+representative of procedural languages and are glad to
+move on to C++, which does offer more power simply because
+it has more features and vendor tools for it.</p>
+<p>
+The OOP prophets out there promoting OO may
+indeed find objects better for <b>themselves</b> or their teams.
+However, they should not extrapolate this to everyone.
+Just because they think in terms of OOP objects does not mean
+everyone else does. I find that software designers and builders
+think very differently from each other. <b>The human mind
+and business cultures come in many flavors, so perhaps
+our paradigms should do the same.</b>
+(This makes for an interesting debate topic:
+should one change the paradigm to fit one's mind or change
+one's mind to fit the paradigm?)</p>
+
+<p>
+I often hear OO proponents say something along the
+lines of, "I always built my software in an OO-ish way, I
+just did not have a name for it. Then OOP formally came along
+and I was happy to see it built into the language."</p>
+<p>
+I, on the other hand, think best in terms of
+<a href="top.htm">tables</a> and like to organize software projects using 
+<a href="cntrl1.htm">control tables</a>. I have seen others do the same without ever
+knowing that they were using a "table paradigm." 
+While OOP attempts to keep you on course by putting up edge 
+barriers, control tables keep you on course by giving you a better view of the course.
+They both have similar goals, but use very different approaches to achieve these 
+goals. If Table Oriented Programming were simply given a 
+ recognized identity, other tablers might also come
+forward. Another table fan had this to say:</p>
+
+<blockquote><i>
+...I was always told that OO was an
+intuitive way of thinking. Although I develop daily in OO languages,
+I do find OO rather unintuitive (although I manage). ...
+If I analyze a problem, I draw tables not objects and classes, I think in
+tables, those are much more intuitive to me. Even when I program in OOP,
+I rely as much as possible on tables. ...it's nice to see that I'm not
+the only one who 'thinks' in tables. ...
+</i></blockquote>
+
+
+<div align="center">
+See Also:
+<a href="goals.htm#mental">Physical vs. Mental Metrics</a>
+</div>
+
+
+<h2> Cult Oriented Programming May Just Work </h2>
+
+<p>In chapter 3 of
+<i>The Rise &amp; Resurrection of the American Programmer</i>, page 63,
+Edward Yourdon gives some statistics from studies
+about OOP projects.
+It seems that early Smalltalk projects, for example, were quite successful,
+but later ones did not score higher than the average language
+score. Yourdon's speculation for this change is that early
+projects had more Smalltalk (language-specific)
+"fanatics" on them, but later
+ones had a more mixed crowd. Smalltalk became the "in" language
+for a while and people rushed into it because that is where
+the money was. The earlier Smalltalkers chose Smalltalk
+mostly because they liked it.</p>
+<p>
+This implies that a programmer's personal preference
+is more important to getting results than the
+language or paradigm itself. In other-words, if a
+programmer can work with the tools and languages
+that he or she most prefers, then <b>productivity
+and quality may be much higher</b> than from passing down
+edicts based on a blanket choice of tool, language,
+or paradigm.</p>
+<p>
+My personal experience tends to confirm this. When
+given tools that allow me to maximize
+my use of 
+<a href="https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/top.htm">
+Table Oriented Programming</a>, for example,
+I seem to get things done much faster and am more
+satisfied with the results. I have heard fans of
+other languages and techniques say similar things.</p>
+<p>
+Thus, if you really want to get things done,
+hire a zealot or a team of like-minded zealots.
+"The best tool for the mind" might be just as important
+as "best tool for the job".
+Regardless, Zealot Oriented Programming is
+an area ripe for more research.</p>
+
+
+<blockquote><small> One caveat is the some zealots
+focus too much on following a certain methodology rather
+than getting something done. Thus, you have to be
+careful about distinguishing ideological zealots
+from practical zealots. It just may be that
+different forms of zealotry are needed for different
+situations. For example, the Eiffel language and philosophy
+involve building many "safety-checks" into the software
+to assure compliance with specifications. This philosophy
+and it's corresponding followers may not do well
+if fast turnaround time is required, but may be ideal
+for life-support hospital applications or missile
+applications, where mistakes can be deadly.
+(See also 
+<a href="https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/longterm.htm">
+Long-Term Issues</a>.)
+</small></blockquote>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm">Object Oriented Programming Oversold!</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+
+</div>
+</content>
+</page>

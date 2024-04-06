@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="interface.xsl"?>
+<page>
+<filename>index.html</filename>
+<content>
+<p>Table-Oriented Programming is a programming paradigm that can usefully be 
+added to some programming languages which will increase developer productivity 
+by making their lives easier.</p>
+
+<p>Good places to start might include:</p>
+<ul>
+	<li><a href="Introduction/What.html">What is Table-Oriented Programming</a></li>
+	<li><a href="Introduction/Why.html">Why use Table-Oriented Programming</a></li>
+</ul>
+</content>
+</page>

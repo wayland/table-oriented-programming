@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>TOP/Collection-Convergence/Introduction/</filename>
+<content>
+<h2>Overview</h2>
+
+<div class="blockquote">
+
+<div style="float:right; margin-left: 6pt; margin-bottom: 6pt">
+<img src="TOP/Collection-Convergence/Introduction/converge.gif" 
+	border="0" alt="convergence diagram"/>
+</div>
+<p>There is a pattern to many of the recommendations (ie. <a 
+href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> 
+and <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>): 
+Collection Convergence.</p>
+
+<p>...</p>
+
+<p>Besides morphability and scalability [described in the refactoring section of 
+<a href="file:///home/wayland/src/TOP/TOP-doco/generated/Introduction/Why.html"> 
+Why Table-Oriented Programming</a>], another benefit is <b>easier training</b>. 
+Instead of learning four or more <b>different</b> collection management systems, 
+one should only have to learn a single protocol. Fine adjustments and 
+specialized extensions can then be added on as needed...</p>
+
+<p>A third advantage is that the same collection system can be used for all the 
+different collection types and variations. Rather than build a class/code 
+browser [by browser, he means a GUI tool that assists with coding], an RDBMS 
+browser, an array browser, etc.; vendors can <b>focus</b> on building one grand 
+collection system and browser that does it all. It could even be modular such 
+that you can attach different text browsing engines that highlight code 
+keywords, etc. </p>
+
+<p>Even if you disagree with my specific protocol and/or syntax proposals, 
+the idea of a consistent collection protocol should ring through 
+as a very logical idea.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>Raku has gone with the "everything-is-an-object" model prevalent in modern 
+programming languages.  From a usability point of view, this model is a good 
+thing, as long as it is also acknowledged "most things are not <i>just</i> an 
+object".  Raku has been fairly good about this in most areas, though there are 
+some areas where objects could be supplemented with alternate syntaxes 
+(concurrency springs to mind).</p>
+
+<p>What this means for TOP in Raku is that all collections are objects, and have
+fairly consistent interfaces (roles), including Associative, Positional, and 
+Iterator.  None of these are tables, but will be used as building blocks to 
+construct objects that will represent tables.  </p>
+
+<p>The big idea here is that all collections, including Tables and Views, should 
+have the same API.  In Raku TOP, this will be implemented with a Tableish class, 
+which will be a role used by both the Table and View classes.  This role will 
+also draw in the Associative, Positional, and Iterative roles, which are used by 
+other Raku collections.  </p>
+
+<xtlinclude href="Tableish.svg.xml"/>
+
+<p>Since this page is all about converging features of collections, we will 
+immediately introduce...</p>
+</content>
+</page>

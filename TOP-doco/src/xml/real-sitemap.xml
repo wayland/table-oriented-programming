@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<site>
+  <base href="http://localhost:8000/"/>
+  <!-- base href="https://wayland.github.io/table-oriented-programming/TOP-doco/generated/"/ -->
+  <group>
+    <title>Progamming Productivity</title>
+    <item title="Introduction to Programming Productivity" href="Programming-Productivity.xml"/>
+  </group>
+  <group type="drop-menu">
+    <title>Table-Oriented Programming</title>
+    <group>
+      <title>Overview</title>
+      <item title="What is Table-Oriented Programming?" href="TOP/Introduction/What.xml"/>
+      <item title="Why Table-Oriented Programming" href="TOP/Introduction/Why.xml"/>
+      <item title="Terminology" href="TOP/Introduction/Terminology.xml"/>
+      <item title="History" href="TOP/Introduction/History.xml"/>
+      <!-- item title="TOP and the Language Analogy" href="TOP/Introduction/Language-Analogy.xml" width="huge"/ -->
+    </group>
+    <group>
+      <title>Collection Convergence</title>
+      <item title="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
+      <item title="role Tableish" href="TOP/Collection-Convergence/Tableish.xml"/>
+      <item title="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
+      <item title="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
+      <item title="Data Dictionaries" href="TOP/Collection-Convergence/Data-Dictionaries.xml"/>
+    </group>
+    <group>
+      <title>Language Support</title>
+      <item title="Table-Friendly Syntax" href="TOP/Language-Support/Table-Friendly-Syntax.xml"/>
+      <item title="class Table" href="TOP/Language-Support/Table.xml"/>
+      <item title="class View" href="TOP/Language-Support/View.xml"/>
+    </group>  
+    <group>
+      <title>Stylistic Features</title>
+      <item title="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
+      <item title="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
+      <item title="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
+    </group>
+    <group>
+      <title>Critiques</title>
+      <item title="OOP" href="TOP/Critiques/OOP.xml"/>
+      <item title="SQL" href="TOP/Critiques/SQL.xml"/>
+      <item title="Trees" href="TOP/Critiques/Trees.xml"/>
+    </group>
+    <group>
+      <title>Comparisons</title>
+      <item title="Comparison of Raku TOP and xBase" href=""/>
+      <item title="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/>
+    </group>
+    <group>
+      <title>Other Material</title>
+      <item title="Eight Concepts" href="TOP/Other-Items/Eight-Concepts.xml"/>
+      <group>
+        <title>Implementation Features</title>
+        <item title="File Directory Management" href=""/>
+      </group>
+      <item title="Why Table-Oriented Programming?" href="TOP/Other-Items/Why-Table-Oriented-Programming.xml"/>
+      <item title="Scalar Type Convergence" href="TOP/Other-Items/Scalar-Type-Convergence.xml"/>
+      <item title="Merging TOP and OOP" href="TOP/Other-Items/Merging-TOP-and-OOP.xml"/>
+    </group>
+  </group>
+  <group>
+    <title>RAD</title>
+    <group>
+      <title>Editors</title>
+      <item title="Database Design Editor" href="RAD/Database-Design-Editor.xml"/>
+      <item title="Code Editors" href="RAD/Code-Editors.xml"/>
+      <item title="UI editors (Forms &amp; Reports)" href="RAD/UI-Editors.xml"/>
+    </group>
+    <item title="Backend-to-Frontend Design" href="RAD/Backend-to-Frontend-Design.xml"/>
+  </group>
+  <group>
+    <title>AI</title>
+    <item title="AI and coding" href="AI/AI-and-Coding.xml"/>
+  </group>
+  <group>
+    <title>Other Material</title>
+    <item title="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+    <!-- item title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+  </group>
+  <!--group>
+    <title></title>
+    <item title="" href=""/>
+    <item title="" href=""/>
+    <item title="" href=""/>
+    <item title="" href=""/>
+    <item title="" href=""/>
+    <item title="" href=""/>
+  </group -->
+
+</site>

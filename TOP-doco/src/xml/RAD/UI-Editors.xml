@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/interface.xsl"?>
+<page>
+<filename>RAD/UI-Editors.xml</filename>
+<content>
+<h1>Overview</h1>
+
+<p>Our goals here are:</p>
+<ul>
+	<li>As much as possible, get the UIs to build themselves based on the Data 
+		Dictionary</li>
+	<li>Where necessary, let developers drag and drop components onto UIs</li>
+	<li>Allow the UIs to be re-themed by front-end developers/designers, 
+		probably using XSLT, CSS, and Javascript</li> 
+	<li>Be independent of frontends; our UI definition should be pushable to at 
+		least the following locations:</li>
+	<ul>
+		<li>A web page</li>
+		<li>A local GUI</li>
+		<li>A terminal</li>
+	</ul>
+</ul>
+
+<h2>Self-Building UIs</h2>
+
+<div class="blockquote">
+
+<p>Less reliance on WYSIWYG screen and report builders. Most data-entry and 
+grid screens can almost <u>build themselves</u> based on DD information.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p/>
+
+<div class="blockquote">
+
+<p>The behavior of a field is controlled in one spot [the Data Dictionary] no 
+matter which screen, grid, data-entry form, or report the field appears on. 
+Other approaches require one to recode field behavior for each of these, also 
+requiring separate changes in all <s>four</s> [five].</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h1 id="GUI-Editor">GUI Editor (Forms)</h1>
+
+<h2>Self-building Forms</h2>
+
+<div class="blockquote">
+
+<p>The acceptance of the scrolling screens of browsers should hopefully reduce 
+the desire to jam as many fields on screen as possible. This will make it easier 
+for the ITOP system to generate input screens based on the DD alone. Almost 
+everything needed to generate such screens could come from the DD and the 
+validation functions. graphic input screen builders should become a thing of the 
+past.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>User Interface Markup</h3>
+
+<p>The above would be assisted by a standard User Interface Markup Language. 
+Many <a href="https://en.wikipedia.org/wiki/User_interface_markup_language">
+user interface markup languages</a> have been proposed.  The current winner is 
+HTML, which is not what HTML was designed for.  The linked Wikipedia page 
+barely mentions XForms, which was slated to become part of XHTML2 until it 
+got steam-rollered by HTML5.  This was the one part of XHTML2 I was really 
+looking forward to.  </p>
+
+<p>If an XML-based one were implemented using the 
+technique at 
+<a href="https://stackoverflow.com/questions/42073103/for-what-reason-browser-side-xslt-is-not-widely-used-by-web-developers"> 
+For what reason browser side XSLT is not widely used by web-developers?</a>, 
+this would make it easier to separate design and development tools.  The UI 
+markup language could be produced by RAD tools (based on the Data Dictionary), 
+and the theming could be done by the designers.</p>
+
+<p>At this point, some may be asking "Why XML?  Isn't XML being replaced by 
+JSON/YAML?"  In some contexts, that's rightly true, but certainly in the case of 
+documents (reports), and arguably in the case of forms, XML is still our best 
+solution; this is what it was designed for, and it still does it better than 
+JSON or YAML, which don't support content nearly as well</p>
+
+<p>Ideally, we'd use:</p>
+
+<ul>
+	<li>One XML schema for the UI (probably 
+		<a href="https://www.w3.org/TR/2009/REC-xforms-20091020/">XForms</a>) 
+		</li>
+	<li>One XML schema for the site map (to generate the menu, etc)</li>
+	<li>An import link for the content: <code>
+&lt;link rel="import" href="http://example.com/elements.html"/&gt;
+</code></li>
+</ul>
+
+<h1>Document Editor (Reports)</h1>
+
+<h2>Overview</h2>
+
+<p>For our purposes, a Document Editor allows people to edit a document that 
+could be made into a report.  This would be influenced by word processors, and 
+by the Notebook model (cf. Jupyter)</p>
+
+<p>(Thought: possibly should work something like the old word processors (Word Perfect, etc) that showed you the markup, but also a visual representation, except we should be using XML instead)</p>
+
+<h2>Built-in Reports</h2>
+
+<p/>
+
+<div class="blockquote">
+
+<h2> Related Information and Links </h2>
+<ul>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/whypr.htm">Why I prefer procedural/relational over OOP</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm">More on T.O.P.</a> (including stored procedures)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/cntrl1.htm">Control Tables</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/oopbad.htm">OOP Criticism</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Criticism</a> (boy, I sure like to criticize)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/merge.htm">Merging TOP and OOP?</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/prpats.htm">Table Patterns</a> (GOF meet TOP)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/array1.htm">Array Criticisms</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/table_qa.htm">Table Q &amp; A</a> </li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/buzzword.htm">Buzz-Words</a> (ITOP and OOP)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">Standard Collection Operations</a> (Collection Bill of Rights)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/ddsamp.htm">More on Data Dictionaries and Table Browsers</a></li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/moretop.htm#setget">How Tables Simplify Interfaces</a> (Avoiding set/get's and other interface bloat)</li>
+<li> <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/newlang.htm">ITOP Language Brainstorming Notes</a></li>
+</ul>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<h3>Comparison of Office &amp; RAD</h3>
+
+<table>
+	<tr>
+		<th>Office Suite</th>
+		<th>Code Editor</th>
+		<th>UI Editor</th>
+	</tr>
+	<tr>
+		<td>Word Processor / DTP</td>
+		<td>Standard Code Editor; documentation writing</td>
+		<td>Reports</td>
+	</tr>
+	<tr>
+		<td>Spreadsheet</td>
+		<td>Tableish Code Editor</td>
+		<td>Can we let the user do spreadsheeting stuff based on the tables?</td>
+	</tr>
+	<tr>
+		<td>Drawing / Presentation</td>
+		<td>Dataflow Code Editor</td>
+		<td>Forms</td>
+	</tr>
+	<tr>
+		<td>Communication Tools</td>
+		<td>?Ticketing</td>
+		<td></td>
+	</tr>
+</table>
+</content>
+</page>

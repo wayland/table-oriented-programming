@@ -1,0 +1,273 @@
+@property --blockquote-background-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #ffffee;
+}
+
+@property --blockquote-border-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #eede8c;
+}
+
+@property --th-background-color {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #efcf00;
+}
+
+body {
+	--blockquote-background-color: #ffffee;
+	--blockquote-border-color: #eede8c;
+	--th-background-color: #efcf00;
+}
+
+div.notfirst {
+	padding-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Quattrocento", serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+}
+
+/* Positions headings so they're not behind the menubar */
+.pre-heading {
+	position: relative;
+	top: -50px;
+	z-index: 1;
+}
+
+.heading-link {
+	text-decoration: none;
+}
+
+a:hover.heading-link  {
+	text-decoration: underline;
+}
+
+h1, h2, h3 {
+	padding: 10pt;
+}
+
+h1 {
+	text-align: center;
+	background-color: #ffeeee;
+}
+
+h2 {	background-color: #efffef;	}
+h3 {	background-color: #eff7ff;	}
+
+.blockquote h1,
+.blockquote h2,
+.blockquote h3,
+.blockquote h4,
+.blockquote h5,
+.blockquote h6
+{
+	background-color: transparent;
+/*	padding: inherit; */
+}
+
+.title {
+	font-family: "Urbanist", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 900;
+	font-style: bold;
+	font-size: 48pt;
+	text-align: center;
+
+	margin-top: 24pt;
+	margin-bottom: 24pt;
+}
+
+.blockquote {
+	font-family: "Forum", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
+	padding: 10pt;
+
+	background-color: var(--blockquote-background-color);
+	border-radius: 4pt;
+	border-color: var(--blockquote-border-color);
+	border-style: solid;
+	border-width: 1pt;
+}
+
+.blockquote > b {
+	font-weight: 900;
+}
+
+/* First paragraph in a blockquote should have no top-margin */
+.blockquote > p:first-child {
+	margin-top: 0;
+}
+
+.reference {
+	margin-top: 5pt;
+}
+.reference::before {
+	content: "\2014 ";
+}
+
+.tagline {
+	text-align: right;
+	margin-top: 5pt;
+	margin-bottom: 5pt;
+}
+
+table {
+	margin: auto;
+}
+
+table:not(.table-special-background) tr:nth-child(even) {
+	background-color: #eeeeee;
+}
+
+th, td {
+	padding: 2pt;
+}
+
+th {
+	background-color: var(--th-background-color);
+}
+
+.blockquote tr:nth-child(even) {
+	background-color: #ffffdd;
+}
+
+pre {
+	color: #7f3f00;
+	background-color: #ffffdd;
+	text-align: left;
+
+	border-radius: 4pt;
+	border-color: #eede8c;
+	border-style: solid;
+	border-width: 1pt;
+
+	padding: 10pt;
+}
+
+code {
+	font-family: "Courier Prime", monospace;
+	font-weight: 400;
+	font-style: normal;
+
+	white-space: pre;
+}
+
+.blockquote .sidebar {
+	float:right;
+	position: relative;
+	width: 25%;
+	background-color:#ffffdd;
+	padding: 10pt;
+	margin-left: 10pt;
+}
+
+.smallquote {
+	background-color: var(--blockquote-background-color);
+	border-radius: 4pt;
+	border-color: var(--blockquote-border-color);
+	border-style: solid;
+	border-width: 1pt;
+}
+
+/* Code for CSS hover text */
+.hover-parent {
+	display: inline;
+}
+
+.hover-anchor {
+	color: blue;
+	text-decoration: underline;
+}
+
+.hover-anchor:hover + .hover-text {
+	display: block;
+}
+
+.hover-text:hover {
+	display: block;
+}
+
+.hover-text {
+	z-index: 1;
+	position: absolute;
+	display: none;
+
+	width: 400px;
+	margin-left: 36pt;
+	margin-top: -14pt;
+	border: 2px solid var(--blockquote-border-color);
+	border-radius: 4pt;
+	padding: 10px;
+
+	background-color: var(--blockquote-background-color);
+}
+
+/* Code for footer */
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	background-color: #333;
+	color: white;
+	grid-area: footer;
+}
+
+.footer span {
+	flex: 1;
+	padding: 14px 2px;
+}
+
+.footer a {
+	color: white;
+	padding: 10px 16px;
+/*	border: 1px solid red; */
+}
+
+.footer a:hover {
+	background-color: #7f7f7f;
+	border-radius: 4pt;
+}
+
+.footer .centre {
+	text-align: center;
+	margin: auto;
+}
+
+.footer .right {
+	text-align: right;
+}
+
+.copyright {
+	text-align: center;
+
+  grid-area: copyright;
+}
+
+
+/* SVG hover, etc */
+svg text {
+	pointer-events: auto;
+	fill: blue;
+} 
+svg text:hover {
+	pointer-events: auto;
+	fill: red;
+} 
+
+/* Scrollable table content 
+
+wasn't able to get the headings and body to line up while doing this. (at least not on the language analogy page)
+*/
+
+tbody.scrollContent {
+	height: 262px;
+	overflow-y: scroll;
+}

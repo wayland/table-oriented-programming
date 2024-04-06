@@ -23,7 +23,7 @@ my(@structure) = (
 			{ title => 'Why Table-Oriented Programming', url => 'Introduction/Why.html' },
 			{ title => 'Terminology', url => 'Introduction/Terminology.html' },
 			{ title => 'History', url => 'Introduction/History.html' },
-			{ title => 'TOP and the Language Analogy', url => 'Introduction/Language-Analogy.html', width => 'huge' },
+#			{ title => 'TOP and the Language Analogy', url => 'Introduction/Language-Analogy.html', width => 'huge' },
 		],
 	},
 	{
@@ -42,6 +42,11 @@ my(@structure) = (
 			{ title => 'Table-Friendly Syntax', url => 'Language-Support/Table-Friendly-Syntax.html' },
 			{ title => 'class Table', url => 'Language-Support/Table.html' },
 			{ title => 'class View', url => 'Language-Support/View.html' },
+			# Add class Index (which is a replication of a column with a particular ordering, and then links to 
+			# all the records).  It will be essential for implementing cursors.  This will also take some of the
+			# load off the View class.  Maybe it should be "class Cursor" instead.  Read the section of
+			# https://web.archive.org/web/20120901201906/http://geocities.com/tablizer/sqlcrit.htm
+			# called "Alternative or Complimentary Specimens".  
 		],
 	},
 	{
@@ -55,12 +60,9 @@ my(@structure) = (
 	{
 		title => 'Critiques',
 		items => [
-			# TODO: These should be me selecting the valid critiques from those he makes
 			{ title => 'OOP', url => 'Critiques/OOP.html' },
 			{ title => 'SQL', url => 'Critiques/SQL.html' },
 			{ title => 'Trees', url => 'Critiques/Trees.html' },
-			{ title => 'Arrays', url => 'Critiques/Arrays.html' },
-			# TODO There should be others here
 		],
 	},
 	{
@@ -96,7 +98,7 @@ my(@structure) = (
 			{ title => 'Scalar Type Convergence', url => 'Other-Items/Scalar-Type-Convergence.html' },
 			{ title => 'Merging TOP and OOP', url => 'Other-Items/Merging-TOP-and-OOP.html' },
 			{ title => 'Zealot-Oriented Programming', url => 'Other-Items/Zealot-Oriented-Programming/' },
-			{ title => 'English Analysis', url => 'Other-Items/English-Analysis.html', width => 'huge' },
+#			{ title => 'English Analysis', url => 'Other-Items/English-Analysis.html', width => 'huge' },
 		],
 #TODO Maybe write an article about why Raku is the perfect programming language for research, because:
 #-       Flexible grammar, slangs

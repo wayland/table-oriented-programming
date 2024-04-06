@@ -1,8 +1,19 @@
+On the Views page:
+                        # Add class Index (which is a replication of a column with a particular ordering, and then links to 
+                        # all the records).  It will be essential for implementing cursors.  This will also take some of the
+                        # load off the View class.  Maybe it should be "class Cursor" instead.  Read the section of
+                        # https://web.archive.org/web/20120901201906/http://geocities.com/tablizer/sqlcrit.htm
+                        # called "Alternative or Complimentary Specimens".  
+-	...but maybe just make it all part of "View"
+
+
+
 -	Make the Language Analogy a separate page; pull in the noun-verb priority stuff
 -	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
 
 
 
+This goes on the Trees page
 -	Maybe make another page (based on the TOPMind stuff) that talks about how categorisation systems have to be fit-for-purpose
 -	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
 -	Make the multiple categorisations point
@@ -10,6 +21,14 @@
 
 
 -	Redo the site in xsl.  What we need is:
-	-	One xml schema for the UI
-	-	One XML schema for the site map (to generate the menu)
-	-	One XML schema for the content (mostly just HTML -- or can we just use HTML in an iframe?)
+	-	Primary XSL for the UI
+	-	One XML file for the site map (to generate the menu)
+	-	One XML file for the content (mostly just HTML -- or can we just use HTML in an iframe?)
+
+-	Also need to separate CSS into interface.css and content.css
+
+
+
+#TODO Maybe write an article about why Raku is the perfect programming language for research, because:
+#-       Flexible grammar, slangs
+#-       Already has many paradigms -- no need to reinvent the wheel

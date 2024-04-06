@@ -1,0 +1,70 @@
+<p>Tablizer/TOPMind made a number of criticisms of SQL.  Like the OOP ones, some 
+are no longer relevant.  These can be summarised as:</p>
+
+<ul>
+	<li><b>Useful:</b></li>
+	<ul>
+		<li><span class="smallquote">Mental suitability: A cursor approach is 
+			more suited to most minds than a set-theory based approach</span> 
+			[Paraphrased].  I'm not sure cursors were widely available in SQL 
+			at the time, and if they were, they didn't allow Tablizer to do the 
+			things he liked.  </li> 
+		<li><span class="smallquote">Divisibility: A "real" programming language 
+			always allows a programmer to break constructs into simpler or 
+			smaller parts to make managing them easier. SQL is lacking in this 
+			department. Therefore, one has to over-rely on nesting.</span></li>
+		<li><span class="smallquote">Native calls lacking: Most programming 
+			languages have to send sql to a server, rather than table operations 
+			being part of the code</span></li>
+		<li><span class="smallquote">Inconsistency: the different way fields and 
+			values are specified between Insert and Update commands</li>
+		<li><span class="smallquote">Standard joins: Each pair of tables should 
+			have a specified standard join</span>.  I'd add any number of named 
+			joins, with one being a default.  </li>
+		<li><span class="smallquote">SQL isn't great at easily creating 
+			temporary tables that are used later</span> [Paraphrased].  
+			This is less true with CTL expressions, but it's still not amazing 
+			at it</li> 
+		<li><span class="smallquote">Subselects split up the main select 
+			visually, and would be better done with temporary tables</span></li>
+	</ul>
+	<li><b>Dated:</b></li>
+	<ul>
+		<li><i>Was once true, no longer</i> (because SQL/technology developed)</li>
+		<ul>
+			<li>It used to be that one had to fetch a variable, then call a 
+				function to put it into a variable, rather than being able to 
+				use it directly.  This was a hassle, especially with 30+ 
+				fields</li>
+			<li>He wanted user-defined temporary views; PostgreSQL has this</li>
+		</ul>
+	</ul>
+</ul>
+
+<p>If you read the OOP page before this one, you'll see he was a lot more 
+correct in his criticisms of SQL.  That's probably partly because SQL is a lot 
+more table-oriented, and that was definitely his strength.  </p>
+
+
+<div class="blockquote">
+
+<p>There are times when the set-oriented approach is preferred and times when a 
+cursor-oriented approach is preferred. Perhaps someday somebody will find ways 
+to integrate all of them to give us the <b>best of both worlds</b> in a single 
+package.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20120901201906/http://geocities.com/tablizer/sqlcrit.htm">SQL Criticism </a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+
+</div>
+
+<p>The material on this page is derived from:</p>
+<ul>
+	<li><a 
+href="https://web.archive.org/web/20120901201906/http://geocities.com/tablizer/sqlcrit.htm">SQL 
+Criticism</a></li>
+	<li><a 
+href="https://web.archive.org/web/20111219220139/http://www.geocities.com/tablizer/relat2.htm">SQL 
+Alternative</a></li>
+</ul>

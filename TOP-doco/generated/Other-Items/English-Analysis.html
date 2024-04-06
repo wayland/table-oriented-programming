@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>English Analysis :: Table-Oriented Programming (TOP)</title>
+<title> :: Table-Oriented Programming (TOP)</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,7 @@ $(document).ready(function() {
 </head>
 <body>
 
-<div class="wide-box huge">
+<div class="wide-box ">
 <div class="navbar"><ul>
 
 	<li class="dropdown">
@@ -149,7 +149,6 @@ $(document).ready(function() {
 			<a href="Introduction/Why.html">Why Table-Oriented Programming</a>
 			<a href="Introduction/Terminology.html">Terminology</a>
 			<a href="Introduction/History.html">History</a>
-			<a href="Introduction/Language-Analogy.html">TOP and the Language Analogy</a>
 
 		</div>
 	</li>
@@ -192,7 +191,6 @@ $(document).ready(function() {
 			<a href="Critiques/OOP.html">OOP</a>
 			<a href="Critiques/SQL.html">SQL</a>
 			<a href="Critiques/Trees.html">Trees</a>
-			<a href="Critiques/Arrays.html">Arrays</a>
 
 		</div>
 	</li>
@@ -234,7 +232,6 @@ $(document).ready(function() {
 			<a href="Other-Items/Scalar-Type-Convergence.html">Scalar Type Convergence</a>
 			<a href="Other-Items/Merging-TOP-and-OOP.html">Merging TOP and OOP</a>
 			<a href="Other-Items/Zealot-Oriented-Programming/">Zealot-Oriented Programming</a>
-			<a href="Other-Items/English-Analysis.html">English Analysis</a>
 
 		</div>
 	</li>
@@ -253,122 +250,56 @@ $(document).ready(function() {
 
 <div class="main-box">
 
-<div class="title">English Analysis</div>
+<div class="title"></div>
 
 <div class="tagline">Tim Nelson, 2024</div>
 
-<p>In understanding programming languages, it can be helpful to understand the 
-parts of speech in natural language.  The table below compares natural language 
-terminology, and the terminology of a few programming paradigms.</p>
-
-
-<table>
-	<tr>
-		<th>Natural Language</th>
-		<th>Object-Oriented</th>
-		<th>Procedural</th>
-		<th>Table-Oriented</th>
-		<th>Comments</th>
-	</tr>
-	<tr>
-		<td>Noun</td>
-		<td>Object</td>
-		<td>Variable</td>
-		<td></td>
-		<td>Names an object</td>
-	</tr>
-	<tr>
-		<td>Adjective</td>
-		<td>property/attribute</td>
-		<td>Related variable</td>
-		<td></td>
-		<td>Describes a noun</td>
-	</tr>
-	<tr>
-		<td>Verb</td>
-		<td>method</td>
-		<td>function/procedure/subroutine</td>
-		<td></td>
-		<td>Doing word</td>
-	</tr>
-	<tr>
-		<td>Adverb</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>Describes a verb</td>
-	</tr>
-	<tr>
-		<td>Pronoun</td>
-		<td>Context variable</td>
-		<td>Context variable</td>
-		<td></td>
-		<td>Stands in for a noun; value derived from context</td>
-	</tr>
-	<tr>
-		<td>Preposition</td>
-		<td>named method parameter (or default parameter)</td>
-		<td>named function parameter (or default parameter)</td>
-		<td></td>
-		<td>Introduces a phrase describing a verb or noun</td>
-	</tr>
-	<tr>
-		<td>Conjunction</td>
-		<td>?Maybe boolean operators</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Interjection (not used)</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Pro-forms</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-
-cf. 
-https://www.quora.com/How-many-parts-of-speech-are-covered-in-English-8-or-9
-
 <h3>Parts of Speech Grid</h3>
 
-https://en.wikipedia.org/wiki/Pro-form
+<p>The classic 8/9 parts of speech are a useful base, though there are more (see 
+<a href="https://www.quora.com/How-many-parts-of-speech-are-covered-in-English-8-or-9">
+How many parts of speech are covered in English</a> for a list of 16 or so).  
+Much more useful as a base are the following:</p>
 
 <table>
 	<tr>
-		<th>Base Item</th>
+		<th>Thing labelled</th>
+		<th>???</th>
+		<th>Base Part</th>
 		<th>Adpart</th>
 		<th>Introducing Adpart clause</th>
-		<th>Base Proform</th>
-		<th>Adpart Proform</th>
 	</tr><tr>
-		<td>Noun</td>
-		<td>Adjective</td>
-		<td>Preposition</td>
-		<td>Pronoun</td>
-		<td>Proadjective</td>
+		<th>Object</th>
+		<th>Form</th>
+		<td><a href="https://en.wikipedia.org/wiki/Noun">Noun</a></td>
+		<td><a href="https://en.wikipedia.org/wiki/Adjective">Adjective</a></td>
+		<td><a href="https://en.wikipedia.org/wiki/Preposition_and_postposition">Preposition</a></td>
 	</tr><tr>
-		<td>Verb</td>
-		<td>Adverb</td>
-		<td>Preposition, conjunctive adverb (aka subordinating conjunction)</td>
-		<td>(Pro-verb)</td>
-		<td>Pro-adverb</td>
+		<th>Object</th>
+		<th>Proform</th>
+		<td><a href="https://en.wikipedia.org/wiki/Pronoun">Pronoun</a></td>
+		<td><a href="https://en.wikipedia.org/wiki/Pro-form">Proadjective</a></td>
 	</tr><tr>
-		<td>Conjunction</td>
+		<th>Action</th>
+		<th>Form</th>
+		<td><a href="">Verb</a></td>
+		<td><a href="">Adverb</a></td>
+		<td><a href="">Preposition</a>, <a href="">conjunctive adverb</a> (aka subordinating conjunction)</td>
+	</tr><tr>
+		<th>Action</th>
+		<th>Proform</th>
+		<td>(<a href="https://en.wikipedia.org/wiki/Pro-verb">Pro-verb</a>)</td>
+		<td><a href="https://en.wikipedia.org/wiki/Pro-form">Pro-adverb</a></td>
+	</tr><tr>
+		<th>Relationship</th>
+		<th>Form</th>
+		<td><a href="https://en.wikipedia.org/wiki/Conjunction_(grammar)">Conjunction</a></td>
 		<td></td>
-		<td>(on the one hand...but on the other hand)</td>
-		<td></td>
-		<td></td>
+		<td><a href="">Ad-conjunction</a> (on the one hand...but on the other hand)</td>
 	</tr><tr>
-		<td>Interjection</td>
+		<td></td>
+		<td></td>
+		<td><a href="https://en.wikipedia.org/wiki/Interjection">Interjection</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -376,7 +307,18 @@ https://en.wikipedia.org/wiki/Pro-form
 	</tr>
 </table>
 
-<h3>Pro-form programming</h3>
+<p>There are a number of advantages, including:</p>
+<ul>
+	<li>The addition of the Pro-Adverb, which I find a useful word class</li>
+	<li>While there are now maybe 14 parts of speech, the logical layout 
+		(especially the Base part/adpart columns, and the Form/Proform rows) 
+		will hopefully make it easier to remember</li>
+</ul>
+
+<p>Admittedly the Interjection doesn't fit into the system, but it's often the 
+odd one out.  </p>
+
+<h3>Table of Pro-forms</h3>
 
 <p>The table below is derived from the Wikipedia
 <a href="https://en.wikipedia.org/wiki/Pro-form#Table_of_correlatives">
@@ -569,21 +511,15 @@ Table of Correlatives</a>.  </p>
 </td></tr>
 	<tr>
 		<th>time</th>
-		<td><span class="smallquote">when</span> Seek more info (AI?)</td>
-		<td><span class="smallquote">now</span> The default</td>
-		<td><span class="smallquote">then</span> At a context-derived time 
-			in the future</td>
+		<td>when</td>
+		<td>now</td>
+		<td>then</td>
 		<td></td>
-		<td><span class="smallquote">sometime, somewhen</span> At an 
-			unspecified time (maybe not useful)</td>
-		<td><span class="smallquote">anytime, anywhen, whenever, whensoever</span>
-			anytime: at a time of your choosing
-			whenever: As an adverb, same as anytime; as a conjunction, it's 
-event-driven programming (trigger on condition)
-</td>
-		<td><span class="smallquote">ever<br />always<br />everywhen</span></td>
-		<td><span class="smallquote">never<br />nowhen</span></td>
-		<td><span class="smallquote">elsewhen<br />another time</span></td>
+		<td>sometime<br/>somewhen</td>
+		<td>anytime<br/>anywhen<br/>whenever<br/>whensoever</td>
+		<td>ever<br />always<br />everywhen</td>
+		<td>never<br />nowhen</td>
+		<td>elsewhen<br />another time</td>
 	</tr><tr>
 <th>manner
 </th>
@@ -622,9 +558,7 @@ event-driven programming (trigger on condition)
 </td>
 <td>
 </td>
-<td>somewhy
-<p>for some reason
-</p>
+<td>somewhy<br/>for some reason
 </td>
 <td>whyever<br />whysoever
 </td>
@@ -637,7 +571,7 @@ event-driven programming (trigger on condition)
 </tbody></table>
 
 
-<h3>Conjunctive Programming</h3>
+<h3>Tables of Conjunctions</h3>
 
 <h4>Coordinating Conjunctions</h4>
 
@@ -647,10 +581,7 @@ event-driven programming (trigger on condition)
 		<th>Minor category</th>
 		<th>Tertiary category</th>
 		<th>General</th>
-		<th>Proximal</th>
-		<th>Assertive existential</th>
 		<th>Terminating</th>
-		<th>Expectant</th>
 		<th>Concessive</th>
 		<th>Adversative</th>
 		<th>Cumulative</th>
@@ -663,17 +594,11 @@ event-driven programming (trigger on condition)
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td>but, yet</td>
 	</tr><tr>
 		<th>Addition</th>
 		<th>Add</th>
 		<th>Simple</th>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -689,18 +614,12 @@ event-driven programming (trigger on condition)
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td><b>Additive:</b><br/>both...and</td>
 		<td><b>Subtractive:</b><br/>neither...nor</td>
 		<td><b>Alternative:</b><br/>either...or</td>
 	</tr><tr>
 		<td></td>
 		<th>Develop</th>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -718,9 +637,6 @@ event-driven programming (trigger on condition)
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td><b>Framing:</b><br/> now, well, alright, okay</td>
 		<td></td>
 		<td><b>Side-tracking:</b><br/> anyway, anyhow, incidentally, by the 
@@ -728,9 +644,6 @@ event-driven programming (trigger on condition)
 	</tr><tr>
 		<th>Comparison</th>
 		<th>Compare</th>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -769,8 +682,6 @@ event-driven programming (trigger on condition)
 		<th>Successive</th>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
 		<td><b>Terminating:</b><br/> finally, lastly</td>
 	</tr><tr>
 		<td></td>
@@ -787,8 +698,6 @@ event-driven programming (trigger on condition)
 		<td>Concluding</td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
 		<td style="color:red"><b>Conclude:</b><br/> thus, hence, accordingly, in 
 			conclusion, consequently</td>
 	</tr><tr>
@@ -802,9 +711,6 @@ event-driven programming (trigger on condition)
 		<td>Dismiss</td>
 		<td style="color:red">anyway, anyhow, in any case, at any rate</td>
 	</tr><tr>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -899,28 +805,29 @@ subordinating.  Also, we should be looking for adconjunctions (ie.
 		<td></td>
 		<td></td>
 		<td>so that, in order to, in case</td>
-		<td style="color:red">even so, without</td>
+		<td>even so, without</td>
 	</tr><tr>
 		<td></td>
 		<td>Fear</td>
 		<td></td>
-		<td style="color:red">Lest, for fear of</td>
+		<td>Lest, for fear of</td>
 </table>
 
+Integrate with 
+https://www.researchgate.net/figure/Types-of-Conjunctions_tbl1_320911525
+
+https://en.wiktionary.org/wiki/Category:English_conjunctions
 
 
-</div>
+</div> <!-- main-box -->
 
 <div class="footer">
-	<span class="left">			<a href="Other-Items/Zealot-Oriented-Programming/">&lt;&lt; Zealot-Oriented Programming</a>
-</span>
+	<span class="left"></span>
 	<span class="centre">-</span>
 	<span class="right"></span>
 </div>
-<p/>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
-</div>
-<p/>
+</div> <!-- wide-box -->
 
 </body>
 </html>
