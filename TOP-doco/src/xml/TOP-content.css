@@ -210,48 +210,6 @@ code {
 	background-color: var(--blockquote-background-color);
 }
 
-/* Code for footer */
-
-.footer {
-	display: flex;
-	justify-content: space-between;
-	background-color: #333;
-	color: white;
-	grid-area: footer;
-}
-
-.footer span {
-	flex: 1;
-	padding: 14px 2px;
-}
-
-.footer a {
-	color: white;
-	padding: 10px 16px;
-/*	border: 1px solid red; */
-}
-
-.footer a:hover {
-	background-color: #7f7f7f;
-	border-radius: 4pt;
-}
-
-.footer .centre {
-	text-align: center;
-	margin: auto;
-}
-
-.footer .right {
-	text-align: right;
-}
-
-.copyright {
-	text-align: center;
-
-  grid-area: copyright;
-}
-
-
 /* SVG hover, etc */
 svg text {
 	pointer-events: auto;

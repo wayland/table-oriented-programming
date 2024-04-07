@@ -130,6 +130,107 @@ should not require an explicit new Order command to restore virtual order
 </div>
 </div>
 
+<p>Note that the text below was probably written before eg. Postgres implemented cursors.</p>
+
+<div class="blockquote">
+
+<p>One existing alternative or enhancement
+to the SQL set approach can be found in parts of the
+<a href="xbasefan.htm">XBase</a> language (and it's dialects).
+An XBase-like cursor-oriented approach avoids some of
+the problems described above, such as arbitrary
+result boundaries, and disjointed adds,
+changes, and deletes. (XBase has many problem areas
+as a language; thus, I am only talking about
+certain features, not necessarily the entire language).</p>
+<p>
+In Xbase, one traverses tables by selecting (or
+making) a single "controlling" index. What appears
+in "next" and "previous" record pointer (cursor)
+movements depends on the controlling index. 
+(Note that an SQL engine has to make a temporary
+index anyhow for orders that do not already have
+an index for them. However, the fact that SQL does
+it automatically is nice.)</p>
+<p>
+When a new record is added, it defaults to a blank record
+(or as described by any defaults). This remains
+the current record until the cursor is moved.
+Thus, one can add, change, and delete the same record
+multiple times without having to reissue queries, unlike SQL.</p>
+<p>
+Relational operations are done by specifying the
+links between two or more tables. When the cursor
+for one of the related tables moves, the
+cursor for the others is automatically moved.
+(An index is needed for the the relation key).</p>
+<p>
+Note that even though there is only one cursor
+at a time, disk buffering in RAM generally
+improves the speed of access. Thus, XBase does not
+have to necessarily physically read one record
+at a time from disk. (This of course depends on the size
+and order of physical records).</p>
+<p>
+XBase is far from perfect, and contains(ed) some
+archaic concepts. However, it can serve as a
+guide to cursor-oriented approaches and to
+integrating collection handling into the language
+to reduce DB-engine-to-code-and-back translations.
+(The cursor languages built into some of the
+commercial RDBMS SQL systems still lack this
+integration, beyond API's). </p>
+<p>
+There are times when the set-oriented approach is
+preferred and times when a cursor-oriented approach
+is preferred.
+Perhaps someday somebody will find
+ways to integrate all of them to give us the
+<b>best of both worlds</b> in a single package.</p>
+
+<p>
+<a name="similar"></a>
+I have found that the API's needed for cursor and
+set approaches have enough similarities to perhaps
+simplify the integration. For one, when traversing
+records, set-orientation tends to first collect
+a "result set" into an internal buffer, whereas
+cursor-orientation tends to fetch each record
+as it is requested. (Note that buffering may still
+be used to speed up cursoring, however is not tied to
+a logical result-set).</p>
+<p>
+To the application programmer, these approaches look
+nearly the same in the code body. Most of the differences
+will be in the query or table handle setup code.
+Thus, if a collection system offered
+both approaches, one could switch from one to the
+other without major code changes. Thus, we avoid
+any major <a href="meyer1.htm#continuity">continuity</a>
+problems.</p>
+<pre>
+   t = openRecordSetHandle(<b>setUpStuff</b>)
+   while getNext(t)
+      print t.a
+      print t.b
+      t.c = foo
+      t.b = bar
+   end while
+   t.save   // may not be needed in some cases
+</pre>
+<p>Most of the differences would only be in "setUpStuff".
+Sometimes cursoring will move the ending condition
+into the While loop expression instead of a query.
+However, this actually highlights one of the <b>advantages</b> of
+cursoring: being able to traverse data without having to
+know the end condition (size of result) in advance.</p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20120901201906/http://geocities.com/tablizer/sqlcrit.htm">
+		SQL Criticism</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
 <h3>Grouping and Totalling</h3>
 <div class="blockquote">
 
@@ -205,5 +306,6 @@ mapping is provided.
 		Collection Bill of Rights</a></i>, Tablizer/TOPMind, 1998-2002
 </div>
 </div>
+
 </content>
 </page>

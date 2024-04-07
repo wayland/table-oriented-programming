@@ -3,6 +3,26 @@
 <page>
 <filename>AI/AI-and-Coding.xml</filename>
 <content>
-<p>Write some content here</p>
+<p>Pythagora.io, on their <a href="https://github.com/Pythagora-io/gpt-pilot">
+GPT-Pilot</a> page used to have a writeup on their page (you can still see it at 
+<a href="https://github.com/Pythagora-io/gpt-pilot/blob/5487f59160f94a9f19e2b71b301b4fcc1967e7d8/README.md">
+this link</a>) which I thought was a good explanation of the future of coding.  
+</p>
+
+<p>The essential idea is that there are a team of AI agents, and these write 
+text.  The text written by the higher agents (eg. the Architect agent, or the 
+Senior Developer Agent) are tickets.  The Architect writes Epics, the 
+Senior Developer turns the epics into stories (probably to a more fine-grained 
+level than a human software team), and finally the Code Monkey Agent will write 
+a single function (usually of less than 50 lines).  </p>
+
+<p>The role of the human is then to review the output of these agents and 
+correct where necessary.  </p>
+
+<p>Where are these tickets stored?  In GPT Pilot, I didn't find them easy to get 
+at.  However, a ticketing system is just (you guessed it) a set of tables.  So 
+it'd be useful to have a system like this in a table-oriented RAD environment, 
+so that we could put useful interfaces on it.  </p>
+
 </content>
 </page>

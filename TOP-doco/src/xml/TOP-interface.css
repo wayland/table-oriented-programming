@@ -117,11 +117,11 @@ body {
 	text-decoration: none;
 }
 
-.menu-bar li a:hover, .menu-bar .menu:hover .menu-bar .menu-bar-button {
+.menu-bar li a:hover, .menu-bar :is(.menu-container:hover, .dropmenu-container.hover) .menu-bar .menu-bar-button {
 	background-color: var(--menu-bar-background-color-hover);
 }
 
-.menu-bar li.menu {
+.menu-bar :is(li.menu-container, li.dropmenu-container) {
 	display: inline-block;
 }
 
@@ -149,32 +149,32 @@ body {
 	background-color: #f1f1f1;
 }
 
-.menu-bar .menu:hover .menu-content {
+.menu-bar .menu-container:hover .menu-content {
 	display: block;
 }
 
 /* Drop menu */
-.menu-bar .drop-menu {
+.menu-bar .dropmenu-content {
 	background-color: var(--menu-bar-background-color);
-}
-.menu-bar .menu-content.drop-menu a.menu-bar-button {
-	color: white;
-}
-.menu-bar .menu-content.drop-menu a.menu-bar-button:hover {
-	background-color: var(--menu-bar-background-color-hover);
-	border: 1px solid blue;
-}
-
-.menu-bar .menu:hover .drop-menu .menu-content { /* menu from drop-menu */
 	display: none;
 }
+.menu-bar .menu-content.dropmenu-content a.menu-bar-button {
+	color: white;
+}
+.menu-bar .dropmenu-content a.menu-bar-button:hover {
+	background-color: var(--menu-bar-background-color-hover);
+}
 
-.menu-bar .menu .drop-menu .menu:hover .menu-content { /* When hovering over menubar item */
+.menu-bar .dropmenu-container:hover .dropmenu-content .menu-content { /* menu from dropmenu */
+	/*display: none;*/
+}
+
+.menu-bar .dropmenu-content is:(.menu:hover, .dropmenu-container:hover) .menu-content { /* When hovering over menubar item */
 	display: block;
 }
-.menu-bar .menu .drop-menu:hover .menu-content {
+.menu-bar :is(.menu-container, .dropmenu-container) .dropmenu-content:hover .menu-content {
 }
-.menu-bar .menu:hover .drop-menu {
+.menu-bar .dropmenu-container:hover .dropmenu-content {
 	display: flex;
 	position: absolute;
 	left: 0;
@@ -207,3 +207,42 @@ body {
 	background-color: #dfefff;
 }
 
+/* Code for footer */
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	background-color: #333;
+	color: white;
+	grid-area: footer;
+}
+
+.footer span {
+	flex: 1;
+	padding: 14px 2px;
+}
+
+.footer a {
+	color: white;
+	padding: 10px 16px;
+/*	border: 1px solid red; */
+}
+
+.footer a:hover {
+	background-color: #7f7f7f;
+	border-radius: 4pt;
+}
+
+.footer .centre {
+	text-align: center;
+	margin: auto;
+}
+
+.footer .right {
+	text-align: right;
+}
+
+.copyright {
+	text-align: center;
+	grid-area: copyright;
+}
