@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml</filename>
+<content>
+<div class="blockquote">
+
+<p>[Even though...] it has been known since 1847 that classifications are 
+dependent on the purpose of the classification, people continue to believe that 
+it is possible to create a classification system that is context-independent. </p>
+
+<div class="reference">
+	Haim Kilov on comp.object, 6/01, quoted in 
+	<i><a href="https://www.oocities.org/tablizer/subtypes.htm">Subtype 
+		Proliferation Myth</a></i>, by Tablizer/TOPMind
+</div>
+
+</div>
+
+<p>(I'm not sure what 6/01 means here; are those numbers days, months, or years?)  </p>
+
+<p>People like to categorise things.  This is good and useful; we human can 
+attach the letters or sounds for "ear" to the abstract concept of an ear, and 
+then apply it to the individual ears we see.  </p>
+
+<p>However, as stated above, categorising things is only useful to the extent 
+that the classification suits the needs of the user.  While some classification 
+systems seem obvious to some, that doesn't mean that they are to others.  One 
+example I've run across in the past is that a westerner, when asked what a fox 
+and a hare have in common, will say things like "four legs, two ears", etc.  But 
+people from a more hunting-oriented society will say "fox chases hare" -- their 
+abstraction is relevant to the hunting they do to get food.  </p>
+
+<p>Since different people classify things in different ways, it's useful to 
+allow for different classification schemes.  Sometimes schemes belong to the 
+same axis (ie. the "wool" classification, and the "cloth" classification).  
+Other times they are orthogonal (eg. "wool" and "trousers").  When there are 
+multiple axes, it's useful to be able to attach each axis to an item.  In 
+table-oriented programming, this tends to lean towards one column per axis.  
+This means that it's possible to categorise something in multiple ways, and 
+filter or sort your data on these axes.  </p>
+
+</content>
+</page>

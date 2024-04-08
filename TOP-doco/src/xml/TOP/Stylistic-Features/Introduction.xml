@@ -36,8 +36,9 @@ course.</p>
 <h1>Major TOP Programming Techniques</h1>
 
 <ul>
-	<li><a href="Stylistic-Features/Control-Tables.html">Control Tables</a></li>
-	<li><a href="">Code Management</a></li>
+	<li><a href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml">Multi-Aspect Taxonomies</a></li>
+	<li><a href="TOP/Stylistic-Features/Code-Management.xml">Code Management</a></li>
+	<li><a href="TOP/Stylistic-Features/Control-Tables/">Control Tables</a></li>
 </ul>
 
 <h1>Further examples of TOP</h1>

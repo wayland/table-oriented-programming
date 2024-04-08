@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <!--base href="http://localhost:8000/"/-->
+  <!-- base href="http://localhost:8000/"/ -->
   <base href="https://wayland.github.io/table-oriented-programming/TOP-doco/src/xml/"/>
   <menubar>
     <menu>
@@ -34,6 +34,7 @@
       <menu>
         <title>Stylistic Features</title>
         <menuitem name="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
+        <menuitem name="Multi-Aspect Taxonomies" href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml"/>
         <menuitem name="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
         <menuitem name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
       </menu>
@@ -51,10 +52,6 @@
       <menu>
         <title>Other Material</title>
         <menuitem name="Eight Concepts" href="TOP/Other-Items/Eight-Concepts.xml"/>
-        <menu>
-          <title>Implementation Features</title>
-          <menuitem name="File Directory Management" href=""/>
-        </menu>
         <menuitem name="Why Table-Oriented Programming?" href="TOP/Other-Items/Why-Table-Oriented-Programming.xml"/>
         <menuitem name="Scalar Type Convergence" href="TOP/Other-Items/Scalar-Type-Convergence.xml"/>
         <menuitem name="Merging TOP and OOP" href="TOP/Other-Items/Merging-TOP-and-OOP.xml"/>
