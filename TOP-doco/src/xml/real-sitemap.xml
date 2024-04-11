@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <!-- base href="http://localhost:8000/"/ -->
-  <base href="https://wayland.github.io/table-oriented-programming/TOP-doco/src/xml/"/>
+  <base href="http://localhost:8000/"/>
+  <!-- base href="https://wayland.github.io/table-oriented-programming/TOP-doco/src/xml/"/ -->
   <menubar>
     <menu>
       <title>Progamming Productivity</title>
@@ -46,7 +46,7 @@
       </menu>
       <menu>
         <title>Comparisons</title>
-        <menuitem name="Comparison of Raku TOP and xBase" href="TOP/Comparisons/Raku-and-xHarbour.xml"/>
+        <menuitem name="Comparison of Raku TOP and xBase" href="TOP/Comparisons/Raku-and-xHarbour.xml" width="huge"/>
         <menuitem name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/>
       </menu>
       <menu>

@@ -191,7 +191,7 @@ in his own words</a> unprovable.  </p>
 	<li>Verb: Method :: function</li>
 	<li>Adverb: method parameter :: function parameter (or maybe, in both 
 		cases, the default parameter)</li>
-	<li>Pronoun: context variable (given/with/foreach)</li>
+	<li>Pronoun: topic variable $_ (given/with/foreach)</li>
 	<li>Preposition: ???</li>
 	<li>Conjunction: boolean operators</li>
 	<li>Interjection: ???</li>

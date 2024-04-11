@@ -25,9 +25,15 @@ which is similar to the SQL terminology.</p>
 	</tr>
 	<tr>
 		<td>View</td>
-		<td>View + Cursor</td>
-		<td>Workspace</td>
+		<td>View</td>
+		<td>?Workspace</td>
 		<td>to a certain extent, filters on sheets</td>
+	</tr>
+	<tr>
+		<td>Cursor</td>
+		<td>Cursor</td>
+		<td>?Workspace</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Driver</td>
@@ -37,14 +43,14 @@ which is similar to the SQL terminology.</p>
 	</tr>
 	<tr>
 		<td>Schema (hierarchical if desired)</td>
-		<td>Schema (MySQL doesn't do these)</td>
+		<td>Schema (MySQL doesn't do these, PostgreSQL does)</td>
 		<td>Filesystem Directory (hierarchical)</td>
 		<td>-</td>
 	</tr>
 	<tr>
 		<td>Database</td>
 		<td>Database</td>
-		<td></td>
+		<td>Filesystem Directory (hierarchical)</td>
 		<td>File</td>
 	</tr>
 </table>

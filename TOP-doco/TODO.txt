@@ -4,14 +4,9 @@ TODO
 Content
 -------
 
-Under Stylistic Features, add a section/page called "Multi-Aspect Taxonomies":
--	Pull in some of the material from the Tree criticism page, especially the quote at the top
--	Talk about how taxonomies need to be multi-aspect (did I write anything on the Trees page about this?)
--	Rework the Trees page, if any of it is still useful
-
-
 -	Make TOP/Comparisons/Raku-and-xHarbour.xml .  Make it quite clear which parts of Raku TOP are not implemented yet
-
+	-	Rewrite Harbour examples to look less like https://www.xharbour.com/xharbour.html (cf. copyright 
+		at bottom of page)
 
 
 

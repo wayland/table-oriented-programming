@@ -85,7 +85,6 @@ body {
 }
 
 .wide-box.huge {
-	left: 0;
 	width: 100%;
 	grid-template-columns: 10% 90%;
 }

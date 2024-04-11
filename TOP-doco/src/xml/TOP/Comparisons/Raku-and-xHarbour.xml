@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Comparisons/Raku-and-xHarbour.xml</filename>
+<content>
+
+<p>This is a page which is designed to compare Raku TOP (ie. Raku with the TOP module) with xBase/xHarbour.  </p>
+
+<style>
+td {
+  padding: 6pt; 
+  vertical-align: top;
+}
+th h2, th h3 {
+  margin: 0px;
+}
+.not-implemented::before {
+  content: "Not implemented yet";
+  color: red;
+  display: block;
+}
+.not-implemented {
+  background-color: #ffdddd;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>xHarbour</th>
+    <th>Raku TOP</th>
+  </tr>
+  <tr><th colspan="3"><h2>Types</h2></th></tr>
+  <tr><th colspan="3">Scalar Types</th></tr>
+  <tr><td colspan="3">Raku has one generic Scalar type, but with its Gradual Typing, it's possible to define more confined scalars, including the following</td></tr>
+  <tr>
+    <td>Number</td>
+    <td>Number</td>
+    <td>A variety of <a href="https://docs.raku.org/language/numerics">Numeric</a> types</td>
+  </tr>
+  <tr>
+    <td>String</td>
+    <td><a href="https://harbour.github.io/doc/#coremiapimistrings">String API</a></td>
+    <td><a href="https://docs.raku.org/type/Str">Str</a>ing</td>
+  </tr>
+  <tr>
+    <td>Boolean</td>
+    <td>Logical</td>
+    <td><a href="https://docs.raku.org/type/Bool">Bool</a></td>
+  </tr>
+  <tr>
+    <td>Date/Time</td>
+    <td><a href="https://harbour.github.io/doc/#coremiapimidatesltime">Date/Time API</a></td>
+    <td>A selection of <a href="https://docs.raku.org/language/temporal">Date and Time</a> types</td>
+  </tr>
+  <tr>
+    <td>Nil</td>
+    <td>Nil</td>
+    <td><a href="https://docs.raku.org/type/Nil">Nil</a></td>
+  </tr>
+  <tr><th colspan="3">Complex Types</th></tr>
+  <tr>
+    <td>Positional types</td>
+    <td><a href="https://harbour.github.io/doc/#coremiapimiarray">Array API</a></td>
+    <td>A variety of <a href="https://docs.raku.org/language/list">Array-related types</a></td>
+  </tr>
+  <tr>
+    <td>Associative</td>
+    <td><a href="https://harbour.github.io/doc/#coremiapimihash-table">Hash API</a></td>
+    <td>A variety of <a href="https://docs.raku.org/language/hashmap">Hash-related types</a></td>
+  </tr>
+  <tr>
+    <td>Function variables</td>
+    <td>CodeBlock</td>
+    <td>A variety of <a href="https://docs.raku.org/language/functions">Function</a> types, some of which can be assigned to variables</td>
+  </tr>
+  <tr><th colspan="3"><h2>Control Structures</h2></th></tr>
+  <tr>
+    <td>Sources</td>
+    <td></td>
+    <td><a href="https://docs.raku.org/language/control">Control Flow</a>.  The pieces of code should be roughly equivalent</td>
+  </tr>
+  <tr><th colspan="3">Control Structures: Control Flow Breaking</th></tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Any of these can be passed an ancestor block label (see below for block labels); if so, they apply to the named block, not the immediate ancestor block.</td>
+  </tr>  
+  <tr>
+    <td>Next loop iteration</td>
+    <td><code>LOOP</code></td>
+    <td><code>next</code></td>
+  </tr>
+  <tr>
+    <td>Exit the block (loop or other)</td>
+    <td><code>EXIT</code></td>
+    <td><code>last</code></td>
+  </tr>
+  <tr>
+    <td>Redo the current loop iteration (without re-evaluating the conditional)</td>
+    <td></td>
+    <td><code>redo</code></td>
+  </tr>
+  <tr><th colspan="3">Control Structures: Loops</th></tr>
+  <tr>
+    <td>While Loops</td>
+    <td>
+<code>[DO] WHILE &lt;conditional expression&gt;
+...
+END[DO]</code>
+    </td>
+    <td>
+<code>while (&lt;conditional expression&gt;) {
+  ...
+}</code>
+    </td>
+  </tr>
+  <tr>
+    <td>For Loop</td>
+    <td>
+<code>FOR &lt;var&gt; := &lt;initial expression&gt; TO &lt;terminating condition&gt; 
+    [STEP &lt;step expression&gt;]
+   ...
+NEXT</code>
+    </td>
+    <td>
+<code>loop (my $var = &lt;initial expression&gt;; $var &lt;= &lt;terminating condition&gt;; 
+      $var += &lt;step expression&gt;) {
+    ...
+}</code>
+    </td>
+  </tr>
+  <tr>
+    <td>For Each Loop</td>
+    <td>
+<code>FOR EACH &lt;item&gt; IN &lt;array&gt;
+    ...
+NEXT</code>
+    </td>
+    <td>
+<code>for @array {
+    ...
+}</code>
+    </td>
+  </tr>
+  <tr><th colspan="3">Control Structures: Conditionals</th></tr>
+  <tr>
+    <td>Switch-type</td>
+    <td>
+<code>SWITCH &lt;SwitchExp&gt;
+   CASE &lt;LiteralExp&gt;
+      ...
+      [EXIT]
+    ...
+    [DEFAULT]
+    ...
+END</code>
+    </td>
+    <td>
+<code>given &lt;SwitchExp&gt; {
+    when &lt;LiteralExp&gt; {
+      ...
+    }
+    default {
+      ...
+    }
+}</code>
+    </td>
+  </tr>
+  <tr>
+    <td>Multi-conditional case</td>
+    <td>
+<code>DO CASE
+   CASE &lt;conditional expression&gt;
+      ...
+   [CASE &lt;conditional expression&gt;]
+      ...
+   [OTHERWISE]
+      ...
+END[CASE ]</code>
+    </td>
+    <td>
+<code>LABEL: {
+    when &lt;conditional expression&gt; {
+      ...
+    };
+    ...
+    default {
+      ...
+    }
+}</code>
+      <p>The LABEL could be any text (with some exceptions, but most things).  Any block can be given a label.  The "next" and "last" constructs can be passed a label, and they'll act on the labelled block (so you can next/last on an outside loop while in an inner loop).  </p>
+    </td>
+  </tr>
+  <tr><th colspan="3">Control Structures: Exception Handling, etc</th></tr>
+  <tr>
+    <td>Sources</td>
+    <td></td>
+    <td><a href="https://docs.raku.org/language/phasers">Phasers</a> and <a href="https://docs.raku.org/language/exceptions#Catching_exceptions">Exceptions</a></td>
+  </tr>
+  <tr>
+    <td>Try, catch, finally</td>
+    <td>
+<code>TRY
+   ...
+   [BREAK]
+   [Break([Exp])]
+   [Throw([Exp])]
+CATCH [Var]
+   ...
+FINALLY
+   ...
+END</code>
+      <p>Either CATCH or FINALLY (or both) must be present.  </p>
+    </td>
+    <td>
+<code>try {
+    ...
+    die;
+    die &lt;Exception&gt;;
+    Exception.new.throw;
+    CATCH {
+      when &lt;Expression&gt; {
+        ...
+      }
+    }
+    POST {
+      ...
+    }
+}</code>
+    </td>
+  </tr>
+  <tr>
+    <td>Sequence</td>
+    <td>BEGIN SEQUENCE...</td>
+    <td>No direct equivalent.  The nearest equivalent would be to use try/throw/catch.  I've been unable to find any documentation on what RECOVER does.  Raku supports resuming exceptions; to get the equivalent of a retry, it'd probably 
+      be necessary to wrap the whole thing in a loop; if this were done, the redo command mentioned above could be used.  </td>
+  </tr>
+  <tr><th colspan="3">Control Structures: Topicalisers</th></tr>
+  <tr>
+    <td>Basic topicaliser</td>
+    <td><code>USE &lt;database&gt;</code></td>
+    <td><code>given &lt;expression&gt; {...}</code></td>
+  </tr>
+  <tr><th colspan="3"><h2>Subroutines</h2></th></tr>
+  <tr>
+    <td>Regular Subroutines</td>
+    <td><code>PROCEDURE</code> (no return values) and <code>FUNCTION</code> (returns one value)</td>
+    <td>Has <code>sub</code>, which can return any number of values, and, if <code>return</code> isn't called, will just return the return value of the last statement (which can be ignored).  </td>
+  </tr>
+  <tr>
+    <td>Methods</td>
+    <td><code>METHOD</code></td>
+    <td><code>method</code></td>
+  </tr>
+  <tr>
+    <td>INIT/END and other phasers</td>
+    <td><code>INIT</code> (at program start) and <code>END</code> (at program exit)</td>
+    <td>A variety of <a href="https://docs.raku.org/language/phasers">phasers</a>, including <code>INIT</code> and <code>END</code></td>
+  </tr>
+  <tr><th colspan="3"><h2>Macros</h2></th></tr>
+  <tr>
+    <td>Eval/Macros</td>
+    <td>&amp;(...)</td>
+    <td><code>EVAL "...";</code> -- but see also <a href="https://docs.raku.org/syntax/macros">macros</a></td>
+  </tr>
+  <tr><th colspan="3"><h2>Database Support</h2></th></tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>These features are only available through libraries.  The ones marked "Not implemented yet" are the ones that I'm hoping to implement as the next round of Raku TOP.  </td>
+  </tr>
+  <tr>
+    <td>In-language support</td>
+    <td>DBF, DBFNTX, DBFCDX, DBFDBT, and DBFFPT</td>
+    <td><a href="https://raku.land/zef:tony-o/Slang::SQL">Slang::SQL</a> (kind of) <div class="not-implemented">CSV, PostgreSQL</div></td>
+  </tr>
+  <tr>
+    <td>Remote support</td>
+    <td>ODBC/ADO (I assume these are remote; haven't looked closely)</td>
+    <td><a href="https://github.com/raku-community-modules/DBIish">DBIish</a></td>
+  </tr>
+</table>
+
+<h1>Table/Database-Related Functions</h1>
+
+<p>Where xHarbour uses the word "database", Raku (in line with SQL) will be using the word "table".  </p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>xHarbour</th>
+    <th>PostgreSQL</th>
+    <th>Raku TOP</th>
+  </tr>
+  <tr><th colspan="4"><h2>TOP::Core Functions</h2></th></tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>When called on a database, these functions are similar to xHarbour db*All, except that this only closes 
+      tables/cursors on this database, not all tables/cursors.  If we can eliminate these functions by making them 
+      happen automatically, so much the better.  </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbcommit">dbCommit()</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbcommitall">dbCommitAll()</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.commit()</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbcloseall">dbCloseAll</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbclosearea">dbCloseArea</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.close()</code></td>
+  </tr>
+  <tr>
+    <td>Get name of current item</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#alias">Alias</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbf">Dbf</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.name()</code></td>
+  </tr>
+  
+  <tr><th colspan="4"><h2>Cursor-based Functions</h2></th></tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>The following Raku examples assume that <code>given $cursor {...}</code> is wrapped around them.  Also useful
+      for consideration is <a href="https://docs.raku.org/type/IO/Handle">IO::Handle</a>, especially the section on
+      creating custom handles</td>
+  </tr>
+  <tr><th colspan="4"><h3>Positional Movement</h3></th></tr>
+  <tr>
+    <td>Relative cursor moves</td>
+    <td><code>
+<a href="https://harbour.github.io/doc/harbour.html#dbskip">dbSkip</a>(&lt;count&gt;)
+<a href="https://harbour.github.io/doc/harbour.html#dbskip">dbSkip</a>(1)
+<a href="https://harbour.github.io/doc/harbour.html#dbskip">dbSkip</a>(-1)
+<a href="https://harbour.github.io/doc/harbour.html#dbskip">dbSkip</a>(2)
+<a href="https://harbour.github.io/doc/harbour.html#dbskip">dbSkip</a>(-2)</code></td>
+    <td><code>
+<a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> RELATIVE &lt;count&gt; FROM &lt;cursor&gt;
+<a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> NEXT FROM &lt;cursor&gt;
+<a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> PRIOR FROM &lt;cursor&gt;
+<a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> FORWARD 2 FROM &lt;cursor&gt;
+<a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> BACKWARD 2 FROM &lt;cursor&gt;</code></td>
+    <td class="not-implemented"><code>.moveRel(&lt;count&gt;)
+$cursor++
+$cursor--
+.moveRel(2)
+.moveRel(-2)</code></td>
+  </tr>
+  <tr>
+    <td>Go to numbered record</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbgobottom">dbGoto</a>(&lt;count&gt;)</code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> ABSOLUTE &lt;count&gt; IN &lt;cursor&gt;</code></td>
+    <td class="not-implemented"><code>.moveAbs(&lt;count&gt;)</code></td>
+  </tr>
+  <tr>
+    <td>Go to first record</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbgotop">dbGoTop</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> FIRST IN &lt;cursor&gt;</code></td>
+    <td class="not-implemented"><code>.moveAbs(:first)</code></td>
+  </tr>
+  <tr>
+    <td>Go to last record</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbgobottom">dbGoBottom</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> LAST IN &lt;cursor&gt;</code></td>
+    <td class="not-implemented"><code>.moveAbs(:last)</code></td>
+  </tr>
+  <tr><th colspan="4"><h3>Other</h3></th></tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>FETCH [NEXT, PRIOR, FIRST, LAST, ABSOLUTE count, RELATIVE count, FORWARD, or BACKWARD]</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>UPDATE/DELETE WHERE CURRENT OF &lt;cursor&gt;</td>
+    <td></td>
+  </tr>  
+  <tr>
+    <td></td>
+    <td></td>
+    <td>OPEN/CLOSE</td>
+    <td></td>
+  </tr>  
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#bof">Bof()</a>
+<a href="https://harbour.github.io/doc/harbour.html#eof">Eof()</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.is :first
+.is :last</code></td>
+  </tr>
+  <tr><th colspan="4"><h3>Deletion marking</h3></th></tr>
+  <tr>
+    <td>Mark current record for deletion</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbdelete">dbDelete</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-UPDATE-DELETE">DELETE WHERE CURRENT OF &lt;cursor&gt;</a></code>
+      <p>Doesn't mark, just does the deletion</p></td>
+    <td class="not-implemented"><code>.delete()</code><p>Read dbRecall before implementing</p></td>
+  </tr>
+  <tr>
+    <td>Check if current record is marked for deletion</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#deleted">Deleted</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.is :deleted</code><p>Read dbRecall before implementing</p></td>
+  </tr>
+  <tr>
+    <td>Unmark current record for deletion</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrecall">dbRecall</a></code></td>
+    <td>-</td>
+    <td class="not-implemented"><code>.recall()</code></td>
+  </tr>
+  <tr><th colspan="4"><h3>Seeking Movement</h3></th></tr>
+  <tr>
+    <td>Seek a record</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbseek">dbSeek</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.match() :first</code></td>
+  </tr>
+  <tr>
+    <td>Check if a record was found</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#found">Found</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.is :found</code></td>
+  </tr>
+  
+  <tr><th colspan="4"><h2>Tablish Functions</h2></th></tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>The following Raku examples assume that <code>given $tablish {...}</code> is wrapped around them.  .  </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbappend">dbAppend</a>(&lt;lock&gt;)</code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-insert.html">INSERT</a></code></td>
+    <td class="not-implemented"><code>.upsert({&lt;field&gt; => $value, ...})</code></td>
+  </tr>
+  <tr>
+    <td>Create delimited text file from table</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbdelim">__dbDelim</a>(
+  &lt;lExport&gt;, &lt;xcFile&gt;,
+  [&lt;xcDelim&gt;], [&lt;aFields&gt;],
+  [&lt;bFor&gt;], [&lt;bWhile&gt;],
+  [&lt;nNext&gt;], [&lt;nRecord&gt;],
+  &lt;lRest&gt;
+)
+<a href="https://harbour.github.io/doc/harbour.html#__dbsdf">__dbSDF</a>(...)</code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-copy.html">COPY</a> table_name [ ( column_name [, ...] ) ]
+    FROM { 'filename' | PROGRAM 'command' | STDIN }
+    [ [ WITH ] ( option [, ...] ) ]
+    [ WHERE condition ]</code>
+    </td>
+    <td class="not-implemented"><code>$csvtable = Table.new(
+  type => 'csv',
+  filename => $xcFile,
+  delimiter => $xcDelim,
+);
+if($lExport) {
+  $csvtable.upsert($_)
+} else {
+  .upsert($csvtable);
+}
+  </code>
+  <p>For bFor, bWhile, nNext, and lRest, just use a loop or record selection.  <code>.upsert</code> should take 
+    a tablish or a cursor, or an array of table rows, such as might be returned by a query.  
+    As an optional parameter, it should also take a field map 
+    (hash converting keys into other keys).  </p></td>
+  </tr>
+  <tr>
+    <td>Return the data dictionary entries for a table structure (a data dictionary is just another table)</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbstructfilter">__dbStructFilter</a>
+<a href="https://harbour.github.io/doc/harbour.html#__fledit">__FLedit</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbstruct">dbStruct</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.dictionary(fields => [...])</code></td>
+  </tr>
+  <tr>
+    <td>Lock rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrlock">dbRLock</a>
+<a href="https://harbour.github.io/doc/harbour.html#flock">FLock</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-lock.html">LOCK</a> [ TABLE ] [ ONLY ] name [ * ] [, ...] 
+    [ IN lockmode MODE ] [ NOWAIT ]</code>
+      <p>cf. <a href="https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS">Row-level locks</a></p></td>
+    <td class="not-implemented"><code>.lock([ &lt;primary key&gt; ])</code></td>
+  </tr>
+  <tr>
+    <td>Unlock rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrunlock">dbRUnlock</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbunlock">dbUnlock</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbunlockall">dbUnlockAll</a></code></td>
+    <td>There's no Unlock command; locks are released at transaction end</td>
+    <td class="not-implemented">Maybe as per Postgres?</td>
+  </tr>
+  <tr>
+    <td>Count fields</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fcount">FCount</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.count_fields()</code></td>
+  </tr>
+  <tr>
+    <td>Get field value</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldget">FieldGet</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>$value = .{&lt;field name&gt;}</code></td>
+  </tr>
+  <tr>
+    <td>Put value in field</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldput">FieldPut</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.{&lt;field name&gt;} = $value</code></td>
+  </tr>
+
+  <tr><th colspan="4"><h2>View Functions</h2></th></tr>
+  
+  <tr>
+    <td>Filtering rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbfilter">dbFilter</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbsetfilter">dbSetFilter</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-createview.html">CREATE VIEW</a></code></td>
+    <td class="not-implemented"><code>$view = $database.ensure(type => view, ...);
+$view = View.new();</code></td>
+  </tr>
+  
+  <tr><th colspan="4"><h2>Database Functions</h2></th></tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>The following Raku examples assume that <code>given $database {...}</code> is wrapped around them.</td>
+  </tr>
+  <tr>
+    <td>Create a new database based on current database structure</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbcopystruct">__dbCopyStruct</a>
+<a href="https://harbour.github.io/doc/harbour.html#__dbcopyxstruct">__dbCopyXStruct</a>
+<a href="https://harbour.github.io/doc/harbour.html#__dbcreate">__dbCreate</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbcreate">dbCreate</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/16/sql-createtableas.html">CREATE TABLE AS</a></code></td>
+    <td class="not-implemented"><code>.ensure_table(structure => $tablish.dictionary(fields => [...]))
+$table = Table.new(...)</code></td>
+  </tr>
+  <tr>
+    <td>Get list of locks</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrlocklist">dbRLockList</a></code></td>
+    <td>Use <a href="https://www.postgresql.org/docs/current/view-pg-locks.html">pg_locks</a></td>
+    <td class="not-implemented"><code>$database.locks()</code><p>Note that this is only locks on the current database</p></td>
+  </tr>
+  <tr><th colspan="4"><h2>Other Functions</h2></th></tr>
+  <tr>
+    <td></td>
+    <td>dbClearFilter</td>
+    <td></td>
+    <td>Won't be implemented; filters are applied by creating a view on a table, and clearing the filter doesn't make sense in this context</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AFields</td>
+    <td></td>
+    <td>Just use regular Raku functionality (or $table.select)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbselectarea">dbSelectArea</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbusearea">dbUseArea</a></code></td>
+    <td></td>
+    <td><code>given $view {...}</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbsetdriver">dbSetDriver</a></code></td>
+    <td></td>
+    <td class="not-implemented">Drivers will be set when creating a table/view (often via a Database object)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldname">FieldName</a>
+<a href="https://harbour.github.io/doc/harbour.html#fieldpos">FieldPos</a></code></td>
+    <td></td>
+    <td class="not-implemented">We don't support positional referencing of fields -- use the name, not the position (for fields, not rows -- rows are indexed by number)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#header">Header</a></code></td>
+    <td></td>
+    <td>This should be an internal function on the various DB backends, not a user-exposed function</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="not-implemented"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="not-implemented"></td>
+  </tr>
+</table>
+
+
+
+
+<p>Categories which need to be broken down above:</p>
+<ul>
+  <li>User Interface/Terminal</li>
+</ul>
+
+<p>Classes we're going to need:</p>
+<ul>
+  <li>role TOP::Core</li>
+  <ul>
+    <li>role Tablish</li>
+    <ul>
+      <li>class Table</li>
+      <li>class View</li>
+      <li>class DataDictionary</li>
+    </ul>
+    <li>class Cursor</li>
+    <li>class Database</li>
+  </ul>
+  <li>class TOP::TableRow: Data is actually stored in table, but this references a row</li>
+  <li>class TOP::TableColumn</li>
+</ul>
+
+<h2>Other Function Groups</h2>
+
+<p>These categories are drawn from the <a href="https://harbour.github.io/doc/">Harbour Reference Guide</a>, 
+but exclude the ones covered above.  </p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>xHarbour</th>
+    <th>Raku</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>API</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Class</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Conversion</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Environment</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Error</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Events</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Execute and Execution</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>FileSys</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Garbage Collector</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Idle States</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Internal</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>INET</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Language and Nation</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Macro</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Math</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Objects</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>RDD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Variable Management</td>
+    <td></td>
+  </tr>
+</table>
+
+
+</content>
+</page>
