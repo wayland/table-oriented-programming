@@ -216,7 +216,7 @@ be implemented in an IDE that fully supports Programming Productivity:</p>
 			needed</li>
 		<li><b>Source control visual tools:</b> To reduce the time spent managing 
 			the code</li>
-		<li><b>Tableish Code Editors:</b> In Table-Oriented Programming, both 
+		<li><b>Relation Code Editors:</b> In Table-Oriented Programming, both 
 			code and data can be stored in tables.  Think of this as being like 
 			a spreadsheet, but you can compile it.</li> 
 		<li><b>Dataflow Code Editors:</b> In dataflow programming, there's a 

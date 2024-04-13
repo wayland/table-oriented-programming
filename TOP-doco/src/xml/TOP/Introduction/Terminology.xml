@@ -26,7 +26,7 @@ which is similar to the SQL terminology.</p>
 	<tr>
 		<td>View</td>
 		<td>View</td>
-		<td>?Workspace</td>
+		<td>?Workspace, ordBag</td>
 		<td>to a certain extent, filters on sheets</td>
 	</tr>
 	<tr>
@@ -34,6 +34,12 @@ which is similar to the SQL terminology.</p>
 		<td>Cursor</td>
 		<td>?Workspace</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>Column</td>
+		<td>Column</td>
+		<td>Field</td>
+		<td>Column</td>
 	</tr>
 	<tr>
 		<td>Driver</td>

@@ -20,7 +20,7 @@
       <menu>
         <title>Collection Convergence</title>
         <menuitem name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
-        <menuitem name="role Tableish" href="TOP/Collection-Convergence/Tableish.xml"/>
+        <menuitem name="role Relation" href="TOP/Collection-Convergence/Relation.xml"/>
         <menuitem name="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
         <menuitem name="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
         <menuitem name="Data Dictionaries" href="TOP/Collection-Convergence/Data-Dictionaries.xml"/>
@@ -48,6 +48,18 @@
         <title>Comparisons</title>
         <menuitem name="Comparison of Raku TOP and xBase" href="TOP/Comparisons/Raku-and-xHarbour.xml" width="huge"/>
         <menuitem name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/>
+      </menu>
+      <menu>
+        <title>Raku</title>
+        <menuitem name="role TOP::Core" href="TOP/Raku/Core.xml"/>
+        <menuitem name="role Relation" href="TOP/Raku/Relation.xml"/>
+        <menuitem name="class Table" href="TOP/Raku/Table.xml"/>
+        <menuitem name="class View" href="TOP/Raku/View.xml"/>
+        <menuitem name="class DataDictionary" href="TOP/Raku/DataDictionary.xml"/>
+        <menuitem name="class Cursor" href="TOP/Raku/Cursor.xml"/>
+        <menuitem name="class Database" href="TOP/Raku/Database.xml"/>
+        <menuitem name="class Tuple" href="TOP/Raku/Tuple.xml"/>
+        <menuitem name="class Field" href="TOP/Raku/Field.xml"/>
       </menu>
       <menu>
         <title>Other Material</title>

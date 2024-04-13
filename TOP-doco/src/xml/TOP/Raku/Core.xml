@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Core.xml</filename>
+<content>
+
+<p>This is a page which is designed to compare Raku TOP (ie. Raku with the TOP module) with xBase/xHarbour.  </p>
+
+<style>
+td {
+  padding: 6pt; 
+  vertical-align: top;
+}
+th h2, th h3 {
+  margin: 0px;
+}
+</style>
+
+<h1>TOP::Slang</h1>
+
+<p>This will probably be one of the last TOP features implemented.</p>
+
+<div class="not-implemented">
+<code>atom $database [, $database2] {
+  &lt;database actions&gt;
+  throw Exception.new;
+}</code></div>
+
+<p>The <code>atom</code> structure holds a transaction on a database.  It's basically a normal block, but the
+the KEEP and UNDO phasers are automatically tied to the commit/rollback functions on the databases provided.</p>
+
+<h1>TOP::Core Functions</h1>
+
+<table>
+  <tr>
+    <th>Raku TOP</th>
+    <th>Item</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>When called on a database, these functions are similar to xHarbour db*All, except that this only closes 
+      tables/cursors on this database, not all tables/cursors.  If we can eliminate these functions by making them 
+      happen automatically, so much the better.  </td>
+  </tr>
+  <tr>
+    <td class="not-implemented"><code>.commit()</code></td>
+    <td>This should probably be .flush, but not sure until we implement transactions.  If it's commit, then we should be
+      reviewing PostgreSQL transaction stuff here too.  <p>Related xHarbour functions:</p>
+      <code><a href="https://harbour.github.io/doc/harbour.html#dbcommit">dbCommit()</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbcommitall">dbCommitAll()</a></code></td>
+  </tr>
+  <tr>
+    <td class="not-implemented"><code>.close()</code></td>
+    <td><p>Related xHarbour functions</p><code><a href="https://harbour.github.io/doc/harbour.html#dbcloseall">dbCloseAll</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbclosearea">dbCloseArea</a></code></td>
+  </tr>
+  <tr>
+    <td class="not-implemented"><code>.name()</code></td>
+    <td>Get name of current item.  <p>Related xHarbour functions:</p>
+    <code><a href="https://harbour.github.io/doc/harbour.html#alias">Alias</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbf">Dbf</a></code></td>
+  </tr>
+</table>
+
+<h3>Access Modes</h3>
+
+<p>Question: What about cursors?</p>
+
+<div class="blockquote">
+
+<p>Have 2 access modes: "direct" and "transactional". Direct access
+mode allows one to access a field as if it was a memory variable,
+and know that any changes will be written into the field. Transactional
+mode is a bit more formal; you have to explicitly issue a Save
+operation to save the record. Note that Direct Access mode may still
+buffer actual writes to improve I/O, but the programmer need
+not worry about this. Here is an example of each:</p>
+<pre>
+   t = DBopen("tableA"  #<b>direct</b>)   // open table or view
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'    // change name from Fred to Bob
+   }
+   close t
+   // '#' mark named parameters
+
+Transactional:
+
+   t = DBopen("tableA"  #<b>transact</b>)
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'
+      if not save(t) {   // needed or no save is done
+        // handle error
+      }
+   }
+   close t     // (may not be necessary in some langs)
+</pre>
+<p>The direct approach can be used if you know there will not
+be resource conflict issues with other users or processes,
+such as if you have exclusive access to the table. Note
+that although this example can be easily done with SQL,
+more interactive behavior would require more steps in SQL.
+Example:</p>
+<pre>
+   t = DBopen("tableA" #direct)   // open table or view
+   seek t #where name = 'Fred'
+   if found(t) {
+      t.name = 'Bob'    // change name from Fred to Bob
+   } else {
+      display "Error, Fred not found."
+   }
+   close t 
+</pre>
+<p>SQL would require one query to request the change, and another
+to verify the change. Either that, one qurey to see if the
+target is there, and another to change it.</p>
+<pre>
+  s = "select from tableA where name = 'Fred' "
+  t = DBopen(#sql s)
+  if found(t) {
+     s2 = "update tableA set name = 'Bob' "
+     DBexecute  s2
+  } else {
+     display "Error, Fred not found."
+  }
+</pre>     
+
+<p>In this case it is not that much more code, but
+in many situations it gets cluttered. Direct SQL makes it
+tougher to mix reads and writes, usually requiring the issuing
+of new queries. (Perhaps the direct approach could be
+implemented via SQL underneath, but not something the
+programmer has to concern him/herself with.)</p>
+
+<p>
+Note that <tt>recCnt(t) &gt; 0</tt> could replace <tt>found(t)</tt>
+where <tt>recCnt</tt> is short for "Record Count". This example
+assumes there is only one Fred.</p>
+
+<div align="center">
+See Also: <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/sqlcrit.htm">SQL Critique</a>
+</div>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+</content>
+</page>

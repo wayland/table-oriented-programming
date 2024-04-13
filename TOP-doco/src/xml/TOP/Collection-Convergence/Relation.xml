@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Collection-Convergence/Tableish.xml</filename>
+<filename>TOP/Collection-Convergence/Relation.xml</filename>
 <content>
-<h1>The Tableish</h1>
+<h1>The Relation</h1>
 
-<p>The Tableish is a role that represents all features common to Tables and 
+<p>The Relation is a role that represents all features common to Tables and 
 Views.  Features include:</p>
 
 <h3>Column Access</h3>
 
-<p>In a Raku TOP Tableish, columns are accessed using the Associative role.  This 
+<p>In a Raku TOP Relation, columns are accessed using the Associative role.  This 
 means that we can use <code>$table&lt;column&gt;</code> or 
 <code>$table{$column-name}</code> access methods (the second used when the 
 name of the column is in a variable).  </p>
 
 <h3>Row Access</h3>
 
-<p>In a Raku TOP Tableish, rows are accessed using the Positional role.  This 
+<p>In a Raku TOP Relation, rows are accessed using the Positional role.  This 
 means that we can use <code>$table[$rownum]</code> to pick out a particular row.  
 </p>
 

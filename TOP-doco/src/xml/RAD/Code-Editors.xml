@@ -12,7 +12,7 @@
 			needed</li>
 		<li><b>Source control visual tools:</b> To reduce the time spent managing 
 			the code</li>
-		<li><b>Tableish Code Editors:</b> In Table-Oriented Programming, both 
+		<li><b>Relation Code Editors:</b> In Table-Oriented Programming, both 
 			code and data can be stored in tables.  Think of this as being like 
 			a spreadsheet, but you can compile it.</li> 
 		<li><b>Dataflow Code Editors:</b> In dataflow programming, there's a 
@@ -39,7 +39,7 @@ are:</p>
 <p>One with lots of features; probably draw on <a href="https://git-scm.com/downloads/guis">
 Git GUI Clients for inspiration.  </a></p>
 
-<h1 id="Tableish">Tableish Code Editor</h1>
+<h1 id="Relation">Relation Code Editor</h1>
 
 <p>In Table-Oriented Programming, both code and data can be stored in tables.  
 There should be a visual editor for the tables in question, though it should 

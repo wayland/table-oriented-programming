@@ -4,7 +4,7 @@
 <filename>TOP/Language-Support/View.xml</filename>
 <content>
 <p>Much like in SQL, views are selections of data from one or more collections 
-(descendents of Tableish).  However, unlike SQL, we should expect views to be 
+(descendents of Relation).  However, unlike SQL, we should expect views to be 
 local, writable, and objects.  Another notable difference is that it would be 
 perfectly normal to declare a view on one table, so as to get a sort order 
 or something similar (in SQL terms, they function as a combination of a View 
@@ -290,8 +290,8 @@ similar functionality as inherited properties in OOP.</p>
 
 <h1>Transferring</h1>
 
-<p>Just a note on Transferring (see <a href="Collection-Convergence/Tableish.html">
-role Tableish</a>):</p>
+<p>Just a note on Transferring (see <a href="Collection-Convergence/Relation.xml">
+role Relation</a>):</p>
 
 <div class="blockquote">
 

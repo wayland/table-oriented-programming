@@ -373,24 +373,31 @@ $cursor--
     <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-MOVE">MOVE</a> LAST IN &lt;cursor&gt;</code></td>
     <td class="not-implemented"><code>.moveAbs(:last)</code></td>
   </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#recno">RecNo</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.current :as('Number')</code></td>
+  </tr>
+  <tr><th colspan="4"><h3>Seeking Movement</h3></th></tr>
+  <tr>
+    <td>Seek a record</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbseek">dbSeek</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.match() :first</code></td>
+  </tr>
+  <tr>
+    <td>Check if a record was found</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#found">Found</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.marked :found</code></td>
+  </tr>
   <tr><th colspan="4"><h3>Other</h3></th></tr>
   <tr>
     <td></td>
     <td></td>
-    <td>FETCH [NEXT, PRIOR, FIRST, LAST, ABSOLUTE count, RELATIVE count, FORWARD, or BACKWARD]</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>UPDATE/DELETE WHERE CURRENT OF &lt;cursor&gt;</td>
-    <td></td>
-  </tr>  
-  <tr>
-    <td></td>
-    <td></td>
     <td>OPEN/CLOSE</td>
-    <td></td>
+    <td class="not-implemented">Basically equivalent to create/destroy</td>
   </tr>  
   <tr>
     <td></td>
@@ -406,47 +413,144 @@ $cursor--
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbdelete">dbDelete</a></code></td>
     <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-UPDATE-DELETE">DELETE WHERE CURRENT OF &lt;cursor&gt;</a></code>
       <p>Doesn't mark, just does the deletion</p></td>
-    <td class="not-implemented"><code>.delete()</code><p>Read dbRecall before implementing</p></td>
+    <td class="not-implemented"><code>.mark :delete</code><p>Read dbRecall before implementing</p></td>
   </tr>
   <tr>
     <td>Check if current record is marked for deletion</td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#deleted">Deleted</a></code></td>
     <td></td>
-    <td class="not-implemented"><code>.is :deleted</code><p>Read dbRecall before implementing</p></td>
+    <td class="not-implemented"><code>.marked :delete</code><p>Read dbRecall before implementing</p></td>
   </tr>
   <tr>
     <td>Unmark current record for deletion</td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrecall">dbRecall</a></code></td>
     <td>-</td>
-    <td class="not-implemented"><code>.recall()</code></td>
-  </tr>
-  <tr><th colspan="4"><h3>Seeking Movement</h3></th></tr>
-  <tr>
-    <td>Seek a record</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbseek">dbSeek</a></code></td>
-    <td></td>
-    <td class="not-implemented"><code>.match() :first</code></td>
+    <td class="not-implemented"><code>.unmark :delete</code></td>
   </tr>
   <tr>
-    <td>Check if a record was found</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#found">Found</a></code></td>
+    <td>Delete records marked for deletion</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#pack-cmd">PACK</a></code></td>
     <td></td>
-    <td class="not-implemented"><code>.is :found</code></td>
+    <td class="not-implemented"><code>.delete_marked()</code></td>
+  </tr>
+  <tr><th colspan="4"><h3>Getting/setting fields</h3></th></tr>
+  <tr>
+    <td>Get field value</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldget">FieldGet</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-FETCH">FETCH</a> [NEXT, PRIOR, FIRST, LAST,
+    ABSOLUTE count, RELATIVE count, 
+    FORWARD, or BACKWARD]</code><p>This actually fetches into the array, not fetches the field</p></td>
+    <td class="not-implemented"><code>$value = .{&lt;field name&gt;}</code></td>
+  </tr>
+  <tr>
+    <td>Put value in field</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldput">FieldPut</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/plpgsql-cursors.html#PLPGSQL-CURSOR-USING-UPDATE-DELETE">UPDATE</a> WHERE CURRENT OF &lt;cursor&gt;</code></td>
+    <td class="not-implemented"><code>.{&lt;field name&gt;} = $value</code></td>
   </tr>
   
-  <tr><th colspan="4"><h2>Tablish Functions</h2></th></tr>
+  <tr><th colspan="4"><h2>Relation Functions</h2></th></tr>
   
   <tr>
     <td></td>
     <td></td>
     <td></td>
-    <td>The following Raku examples assume that <code>given $tablish {...}</code> is wrapped around them.  .  </td>
+    <td>The following Raku examples assume that <code>given $relation {...}</code> is wrapped around them.  .  </td>
   </tr>
   <tr>
     <td></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbappend">dbAppend</a>(&lt;lock&gt;)</code></td>
     <td><code><a href="https://www.postgresql.org/docs/current/sql-insert.html">INSERT</a></code></td>
     <td class="not-implemented"><code>.upsert({&lt;field&gt; => $value, ...})</code></td>
+  </tr>
+  <tr>
+    <td>Return the data dictionary entries for a table structure (a data dictionary is just another table)</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbstructfilter">__dbStructFilter</a>
+<a href="https://harbour.github.io/doc/harbour.html#__fledit">__FLedit</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbstruct">dbStruct</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.dictionary(fields => [...])</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#lupdate">LUpdate</a></code></td>
+    <td></td>
+    <td class="not-implemented">.updated :as('date')</td>
+  </tr>
+  <tr><th colspan="4"><h3>Counting</h3></th></tr>
+  <tr>
+    <td>Count fields</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#fcount">FCount</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.count_columns()</code></td>
+  </tr>
+  <tr>
+    <td>Count Rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#lastrec">LastRec</a>
+<a href="https://harbour.github.io/doc/harbour.html#reccount">RecCount</a></code></td>
+    <td></td>
+    <td class="not-implemented"><code>.count_rows()</code></td>
+  </tr>
+
+  <tr><th colspan="4"><h2>Table Functions</h2></th></tr>
+
+  <tr><th colspan="4"><h3>Locking</h3></th></tr>
+  <tr>
+    <td>Lock rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrlock">dbRLock</a>
+<a href="https://harbour.github.io/doc/harbour.html#flock">FLock</a>
+<a href="https://harbour.github.io/doc/harbour.html#rlock">RLock</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-lock.html">LOCK</a> [ TABLE ] [ ONLY ] name [ * ] [, ...] 
+    [ IN lockmode MODE ] [ NOWAIT ]</code>
+      <p>cf. <a href="https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS">Row-level locks</a></p></td>
+    <td class="not-implemented"><code>.lock([ &lt;primary key&gt; ])</code></td>
+  </tr>
+  <tr>
+    <td>Unlock rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrunlock">dbRUnlock</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbunlock">dbUnlock</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbunlockall">dbUnlockAll</a></code></td>
+    <td>There's no Unlock command; locks are released at transaction end</td>
+    <td class="not-implemented">Maybe as per Postgres?</td>
+  </tr>
+  <tr><th colspan="4"><h3>Other Table Functions</h3></th></tr>
+  <tr>
+    <td>Truncate</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#zap-cmd">ZAP</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-truncate.html">TRUNCATE</a></code></td>
+    <td class="not-implemented"><code>$table = Empty;</code></td>
+  </tr>
+
+  <tr><th colspan="4"><h2>View Functions</h2></th></tr>
+  
+  <tr>
+    <td>Filtering rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbfilter">dbFilter</a>
+<a href="https://harbour.github.io/doc/harbour.html#dbsetfilter">dbSetFilter</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-createview.html">CREATE VIEW</a> ... WHERE ...</code></td>
+    <td class="not-implemented"><code>$view = $database.ensure(type => view, where => {...}, ...);
+$view = View.new(where => {...}, ...);</code></td>
+  </tr>
+  <tr>
+    <td>Ordering Rows</td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#ordcondset">ordCondSet</a></code></td>
+    <td><code><a href="https://www.postgresql.org/docs/current/sql-createview.html">CREATE VIEW</a> ... ORDER BY ...</code></td>
+    <td class="not-implemented"><code>$view = $database.ensure(type => view, sort => {...}, ...);
+$view = View.new(sort => {...}, ...);</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#ordcreate">ordCreate</a>
+<a href="https://harbour.github.io/doc/harbour.html#orddestroy">ordDestroy</a></code></td>
+    <td></td>
+    <td class="not-implemented">If relevant, happens automatically on view object creation/destruction</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#ordkey">ordKey</a></code></td>
+    <td></td>
+    <td class="not-implemented">Does this need implementing?  It seems like in our context, it would get part of a
+      WHERE clause from a view</td>
   </tr>
   <tr>
     <td>Create delimited text file from table</td>
@@ -475,63 +579,9 @@ if($lExport) {
 }
   </code>
   <p>For bFor, bWhile, nNext, and lRest, just use a loop or record selection.  <code>.upsert</code> should take 
-    a tablish or a cursor, or an array of table rows, such as might be returned by a query.  
+    a relation or a cursor, or an array of table rows, such as might be returned by a query.  
     As an optional parameter, it should also take a field map 
     (hash converting keys into other keys).  </p></td>
-  </tr>
-  <tr>
-    <td>Return the data dictionary entries for a table structure (a data dictionary is just another table)</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbstructfilter">__dbStructFilter</a>
-<a href="https://harbour.github.io/doc/harbour.html#__fledit">__FLedit</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbstruct">dbStruct</a></code></td>
-    <td></td>
-    <td class="not-implemented"><code>.dictionary(fields => [...])</code></td>
-  </tr>
-  <tr>
-    <td>Lock rows</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrlock">dbRLock</a>
-<a href="https://harbour.github.io/doc/harbour.html#flock">FLock</a></code></td>
-    <td><code><a href="https://www.postgresql.org/docs/current/sql-lock.html">LOCK</a> [ TABLE ] [ ONLY ] name [ * ] [, ...] 
-    [ IN lockmode MODE ] [ NOWAIT ]</code>
-      <p>cf. <a href="https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS">Row-level locks</a></p></td>
-    <td class="not-implemented"><code>.lock([ &lt;primary key&gt; ])</code></td>
-  </tr>
-  <tr>
-    <td>Unlock rows</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrunlock">dbRUnlock</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbunlock">dbUnlock</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbunlockall">dbUnlockAll</a></code></td>
-    <td>There's no Unlock command; locks are released at transaction end</td>
-    <td class="not-implemented">Maybe as per Postgres?</td>
-  </tr>
-  <tr>
-    <td>Count fields</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#fcount">FCount</a></code></td>
-    <td></td>
-    <td class="not-implemented"><code>.count_fields()</code></td>
-  </tr>
-  <tr>
-    <td>Get field value</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldget">FieldGet</a></code></td>
-    <td></td>
-    <td class="not-implemented"><code>$value = .{&lt;field name&gt;}</code></td>
-  </tr>
-  <tr>
-    <td>Put value in field</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldput">FieldPut</a></code></td>
-    <td></td>
-    <td class="not-implemented"><code>.{&lt;field name&gt;} = $value</code></td>
-  </tr>
-
-  <tr><th colspan="4"><h2>View Functions</h2></th></tr>
-  
-  <tr>
-    <td>Filtering rows</td>
-    <td><code><a href="https://harbour.github.io/doc/harbour.html#dbfilter">dbFilter</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbsetfilter">dbSetFilter</a></code></td>
-    <td><code><a href="https://www.postgresql.org/docs/current/sql-createview.html">CREATE VIEW</a></code></td>
-    <td class="not-implemented"><code>$view = $database.ensure(type => view, ...);
-$view = View.new();</code></td>
   </tr>
   
   <tr><th colspan="4"><h2>Database Functions</h2></th></tr>
@@ -543,13 +593,17 @@ $view = View.new();</code></td>
     <td>The following Raku examples assume that <code>given $database {...}</code> is wrapped around them.</td>
   </tr>
   <tr>
-    <td>Create a new database based on current database structure</td>
+    <td>Create a new table, maybe based on current table structure</td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#__dbcopystruct">__dbCopyStruct</a>
 <a href="https://harbour.github.io/doc/harbour.html#__dbcopyxstruct">__dbCopyXStruct</a>
 <a href="https://harbour.github.io/doc/harbour.html#__dbcreate">__dbCreate</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbcreate">dbCreate</a></code></td>
+<a href="https://harbour.github.io/doc/harbour.html#dbcreate">dbCreate</a>
+<a href="https://harbour.github.io/doc/harbour.html#copy-structure-cmd">COPY STRUCTURE</a>
+<a href="https://harbour.github.io/doc/harbour.html#copy-structure-extended-cmd">COPY STRUCTURE EXTENDED</a>
+<a href="https://harbour.github.io/doc/harbour.html#create-cmd">CREATE</a>
+<a href="https://harbour.github.io/doc/harbour.html#create-from-cmd">CREATE FROM</a></code></td>
     <td><code><a href="https://www.postgresql.org/docs/16/sql-createtableas.html">CREATE TABLE AS</a></code></td>
-    <td class="not-implemented"><code>.ensure_table(structure => $tablish.dictionary(fields => [...]))
+    <td class="not-implemented"><code>.ensure_table(structure => $relation.dictionary(fields => [...]))
 $table = Table.new(...)</code></td>
   </tr>
   <tr>
@@ -557,6 +611,13 @@ $table = Table.new(...)</code></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbrlocklist">dbRLockList</a></code></td>
     <td>Use <a href="https://www.postgresql.org/docs/current/view-pg-locks.html">pg_locks</a></td>
     <td class="not-implemented"><code>$database.locks()</code><p>Note that this is only locks on the current database</p></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#used">Used</a></code></td>
+    <td></td>
+    <td class="not-implemented">Not quite the same, but we should have <code>.used($relation-name)</code>, which 
+      returns null if the named relation is not in use, and returns the relation if it is</td>
   </tr>
   <tr><th colspan="4"><h2>Other Functions</h2></th></tr>
   <tr>
@@ -574,7 +635,8 @@ $table = Table.new(...)</code></td>
   <tr>
     <td></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbselectarea">dbSelectArea</a>
-<a href="https://harbour.github.io/doc/harbour.html#dbusearea">dbUseArea</a></code></td>
+<a href="https://harbour.github.io/doc/harbour.html#dbusearea">dbUseArea</a>
+<a href="https://harbour.github.io/doc/harbour.html#select">Select</a></code></td>
     <td></td>
     <td><code>given $view {...}</code></td>
   </tr>
@@ -582,20 +644,44 @@ $table = Table.new(...)</code></td>
     <td></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#dbsetdriver">dbSetDriver</a></code></td>
     <td></td>
-    <td class="not-implemented">Drivers will be set when creating a table/view (often via a Database object)</td>
+    <td>Drivers will be set when creating a table/view (often via a Database object)</td>
   </tr>
   <tr>
     <td></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#fieldname">FieldName</a>
-<a href="https://harbour.github.io/doc/harbour.html#fieldpos">FieldPos</a></code></td>
+<a href="https://harbour.github.io/doc/harbour.html#fieldpos">FieldPos</a>
+<a href="https://harbour.github.io/doc/harbour.html#ordbagname">ordBagName</a>
+<a href="https://harbour.github.io/doc/harbour.html#ordfor">ordFor</a></code></td>
     <td></td>
-    <td class="not-implemented">We don't support positional referencing of fields -- use the name, not the position (for fields, not rows -- rows are indexed by number)</td>
+    <td>We don't support positional referencing of fields -- use the name, not the position (for fields, not rows -- rows are indexed by number)</td>
   </tr>
   <tr>
     <td></td>
     <td><code><a href="https://harbour.github.io/doc/harbour.html#header">Header</a></code></td>
     <td></td>
     <td>This should be an internal function on the various DB backends, not a user-exposed function</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#indexext">IndexExt</a>
+<a href="https://harbour.github.io/doc/harbour.html#indexkey">IndexKey</a>
+<a href="https://harbour.github.io/doc/harbour.html#indexord">IndexOrd</a>
+<a href="https://harbour.github.io/doc/harbour.html#ordbagext">ordBagExt</a></code></td>
+    <td></td>
+    <td>Should be an internal function on the various DB backends, not a user-exposed function</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code><a href="https://harbour.github.io/doc/harbour.html#neterr">NetErr</a>
+<a href="https://harbour.github.io/doc/harbour.html#recsize">RecSize</a></code></td>
+    <td></td>
+    <td>Should be an internal function on the various DB backends, not a user-exposed function</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="not-implemented"></td>
   </tr>
   <tr>
     <td></td>
@@ -623,7 +709,7 @@ $table = Table.new(...)</code></td>
 <ul>
   <li>role TOP::Core</li>
   <ul>
-    <li>role Tablish</li>
+    <li>role Relation</li>
     <ul>
       <li>class Table</li>
       <li>class View</li>
@@ -632,8 +718,8 @@ $table = Table.new(...)</code></td>
     <li>class Cursor</li>
     <li>class Database</li>
   </ul>
-  <li>class TOP::TableRow: Data is actually stored in table, but this references a row</li>
-  <li>class TOP::TableColumn</li>
+  <li>class Tuple: Data is actually stored in table, but this references a row</li>
+  <li>class Field: Data is actually stored in table, but this references a column</li>
 </ul>
 
 <h2>Other Function Groups</h2>

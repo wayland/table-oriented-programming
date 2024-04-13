@@ -10,7 +10,7 @@ first-class citizens.  </p>
 
 <p>The main collection classes/roles are:</p>
 <ul>
-	<li><b><a href="Collection-Convergence/Tableish.html">role Tableish</a>:</b> 
+	<li><b><a href="Collection-Convergence/Relation.html">role Relation</a>:</b> 
 		Implements everything common to Tables and Views</li>
 	<li><b><a href="Language-Support/Table.html">class Table</a>:</b> A set of 
 		named columns and unnamed rows; like an SQL table, but with multiple 

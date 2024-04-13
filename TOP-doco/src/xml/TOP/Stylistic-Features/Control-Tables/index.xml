@@ -54,7 +54,7 @@ structure.</p>
 </div>
 </div>
 
-<p>See <a href="RAD/Code-Editors.html#Tableish">Tablish Code Editor</a> for more 
+<p>See <a href="RAD/Code-Editors.html#Relation">Relation Code Editor</a> for more 
 information on editing grids</p>
 
 <h1>Control Panels</h1>
@@ -126,7 +126,7 @@ have to slog through information or structures about diesel
 combustion in order to find the arrival times.</p>
 
 <div align="center">
-<img src="Stylistic-Features/Control-Tables/knobs.gif" alt="Control Panel" border="0"/>
+<img src="TOP/Stylistic-Features/Control-Tables/knobs.gif" alt="Control Panel" border="0"/>
 <br/>
 <small>
   <font face="arial">

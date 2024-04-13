@@ -29,7 +29,7 @@ among others.
 <p>Their view was that this was likely impossible; their thinking in this was 
 hampered by the following restrictions:</p>
 <ul>
-	<li>A desire that <b>everything be a table</b> (or at least, a Tableish).  
+	<li>A desire that <b>everything be a table</b> (or at least, a Relation).  
 		This was 
 		understandable, given that the opposing camp at the time wanted 
 		everything to be an object, and <i>only</i> an object.  Some languages 

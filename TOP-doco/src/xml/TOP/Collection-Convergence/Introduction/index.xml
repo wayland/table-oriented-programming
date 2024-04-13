@@ -55,12 +55,12 @@ Iterator.  None of these are tables, but will be used as building blocks to
 construct objects that will represent tables.  </p>
 
 <p>The big idea here is that all collections, including Tables and Views, should 
-have the same API.  In Raku TOP, this will be implemented with a Tableish class, 
+have the same API.  In Raku TOP, this will be implemented with a Relation class, 
 which will be a role used by both the Table and View classes.  This role will 
 also draw in the Associative, Positional, and Iterative roles, which are used by 
 other Raku collections.  </p>
 
-<xtlinclude href="Tableish.svg.xml"/>
+<xtlinclude href="Relation.svg.xml"/>
 
 <p>Since this page is all about converging features of collections, we will 
 immediately introduce...</p>

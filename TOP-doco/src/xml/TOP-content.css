@@ -49,15 +49,37 @@ a:hover.heading-link  {
 
 h1, h2, h3 {
 	padding: 10pt;
+	border-top-width: 4pt;
+	border-top-style: solid;
 }
 
 h1 {
-	text-align: center;
 	background-color: #ffeeee;
+	border-top-color: #bf5f5f;
+
+	text-align: center;
+	font-weight: 900;
 }
 
-h2 {	background-color: #efffef;	}
-h3 {	background-color: #eff7ff;	}
+h2 {
+	background-color: #efffef;
+	border-top-color: #5fbf5f;
+
+	font-weight: 900;
+}
+h3 {
+	background-color: #eff7ff;
+	border-top-color: #5f8fbf;
+}
+
+h4, h5, h6 {
+	font-family: "Dosis", sans;
+	font-optical-sizing: auto;
+	font-weight: 700;
+}
+h4 {	font-size: 1.5em;	}
+h5 {	font-size: 1.17em;	}
+h6 {	font-size: 1em;	}
 
 .blockquote h1,
 .blockquote h2,
@@ -66,8 +88,8 @@ h3 {	background-color: #eff7ff;	}
 .blockquote h5,
 .blockquote h6
 {
-	background-color: transparent;
-/*	padding: inherit; */
+/*	background-color: transparent;
+	padding: inherit; */
 }
 
 .title {
@@ -156,8 +178,12 @@ code {
 	font-family: "Courier Prime", monospace;
 	font-weight: 400;
 	font-style: normal;
+	font-size: 10pt;
 
 	white-space: pre;
+	overflow-y: scroll;
+	display: block;
+	padding: 4pt;
 }
 
 .blockquote .sidebar {
@@ -228,4 +254,15 @@ wasn't able to get the headings and body to line up while doing this. (at least 
 tbody.scrollContent {
 	height: 262px;
 	overflow-y: scroll;
+}
+
+
+.not-implemented::before {
+	content: "⚠ Not implemented yet";
+	color: #ff7f00;
+	display: block;
+}
+.not-implemented {
+	background-color: #ffeedd;
+	padding: 4pt;
 }
