@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Introduction.xml</filename>
+<content>
+
+<style>
+td {
+  padding: 6pt; 
+  vertical-align: top;
+}
+th h2, th h3 {
+  margin: 0px;
+}
+</style>
+
+<p>None of this has been started yet; I'm documenting what I'd like to see as a learning exercise.  </p>
+
+<h1>Classes</h1>
+
+<p>The following classes will be used in Raku TOP (table-oriented programming)</p>
+
+<table>
+  <tr>
+    <th>Type/Name</th>
+    <th>Description</th>
+    <th>Documentation Status</th>
+    <th>Implementation Status</th>
+  </tr>
+  <tr>
+    <td><code>role TOP::Core</code></td>
+    <td>Contains a few functions useful across many TOP classes; can probably be skipped on a first read-through</td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>role Relation
+  extends Set
+  does TOP::Core</code></td>
+    <td>Contains the functions common to Table, View, DataDictionary, and TupleSet</td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Table does Relation</code></td>
+    <td>All the functionality specific to Tables</td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class View does Relation</code></td>
+    <td></td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class DataDictionary
+  does Relation</code></td>
+    <td></td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class TupleSet does Relation</code></td>
+    <td></td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Cursor does TOP::Core</code></td>
+    <td></td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Database does TOP::Core</code></td>
+    <td></td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Tuple</code></td>
+    <td>Data is actually stored in table, but this references a row in the table</td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Field</code></td>
+    <td>Data is actually stored in table, but this references a column</td>
+    <td>First pass done</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Lot</code></td>
+    <td>An ordered group of Fields</td>
+    <td>Not started; see writeup in DataDictionary</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td><code>class Join</code></td>
+    <td>A saved join between a set of Relations</td>
+    <td>Currently just a place to throw stuff until I can write something</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td>TOP::Slang</td>
+    <td>This is an addition to the syntax of Raku that will allow for various features needed, including the
+      <code>atom</code> structure for transactions</td>
+    <td>Needs a rework to integrate Access Modes material</td>
+    <td>Not started</td>
+  </tr>
+  <tr>
+    <td>TOP::Operators</td>
+    <td>This is a list of relational operators that can be used</td>
+    <td>Not started -- https://www.knowitallninja.com/lessons/relational-database-terminology/ and
+      "Relational operations" section of https://en.wikipedia.org/wiki/Relational_database</td>
+    <td>Not started</td>
+  </tr>
+</table>
+
+<h1>Implementation order</h1>
+
+<ul>
+  <li>Basic functionality</li>
+  <ul>
+    <li>Very basic functionality</li>
+    <ul>
+      <li>Database, including inheriting from TOP::Core</li>
+      <li>Table, including Field and Tuple, and inheriting from Relation and TOP::Core.  
+        Note https://docs.raku.org/language/subscripts#Binding</li>
+    </ul>
+    <li>Joining</li>
+    <ul>
+      <li>Join</li>
+      <li>View</li>
+      <li>TupleSet</li>
+    </ul>
+    <li>Cursor</li>
+    <li>DataDictionary</li>
+  </ul>
+  <li>Perspectives</li>
+  <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
+  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions</li>
+</ul>
+
+</content>
+</page>

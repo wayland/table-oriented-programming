@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/TupleSet.xml</filename>
+<content>
+
+<p>At the moment, just inherits directly from Relation.  If you think something belongs here, first ask 
+whether it belongs on Relation instead.  </p>
+
+</content>
+</page>

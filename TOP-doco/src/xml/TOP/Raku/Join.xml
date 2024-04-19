@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Join.xml</filename>
+<content>
+
+See example on Relation page.  
+
+Join operators: See https://en.wikipedia.org/wiki/Relational_algebra#Joins_and_join-like_operators
+
+<p>Joins can have the following types; not all will be implemented:</p>
+
+<table>
+  <tr>
+    <th>Op</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr><td colspan="3"><b>Sub-joins</b></td></tr>
+  <tr>
+    <td>⋉ U+22C9</td>
+    <td>Left Semijoin</td>
+    <td>Includes the rows from the left table that match the right table (but no rows from the right table)</td>
+  </tr>
+  <tr>
+    <td>⋊ U+22CA</td>
+    <td>Right Semijoin</td>
+    <td><i>vice versa</i></td>
+  </tr>
+  <tr>
+    <td>▷ U+25B7</td>
+    <td>Left Antijoin</td>
+    <td>Includes the rows from the left relation which do <i>not</i> have a match in the right relation</td>
+  </tr>
+  <tr>
+    <td>◁ U+25C1</td>
+    <td>Right Antijoin</td>
+    <td><i>vice versa</i></td>
+  </tr>
+  <tr><td colspan="3"><b>Basic joins</b></td></tr>
+  <tr>
+    <td>⨝ U+2A1D</td>
+    <td>Inner Join</td>
+    <td>Only include the rows that appear in both relations (Left Semijoin + Right Semijoin).  Mathematically,
+      This symbol is the one for a Natural Join (see below)</td>
+  </tr>
+  <tr>
+    <td>⟕ U+27D5</td>
+    <td>Left Outer Join</td>
+    <td>Include all of the rows in the left relation, and any that match in the right relation</td>
+  </tr>
+  <tr>
+    <td>⟖ U+27D6</td>
+    <td>Right Outer Join</td>
+    <td><i>vice versa</i></td>
+  </tr>
+  <tr>
+    <td>⟗ U+27D7</td>
+    <td>Full Outer Join</td>
+    <td>Include all of the rows in both relations, matching up where possible</td>
+  </tr>
+  <tr><td colspan="3"><b>Other</b></td></tr>
+  <tr>
+    <td></td>
+    <td>Equjoin</td>
+    <td>Like an inner join, but the only comparison allowed is the <code>=</code> sign</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Natural</td>
+    <td>Like Equijoin, but the column names have to be the same in both tables</td>
+  </tr>
+  <tr>
+    <td>÷ U+00F7</td>
+    <td>Division</td>
+    <td>This one seems complicated and specific; no doubt this is why it hasn't been implemented in SQL</td>
+  </tr>
+  <tr>
+    <td>▵ U+25B5</td>
+    <td>Recall</td>
+    <td>This is the symbol I chose to indicate that a join is being recalled; it's a unary prefix operator which takes a Join operand</td>
+  </tr>
+</table>
+
+</content>
+</page>

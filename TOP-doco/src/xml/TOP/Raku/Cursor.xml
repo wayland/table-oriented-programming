@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Cursor.xml</filename>
+<content>
+
+<style>
+td {
+  padding: 6pt; 
+  vertical-align: top;
+}
+th h2, th h3 {
+  margin: 0px;
+}
+</style>
+
+<h1>Cursor Movement</h1>
+
+<h2>Basic Movement</h2>
+
+<ul>
+  <li>Whenever a Cursor is evaluated as an integer, it returns its current position; eg. <code>$cursor.Numeric</code></li>
+  <li>Whenever an integer is assigned to a cursor, that becomes the absolute position of the cursor.  </li>
+  <li>Relative movement can be achieved by doing things like <code>$cursor++</code>, or <code>$cursor += 4</code>.  </li>
+  <li>To go to the first record, use <code>$cursor = 0;</code>.  </li>
+  <li>To go to the last record, use <code>$cursor = $cursor.elems - 1;</code></li>
+</ul>
+
+<h2>Seeking movement</h2>
+
+<h3>method seek(&amp;matcher, $whence = True, $direction = Forward --> Bool)</h3>
+
+<ul>
+  <li><b>&amp;matcher:</b> A function that returns true if the record matches the seek criteria</li>
+  <li><b>$whence:</b> As per <a href="https://docs.raku.org/routine/seek">seek</a>, this is 
+    <code>SeekFromBeginning</code>, <code>SeekFromCurrent</code>, or <code>SeekFromEnd</code>.  </li>
+  <li><b>$direction:</b> could be Forward or Backward</li>
+</ul>
+
+<p>Starts at the position specified by $whence, and moves in the direction specified by $direction, until 
+a record matches &amp;matcher.  </p>
+
+<p>Returns False if no record was found (ie. it reached the end of its direction of travel).  Returns
+True if the current record is a match.  </p>
+
+<p>Implementation detail; this internally throws a custom exception, and then saves it in an $exception
+property on the Cursor.  </p>
+
+<h3>method reseek()</h3>
+
+<p>This continues from the current position of the cursor, using the </p>
+
+<p>When passed an exception previously returned by seek or reseek, it can continue seeking using the previous 
+parameters.</p>
+
+<p>If you want to have multiple seeks going concurrently, you'll need to have two cursors.  </p>
+
+<p>Implementation detail; it picks up on the $exception property, and calls .resume.  </p>
+
+<h3>method acros(Cursor --> Bool)</h3>
+<h3>method telos(Cursor --> Bool)</h3>
+
+<p>See <a href="https://en.wiktionary.org/wiki/acro-#English:_beginning">acro-</a> and 
+<a href="https://en.wiktionary.org/wiki/telo-#English">telo-</a> for meaning.  </p>
+
+<p><code>telos</code> indicates that we are at the last record, and there are no further records to seek/move to.  
+<code>acros</code> indicates we are at the first record.  </p>
+
+<h1>Creation/Deletion</h1>
+
+<h3>method new</h3>
+
+<p>There will be creation and destruction functions, but most creation will be via a method on a relation.  </p>
+
+<h1>Getting/Setting Values</h1>
+
+<p>To get the value of userid from the current record:</p>
+
+<code>$value = $cursor{userid}</code>
+
+<p>To set the value of userid in the current record:</p>
+
+<code>$cursor{userid} = $value</code>
+
+<h1>Other Items</h1>
+
+<h3>method uses(Relation $relation --> Bool)</h3>
+
+<p>If this cursor directly uses the relation in question, returns True.  </p>
+
+<h3>method relation(--> Relation)</h3>
+
+<p>Returns the relation used by this cursor.  </p>
+
+<h1>Features not implemented</h1>
+
+<ul>
+  <li><b>Deletion marking:</b> This can be dependent on the backends in question, but my general thoughts are
+    that database engines will already take care of this (cf. Postgres VACUUM statement), and that, if other 
+    backends care about this, they can use transactions when these are implemented.  </li>
+</ul>
+
+</content>
+</page>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Table.xml</filename>
+<content>
+
+<p>This class does <a href="TOP/Raku/Relation">Relation</a>, so it can do all the things a Relation can do.  </p>
+
+<p>The Relation is a role that represents all features common to Tables and 
+Views.  </p>
+
+<h1>Basic Functions</h1>
+
+<h3>method new(Signature|Array-of-Field :$fields, Associative :$metadata, Associative :$properties)</h3>
+
+<div class="not-implemented"><code class="block">
+$user = Table.new(
+  fields => [                                    # The fields are the columns used in the relation
+    Field.new(
+      \(Int :$id),                               # This is a capture defining the type of the field in question; possibly it should be a Parameter or Signature instead
+      properties => { primary-key => true },     # These are properties of the field
+    ),
+    Field.new(
+      \(String :$given_name),
+      metadata => {
+        display_name => "Given Name",            # This field has metadata useful in a UI
+        hint => "Enter the given name of the user here",
+      }
+    ),
+    Field.new(\(Str :$surname)),
+  ],
+  metadata => {
+    display_name => "User",                       # This is metadata about the table as a whole
+    description => "Stores data about the users in the system",
+  },
+  properties => {
+    history => true,                              # This table has a "history" perspective
+  },
+);
+</code></div>
+
+<p>This is the equivalent of the CREATE and ALTER functions in SQL.  </p>
+
+<p>The $metadata hash contains associated information, like display_name, summary, description, hint,
+and any other custom metadata desired.  Some of these (maybe especially description) can be filled in from 
+attached pod.  See <a href="https://docs.raku.org/language/pod#Declarator_blocks">Declarator Blocks</a>.  </p>
+
+<p>Properties are things that control how the relation functions.  Examples might be temporary, history, parents, 
+constraints, etc.  </p>
+
+<p>The fields might usefully be Field objects, each of which has their own metadata, properties, and the like.  </p>
+
+<h3>Truncating a Table</h3>
+
+<div class="not-implemented"><code>$table = Empty;</code></div>
+
+<h1>Locking Functions</h1>
+
+<p>These functions should be implemented with the Transaction material, which will be done at the TOP::Slang stage.</p>
+
+<div class="not-implemented"><code class="block">
+$user.lock();
+</code></div>
+
+<p>Unlocking will be done at transaction end.</p>
+
+</content>
+</page>

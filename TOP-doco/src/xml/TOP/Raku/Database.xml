@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Database.xml</filename>
+<content>
+
+<p>The Database class represents a whole database.  </p>
+
+<ul>
+  <li>For all databases, it's used as a factory that creates various items, especially relations</li>
+  <li>Note that it's entirely possible to create relations directly as well, which is useful with lighter-weight
+    data structures such as CSV files</li>
+  <li>For remote databases (including SQL), it encapsulates the connection as well</li>
+</ul>
+
+<h3>method new</h3>
+
+<p>Creates the database object.  There's a <code>type</code> parameter which specifies which backend to
+use (CSV, Postgres, etc).  The rest of the parameters are just passed straight to the back end.  </p>
+
+<h3>method ensure</h3>
+
+<div class="not-implemented"><code>
+# The following example will create a table with the same structure as the specified relation, but only including
+# the fields specified.  
+$database.ensure(
+  type => Table,
+  name => "User",
+  dictionary => $relation.dictionary(fields => [...]),
+);
+
+# The following example creates a local Table based on a table with the same name already in the database
+$database.ensure(
+  type => Table,
+  name => 'User',
+  :import
+);
+
+# Uses positional parameters
+$database.ensure(View, 'UsersWithoutGroups', {
+    $user.select('*[id = $value and given_name ~ "^Jo"]/(@id, @given_name, @surname AS last_name)') 
+    ▵ $group.select('*')
+    ==&gt; group(&lt;.id&gt;, { .groupnames = join(',', .groupname) }, ) 
+    ==&gt; grep {.groupname eq 'Staff'}
+    ==&gt; sort({.surname, .firstname});
+  }
+);
+</code></div>
+
+<p>This function, with the :import option, should be able to import Enums from the backend as well (ie. Postgres
+Enum into Raku enum).  </p>
+
+<h3>method import_all()</h3>
+
+<div class="not-implemented"><code>
+# The following example imports all tables from the database, and returns them in a hash, where the keys are the
+# table names.  
+%tables = $database.import_all(
+  type => Table
+);
+</code></div>
+
+<h3>method timeout()</h3>
+
+<p>There should be...</p>
+<div class="blockquote">
+
+<p>A way to limit the upper size or time of a query result. Users generating 
+"runaway" queries is a common cause of performance bottlenecks.</p>
+
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+</content>
+</page>

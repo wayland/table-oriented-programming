@@ -14,15 +14,110 @@ td {
 th h2, th h3 {
   margin: 0px;
 }
-.not-implemented::before {
-  content: "Not implemented yet";
-  color: red;
-  display: block;
-}
-.not-implemented {
-  background-color: #ffdddd;
-}
 </style>
+
+<h2>Other Function Groups</h2>
+
+<p>These categories are drawn from the <a href="https://harbour.github.io/doc/">Harbour Reference Guide</a>, 
+but exclude the ones covered above.  </p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>xHarbour</th>
+    <th>Raku</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>API</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Class</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Conversion</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Environment</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Error</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Events</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Execute and Execution</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>FileSys</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Garbage Collector</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Idle States</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Internal</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>INET</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Language and Nation</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Macro</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Math</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Objects</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>RDD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Variable Management</td>
+    <td></td>
+  </tr>
+</table>
 
 <table>
   <tr>
@@ -638,7 +733,7 @@ $table = Table.new(...)</code></td>
 <a href="https://harbour.github.io/doc/harbour.html#dbusearea">dbUseArea</a>
 <a href="https://harbour.github.io/doc/harbour.html#select">Select</a></code></td>
     <td></td>
-    <td><code>given $view {...}</code></td>
+    <td><code>given $relation {...}</code></td>
   </tr>
   <tr>
     <td></td>
@@ -696,135 +791,6 @@ $table = Table.new(...)</code></td>
     <td class="not-implemented"></td>
   </tr>
 </table>
-
-
-
-
-<p>Categories which need to be broken down above:</p>
-<ul>
-  <li>User Interface/Terminal</li>
-</ul>
-
-<p>Classes we're going to need:</p>
-<ul>
-  <li>role TOP::Core</li>
-  <ul>
-    <li>role Relation</li>
-    <ul>
-      <li>class Table</li>
-      <li>class View</li>
-      <li>class DataDictionary</li>
-    </ul>
-    <li>class Cursor</li>
-    <li>class Database</li>
-  </ul>
-  <li>class Tuple: Data is actually stored in table, but this references a row</li>
-  <li>class Field: Data is actually stored in table, but this references a column</li>
-</ul>
-
-<h2>Other Function Groups</h2>
-
-<p>These categories are drawn from the <a href="https://harbour.github.io/doc/">Harbour Reference Guide</a>, 
-but exclude the ones covered above.  </p>
-
-<table>
-  <tr>
-    <th>Item</th>
-    <th>xHarbour</th>
-    <th>Raku</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td>API</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Class</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Conversion</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Environment</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Error</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Events</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Execute and Execution</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>FileSys</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Garbage Collector</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Idle States</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Internal</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>INET</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Language and Nation</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Macro</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Math</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Objects</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>RDD</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Variable Management</td>
-    <td></td>
-  </tr>
-</table>
-
 
 </content>
 </page>

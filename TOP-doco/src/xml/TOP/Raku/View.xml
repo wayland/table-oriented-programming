@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/View.xml</filename>
+<content>
+
+<h3><code>method new()</code></h3>
+
+<div class="not-implemented"><code>
+$view = View.new(
+  {
+    $user.select('*[id = $value and given_name ~ "^Jo"]/(@id, @given_name, @surname AS last_name)') 
+    ▵ $group.select('*')
+    ==&gt; group(&lt;.id&gt;, { .groupnames = join(',', .groupname) }, ) 
+    ==&gt; grep {.groupname eq 'Staff'}
+    ==&gt; sort({.surname, .firstname});
+  }
+);
+
+$view = $database.ensure(
+  type => view, 
+  {...}                     # Same code block as above
+);
+</code></div>
+<p>The examples above are both similar to the example given in the <code>select</code> section of the
+<a href="TOP/Raku/Relation.xml">Relation</a> page.  </p>
+
+</content>
+</page>

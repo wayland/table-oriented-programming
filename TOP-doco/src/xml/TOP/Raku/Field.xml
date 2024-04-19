@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Field.xml</filename>
+<content>
+<p>The Field is a class that represents one column in a Relation.  </p>
+
+<h1>Basic Functions</h1>
+
+<h2>Columns (Fields)/Associative</h2>
+
+<p>Field does the Positional (array) role to access Tuples (rows).  For more information, see 
+<a href="https://docs.raku.org/language/list">Lists, sequences, and arrays</a>.</p>
+
+<p>That means the following are possible:</p>
+
+<div class="not-implemented"><code class="block">
+$surname = $surname[$row-number];       # Fetch cell contents by row
+$surname[$row-number] = $value;         # Set cell contents by row
+</code></div>
+
+<h3>Data Dictionary Field Entry</h3>
+
+<div class="not-implemented"><code>$userid.dictionary()</code></div>
+
+<p>Returns the field data dictionary entry, probably from the Data Dictionary (though not necessarily in the case of a 
+Field from a TupleSet).  </p>
+
+<h1>Aggregate Functions</h1>
+
+<p>Aggregate functions are like the aggregate functions in SQL.  We loop over a Relation once, and
+aggregate functions get called on various fields.  </p>
+
+<p>Aggregate functions can only usefully be called in a block passed to the <code>group</code> and 
+<code>window</code> functions on the <code><a href="TOP/Raku/Relation.xml">Relation</a></code> class.  </p>
+
+<p>In this section, it will be necessary to distinguish between the following:</p>
+
+<ul>
+  <li><b>Aggregate</b> functions: These are the things like <code>sum</code> and <code>max</code>, and are
+    declared on Field</li>
+  <li><b>Aggregator</b> function: This is <code>Relation.group()</code> or <code>Relation.window()</code></li>
+  <li><b>Aggregating</b> function: This is the code block passed by the caller to an Aggregator function</li>
+</ul>
+
+<p>Aggregate functions needs the following:</p>
+
+<ul>
+  <li><b>Fields:</b> An array of fields passed in</li>
+  <li><b>TOP::AggregatingGroup:</b> The group we're currently working with</li>
+  <li><b>TOP::AggregatingContext</b>.  The context we're currently working with</li>
+</ul>
+
+<p>I'd like to read these last two from the group/window function.  I don't 
+want every aggregate function in a block to have to pass these in.  The least-bad way 
+I can think of is using variables that are actually called <code>$aggregating-context</code>
+and <code>$aggregating-group</code>, and reading them from the grandparent (ie. group/window).  </p>
+
+<p>Aggregating functions are called with three modes:</p>
+<ul>
+  <li>If $aggregating-group doesn't have any variables yet, then assume this is the first pass for this group, 
+    and initialise things</li>
+  <li>If $current-record is Nil, then assume that this is the last pass, and finalise things</li>
+  <li>In other cases, do the usual thing for one iteration.  </li>
+</ul>
+
+<p>We need some actual aggregate functions to make this work.  For inspiration, we should look at 
+PostgreSQL <a href="https://www.postgresql.org/docs/9.5/functions-aggregate.html">Aggregate Functions</a>,
+though the names probably need a rework.  Note that we're expecting to reuse the names of many of the 
+methods of list, such as <code>sum</code>.  Or maybe, the best thing to do is to declare aggregate functions
+with capital letters.  But capitals are currently being used by internal functions like <code>.WHAT</code>.</p>
+
+<h1>Other Aggregation Classes</h1>
+
+<h2>TOP::AggregatingContext</h2>
+
+<p>TOP::AggregatingContext will have the following properties:</p>
+<ul>
+  <li><b>Type: </b>A type, which could be:</li>
+  <ul>
+    <li><code>grouping</code> The rows in a group are reduced to a single row, and the new fields are added</li>
+    <li><code>window</code> Each row is kept separately, and the new fields are added to each row (but calculated across
+      the whole group</li>
+  </ul>
+  <li><b>Current Record:</b> The current record that we're working with</li>
+</ul>
+
+<h2>TOP::AggregatingGroup</h2>
+
+<ul>
+  <li><b>%variables</b> Variables are set up by the aggregating functions.  Each variable 
+    is specific to one group and one Field.  Properties/methods are:</li>
+  <ul>
+    <li><code>.current-value</code>: their current value (in this group/on this field)</li>
+    <li><code>.updated</code>: whether they've been updated this iteration.  <code>.updated</code> is
+      set to False by group/window (in the Relation class, via allUpdatedOff, below), and 
+    are set to True by the individual aggregate functions.  </li>
+    <li>Note: It's possible and even likely that some aggregate 
+    functions will share variables; for example, <code>&amp;mean()</code> and will <code>&amp;median</code> will
+    both share <code>$sum</code> with <code>&amp;sum</code> and <code>$count</code> with <code>&amp;count</code>.  
+    This means if we have two aggregate functions that change the same variable, we can just do things once.  </li>
+  </ul>
+  <li>allUpdatedOff(): Called by group/window (in the Relation class) at the start of each iteration; sets the
+    <code>.updated</code> property to False on all variables.  </li>
+</ul>
+
+</content>
+</page>

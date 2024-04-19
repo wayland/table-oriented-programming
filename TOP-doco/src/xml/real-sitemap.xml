@@ -51,15 +51,24 @@
       </menu>
       <menu>
         <title>Raku</title>
+        <menuitem name="Introduction to Raku TOP" href="TOP/Raku/Introduction.xml"/>
+        <menuitem name="TOP::ControlFlow" href="TOP/Raku/ControlFlow.xml"/>
         <menuitem name="role TOP::Core" href="TOP/Raku/Core.xml"/>
-        <menuitem name="role Relation" href="TOP/Raku/Relation.xml"/>
-        <menuitem name="class Table" href="TOP/Raku/Table.xml"/>
-        <menuitem name="class View" href="TOP/Raku/View.xml"/>
-        <menuitem name="class DataDictionary" href="TOP/Raku/DataDictionary.xml"/>
+        <menu>
+          <title>Relations</title>
+          <menuitem name="role Relation" href="TOP/Raku/Relation.xml"/>
+          <menuitem name="class Table" href="TOP/Raku/Table.xml"/>
+          <menuitem name="class View" href="TOP/Raku/View.xml"/>
+          <menuitem name="class DataDictionary" href="TOP/Raku/DataDictionary.xml"/>
+          <menuitem name="class TupleSet" href="TOP/Raku/TupleSet.xml"/>
+        </menu>
         <menuitem name="class Cursor" href="TOP/Raku/Cursor.xml"/>
         <menuitem name="class Database" href="TOP/Raku/Database.xml"/>
         <menuitem name="class Tuple" href="TOP/Raku/Tuple.xml"/>
         <menuitem name="class Field" href="TOP/Raku/Field.xml"/>
+        <menuitem name="class Lot" href="TOP/Raku/Lot.xml"/>
+        <menuitem name="class Join" href="TOP/Raku/Join.xml"/>
+        <menuitem name="TOP::Operators" href="TOP/Raku/Operators.xml"/>
       </menu>
       <menu>
         <title>Other Material</title>

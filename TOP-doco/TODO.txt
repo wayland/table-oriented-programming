@@ -4,15 +4,32 @@ TODO
 Content
 -------
 
--	Make TOP/Comparisons/Raku-and-xHarbour.xml .  Make it quite clear which parts of Raku TOP are not implemented yet
-	-	Rewrite Harbour examples to look less like https://www.xharbour.com/xharbour.html (cf. copyright 
-		at bottom of page)
-
-
-
-
-
-
+-	Document Raku classes
+	-	Aggregator Functions should be put into the Slang as looping constructs.  Should make Aggregator
+		functions pick up variables defined by the final pass of the Aggregate functions, and do something
+		appropriate, so that Aggregate functions don't need to know whether they're in a group or a window
+		Should also be possible to label blocks, and have Aggregate functions act on variables from a 
+		parent block.  A lot of the introductory material from the Field page should go here too.  
+	-	Make a note on the Slang page that, despite these being some of the first things documented, they'll
+		be the last things implemented.  
+	-	Go back and rework the Aggregation material on the Relation and Field pages; both should be dependent
+		on the material in the Slang page.  
+	-	Follow from Overview page: http://localhost:8000/TOP/Raku/Introduction.xml
+	-	Make a note about backend classes somewhere
+		-	Write a guide for people doing backend classes, telling them not to read the whole thing 
+			into memory, because we want to be able to work with really large data
+	-	Rework ordering; it's mostly good, but there may be some things we want to tweak.  It might, for
+		example, be useful to rework Field and Lot to have more in common.  Or not.  Also, we should look
+		at the ordering that Raku uses -- how early should Operators go, for example?  
+	-	Raku TOP Comparison page
+		-	Make the "Other Function Groups" section at the top of the page into an All Function Groups
+			thing, with links either to the sections below or to external pages
+	-	Raku RAD Comparison page -- make another page that does RAD comparison
+		-	Specifically, pull the User Interface and Terminal sections from
+			https://harbour.github.io/doc/index.html .  Note that there are multiples of each section
+			on that page (under API, commands, etc)
+	-	Design Raku RAD/Raku Code Office (at least a UI API, anyway)
+	-	Start work
 
 -	Make the Language Analogy a separate page; pull in the noun-verb priority stuff
 -	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
@@ -27,6 +44,7 @@ Interface
 ---------
 
 -	After the above, see if I can get it working with Chromium
+-	Make table-of-contents work in XSL
 
 -	Then try to make the menus work on mobile -- there might be some ideas at https://freefrontend.com/css-mobile-menus/
 	-	Maybe put the previous/next navigation at the top, and the menu icon in the centre
@@ -35,4 +53,29 @@ Interface
 Repo
 ----
 
-Remove the entire generated/ section
+Remove the entire generated/ section, and maybe move the doco into the root of the tree
+
+
+Questions for the Raku people
+-----------------------------
+
+
+Question 1
+----------
+I'm trying to create a Table class which can be passed a record with values of particular types.  
+
+Is it possible to:
+-	Pass a signature to an object on creation
+-	Later use that signature to constrain a set of values passed in
+
+
+
+
+Two-dimensional Programming
+---------------------------
+-	Table-Oriented Programming
+-	Dataflow Programming
+-	?UI drawing
+-	Office Programming
+	-	Spreadsheet = TOP
+	-	Writer = Reports, but also coding; we can have styles with meaning

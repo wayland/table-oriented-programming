@@ -161,6 +161,11 @@ th {
 	background-color: #ffffdd;
 }
 
+td ul {
+	margin: 0;
+	padding-left: 10pt;
+}
+
 pre {
 	color: #7f3f00;
 	background-color: #ffffdd;
@@ -175,14 +180,16 @@ pre {
 }
 
 code {
+	white-space: pre;
+
 	font-family: "Courier Prime", monospace;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 10pt;
-
-	white-space: pre;
-	overflow-y: scroll;
+}
+code.block {
 	display: block;
+	overflow-y: scroll;
 	padding: 4pt;
 }
 

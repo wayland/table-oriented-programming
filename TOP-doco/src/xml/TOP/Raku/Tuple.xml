@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Tuple.xml</filename>
+<content>
+
+<p>A Tuple represents a record in a Relation.  </p>
+
+<h1>Basic Functions</h1>
+
+<p>Tuples do the Associative role; this is used to fetch field values from the related table.  For more information, see 
+<a href="https://docs.raku.org/language/hashmap">Hashes and maps</a>.</p>
+
+<p>That means all of the following are possible:</p>
+
+<div class="not-implemented"><code class="block">
+$surname = $row&lt;surname&gt;;        # Get cell contents by Field (column)
+</code></div>
+
+</content>
+</page>

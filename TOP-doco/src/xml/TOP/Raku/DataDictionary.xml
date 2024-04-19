@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/DataDictionary.xml</filename>
+<content>
+
+<style>
+td {
+  padding: 6pt; 
+  vertical-align: top;
+}
+th h2, th h3 {
+  margin: 0px;
+}
+</style>
+
+<p>No real ideas yet, except:</p>
+
+<ul>
+  <li>Whatever we do should work as well as possible with Eric Lendvai's DataWharf</li>
+  <li>We should normally store as much data dictionary information as possible in individual databases,
+    rather than some central location; this may not always be possible though (eg. cross-database joins),
+    so we should also have a central location (probably stored in some local file).  </li>
+  <li>Where possible, we should relate to and draw on the built-in data dictionaries (eg. Postgres catalog)</li>
+  <li>Data Dictionaries should allow users to add their own columns</li>
+  <li>Data dictionaries should have UI-related fields (see below, under Field)</li>
+  <li>Data dictionaries should allow stored related functions (see below, under Field)</li>
+</ul>
+
+<h1>Overall Scheme</h1>
+
+<p>If there are no other ideas about table naming, then we should probably have something like the following:</p>
+
+<table>
+  <tr>
+    <th>Maps</th>
+    <th>SQL Information Schema</th>
+    <th>Postgres Catalog</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Relation</td>
+    <td>table*, view*, sequences</td>
+    <td>pg_class</td>
+    <td>Info about individual relations (tables, views, etc)</td>
+  </tr>
+  <tr>
+    <td>Field</td>
+    <td>attributes</td>
+    <td>pg_attribute</td>
+    <td>Information about individual fields</td>
+  </tr>
+  <tr>
+    <td>FieldRelationMap</td>
+    <td></td>
+    <td></td>
+    <td>Connects fields with the Relation(s) they belong to</td>
+  </tr>
+  <tr>
+    <td>Lot</td>
+    <td>user_defined_types</td>
+    <td>pg_type</td>
+    <td>Allows Fields to be put into Lots (groups of fields); these Lots should be usable by things like select, 
+      unique, and the like.  While pg_type is intended for creating data types, the Lots here are probably less
+      structured; when creating a relation, it's possible to include a Lot, which includes its alloted fields.  </td>
+  </tr>
+  <tr>
+    <td>LotLotMap</td>
+    <td></td>
+    <td></td>
+    <td>Creates an inheritance tree among Lots</td>
+  </tr>
+  <tr>
+    <td>FieldLotMap</td>
+    <td></td>
+    <td></td>
+    <td>Allows Fields to be alloted to Lots</td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>Can get from <code>schemata</code></td>
+    <td>pg_database</td>
+    <td>In central location, but may draw on catalogs from database</td>
+  </tr>
+  <tr>
+    <td>Join</td>
+    <td></td>
+    <td></td>
+    <td>Not really sure, but at least central; maybe in individual databases too</td>
+  </tr>
+  <tr>
+    <td>Cursor</td>
+    <td></td>
+    <td>pg_cursor</td>
+    <td>Info about cursors</td>
+  </tr>
+</table>
+
+<p>Default is that, for each of the above, there is a table in each database called <code>__DD_&lt;item&gt;_Table</code>,
+and these are all tied together in the central database by <code>__DD_&lt;item&gt;_View</code>.  This view will probably
+also draw on the catalogs for the individual databases, or possibly we have a view in each DB.  </p>
+
+<h1>Predefined Samples</h1>
+
+<p>There should be some predefined Lots (built in by default) that make it easy to construct a data dictionary
+like the one below.  However, this should by no means be compulsory.  </p>
+
+<div class="blockquote">
+
+<p>Although data dictionaries are very powerful, they should be optional. This 
+is 
+because DD's are a bit formal and take some effort to build, just like any good 
+organizational paradigm. You should be able to generate a quick data table in a 
+program without having to fill out a DD. Not all tables and lists require high 
+levels of formality, especially if there are only a few fields. TOP does not 
+focus on just large or just small tables. Tables may be quick, ad-hoc array-like 
+structures, billion-record IRS transactions, or something in-between. DD's 
+should not be shoved down one's throat. </p>
+
+<div class="reference">
+	<i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+<p>This is an area where Raku's 
+<a href="https://en.wikipedia.org/wiki/Gradual_typing">Gradual Typing</a> system 
+is very much aligned with the goal here.  However, one part of a Data Dictionary <b>will</b>
+be compulsory with some backends -- the parts that can automatically be constructed by the 
+classes/roles.  This will typically be done on backends where a database is defined (eg.
+a database server), but not when it isn't (eg. a CSV file).  </p>
+
+
+
+<h2>Field</h2>
+
+<table>
+  <tr>
+    <th>Entry Name</th>
+    <th>Type</th>
+    <th>Attribute Group</th>
+    <th>Description</th>
+  </tr>
+  <tr><th colspan="4"><h3>Internal Lot</h3></th></tr>
+  <tr><td colspan="4">These elements in the data dictionary will automatically be constructed by the roles/classes</td></tr>
+  <tr>
+    <td>FieldID</td>
+    <td>Int</td>
+    <td>Internal</td>
+    <td>ID of this field</td>
+  </tr>
+  <tr>
+    <td>FieldType</td>
+    <td>Parameter?</td>
+    <td>Internal</td>
+    <td>Type of this field</td>
+  </tr>
+  <tr><th colspan="4"><h3>UI Lot</h3></th></tr>
+  <tr><td colspan="4">These are for controlling the UI.  In some databases, these will be irrelevant (eg. CSV files),
+    but they should be available easily when desired.  </td></tr>
+  <tr>
+    <td>Display Name</td>
+    <td>Str</td>
+    <td>UI</td>
+    <td>Populates Label, and probably Alt text</td>
+  </tr>
+  <tr>
+    <td>Hint</td>
+    <td>Str</td>
+    <td>UI</td>
+    <td>ie.  "Type your given name here -- just the first one"</td>
+  </tr>
+  <tr>
+    <td>Help</td>
+    <td>Str</td>
+    <td>UI</td>
+    <td>A longer help text, possibly suitable for a mouseover</td>
+  </tr>
+  <tr>
+    <td>Control Types</td>
+    <td>Array[Str]</td>
+    <td>UI</td>
+    <td>A list of recommended UI controls to use for this piece of data</td>
+  </tr>
+  <tr>
+    <td>User-Visible</td>
+    <td>Bool</td>
+    <td>UI</td>
+    <td>Whether the field will be included by default in reports and forms</td>
+  </tr>
+  <tr>
+    <td>Options-Function</td>
+    <td>Function</td>
+    <td>UI</td>
+    <td>Fetches a list of possible values for this field that can be displayed in a dropdown or list.  </td>
+  </tr>
+  <tr>
+    <td>Visual Sequence</td>
+    <td>Int</td>
+    <td>UI</td>
+    <td>Controls the default order that fields are displayed in when on reports, etc.  The lower the number, the earlier they
+      are in the report (further to the left in countries with LTR languages, such as English).  It's traditional to sequence 
+      these by numbering them 10 numbers apart (eg. 10, 20, 30), so that extra numbers can easily be inserted into the 
+      sequence.  </td>
+  </tr>
+  <tr><th colspan="4"><h3>Documentation Lot</h3></th></tr>
+  <tr><td colspan="4">These are for documenting the database.  Should examine DataWharf to see if we need more fields
+    here</td></tr>
+  <tr>
+    <td>Documentation</td>
+    <td>Str</td>
+    <td>Documentation</td>
+    <td>A longer text, to be incorporated into doco</td>
+  </tr>
+  <tr><th colspan="4"><h3>Data Lot</h3></th></tr>
+  <tr><td colspan="4">These are for controlling the backend.  Again, these can be pulled in if useful.  </td></tr>
+  <tr>
+    <td>Upsert-Function</td>
+    <td>Function</td>
+    <td>Data</td>
+    <td>Used for:
+      <ul>
+        <li><b>Data-based fields:</b> validating data before it gets put into the database</li>
+        <li><b>Calculated fields:</b> that are writable, pushes data into some appropriate location, possibly after transforming</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Select-Function</td>
+    <td>Function</td>
+    <td>Data</td>
+    <td>
+      <ul>
+        <li><b>Calculated fields:</b> does calculation</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Format-Function</td>
+    <td>Function</td>
+    <td>Data</td>
+    <td>If the formatted version of the field is requested, then it'll be run through this.  The use case is a
+      dollar amount that we want to be able to return both as a number (eg. for frontend sorting purposes), and 
+      as a string (for display purposes)</td>
+  </tr>
+  <tr>
+    <td>Sort Priority</td>
+    <td>Int</td>
+    <td>Data</td>
+    <td>The lower the number, the higher that field is in the sort priority.  So a field with a sort priority of 10 will
+      be sorted on before a field with a sort priority of 20</td>
+  </tr>
+  <tr>
+    <td>Default</td>
+    <td>[Same]</td>
+    <td>Data</td>
+    <td>Has the same type as the field itself.  Represents the default value that will be used if there's no value provided.</td>
+  </tr>
+  <tr>
+    <td>Required</td>
+    <td>Bool</td>
+    <td>Data</td>
+    <td>If it's not required, then if there's no default, it will be null.  If it's required, <b>and</b> there's no
+      default, <b>and</b> it's not provided, then there will be an error.  </td>
+  </tr>
+</table>
+
+</content>
+</page>
