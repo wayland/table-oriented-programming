@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/ControlFlow.xml</filename>
+<content>
+
+<p>This will provide an introduction to a few Raku TOP features that add new 
+Control Flow mechanisms.  These will likely be the last features implemented,
+so it may be more useful at this point to skip forward to Relation.  </p>
+
+<h1>Transactions</h1>
+
+<div class="not-implemented">
+<code>atom $database [, $database2] {
+  &lt;database actions&gt;
+  throw Exception.new;
+}</code></div>
+
+<p>The <code>atom</code> structure holds a transaction on a database.  It's basically a normal block, but the
+the KEEP and UNDO phasers are automatically tied to the commit/rollback functions on the databases provided.</p>
+
+<p>If database actions are performed outside an atom block, then they're
+done in direct mode, rather than transactional mode.  </p>
+
+</content>
+</page>

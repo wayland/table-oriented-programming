@@ -42,13 +42,15 @@ th h2, th h3 {
     <td>Not started</td>
   </tr>
   <tr>
-    <td><code>class Table does Relation</code></td>
+    <td><code>class Table
+  does Relation</code></td>
     <td>All the functionality specific to Tables</td>
     <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
-    <td><code>class View does Relation</code></td>
+    <td><code>class View
+  does Relation</code></td>
     <td></td>
     <td>First pass done</td>
     <td>Not started</td>
@@ -61,19 +63,22 @@ th h2, th h3 {
     <td>Not started</td>
   </tr>
   <tr>
-    <td><code>class TupleSet does Relation</code></td>
+    <td><code>class TupleSet 
+  does Relation</code></td>
     <td></td>
     <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
-    <td><code>class Cursor does TOP::Core</code></td>
+    <td><code>class Cursor
+  does TOP::Core</code></td>
     <td></td>
     <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
-    <td><code>class Database does TOP::Core</code></td>
+    <td><code>class Database 
+  does TOP::Core</code></td>
     <td></td>
     <td>First pass done</td>
     <td>Not started</td>
@@ -93,27 +98,26 @@ th h2, th h3 {
   <tr>
     <td><code>class Lot</code></td>
     <td>An ordered group of Fields</td>
-    <td>Not started; see writeup in DataDictionary</td>
+    <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
     <td><code>class Join</code></td>
     <td>A saved join between a set of Relations</td>
-    <td>Currently just a place to throw stuff until I can write something</td>
+    <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
     <td>TOP::Slang</td>
     <td>This is an addition to the syntax of Raku that will allow for various features needed, including the
       <code>atom</code> structure for transactions</td>
-    <td>Needs a rework to integrate Access Modes material</td>
+    <td>First pass done</td>
     <td>Not started</td>
   </tr>
   <tr>
     <td>TOP::Operators</td>
     <td>This is a list of relational operators that can be used</td>
-    <td>Not started -- https://www.knowitallninja.com/lessons/relational-database-terminology/ and
-      "Relational operations" section of https://en.wikipedia.org/wiki/Relational_database</td>
+    <td>First pass done</td>
     <td>Not started</td>
   </tr>
 </table>

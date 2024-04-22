@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:svg="http://www.w3.org/2000/svg">
   <!-- Get filename -->
   <xsl:param name="filename" select="page/filename"/>
   <!-- Get sitemap -->
@@ -41,7 +41,7 @@
 
 <div id="table-of-contents">
   <ul>
-    <xsl:apply-templates select="//h1" mode="toc"/>
+    <xsl:apply-templates select="//h1|//h2" mode="toc"/>
   </ul>
 </div>
 
@@ -51,7 +51,7 @@
 
 <div class="tagline">Tim Nelson, 2024</div>
 
-<xsl:apply-templates select="page/content/*" mode="content"/>
+<xsl:apply-templates select="page/content/node()" mode="content"/>
 
 </div> <!-- main-box -->
 
@@ -122,15 +122,44 @@
 			<a href="{@href}"><xsl:value-of select="@name"/></a>
   </xsl:template>
    
-  <xsl:template match="*" mode="content">
-    <xsl:copy-of select="."/>
+  <xsl:template match="@* | node()" mode="content">
+    <xsl:copy>
+      <xsl:apply-templates  select="@* | node()" mode="content"/>
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="xtlinclude" mode="content">
-    <xsl:copy-of select="document(@href)"/>
+    <xsl:variable name="svgdoc" select="document(@href)/svg:svg"/>
+    <xsl:variable name="width">
+        <xsl:choose>
+          <xsl:when test="@width"><xsl:value-of select="@width"/>mm</xsl:when>
+          <xsl:when test="$svgdoc/@width"><xsl:value-of select="$svgdoc/@width"/></xsl:when>
+          <xsl:otherwise></xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="height">
+        <xsl:choose>
+          <xsl:when test="@height"><xsl:value-of select="@height"/>mm</xsl:when>
+          <xsl:when test="$svgdoc/@height"><xsl:value-of select="$svgdoc/@height"/></xsl:when>
+          <xsl:otherwise></xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <!-- xsl:variable name="viewBox">
+        <xsl:choose>
+          <xsl:when test="@width and @height">0 0 <xsl:value-of select="$width"/> <xsl:value-of select="$height"/></xsl:when>
+          <xsl:when test="$svgdoc/@viewBox"><xsl:value-of select="$svgdoc/@viewBox"/></xsl:when>
+          <xsl:otherwise></xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable -->
+    <svg:svg>
+      <xsl:if test="$width"><xsl:attribute name="width"><xsl:value-of select="$width"/></xsl:attribute></xsl:if>
+      <xsl:if test="$height"><xsl:attribute name="height"><xsl:value-of select="$height"/></xsl:attribute></xsl:if>
+      <!-- xsl:if test="$viewBox"><xsl:attribute name="viewBox"><xsl:value-of select="$viewBox"/></xsl:attribute></xsl:if -->
+      <xsl:copy-of select="$svgdoc/* | $svgdoc/@*[local-name() != 'width' and local-name() != 'height']"/>
+    </svg:svg>
   </xsl:template>
   
-  <xsl:template match="h1" mode="toc">
+  <xsl:template match="h1|h2" mode="toc">
     <xsl:param name="id">
       <xsl:choose>
         <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Lot.xml</filename>
+<content>
+
+<ul>
+  <li>A <code>Lot</code> allows Fields to be grouped together in an ordered 
+    Lot; basically an ordered array of fields</li>
+  <li>These Lots should be usable by things like select, unique, and the like.  
+    When creating a relation, it's possible to include a Lot, which includes 
+    its alloted fields.  </li>
+  <li>While PostgreSQL's composite types (cf. 
+    <a href="https://www.postgresql.org/docs/current/sql-createtype.html">CREATE
+    TYPE</a>) are intended for creating data types, the Lots here are 
+    probably less specific, and can have a broader range of uses.  </li>
+  <li>A <code>Lot</code> is not restricted to including Fields; it can include
+    other <code>Lot</code>s.  When a <code>Lot</code> is used, these are 
+    expanded out to represent the actual fields.  </li>
+  <li>There should be some predefined Lots (built in by default) that make it 
+    easy to construct a data dictionary like the example one on the 
+    <code><a href="TOP/Raku/DataDictionary.xml">DataDictionary</a></code>
+    page.</li>
+  <li>It'd be nice to know how we're going to handle multi-lingual interfaces</li>
+</ul>
+
+</content>
+</page>

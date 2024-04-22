@@ -16,108 +16,158 @@ th h2, th h3 {
 }
 </style>
 
-<h2>Other Function Groups</h2>
+<h2>Function Groups</h2>
 
-<p>These categories are drawn from the <a href="https://harbour.github.io/doc/">Harbour Reference Guide</a>, 
-but exclude the ones covered above.  </p>
+<p>These categories are drawn from the <a href="https://harbour.github.io/doc/">Harbour Reference Guide</a>.  
+These are just an overview; see below this table for more depth in some areas.  </p>
 
 <table>
   <tr>
-    <th>Item</th>
     <th>xHarbour</th>
     <th>Raku</th>
   </tr>
+  <tr><th colspan="2"><h3>Types</h3></th></tr>
   <tr>
-    <td></td>
-    <td>API</td>
-    <td></td>
+    <td>Array</td>
+    <td>See below under Types</td>
   </tr>
   <tr>
-    <td></td>
-    <td>Class</td>
-    <td></td>
+    <td>Hash Table</td>
+    <td>See below under Complex Types</td>
   </tr>
   <tr>
-    <td></td>
     <td>Conversion</td>
-    <td></td>
+    <td><a href="https://docs.raku.org/language/typesystem#Coercion">Coercion</a></td>
   </tr>
   <tr>
-    <td></td>
-    <td>Environment</td>
-    <td></td>
+    <td>Strings</td>
+    <td>See below under Types</td>
+  </tr>
+  <tr><th colspan="2"><h3>Classes and Objects</h3></th></tr>
+  <tr>
+    <td>Class</td>
+    <td><a href="https://docs.raku.org/language/classtut">Classes and Objects</a></td>
   </tr>
   <tr>
-    <td></td>
-    <td>Error</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Events</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Execute and Execution</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>FileSys</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Garbage Collector</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Idle States</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Internal</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>INET</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Language and Nation</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Macro</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Math</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
     <td>Objects</td>
-    <td></td>
+    <td><a href="https://docs.raku.org/language/classtut">Classes and Objects</a></td>
   </tr>
   <tr>
-    <td></td>
-    <td>RDD</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
     <td>Variable Management</td>
+    <td><a href="https://docs.raku.org/language/classtut">Classes and Objects</a> and 
+      <a href="https://docs.raku.org/language/variables">Variables</a></td>
+  </tr>
+  <tr><th colspan="2"><h3>Table-Oriented Programming</h3></th></tr>
+  <tr>
+    <td>Database</td>
+    <td>See below under Table/Database-Related Functions</td>
+  </tr>
+  <tr>
+    <td>RDD</td>
+    <td>Will be done as backends to Raku TOP</td>
+  </tr>
+  <tr><th colspan="2"><h3>UI/RAD</h3></th></tr>
+  <tr>
     <td></td>
+    <td>The items below will all need to be implemented in Rococo, the Raku Code Office.  </td>
+  </tr>
+  <tr>
+    <td>Events (Keyboard only; see below for others)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Language and Nation</td>
+    <td>Requires addons.  See <a href="https://raku.land/tags/i18n">I18N</a> for a list of available addons</td>
+  </tr>
+  <tr>
+    <td>Printer</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Switch &amp; State Functions, Keyboard/Mouse, Menus/Prompts, </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Terminal</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>User Interface</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Video Functions, Video</td>
+    <td></td>
+  </tr>
+
+  <tr><th colspan="3"><h3>Other</h3></th></tr>
+  <tr>
+    <td>Application</td>
+    <td>(Has the features, but scattered across the documentation)</td>
+  </tr>
+  <tr>
+    <td>Date/Time</td>
+    <td><a href="https://docs.raku.org/language/temporal">Date and Time Functions</a></td>
+  </tr>
+  <tr>
+    <td>Environment</td>
+    <td>Various, including:
+      <ul>
+        <li><a href="https://docs.raku.org/type/Thread#method_run">run</a> and 
+          <a href="https://docs.raku.org/type/Proc#method_shell">shell</a></li>
+        <li><a href="https://docs.raku.org/language/variables#%*ENV">%*ENV</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Error</td>
+    <td><a href="https://docs.raku.org/language/exceptions">Exceptions</a></td>
+  </tr>
+  <tr>
+    <td>Events (except Keyboard; see above for those)</td>
+    <td>(Has the features, but scattered across the documentation)</td>
+  </tr>
+  <tr>
+    <td>Execute and Execution</td>
+    <td>See both <a href="https://docs.raku.org/language/experimental#macros">macros</a> and 
+      <a href="https://docs.raku.org/type/independent-routines#routine_EVAL">EVAL</a></td>
+  </tr>
+  <tr>
+    <td>FileSys</td>
+    <td>Mostly <a href="https://docs.raku.org/type/IO/Path">IO::Path</a></td>
+  </tr>
+  <tr>
+    <td>Garbage Collector</td>
+    <td>Mostly happens under the hood</td>
+  </tr>
+  <tr>
+    <td>Idle States</td>
+    <td>Not quite the same, but see <a href="https://docs.raku.org/language/concurrency">Concurrency</a></td>
+  </tr>
+  <tr>
+    <td>Internal</td>
+    <td>(Has the features, except maybe the keyboard ones, but scattered across the documentation)</td>
+  </tr>
+  <tr>
+    <td>INET</td>
+    <td>cf. <a href="https://docs.raku.org/type/IO/Socket/Async">IO::Socket::Async</a></td>
+  </tr>
+  <tr>
+    <td>Macro</td>
+    <td>Not relevant</td>
+  </tr>
+  <tr>
+    <td>Math</td>
+    <td>cf. <a href="https://docs.raku.org/language/math">Math</a> and 
+      <a href="https://docs.raku.org/language/operators">Operators</a></td>
+  </tr>
+  <tr>
+    <td>Zip Functions</td>
+    <td>External library: <a href="https://raku.land/github:azawawi/File::Zip">File::Zip</a></td>
   </tr>
 </table>
+
+<h1>In-Depth Basic Features</h1>
 
 <table>
   <tr>
@@ -790,6 +840,119 @@ $table = Table.new(...)</code></td>
     <td></td>
     <td class="not-implemented"></td>
   </tr>
+</table>
+
+<h1>UI-related features</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>xHarbour</th>
+    <th>OpenOffice</th>
+    <th>HTML</th>
+    <th>Rococo</th>
+  </tr>
+  <tr><th colspan="5"><h3>User Interface and Widgets</h3></th></tr>
+  <tr>
+    <td>Menubar, Menu, MenuItem</td>
+    <td>_AtPrompt, MENU TO</td>
+    <td></td>
+    <td></td>
+    <td>Everything in this section should be in Rococo's GUI Editor</td>
+  </tr>
+  <tr>
+    <td>ListBox, Select/Dropdown</td>
+    <td>AChoice</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Dialog Box</td>
+    <td>Alert</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Table Editor; cf. also Table Output Reports, belo</td>
+    <td>Browse, dbEdit</td>
+    <td>Mainly LibreOffice Calc, but Writer forms might have a table widget</td>
+    <td>HTML table</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Window</td>
+    <td>MaxRow(), MaxCol(), Row(), Col()</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr><th colspan="5"><h3>Events</h3></th></tr>
+  <tr>
+    <td>KeyEvent</td>
+    <td>SetKey, hb_SetKey(Check|Get|Set)</td>
+    <td></td>
+    <td></td>
+    <td>Everything in this section should be in Rococo's GUI Editor</td>
+  </tr>
+  <tr>
+    <td>MouseEvent</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr><th colspan="5"><h3>Language and Nation</h3></th></tr>
+  <tr>
+    <td>Use Internationalised Strings</td>
+    <td>Various</td>
+    <td></td>
+    <td></td>
+    <td>Just use See <a href="https://raku.land/tags/i18n">I18N</a> for a list of available addons;
+      This stuff probably belongs in Rococo's GUI/Document Editors</td>
+  </tr>
+  <tr><th colspan="5"><h3>Reports (Printer)</h3></th></tr>
+  <tr>
+    <td>Table Output; note that outputting tables on the command line as CSV, human-only, half-human, etc, is also 
+      relevant here; cf. also Table Editor under UI, above</td>
+    <td>Browse, dbEdit</td>
+    <td>Writer tables, but also traditional database reports</td>
+    <td>HTML table</td>
+    <td>Everything in this section should be in the Rococo's Document Editor</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>PurrData</th>
+    <th>???</th>
+    <th>HTML</th>
+    <th>Rococo</th>
+  </tr>
+  <tr><th colspan="5"><h3>Audio</h3></th></tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>This stuff probably belongs in the DataFlow Editor</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr><th colspan="5"><h3>Video Functions, Video</h3></th></tr>
 </table>
 
 </content>

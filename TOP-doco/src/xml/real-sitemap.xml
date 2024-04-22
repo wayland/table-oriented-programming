@@ -80,6 +80,7 @@
     </dropmenu>
     <menu>
       <title>RAD</title>
+      <menuitem name="Introduction" href="RAD/Introduction.xml"/>
       <menu>
         <title>Editors</title>
         <menuitem name="Database Design Editor" href="RAD/Database-Design-Editor.xml"/>

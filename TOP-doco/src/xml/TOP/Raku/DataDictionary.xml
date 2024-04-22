@@ -262,6 +262,12 @@ a database server), but not when it isn't (eg. a CSV file).  </p>
     <td>If it's not required, then if there's no default, it will be null.  If it's required, <b>and</b> there's no
       default, <b>and</b> it's not provided, then there will be an error.  </td>
   </tr>
+  <tr>
+    <td>Collation</td>
+    <td>?</td>
+    <td>Data</td>
+    <td>Sets the default sort order for the field; cf. https://www.postgresql.org/docs/16/collation.html</td>
+  </tr>
 </table>
 
 </content>

@@ -1,0 +1,25 @@
+Urbanist        ital,wght@0,100..900;1,100..900
+	TOP-content.css:87:	font-family: "Urbanist", sans-serif;
+	+- .title
+
+Quattrocento    wght@400;700
+	TOP-content.css:30:	font-family: "Quattrocento", serif;
+	+- h1-h6
+
+Crimson Text    ital,wght@0,400;0,600;0,700;1,400;1,600;1,700
+	TOP-interface.css:24:	font-family: "Crimson Text", serif;
+	+- <body>
+
+Forum           
+	TOP-content.css:99:	font-family: "Forum", sans-serif;
+	+- .blockquote
+
+Courier Prime   ital,wght@0,400;0,700;1,400;1,700
+	TOP-content.css:169:	font-family: "Courier Prime", monospace;
+	+- <code>
+
+Dosis           wght@200..800
+
+Noto Emoji      wght@300..700
+	+- Used for the anchor emoji
+

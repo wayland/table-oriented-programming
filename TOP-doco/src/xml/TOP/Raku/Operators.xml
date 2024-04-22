@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Operators.xml</filename>
+<content>
+
+<h1>Precedence</h1>
+
+<table>
+  <tr>
+    <th>Precedence Level</th>
+    <th>Associativity</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>Replication</td>
+    <td>left</td>
+    <td>σ Π ρ</td>
+  </tr>
+  <tr>
+    <td>Concatenation</td>
+    <td>list</td>
+    <td>⋉ ⋊ ▷ ◁ ⨝ ⟕ ⟖ ⟗ ÷ ▵ X</td>
+  </tr>
+  <tr>
+    <td>Junctive and</td>
+    <td>list</td>
+    <td>∩ ⩃</td>
+  </tr>
+  <tr>
+    <td>Junctive or</td>
+    <td>list</td>
+    <td>∪ ⩂ ⊖ \</td>
+  </tr>
+  <tr>
+    <td>Chaining</td>
+    <td>chain</td>
+    <td>
+            ∈ ∊ (elem)
+        ∉
+        ∋ ∍ (cont)
+        ∌<br/>
+        ⊂ (&lt;)
+        ⊄
+        ⊃ (&gt;)<br/>
+        ⊆ (&lt;=)
+        ⊈
+        ⊇ (&gt;=)
+        ⊉<br/>
+         ≡ (==) 
+         ≢
+    </td>
+  </tr>
+</table>
+
+<h1>Operator by Category</h1>
+
+<h2>Tuple/Row-based Operators</h2>
+
+<h3>Operators that Return <code>Bool</code></h3>
+
+<p>cf. <a href="https://docs.raku.org/language/setbagmix">Sets, bags, and mixes</a></p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>is </th>
+    <th>is not</th>
+    <th>inverse</th>
+    <th>inverse not</th>
+    <th>Compare</th>
+  </tr>
+  <tr>
+    <td>element of/contains</td>
+    <td>∈ ∊ (elem)</td>
+    <td>∉</td>
+    <td>∋ ∍ (cont)</td>
+    <td>∌</td>
+    <td>A Relation and a Tuple</td>
+  </tr>
+  <tr>
+    <td>(strict) subset/superset</td>
+    <td>⊂ (&lt;)</td>
+    <td>⊄</td>
+    <td>⊃ (&gt;)</td>
+    <td>⊅</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>subset/superset or equal</td>
+    <td>⊆ (&lt;=)</td>
+    <td>⊈</td>
+    <td>⊇ (&gt;=)</td>
+    <td>⊉</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>identity</td>
+    <td>≡ (==)</td>
+    <td>≢</td>
+    <td></td>
+    <td></td>
+    <td>Relations</td>
+  </tr>
+</table>
+
+<h3>Operators that Return a <code>TupleSet</code></h3>
+
+<p>cf. <a href="https://docs.raku.org/language/setbagmix">Sets, bags, and mixes</a></p>
+
+<p>The operators without a dot in them ensure each row is unique; the ones with a dot 
+accept duplicates</p>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Set Theory Term</th>
+    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>∩ (U+2229)</td>
+    <td>Intersection</td>
+    <td>AND</td>
+    <td><xtlinclude href="SetOperatorsAnd.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td>∪ (U+222A)</td>
+    <td>Union</td>
+    <td>OR</td>
+    <td><xtlinclude href="SetOperatorsOr.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td>⊖ (U+2296)</td>
+    <td>Symmetric Set Difference</td>
+    <td>XOR</td>
+    <td><xtlinclude href="SetOperatorsXor.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td>∖ (-)</td>
+    <td>Set Difference</td>
+    <td></td>
+    <td><xtlinclude href="SetOperatorsDifference.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td>σ</td>
+    <td>Selection</td>
+    <td></td>
+    <td>Choose some Tuples; equivalent to the WHERE clause in SQL</td>
+  </tr>
+</table>
+
+<h3>Universe-based Operators</h3>
+
+<p>These operators don't make sense without the existence of a Universe set that encompasses both 
+Relations.  If there exists U such that A and B are subsets of U, then these operators will make sense.  
+When performing these operations, it's required that the context variable $_ be a relation that's
+a superset of both operands.  </p>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Set Theory Term</th>
+    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>⩃ (U+2229)</td>
+    <td>Intersection Complement</td>
+    <td>NAND</td>
+    <td><xtlinclude href="SetOperatorsNand.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td>⩂ (U+2A42)</td>
+    <td>Union Complement</td>
+    <td>NOR</td>
+    <td><xtlinclude href="SetOperatorsNor.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Symmetric Set Difference Complement</td>
+    <td>XNOR</td>
+    <td><xtlinclude href="SetOperatorsXnor.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Set Difference Complement</td>
+    <td></td>
+    <td><xtlinclude href="SetOperatorsDifferenceComplement.svg" width="74" height="52"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Complement</td>
+    <td>NOT</td>
+    <td><xtlinclude href="SetOperatorsComplement.svg" width="74" height="52"/></td>
+  </tr>
+</table>
+
+<h3>Operators that Return <code>Array[TupleSet]</code></h3>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Set Theory Term</th>
+    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>℘ U+2118</td>
+    <td>Power Set</td>
+    <td></td>
+    <td>Unary.  Make a set whose members are all possible subsets of the Relation</td>
+  </tr>
+</table>
+
+<h2>Column-based Operators</h2>
+
+<p>cf. <a href="https://en.wikipedia.org/wiki/Relational_algebra">Relational Algebra</a></p>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Set Theory Term</th>
+    <th>Description</th>
+  </tr>
+
+  <tr><th colspan="3"><h3>Basic Operators</h3></th></tr>
+
+  <tr>
+    <td>Π</td>
+    <td>Projection</td>
+    <td>Choose Fields; equivalent to the field selection clause in SQL; might be nice if we could
+      also combine with subtraction, so we could go "all fields from Lot/Relation except..."</td>
+  </tr>
+  <tr>
+    <td>ρ</td>
+    <td>Rename</td>
+    <td>Rename fields; equivalent to the AS statement in SQL</td>
+  </tr>
+
+  <tr><th colspan="3"><h3>Sub-Join Operators</h3></th></tr>
+
+  <tr>
+    <td>⋉ U+22C9</td>
+    <td>Left Semijoin</td>
+    <td>Includes the rows from the left table that match the right table (but no rows from the right table)</td>
+  </tr>
+  <tr>
+    <td>⋊ U+22CA</td>
+    <td>Right Semijoin</td>
+    <td><i>vice versa</i></td>
+  </tr>
+  <tr>
+    <td>▷ U+25B7</td>
+    <td>Left Antijoin</td>
+    <td>Includes the rows from the left relation which do <i>not</i> have a match in the right relation</td>
+  </tr>
+  <tr>
+    <td>◁ U+25C1</td>
+    <td>Right Antijoin</td>
+    <td><i>vice versa</i></td>
+  </tr>
+
+  <tr><th colspan="3"><h3>Basic Join Operators</h3></th></tr>
+
+  <tr>
+    <td>⨝ U+2A1D</td>
+    <td>Inner Join</td>
+    <td>Only include the rows that appear in both relations (Left Semijoin + Right Semijoin).  Mathematically,
+      This symbol is the one for a Natural Join (see below)</td>
+  </tr>
+  <tr>
+    <td>⟕ U+27D5</td>
+    <td>Left Outer Join</td>
+    <td>Include all of the rows in the left relation, and any that match in the right relation</td>
+  </tr>
+  <tr>
+    <td>⟖ U+27D6</td>
+    <td>Right Outer Join</td>
+    <td><i>vice versa</i></td>
+  </tr>
+  <tr>
+    <td>⟗ U+27D7</td>
+    <td>Full Outer Join</td>
+    <td>Include all of the rows in both relations, matching up where possible</td>
+  </tr>
+
+  <tr><th colspan="3"><h3>Other</h3></th></tr>
+
+  <tr>
+    <td></td>
+    <td>Equjoin</td>
+    <td>Like an inner join, but the only comparison allowed is the <code>=</code> sign</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Natural</td>
+    <td>Like Equijoin, but the column names have to be the same in both tables</td>
+  </tr>
+  <tr>
+    <td>÷ U+00F7</td>
+    <td><a href="https://en.wikipedia.org/wiki/Relational_algebra#Division_(%C3%B7)">Division</a></td>
+    <td>Creates a relation which lists every item in A that matches all elements in B.  See Wikipedia for examples.  </td>
+  </tr>
+  <tr>
+    <td>▵ U+25B5</td>
+    <td>Named Join</td>
+    <td>This is the symbol I chose to indicate that a join is being recalled; it's a unary prefix operator which takes a Join operand</td>
+  </tr>
+  <tr>
+    <td>X</td>
+    <td>Cross Join</td>
+    <td>This joins every record in the left operand to every record in the right operand</td>
+  </tr>
+</table>
+
+</content>
+</page>
