@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<page>
+<filename>RAD/Introduction.xml</filename>
+<content>
+<h1>Overview</h1>
+
+<p>Programming languages are nice.  But as tools, they're only the basics.  
+To be effective as programmers, there are quite a number of other tools that 
+speed along the development process.  </p>
+
+<p>One thing that can be useful is to do a comparison of:</p>
+
+<ul>
+  <li>Coding Environment Tools</li>
+  <li>Integrated UI Design Tools</li>
+  <li>Office Suites</li>
+</ul>
+
+<h3>Comparison of Office &amp; RAD</h3>
+
+<table>
+	<tr>
+		<th>Office Suite</th>
+		<th>Code Editor</th>
+		<th>UI Editor</th>
+	</tr>
+	<tr>
+		<td>Word Processor / DTP</td>
+		<td>Standard Code Editor; documentation writing</td>
+		<td>Reports</td>
+	</tr>
+	<tr>
+		<td>Spreadsheet</td>
+		<td>Relation Code Editor</td>
+		<td>Can we let the user do spreadsheeting stuff based on the tables?</td>
+	</tr>
+	<tr>
+		<td>Drawing / Presentation</td>
+		<td>Dataflow Code Editor</td>
+		<td>Forms</td>
+	</tr>
+	<tr>
+		<td>Communication Tools</td>
+		<td>?Ticketing</td>
+		<td></td>
+	</tr>
+</table>
+
+
+<p>Our goals here are:</p>
+<ul>
+	<li>As much as possible, get the UIs to build themselves based on the Data 
+		Dictionary</li>
+	<li>Where necessary, let developers drag and drop components onto UIs</li>
+	<li>Allow the UIs to be re-themed by front-end developers/designers, 
+		probably using XSLT, CSS, and Javascript</li> 
+	<li>Be independent of frontends; our UI definition should be pushable to at 
+		least the following locations:</li>
+	<ul>
+		<li>A web page</li>
+		<li>A local GUI</li>
+		<li>A terminal</li>
+	</ul>
+</ul>
+
+
+--
+
+<h3>What can we learn from RAD IDEs?</h3>
+
+<h4>Lessons from RAD IDEs</h4>
+
+<p>The lesson here is easier for me to identify, probably because I've spent 
+more time over the years using various RAD IDEs.  The big lesson is, in many 
+cases, visual editors of various sorts make people more productive.  I think I 
+can best express this by making a bullet list of the things that I think should 
+be implemented in an IDE that fully supports Programming Productivity:</p>
+
+<ul>
+	<li><b><a href="RAD/Database-Design-Editor.html">Database Design 
+		Editor</a></b>: Lets you visually edit the design of your database</li>
+	<li><b><a href="RAD/Code-Editors.html">Code Editors</a></b></li>
+	<ul>
+		<li><b>Regular Code Editor:</b> These are standard; no explanation 
+			needed</li>
+		<li><b>Source control visual tools:</b> To reduce the time spent managing 
+			the code</li>
+		<li><b>Relation Code Editors:</b> In Table-Oriented Programming, both 
+			code and data can be stored in tables.  Think of this as being like 
+			a spreadsheet, but you can compile it.</li> 
+		<li><b>Dataflow Code Editors:</b> In dataflow programming, there's a 
+			diagram that represents how the data flows.  Some of the nodes in 
+			the diagram have code inside them.  We should be able to edit it.  
+			</li> 
+	</ul>
+	<li><b><a href="RAD/GUI-Editor.html">GUI Editor</a>:</b> Something that allows editing the GUI in a visual, 
+		drag-and-drop manner (Forms)</li>
+	<li><b><a href="RAD/Document-Editor.html">Document Editor</a>:</b> This allows people to edit a document that could 
+		be made into a report.  This would be influenced by word processors, 
+		and by the Notebook model (cf. Jupyter)</li>
+</ul>
+
+<h3 id="UI-churn">UI Churn/Volatility</h3>
+
+<p>One final lesson -- this isn't from RAD or DSLs, but from the SmartDB 
+advocates.  </p>
+
+<div class="blockquote">
+
+<img src="TechnologyStackStabilityJava.png" style="width: 80%; margin: auto; 
+display: block"/>
+
+<div class="reference" style="display: flex">
+<div style="display: inline-table">Slides for <i>The Database: Persistence Layer 
+(NoPlsql) or Processing Engine (SmartDB)?</i>, Toon Koppelaars</div>
+</div>
+</div>
+
+<p>In the talk referenced, Toon Koppelaars made points similar to the following:
+</p>
+<ul>
+	<li>The closer the technology is to the user, the higher the technology 
+		churn rate.  The closer it is to the database, the lower the technology 
+		churn rate.  The image given specifically references Java, but his 
+		slides showed that the rate for Javascript was even higher.  On the 
+		other hand, the closer the technology is to the database, the lower the 
+		technology churn rate.  </li>
+	<li>If layers in your chosen technology stacks are volatile, then you ought 
+		to use them "thinly".  Do not do business logic in them; instead, push 
+		business logic further down into code-stack where stable layers exist.  
+		Why? Because the top-layers change more quickly than does your business 
+		logic.  If you don't, you'll end up with a maintenance nightmare (ie. 
+		old technology that doesn't upgrade well)</li> 
+	<li>UI and Database developers have quite different focuses:</li>
+	<ul>
+		<li>Database developers focus on: correctness, maintainability, 
+			performance and scalability (solid)</li>
+		<li>UI developers focus on: extremely friendly UI experience (UX) 
+			(hip, trendy)</li>
+	</ul>
+	<li>Organisationally, Backend and Frontend must co-operate.  Database 
+		developers will need to understand UI-developers' world, but NOT <i>vice 
+		versa</i></li> 
+	<ul>
+		<li>Frontend will be "decoupled" via API's</li>
+		<li>Frontend only need to know enough architectural concepts to 
+			communicate effectively and jointly design API-layer</li>
+	</ul>
+	<li>Thus, database developers, <b>must</b> be in the lead.  Why?  They own 
+		the database design and business logic</li>
+</ul>
+
+<p>This is why I added a database design tool to the list of editors</p>
+
+<h1>Code Vistas</h1>
+
+<p>The idea here is that there are a number of tabular views of code, at 
+various levels of detail.  Each cell in a table may expand out to something.
+Each vista may be composed of one or more of the tabular views.  The Views
+are just the Table Editor with a particular Data Dictionary.  </p>
+
+<h2>Overview</h2>
+
+<table>
+  <tr>
+    <th>View Name</th>
+    <th>Things at This Level</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Adjective</th>
+    <td>Verb parameters, Verb return values, Class attributes</td>
+    <td>A list of variables with their types and doco</td>
+  </tr>
+  <tr>
+    <th>Verb</th>
+    <td>Function, Method, Rule, Token</td>
+    <td>Code (Code), Comments (Doco), Catch (Test)</td>
+  </tr>
+  <tr>
+    <th>Module</th>
+    <td>Class, Role, Grammar</td>
+    <td>Bodies: Attributes, Verbs, Events</td>
+  </tr>
+  <tr>
+    <th>Library</th>
+    <td>Library</td>
+    <td>Collection of Modules</td>
+  </tr>
+  <tr>
+    <th></th>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<h2>General Views</h2>
+
+<h3>Adjective View</h3>
+
+<p>This is for variable declarations in such places as they need to be documented
+(such as function parameters or module attributes)</p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Type</td>
+    <td>Inline</td>
+    <td>The type of the attribute</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td>The name of the attribute</td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Documentation</td>
+    <td>Text: Markdown</td>
+    <td>Literate Coding for API documentation</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Accessor</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Attributes">Attributes</a></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Required</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Attributes">Attributes</a></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Handles</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Delegation">Delegation</a></td>
+  </tr>
+</table>
+
+
+<h2>Verb Vista</h2>
+
+<ul>
+  <li><b>Includes:</b> Function, Method, Rule, Token</li>
+  <li><b>Header:</b> cf. information for Module (specifically, Methods)</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Parameters:</i> cf. Adjective View, above</li>
+    <li><i>Return Values:</i> cf. Adjective View, above</li>
+    <li><i>Code:</i> see Code View, below</li>
+  </ul>
+</ul>
+
+<h3>Code View</h3>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Code</td>
+    <td>Inline (code editor)</td>
+    <td>Is the code</td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Comments</td>
+    <td>Rich Text</td>
+    <td>Can be multi-line</td>
+  </tr>
+  <tr>
+    <th>Testing</th>
+    <td>Catch</td>
+    <td>Code</td>
+    <td>Can be multi-line</td>
+  </tr>
+</table>
+
+<h2>Module Vista</h2>
+
+<ul>
+  <li><b>Includes:</b> Class, Role, Grammar, Relation</li>
+  <li><b>Header:</b> cf. information for Library</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Attributes:</i> cf. Adjective View, above</li>
+    <li><i>Verbs:</i> cf. Verb View, below</li>
+    <li><i>Events:</i> cf. Verb View, below</li>
+  </ul>
+</ul>
+
+<h3>Verb View</h3>
+
+<p>These apply to both Methods and Events, but Methods and Events should be stored
+in different tables with the same columns.  Note however the difference in the Body
+editors.  </p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Parameters</td>
+    <td>Adjective Editor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Return Values</td>
+    <td>Adjective Editor</td>
+    <td>(may not be applicable to events)</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Body</td>
+    <td>Verbs: Code Editor<br/>Events: Dataflow Editor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Literate Coding for API Reference</td>
+    <td>Rich Text Editor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <td>Unit Test</td>
+    <td>Code</td>
+    <td>cf. <a href="https://docs.raku.org/type/Test">Test</a></td>
+  </tr>
+  <tr>
+    <th>Ticket</th>
+    <td>Linked Ticket</td>
+    <td>Rich Text</td>
+    <td></td>
+  </tr>
+</table>
+
+<h2>Library Vista</h2>
+
+<ul>
+  <li><b>Includes:</b> Library, Database</li>
+  <li><b>Header:</b> <i>Documentation:</i> Summary for API Reference</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Modules:</i> A list of modules that belong to the library</li>
+    <li><i>Testing:</i> Integration tests; not sure how these work, but will probably edit with Code Editor</li>
+  </ul>
+</ul>
+
+<h3>Module View</h3>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>is/does</td>
+    <td>?</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Literate Coding for API Reference</td>
+    <td>Rich Text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <td>subtest</td>
+    <td>Code Editor</td>
+    <td>cf. <a href="https://docs.raku.org/type/Test#sub_subtest">subtest</a></td>
+  </tr>
+</table>
+
+<h2>Old Overview</h2>
+
+Currently:
+- First few rows redone above
+- Just about to redo library; then can go on to user story (user facing), epic (dev facing), theme (user facing), etc
+  Possibly these should go with the UI editor
+- Also need to note Selenium under Code Editors
+
+<table>
+  <tr>
+    <th colspan="3">Level</th>
+    <th colspan="2">Ticket</th>
+    <th colspan="2">Code</th>
+    <th colspan="2">Test/Catch</th>
+  </tr>
+  <tr>
+    <th>Classes/Roles</th>
+    <th>Grammars</th>
+    <th>Both</th>
+    <th>Type</th>
+    <th>Doco</th>
+    <th>Actual</th>
+    <th>Doco</th>
+    <th>Code</th>
+    <th>Doco</th>
+  </tr>
+  <tr>
+    <th colspan="3">User Story</th>
+    <td>User Story</td>
+    <td>Acceptance Criteria</td>
+    <td>-</td>
+    <td>Writeup for [User] Reference</td>
+    <td>Acceptance Testing (Selenium)</td>
+    <td>Testing Steps</td>
+  </tr>
+  <tr>
+    <th colspan="3">Epic</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+In the above, [User] refers to any of Admin, Content Creator (if relevant), and End User.  
+
+<h3>Kinds of documentation</h3>
+
+4 kinds of documenation
+https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/
+
+vs. Audience.  Audiences should be end user, content creator, admin, developer
+<table>
+  <tr>
+    <th>Type of Documentation</th>
+    <th>Orientation</th>
+    <th>Developers</th>
+    <th>Admin</th>
+    <th>Content Creator</th>
+    <th>End User</th>
+  </tr>
+  <tr>
+    <th>Reference Material</th>
+    <td>Information</td>
+    <td>API Reference</td>
+    <td>Admin Reference</td>
+    <td>Content Creator Reference</td>
+    <td>End User Reference</td>
+  </tr>
+  <tr>
+    <th>Tutorials</th>
+    <td>Learning</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>How-To Guides</th>
+    <td>Goal</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Discussion</th>
+    <td>Understanding</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<h3>4 levels of testing:</h3>
+<ul>
+  <li>Unit</li>
+  <li>Integration</li>
+  <li>System</li>
+  <li>Acceptance</li>
+</ul>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Code Editor</th>
+    <th>UI Editor</th>
+    <th>DevOps Editor</th>
+  </tr>
+  <tr>
+    <th>Editor</th>
+    <td>Code</td>
+    <td>UI</td>
+    <td>Maybe something a bit like Lens crossed with YAML, and tree/table editors; edits planned deployments, not currently running ones (it may do that too, but it's not the main purpose)</td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>API Reference</td>
+    <td>User references (for various target audiences)</td>
+    <td>Operator Reference (including installation)</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <td>Unit, Integration</td>
+    <td>Acceptance</td>
+    <td>System (capacity, performance, security, including backup/monitoring)</td>
+  </tr>
+</table>
+
+
+</content>
+</page>
