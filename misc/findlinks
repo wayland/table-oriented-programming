@@ -1,0 +1,173 @@
+#!/usr/bin/perl
+
+use	warnings;
+use	strict;
+
+use	File::Basename;
+use	File::Find;
+use	Cwd;
+
+my($script_base) = cwd();
+my($source_base) = 'src/xml';
+find(\&wanted, $source_base);
+
+my(%url_patterns) = (
+	'good' => [
+		# Local
+		'src/pages',
+		'Concepts',
+		'Why-Table-Oriented-Programming.html',
+		# Remote
+		'https://docs.raku.org/',
+		'https://en.wikipedia.org',
+		'https://uzluisf.gitlab.io/raku-by-example/',
+	],
+	'translated' => {
+		'https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm' => '',
+		'https://web.archive.org/web/20121111043922/http://www.geocities.com/tablizer/collrght.htm' => 'Table-Friendly Syntax or Implementation Features',
+		'https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/collrght.htm' => 'Table-Friendly Syntax or Implementation Features',
+	}
+);
+
+# Order to do these:
+# -	Do any based on Concepts
+# -	Do any Multi-Paradigm ones
+# -	Do the Q&A one responding to criticisms of trees; try to distribute these out to the concepts
+# -	Do the Criticism ones last; pick out the relevant bits, and write them up 
+#	on the Multi-Paradigm page (or relevant sub-pages) 
+# -	Don't do the New Language ones at all; or maybe skim them again, and pull 
+#	out any relevant parts
+
+my(%needs) = (
+	'allway.htm' => 'Concepts: Control Tables',
+	'array1.htm' => 'Criticism: Arrays',
+	'bank.htm' => 'Examples: Bank',
+	'buzzword.htm' => 'Criticism: OOP',
+	'cntrl1.htm' => 'Concepts: Control Tables',
+	'collrght.htm' => 'Concepts: Collection Convergence',
+	'ddsamp.htm' => 'Concepts: Data Dictionaries',
+	'funcs.htm' => 'Multi-Paradigm',
+	'index.html' => '',
+	'L.htm' => 'New Language',
+	'merge.htm' => 'Multi-Paradigm',
+	'meyer1.htm' => 'Criticism: OOP',
+	'miscoop.htm' => 'Criticism: OOP',
+	'moretop.htm' => 'Criticism: OOP and Criticism: SQL',
+	'newlang.htm' => 'New Language',
+	'oopbad.htm' => 'Criticism: OOP',
+	'prpats.htm' => 'Multi-Paradigm',
+	'sets1.htm' => 'Criticism: Trees',
+	'sqlcrit.htm' => 'Criticism: SQL',
+	'subtypes.htm' => 'Criticism: OOP',
+	'table_qa.htm' => 'Anti-Criticism: TOP',
+	'trees.htm' => 'Criticism: Trees (probably)',
+	'whypr.htm' => 'Criticism: OOP',
+	'xbasefan.htm' => 'Why Tables?',
+);
+
+my $good = join '|', @{ $url_patterns{good} };
+my $translated = join '|', keys %{ $url_patterns{translated} };
+
+my(%urls);
+foreach my $url (sort keys %urls) {
+	my $refs = $urls{$url};
+	my $show_rows = 0;
+	URL_ACTION: {
+		# Known good; skip these
+		$url =~ m#^($good)# and do {
+			# These are fine -- ignore
+			last URL_ACTION;
+		};
+		# Translated; these need fixing
+		$url =~ m#^($translated)# and do {
+			printf "\t$url => %s\n", $url_patterns{translated}->{$url};
+			$show_rows = 1;
+			last URL_ACTION;
+		};
+		# These probably need translating, or explicit ignores
+		$url =~ m#^(https://web.archive.org)# and do {
+			my $file = $url;
+			$file =~ s#^.*?/([^/]+)$#$1#;
+			$file =~ s/#.*//;
+			print "\tarchive.org $needs{$file} -- $file -- $url\n";
+			$needs{$file} or $show_rows = 1;
+			last URL_ACTION;
+		};
+		# Default action
+		print "\t$url\n";
+		$show_rows = 1;
+	}
+	if($show_rows) {
+		foreach my $ref (@$refs) {
+			my $is_ref = @$ref[2];
+			if(! $is_ref) {
+				printf "\t\t%3d %s\n", @$ref[0..1];
+			}
+		}
+	}
+}
+
+print "More OOP Criticism: https://web.archive.org/web/20121111043826/http://www.geocities.com/tablizer/guitable.htm\n";
+print "More Multi-Paradigm: https://web.archive.org/web/20130719001414/http://www.geocities.com/tablizer/langopts.htm\n";
+
+exit;
+
+sub	wanted {
+	my($source) = $File::Find::name;
+	my($dest) = $source;
+	$dest =~ s#$source_base#generated#;
+
+	my $oldpwd;
+	MAIN_BLOCK: {
+		$oldpwd = pushd($script_base);
+
+		-d $source and do {
+			last MAIN_BLOCK;
+		};
+		if(! -f $source) {
+			print "Skipping unknown file type $source or $dest\n";
+			last MAIN_BLOCK;
+		}
+		$source =~ /\.(tmpl|html)$/ and do {
+			print "Processing from $source to $dest\n";
+
+			my(@lines) = getfile($source);
+			foreach my $linecount (0..$#lines) {
+				$_ = $lines[$linecount];
+				/href=\"([^\"]+)\"/ and do {
+					my $url = $1;
+					$url =~ s/#.*//;
+					ref($urls{$url}) or $urls{$url} = [];
+
+					my $is_reference = ($lines[$linecount - 1] =~ /reference/);
+
+					push @{ $urls{$url} }, [$linecount+1, $source, $is_reference];
+				};
+			}
+
+			last MAIN_BLOCK;
+		};
+		# Default action -- do nothing
+	}
+
+	chdir($oldpwd);
+}
+
+sub	pushd {
+	my($dir) = @_;
+
+	my($olddir) = cwd();
+	chdir($dir) or die "Error changing directory to '$dir': $!";
+
+	return $olddir;
+}
+
+sub	getfile {
+	my($filename) = @_;
+
+	open(FILE, $filename) or die "Error: Unable to open file '$filename': $!";
+	my(@lines) = <FILE>;
+	close(FILE) or die "Error: Unable to close file '$filename': $!";
+
+	return @lines;
+}

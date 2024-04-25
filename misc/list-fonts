@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+my($filename) = 'interface.xsl';
+open(FILE, $filename) or die "Error: Unable to open file '$filename': $!";
+my(@lines) = <FILE>;
+close(FILE) or die "Error: Unable to close file '$filename': $!";
+
+@linklines = grep { /^\<link href/ } @lines;
+
+foreach (@linklines) {
+	$origline = $_;
+	s/^\<link\s+(.*?)\/\>$/$1/;
+	while(!/^\s*$/) {
+		s/^(\w+)=\"([^"]+)\"\s*// or die "Error: unable to parse line:\n\t$_\n\t$origline\n";
+		$atts{$1} = $2;
+	}
+}
+
+$fontstr = $atts{href};
+
+$fontstr =~ /^[^?]+\?(.*)/;
+$param_str = $1;
+%params = map {
+	if(/^([^:]+):(.*)$/) {
+		($name, $value) = ($1, $2);
+		$name =~ s/\+/ /g;
+	} else {
+		($name, $value) = ($_, '');
+	}
+	$name, $value;
+} grep { s/^family=// } split('&amp;', $param_str);
+
+foreach(sort keys %params) {
+	printf "%-15s %s\n", $_, $params{$_};
+
+	foreach(split "\n", `ack '$_' *.css`) {
+		print "\t$_\n";
+	}
+}
+

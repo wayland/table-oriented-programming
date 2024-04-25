@@ -1,0 +1,5 @@
+-	Interface
+	-	Made multi-level TOC work in XSL
+	-	Added Section to the SiteMap
+-	Content
+	-	Updated and renamed Code/Program Editors, including moving some content here from the Introduction page
