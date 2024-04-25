@@ -120,7 +120,7 @@ body {
 	background-color: var(--menu-bar-background-color-hover);
 }
 
-.menu-bar :is(li.menu-container, li.dropmenu-container) {
+.menu-bar :is(span.menu-container, li.dropmenu-container) {
 	display: inline-block;
 }
 

@@ -62,11 +62,15 @@
           <menuitem name="class DataDictionary" href="TOP/Raku/DataDictionary.xml"/>
           <menuitem name="class TupleSet" href="TOP/Raku/TupleSet.xml"/>
         </menu>
+        <menu>
+          <title>Section</title>
+          <menuitem name="role Section" href="TOP/Raku/Section.xml"/>
+          <menuitem name="class Field" href="TOP/Raku/Field.xml"/>
+          <menuitem name="class Lot" href="TOP/Raku/Lot.xml"/>
+        </menu>
         <menuitem name="class Cursor" href="TOP/Raku/Cursor.xml"/>
         <menuitem name="class Database" href="TOP/Raku/Database.xml"/>
         <menuitem name="class Tuple" href="TOP/Raku/Tuple.xml"/>
-        <menuitem name="class Field" href="TOP/Raku/Field.xml"/>
-        <menuitem name="class Lot" href="TOP/Raku/Lot.xml"/>
         <menuitem name="class Join" href="TOP/Raku/Join.xml"/>
         <menuitem name="TOP::Operators" href="TOP/Raku/Operators.xml"/>
       </menu>
@@ -84,7 +88,7 @@
       <menu>
         <title>Editors</title>
         <menuitem name="Database Design Editor" href="RAD/Database-Design-Editor.xml"/>
-        <menuitem name="Code Editors" href="RAD/Code-Editors.xml"/>
+        <menuitem name="Program Editors" href="RAD/Program-Editors.xml"/>
         <menuitem name="UI editors (Forms &amp; Reports)" href="RAD/UI-Editors.xml"/>
       </menu>
       <menuitem name="Backend-to-Frontend Design" href="RAD/Backend-to-Frontend-Design.xml"/>

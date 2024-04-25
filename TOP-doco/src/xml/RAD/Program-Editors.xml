@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<page>
+<filename>RAD/Program-Editors.xml</filename>
+<content>
+<h1>Overview</h1>
+
+<p>A great RAD needs the following program editors:</p>
+
+	<ul>
+		<li><b>Code Editor:</b> mostly just the normal for editing code</li>
+		<li><b>Source control visual tools:</b> To reduce the time spent managing 
+			the code</li>
+		<li><b>Relation Program Editors:</b> In Table-Oriented Programming, both 
+			code and data can be stored in tables.  Think of this as being like 
+			a spreadsheet, but you can compile it.</li> 
+		<li><b>Dataflow Program Editors:</b> In dataflow programming, there's a 
+			diagram that represents how the data flows.  Some of the nodes in 
+			the diagram have code inside them.  We should be able to edit it.  
+			</li> 
+	</ul>
+
+<p>Editors will be structured as follows:</p>
+
+<ul>
+  <li><b>Panoramas:</b> Panoramas are a big picture of a piece of code composed of 
+    multiple <i>vistas</i>.  A Panorama is somewhat equivalent to a Form or Report
+    which contains multiple components.  </li>
+  <li><b>Vistas:</b> These are pictures of individual pieces of code and are
+    composed into Panoramas.  These are like the widgets on a form.  
+    Most of the Vistas are tabular.  </li>
+</ul>
+
+<h1>The Vistas</h1>
+
+<p>It's probably useful now to dive into the detailed vistas of the code, because 
+they'll be more familiar than the panoramas.  Many of these are tabular.  Each cell 
+in a table may expand out to something (or not; see the "Edit with" column to see
+what they expand into).  Some of the tabular Vistas
+are just the Table Editor with a particular Data Dictionary.  </p>
+
+<h2>Code Vista</h2>
+
+<p>Lets you edit your code.  Has syntax highlighting.  The unusual features 
+are:</p>
+
+<ul>
+	<li>Shows you just the designated chunk, rather than the whole file</li>
+	<li><b>Pane-based:</b> This is a pane that can be incorporated into the 
+		other code editors when they need to let people edit code.  </li>
+  <li><b>Tabular</b>, like most things around here</li>
+</ul>
+
+<p>The columns used in a Code Vista are:</p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Source Control</th>
+    <td>Indicator</td>
+    <td>-</td>
+    <td>Appears if a line has been edited.  <code>+</code> for new lines, 
+      <code>*</code> for existing lines that have been edited</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Line Number</td>
+    <td>-</td>
+    <td>Can skip because the Catch and/or Documentation blocks might run to multiple lines</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Code</td>
+    <td>Inline (code editor)</td>
+    <td>Is the code</td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Comments</td>
+    <td>Rich Text</td>
+    <td>Can be multi-line</td>
+  </tr>
+  <tr>
+    <th>Testing</th>
+    <td>Catch</td>
+    <td>Code</td>
+    <td>Can be multi-line</td>
+  </tr>
+</table>
+
+<p>This is usually used for the body of a single verb (function, etc); 
+see Verb Panorama below to see how it fits into the big picture.  </p>
+
+<h2>Adjective Vista</h2>
+
+<p>This is for variable declarations in such places as they need to be documented
+(such as function parameters or module attributes).  It's another tabular vista.  </p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Type</td>
+    <td>Inline</td>
+    <td>The type of the attribute</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td>The name of the attribute</td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Documentation</td>
+    <td>Text: Markdown</td>
+    <td>Literate Coding for API documentation</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Accessor</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Attributes">Attributes</a></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Required</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Attributes">Attributes</a></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Handles</td>
+    <td>Inline</td>
+    <td>cf. <a href="https://docs.raku.org/language/objects#Delegation">Delegation</a></td>
+  </tr>
+</table>
+
+
+<h2>Source Control Vista</h2>
+
+<p>One with lots of features; probably draw on <a href="https://git-scm.com/downloads/guis">
+Git GUI Clients for inspiration.  </a></p>
+
+<h2 id="Relation">Relation Vistas</h2>
+
+<p>In Table-Oriented Programming, both code and data can be stored in tables.  
+There should be a visual editor for the tables in question, though it should 
+have a way of editing the cell in a separate window (so we can have the table on 
+one screen, and the code for a particular cell on another).  Think of this as 
+being like a spreadsheet, but you can compile it).</p>
+
+<div class="blockquote">
+<ul>
+<li>Built-in, but optional, sort and search features for data grids. The user 
+should be able to double-click on a column heading and chose to sort by or 
+search on the field of that column.</li>
+
+<li>Use of checkboxes, icons, etc. as representations of fields should be 
+definable in the DD. Perhaps this can be done by having the post-validation 
+function return a string with a special code for GUI components. For example, a 
+checkbox might be specified with "@gui:checkbox value=on". An icon could be 
+represented as such: "@gui:icon file='folder.gif'".</li>
+
+</ul>
+<div class="reference">
+        <i><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm">Table-Oriented Programming</a></i>, Tablizer/TOPMind, 1998-2002
+</div>
+</div>
+
+
+<h3>Other Vistas</h3>
+
+<p>There are other vistas, but they're mostly specialisations of the Relation 
+Vista with particular fields specified, and are unique to a particular panorama,
+so are documented under Panoramas, below.  </p>
+
+<h1>Panoramas</h1>
+
+<p>The idea here is that there are a number of tabular vistas of code, at 
+various levels of detail.  Each panorama may be composed of one or more of the 
+vistas.  Most of the vistas break down into:</p>
+<ul>
+  <li><b>Used for:</b> This doesn't appear in the interface; it's a list of 
+    things that the panorama in question is used to edit.  </li>
+  <li><b>Header:</b> A key/value list which lists data about this particular
+    item</li>
+  <li><b>Sections:</b> Various vistas, and what they're editing.  </li>
+</ul>
+
+<h2>Overview</h2>
+
+<table>
+  <tr>
+    <th>Vista Name</th>
+    <th>Things at This Level</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Adjective</th>
+    <td>Verb parameters, Verb return values, Class attributes</td>
+    <td>A list of variables with their types and doco</td>
+  </tr>
+  <tr>
+    <th>Verb</th>
+    <td>Function, Method, Rule, Token</td>
+    <td>Code (Code), Comments (Doco), Catch (Test)</td>
+  </tr>
+  <tr>
+    <th>Module</th>
+    <td>Class, Role, Grammar, Relation</td>
+    <td>Bodies: Attributes, Verbs, Events</td>
+  </tr>
+  <tr>
+    <th>Library</th>
+    <td>Library, Database</td>
+    <td>Collection of Modules</td>
+  </tr>
+</table>
+
+<h2>Verb Panorama</h2>
+
+<p>This is probably the main panorama for traditional coding</p>
+
+<ul>
+  <li><b>Used for:</b> Function, Method, Rule, Token</li>
+  <li><b>Header:</b> cf. information for Module (specifically, Methods)</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Parameters:</i> Adjective Vista</li>
+    <li><i>Return Values:</i> Adjective Vista</li>
+    <li><i>Code:</i> Code Vista</li>
+  </ul>
+</ul>
+
+<h2>Module Panorama</h2>
+
+<ul>
+  <li><b>Used for:</b> Class, Role, Grammar, Relation</li>
+  <li><b>Header:</b> cf. information for Library</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Attributes:</i> Adjective Vista</li>
+    <li><i>Verbs:</i> Verb Vista, below</li>
+    <li><i>Ports:</i> Verb Vista, below</li>
+  </ul>
+</ul>
+
+<h3>Verb Vista</h3>
+
+<p>A list of verbs/ports in the module.  
+These apply to both Methods and Ports, but Methods and Ports should be 
+stored in different tables/vistas with the same columns.  Note however the difference 
+in the Body editors.  Ports are like event streams; outgoing ports are like 
+events, and incoming ports can just be methods marked as ports.  </p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Parameters</td>
+    <td>Adjective Editor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Return Values</td>
+    <td>Adjective Editor</td>
+    <td>(may not be applicable to events)</td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Body</td>
+    <td>Verbs: Verb Panorama<br/>Events: Dataflow Panorama</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Literate Coding for API Reference</td>
+    <td>Rich Text Editor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <td>Unit Test</td>
+    <td>Code</td>
+    <td>cf. <a href="https://docs.raku.org/type/Test">Test</a></td>
+  </tr>
+  <tr>
+    <th>Ticket</th>
+    <td>Linked Ticket</td>
+    <td>Rich Text</td>
+    <td></td>
+  </tr>
+</table>
+
+<h2>Library Panorama</h2>
+
+<ul>
+  <li><b>Used for:</b> Library, Database</li>
+  <li><b>Header:</b> <i>Documentation:</i> Summary for API Reference</li>
+  <li><b>Sections:</b></li>
+  <ul>
+    <li><i>Modules:</i> Module Vista, below</li>
+    <li><i>Testing:</i> Integration tests; not sure how these work, but will probably edit with Verb Vista</li>
+  </ul>
+</ul>
+
+<h3>Module Vista</h3>
+
+<p>A list of modules that belong to the library.  </p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Item</th>
+    <th>Edit with</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>Name</td>
+    <td>Inline</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td>is/does</td>
+    <td>?</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Documentation</th>
+    <td>Literate Coding for API Reference</td>
+    <td>Rich Text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <td>subtest</td>
+    <td>Code Editor</td>
+    <td>cf. <a href="https://docs.raku.org/type/Test#sub_subtest">subtest</a></td>
+  </tr>
+</table>
+
+<h2 id="Dataflow">Dataflow Panorama</h2>
+
+<p>In dataflow programming (such as node-red or n8n, but also any language that 
+has concurrency features), there's a diagram that represents how the data flows.  
+Some of the nodes in the diagram have code inside them.  In my experience, the 
+best interface is that of n8n, which stores the dataflow from previous runs, 
+and, when a code node is clicked, it shows you the code in the centre, on the 
+left the data from the previous run, and on the right, what your current code 
+would turn that data into.  n8n only really handles json though, and we want 
+to be able to handle stuff like 
+<a href="https://git.purrdata.net/jwilkes/purr-data">Purr Data</a>, as well
+as the more obvious stuff like CSV.  </p>
+
+<p>I'm not sure exactly what vistas the above is composed of, but it includes:</p>
+
+<ul>
+  <li>Dataflow Vista: the diagram</li>
+  <li>Data Vista: the incoming/outgoing data, probably in a tree or table</li>
+</ul>
+
+</content>
+</page>

@@ -41,7 +41,7 @@
 
 <div id="table-of-contents">
   <ul>
-    <xsl:apply-templates select="//h1|//h2" mode="toc"/>
+    <xsl:apply-templates select="//h1" mode="toc"/>
   </ul>
 </div>
 
@@ -81,12 +81,12 @@
   </xsl:template>
   
   <xsl:template match="menubar/menu">
-	<li class="menu-container">
+	<span class="menu-container">
 	  <xsl:apply-templates select="title"/>
     <div class="menu-content">
       <xsl:apply-templates select="*[self::menu or self::menuitem]"/>
     </div>
-	</li>
+	</span>
   </xsl:template>
   
   <xsl:template match="menubar/dropmenu">
@@ -103,12 +103,12 @@
   </xsl:template>
     
   <xsl:template match="menu" mode="submenu">
-	  <li class="menu-container">
-		    <a href="javascript:void(0)" class="menu-bar-button"><xsl:value-of select="title"/></a>
-        <div class="menu-content">
-          <xsl:apply-templates select="*[self::menu or self::menuitem]"/>
-        </div>
-      </li>
+	  <span class="menu-container">
+      <a href="javascript:void(0)" class="menu-bar-button"><xsl:value-of select="title"/></a>
+      <div class="menu-content">
+        <xsl:apply-templates select="*[self::menu or self::menuitem]"/>
+      </div>
+    </span>
   </xsl:template>
   
   <xsl:template match="menu">
@@ -159,7 +159,33 @@
     </svg:svg>
   </xsl:template>
   
-  <xsl:template match="h1|h2" mode="toc">
+  <xsl:template match="h1" mode="toc">
+    <xsl:param name="id">
+      <xsl:choose>
+        <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="generate-id(.)"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <li><a href="{$filename}#{$id}"><xsl:copy-of select="./text()"/></a></li>
+    <ul>
+      <xsl:apply-templates select="following::h2[generate-id(preceding::h1[1]) = $id]" mode="toc"/>
+    </ul>
+  </xsl:template>
+  
+  <xsl:template match="h2" mode="toc">
+    <xsl:param name="id">
+      <xsl:choose>
+        <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="generate-id(.)"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <li><a href="{$filename}#{$id}"><xsl:copy-of select="./text()"/></a></li>
+    <ul>
+      <xsl:apply-templates select="following::h3[generate-id(preceding::h2[1]) = $id]" mode="toc"/>
+    </ul>
+  </xsl:template>
+  
+  <xsl:template match="h3" mode="toc">
     <xsl:param name="id">
       <xsl:choose>
         <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
@@ -168,22 +194,22 @@
     </xsl:param>
     <li><a href="{$filename}#{$id}"><xsl:copy-of select="./text()"/></a></li>
   </xsl:template>
-  
-  <xsl:template match="h1" mode="content">
+
+  <xsl:template match="h1|h2|h3" mode="content">
     <xsl:param name="id">
       <xsl:choose>
         <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
         <xsl:otherwise><xsl:value-of select="generate-id(.)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:param>
-    <a class="pre-heading" name="$id"/>
+    <a class="pre-heading" name="{$id}"/>
     <a class="heading-link" href="{$filename}#{$id}">
-      <h1>
+      <xsl:element name="{name()}">
         <xsl:copy-of select="./text()"/>
         <xsl:if test="@id">
           <span style="font-family: 'Noto Emoji'">⚓</span>
         </xsl:if>
-      </h1>
+      </xsl:element>
     </a>
   </xsl:template>
   

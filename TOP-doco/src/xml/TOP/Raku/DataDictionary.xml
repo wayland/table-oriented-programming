@@ -20,8 +20,10 @@ th h2, th h3 {
   <li>Whatever we do should work as well as possible with Eric Lendvai's DataWharf</li>
   <li>We should normally store as much data dictionary information as possible in individual databases,
     rather than some central location; this may not always be possible though (eg. cross-database joins),
-    so we should also have a central location (probably stored in some local file).  </li>
-  <li>Where possible, we should relate to and draw on the built-in data dictionaries (eg. Postgres catalog)</li>
+    so we should also have a central location (probably stored in some local file).  The reason for storing
+    them with the databases is so that other database users also have access to them.  </li>
+  <li>Where possible, we should relate to and draw on the built-in data dictionaries (eg. 
+    SQL Information Schema, Postgres catalog)</li>
   <li>Data Dictionaries should allow users to add their own columns</li>
   <li>Data dictionaries should have UI-related fields (see below, under Field)</li>
   <li>Data dictionaries should allow stored related functions (see below, under Field)</li>
@@ -269,6 +271,26 @@ a database server), but not when it isn't (eg. a CSV file).  </p>
     <td>Sets the default sort order for the field; cf. https://www.postgresql.org/docs/16/collation.html</td>
   </tr>
 </table>
+
+<hr/>
+
+<table>
+  <tr>
+    <th></th>
+    <th>General</th>
+    <th>Documentation</th>
+  </tr>
+  <tr>
+    <th>?</th>
+    <td>Upsert-Function</td>
+    <td>Content Constraints</td>
+  </tr>
+  <tr>
+    <th>?</th>
+    <td></td>
+  </tr>
+</table>
+
 
 </content>
 </page>
