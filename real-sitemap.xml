@@ -19,7 +19,7 @@
       </menu>
       <menu>
         <title>Collection Convergence</title>
-        <menuitem name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
+        <menuitem name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/index.xml"/>
         <menuitem name="role Relation" href="TOP/Collection-Convergence/Relation.xml"/>
         <menuitem name="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
         <menuitem name="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
@@ -36,7 +36,7 @@
         <menuitem name="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
         <menuitem name="Multi-Aspect Taxonomies" href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml"/>
         <menuitem name="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
-        <menuitem name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
+        <menuitem name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/index.xml"/>
       </menu>
       <menu>
         <title>Critiques</title>
@@ -99,7 +99,7 @@
     </menu>
     <menu>
       <title>Other Material</title>
-      <menuitem name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+      <menuitem name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/index.xml"/>
       <!-- item title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
     </menu>
     <!--menu>
