@@ -3,33 +3,17 @@
 <page>
 <filename>TOP/Raku/Field.xml</filename>
 <content>
-<p>The Field is a class that represents one column in a Relation.  </p>
-
-<h1>Basic Functions</h1>
-
-<h2>Columns (Fields)/Associative</h2>
-
-<p>Field does the Positional (array) role to access Tuples (rows).  For more information, see 
-<a href="https://docs.raku.org/language/list">Lists, sequences, and arrays</a>.</p>
-
-<p>That means the following are possible:</p>
-
-<div class="not-implemented"><code class="block">
-$surname = $surname[$row-number];       # Fetch cell contents by row
-$surname[$row-number] = $value;         # Set cell contents by row
-</code></div>
-
-<h3>Data Dictionary Field Entry</h3>
-
-<div class="not-implemented"><code>$userid.dictionary()</code></div>
-
-<p>Returns the field data dictionary entry, probably from the Data Dictionary (though not necessarily in the case of a 
-Field from a TupleSet).  </p>
+<p>The Field is a class that represents one column in a Relation.  It does Section, so it can 
+do everything a Section can.  </p>
 
 <h1>Aggregate Functions</h1>
 
 <p>Aggregate functions are like the aggregate functions in SQL.  We loop over a Relation once, and
 aggregate functions get called on various fields.  </p>
+
+<p>The relevance here is that the components of the aggregate function are defined on Field.  
+By "components", we mean a) the initialisation, b) the per-row action, and c) the finalisation;
+not sure about d) the windowing/grouping -- hopefully that can be done separately.  </p>
 
 <p>Aggregate functions can only usefully be called in a block passed to the <code>group</code> and 
 <code>window</code> functions on the <code><a href="TOP/Raku/Relation.xml">Relation</a></code> class.  </p>

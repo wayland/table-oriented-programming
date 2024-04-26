@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<page>
+<filename>TOP/Raku/Section.xml</filename>
+<content>
+<p>The Section role represents a vertical column or set of columns in a Relation</p>
+
+<h1>Basic Functions</h1>
+
+<h2>Positional</h2>
+
+<p>Section does the Positional (array) role to access Tuples (rows).  For more information, see 
+<a href="https://docs.raku.org/language/list">Lists, sequences, and arrays</a>.</p>
+
+<p>That means the following are possible:</p>
+
+<div class="not-implemented"><code class="block">
+$surname = $surname[$row-number];       # Fetch cell contents by row
+$surname[$row-number] = $value;         # Set cell contents by row
+</code></div>
+
+<h2>Data Dictionary Entry</h2>
+
+<div class="not-implemented"><code>$userid.dictionary()</code></div>
+
+<p>Returns the section data dictionary entry, probably from the Data Dictionary (though not necessarily in the case of a 
+Field from a TupleSet).  This could be a single entry (for a Field), or an array of entries (for a Lot).  </p>
+
+</content>
+</page>

@@ -4,16 +4,31 @@
 <filename>TOP/Raku/Lot.xml</filename>
 <content>
 
+<p>This field does Section, so it should be able to do anything a section can 
+do.  </p>
+
+<h1>Overview</h1>
+
 <ul>
-  <li>A <code>Lot</code> allows Fields to be grouped together in an ordered 
-    Lot; basically an ordered array of fields</li>
-  <li>These Lots should be usable by things like select, unique, and the like.  
-    When creating a relation, it's possible to include a Lot, which includes 
-    its alloted fields.  </li>
-  <li>While PostgreSQL's composite types (cf. 
-    <a href="https://www.postgresql.org/docs/current/sql-createtype.html">CREATE
-    TYPE</a>) are intended for creating data types, the Lots here are 
-    probably less specific, and can have a broader range of uses.  </li>
+  <li>Lots and Fields</li>
+  <ul>
+    <li>A <code>Lot</code> allows Fields to be grouped together in an ordered 
+      Lot; basically an ordered array of fields</li>
+    <li>A field can belong to multiple lots.  </li>
+    <li>Lot and Field share the same namespace -- a Field and a Lot can't have the 
+      same name within a table.  </li>
+  </ul>
+  <li>Lots and Relations</li>
+  <ul>
+    <li>These Lots should be usable by things like select, unique, and the like.  
+      When creating a relation, it's possible to include a Lot, which includes 
+      its alloted fields.  </li>
+    <li>When a Lot is added to a query, not only the Fields should be 
+      inherited, but the Lot as well</li>
+    <li>If two Lots on two Tables with the same name are added to a query, the 
+      resulting Lot should include both.  This means that it's easy to do a 
+      query, and then select all the Documentation fields, for example.  </li>
+  </ul>
   <li>A <code>Lot</code> is not restricted to including Fields; it can include
     other <code>Lot</code>s.  When a <code>Lot</code> is used, these are 
     expanded out to represent the actual fields.  </li>
@@ -21,7 +36,30 @@
     easy to construct a data dictionary like the example one on the 
     <code><a href="TOP/Raku/DataDictionary.xml">DataDictionary</a></code>
     page.</li>
+  <li>PostgreSQL's composite types (cf. 
+    <a href="https://www.postgresql.org/docs/current/sql-createtype.html">CREATE
+    TYPE</a>) are similar in that they allow for a group of
+    fields.  The Lots here are 
+    probably less specific, and can have a broader range of uses.  </li>
   <li>It'd be nice to know how we're going to handle multi-lingual interfaces</li>
+</ul>
+
+<h1>Lots for a Data Dictionary</h1>
+
+<p>The following are some example Lots used in a Data Dictionary:</p>
+
+<ul>
+  <li>Internal: This is used for items that probably never need to be 
+    displayed to a user; examples include record IDs and types</li>
+  <li>UI: These are used to help generate a UI from the data</li>
+  <li>Documentation: Each Lot (except Internal) should probably have at least 
+    one Documentation field, and these documentation fields should also 
+    belong to the Documentation Lot</li>
+  <li>Data In/Out: These are for things like Upsert/Select functions, default
+    values, Booleans indicating whether the field is required, and the like</li>
+  <li>Sorting: These are the fields that control sort order</li>
+  <li>Data Governance: Includes eg. the Data Steward (the organisational role
+    that owns the data</li>
 </ul>
 
 </content>

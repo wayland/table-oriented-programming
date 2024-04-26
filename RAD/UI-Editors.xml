@@ -65,7 +65,7 @@ past.</p>
 </div>
 </div>
 
-<h3>User Interface Markup</h3>
+<h2>User Interface Markup</h2>
 
 <p>The above would be assisted by a standard User Interface Markup Language. 
 Many <a href="https://en.wikipedia.org/wiki/User_interface_markup_language">
@@ -101,6 +101,50 @@ JSON or YAML, which don't support content nearly as well</p>
 </code></li>
 </ul>
 
+<h2>Widget Details</h2>
+
+<p>When editing forms, there will be a box that shows the details of the 
+current widget.  This has traditionally been divided into Properties and 
+Events, though some (Lazarus) add Favourites and Restrictions.  </p>
+
+<p>We'll be dividing them into Ports, Properties, and Events.  Ports are
+attachments to the Widget that may get sent events.  Regular events need
+only be used when the Ports aren't suitable.  These ports are used in 
+the DataFlow Editor to attach the widgets to things.  The relevant vistas 
+are:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Immediate Vista</th>
+    <th>Click-through Vista</th>
+  </tr>
+  <tr>
+    <th>Properties</th>
+    <td>Adjective Vista</td>
+    <td>Various: See Adjective Vista</td>
+  </tr>
+  <tr>
+    <th>Events</th>
+    <td>Verb Vista (Name/Body)</td>
+    <td>Verb Panorama</td>
+  </tr>
+  <tr>
+    <th>Ports</th>
+    <td>Verb Vista (Name/Body)</td>
+    <td>DataFlow Panorama</td>
+  </tr>
+</table>
+
+<p>The Relation Vistas may also be useful for comparing widgets, in cases
+where that's useful.  </p>
+
+<h2>Control Panels</h2>
+
+<p>In addition to being a Form Editor, it should also allow the creation of
+control panels like those at <a href="https://www.bluecataudio.com/Products/Product_PlugNScript/">
+Blue Cat's Plug'n Script</a>.  </p>
+
 <h1>Document Editor (Reports)</h1>
 
 <h2>Overview</h2>
@@ -110,6 +154,27 @@ could be made into a report.  This would be influenced by word processors, and
 by the Notebook model (cf. Jupyter)</p>
 
 <p>(Thought: possibly should work something like the old word processors (Word Perfect, etc) that showed you the markup, but also a visual representation, except we should be using XML instead)</p>
+
+<h2>Rich Text Vista</h2>
+
+<p>The Reports should be editable in some kind of a Rich Text vista.  However, 
+it should have the traditional Report blocking available, with blocks for at
+least:</p>
+
+<ul>
+  <li>Overall Document: Just a Rich Text control that allows the embedding of
+    sub-reports</li>
+  <li>Sub-reports:</li>
+  <ul>
+    <li>Sub-report column headers/footers: At the start/end of the 
+      sub-report</li>
+    <li>Page column headers/footers: At the start/end of each page</li>
+    <li>Line items: The individual data items</li>
+  </ul>
+</ul>
+
+<p>Sub-reports could also be for outputting tables on the command line; CSV,
+human-only, half-human, etc, are also relevant here.  </p>
 
 <h2>Built-in Reports</h2>
 
@@ -140,34 +205,5 @@ by the Notebook model (cf. Jupyter)</p>
 </div>
 </div>
 
-<h3>Comparison of Office &amp; RAD</h3>
-
-<table>
-	<tr>
-		<th>Office Suite</th>
-		<th>Code Editor</th>
-		<th>UI Editor</th>
-	</tr>
-	<tr>
-		<td>Word Processor / DTP</td>
-		<td>Standard Code Editor; documentation writing</td>
-		<td>Reports</td>
-	</tr>
-	<tr>
-		<td>Spreadsheet</td>
-		<td>Relation Code Editor</td>
-		<td>Can we let the user do spreadsheeting stuff based on the tables?</td>
-	</tr>
-	<tr>
-		<td>Drawing / Presentation</td>
-		<td>Dataflow Code Editor</td>
-		<td>Forms</td>
-	</tr>
-	<tr>
-		<td>Communication Tools</td>
-		<td>?Ticketing</td>
-		<td></td>
-	</tr>
-</table>
 </content>
 </page>

@@ -96,6 +96,9 @@ are:</p>
 <p>This is usually used for the body of a single verb (function, etc); 
 see Verb Panorama below to see how it fits into the big picture.  </p>
 
+<p>Someday we may be at the point where we can made the Code Editor a bit more
+like the Equation Editor, but maybe not.  </p>
+
 <h2>Adjective Vista</h2>
 
 <p>This is for variable declarations in such places as they need to be documented
@@ -381,7 +384,17 @@ as the more obvious stuff like CSV.  </p>
 
 <ul>
   <li>Dataflow Vista: the diagram</li>
-  <li>Data Vista: the incoming/outgoing data, probably in a tree or table</li>
+  <li>Data Vista: the incoming/outgoing data, probably in a tree or table
+    (depending on the pipe format)</li>
+</ul>
+
+<p>The nodes have ports on them, and can be connected together with pipes.
+Each pipe has a format that says what kind of data will be flowing through
+it.  Relevant attributes include:</p>
+
+<ul>
+  <li>Is the data message-based or continuous?  </li>
+  <li>Format: Is it CSV, HTML, JSON, binary, etc</li>
 </ul>
 
 </content>

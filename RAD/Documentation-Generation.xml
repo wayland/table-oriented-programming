@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<page>
+<filename>RAD/Documentation-Generation.xml</filename>
+<content>
+<p></p>
+
+<h1>Kinds of documentation</h1>
+
+<p>There are various kinds of documentation, and various audiences.  The table 
+below represents some of these.  It should be possible to generate the items 
+in the Reference Material row from the code/doco created in the RAD tools 
+mentioned in the preceding sections.  </p>
+
+<table>
+  <tr>
+    <th>Type of Documentation</th>
+    <th>Orientation</th>
+    <th>Developers</th>
+    <th>Operators</th>
+    <th>Admin</th>
+    <th>Content Creator</th>
+    <th>End User</th>
+  </tr>
+  <tr>
+    <th>Reference Material</th>
+    <td>Information</td>
+    <td>API Reference</td>
+    <td>Operator's Reference</td>
+    <td>Admin Reference</td>
+    <td>Content Creator Reference</td>
+    <td>End User Reference</td>
+  </tr>
+  <tr>
+    <th>Tutorials</th>
+    <td>Learning</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>How-To Guides</th>
+    <td>Goal</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Discussion</th>
+    <td>Understanding</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>Sources:</p>
+
+<ul>
+  <li><a href="https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/">
+    The Four Kinds of Documentation</a></li>
+</ul>
+
+</content>
+</page>

@@ -3,7 +3,7 @@
   <!-- Get filename -->
   <xsl:param name="filename" select="page/filename"/>
   <!-- Get sitemap -->
-  <xsl:param name="realsitemap" select="document('real-sitemap.xml')"/>
+  <xsl:param name="realsitemap" select="document('interface-structure.xml')"/>
   <!-- Set up node variables -->
   <xsl:param name="currentnode" select="$realsitemap//menubar//menuitem[@href=$filename]"/>
   <xsl:param name="prevnode" select="$currentnode/preceding::menuitem[position()=1]"/>
@@ -35,15 +35,15 @@
 <body>
 
 <div class="wide-box {$currentnode/@width}">
-<div class="menu-bar"><ul>
-  <xsl:apply-templates select="$realsitemap//menubar/*"/>
-</ul></div>
 
-<div id="table-of-contents">
-  <ul>
-    <xsl:apply-templates select="//h1" mode="toc"/>
-  </ul>
+<div class="left-column">
+left
 </div>
+
+<div class="main-column">
+  <div class="menu-bar"><ul>
+    <xsl:apply-templates select="$realsitemap//menubar/*"/>
+  </ul></div>
 
 <div class="main-box">
 
@@ -67,6 +67,23 @@
   </xsl:call-template> </span>
 </div>
 <div class="copyright">© Copyright Tim Nelson, 2024</div>
+</div>
+
+<div class="right-column">
+  <div class="tab-widget">
+    <div class="tab-headers">
+      <span class="tab-header">Table of Contents</span>
+    </div>
+    <div class="tab-body">
+      <div id="table-of-contents">
+        <ul>
+          <xsl:apply-templates select="//h1" mode="toc"/>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div> <!-- wide-box -->
 
 </body>

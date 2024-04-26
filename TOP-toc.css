@@ -8,11 +8,13 @@
 	#table-of-contents {
 		display: block;
 		z-index: 1;
-		margin-top: 20pt;
-		border-width: 1px;
+/*		margin-top: 20pt; */
+/*		border-width: 1px;
 		border-radius: 4pt;
 		border-color: var(--blockquote-border-color);
-		padding-left: 5pt;
+		border-style: solid; */
+/*		background-color: #f2f2f2; */
+/*		padding-left: 5pt; */
 
 		grid-column-start: 1;
 	}

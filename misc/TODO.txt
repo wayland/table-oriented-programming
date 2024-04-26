@@ -5,46 +5,20 @@ Content
 -------
 
 -	Document Raku classes
-	-	UI Editors
-		-	Break out the rest of the Old Overview, and integrate it into the UI Editor (though
-			maybe Epic should go to Program/Code)
-		-	Ensure the UI editor integrates the various Code Views appropriately
-		-	Integrate doco into the UI views (see table at bottom of page)
-		-	Can go on to redo user story (user facing), epic (dev facing), theme (ser facing), etc
-			Possibly these should go with the UI editor
-		-	Also need to note Selenium under Code Editors
-		-	Include GUI control panels like https://www.bluecataudio.com/Products/Product_PlugNScript/
-	-	Remove Old Overview, then integrate the remainder of the Code Vistas section into the 
-		Introduction at the top of the page
-	-	Go back and edit the DataFlow Vista/View
-	-	Consider Data Views vs. Code Views -- maybe taken care of in Data Dictionary
-	-	Raku RAD Comparison page -- make another page that does RAD comparison
-		-	Specifically, pull the User Interface and Terminal sections from
-			https://harbour.github.io/doc/index.html .  Note that there are multiples of each section
-			on that page (under API, commands, etc)
-			-	Also need to pull in audio stuff; I think there are audio programming languages
-				xHarbour: Environment: Tone
-			-	Events: the keyboard stuff
-	-	Design Raku RAD/Raku Code Office (at least a UI API, anyway)
+	-	Change the left bar so that we have table of contents for the site there (like Confluence)
+	-	Start work
+		-	For each class, write a guide for people doing backend classes, telling them not to read the whole thing 
+			into memory, because we want to be able to work with really large data
+
 	-	Data Dictionary
-		-	What we want: to be able to have multiple Lots per Field
-		-	Set up Field-Lot mapping and see if this helps with this; if not, might have to
-			do some kind of direct query of the Postgres database on the backend
 		-	Work through http://www.martymodell.com/pgsa2/pgsa08.html and make mine resemble it more
 			where useful; also note this link in the doco.  Might even be worth buying the book
+			Specifically, look at the diagram part way down, and work with that model
 		-	The 7 purposes at https://atlan.com/purpose-of-a-data-dictionary/ should probably be Lots
 			-	Turns out that, apart from Governance, they're all just different kinds of doco
 		-	Draw fields from:
 			https://www.stonybrook.edu/commcms/irpe/about/data_governance/_files/DataDictionaryStandards.pdf
 			Typical Attributes section of: https://en.wikipedia.org/wiki/Data_dictionary
-	-	Go back and look at Sections (ancestor of Field+Lot).  Fields and Lots share the same namespace, both select
-		Fields from a Relation, it's just that Lot selects more than one at a time.  When a Lot is added to a 
-		query, not only the Fields should be inherited, but the Lot as well.  If two Lots with the same name
-		are added to a query, the resulting Lot should include both.  
-	-	Start work
-		-	For each class, write a guide for people doing backend classes, telling them not to read the whole thing 
-			into memory, because we want to be able to work with really large data
-
 
 Currently expecting we'll effectively end up with the following semi-separate sites (maybe sharing the first menu)
 -	Programming Productivity, which introduces TOP and RAD
@@ -67,12 +41,6 @@ Interface
 
 -	Then try to make the menus work on mobile -- there might be some ideas at https://freefrontend.com/css-mobile-menus/
 	-	Maybe put the previous/next navigation at the top, and the menu icon in the centre
-
-
-Repo
-----
-
-Remove the entire generated/ section, and maybe move the doco into the root of the tree
 
 
 Questions for the Raku people

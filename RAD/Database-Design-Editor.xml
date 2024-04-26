@@ -8,7 +8,8 @@
 
 <h1>Recommendation</h1>
 
-<p>My recommendation is that we use Eric Lendvai's "DataWharf".</p>
+<p>My recommendation is that we use Eric Lendvai's "DataWharf".  It's not 
+great for Lots, but it seems to do the other things we want.  </p>
 
 <ul>
 	<li><a href="https://github.com/EricLendvai/DataWharf">DataWharf GitHub 

@@ -16,8 +16,15 @@
 	initial-value: 1000px;
 }
 
+@property --wide-box-padding {
+	syntax: "<dimension>";
+	inherits: false;
+	initial-value: 3rem;
+}
+
 body {
 	--wide-box-width: 1000px;
+	--wide-box-padding: 3rem;
 	--menu-bar-background-color: #333;
 	--menu-bar-background-color-hover: #4f4f4f;
 
@@ -42,46 +49,14 @@ body {
 }
 
 .wide-box {
-		position: fixed;
-		top:        0;
-		bottom:     0;
-		overflow:   hidden;
-		background: white;
-		min-height: 100vh;	
+	position: fixed;
+	top:        0;
+	bottom:     0;
+	overflow:   hidden;
+	background: white;
+	min-height: 100vh;
 
-		display: grid;
-    grid-template-rows: max-content 1fr auto;
-}
-
-@media (min-width: 1000px) {
-	.wide-box {
-		width: var(--wide-box-width);
-
-		/* Weird centring trick */
-		left: 50%;
-		transform: translateX(-50%);
-
-		margin: auto;
-
-		grid-template-columns: 25% 75%;
-
-		grid-template-areas:
-			"sitemenu sitemenu"
-			"docmenu main"
-			"footer footer"
-			"copyright copyright";
-	}
-}
-
-@media screen and (max-width: 1000px) {
-	.wide-box {
-		grid-template-columns: 100%;
-		grid-template-areas:
-			"sitemenu"
-			"main"
-			"footer"
-			"copyright";
-	}
+	display: grid;
 }
 
 .wide-box.huge {
@@ -89,6 +64,74 @@ body {
 	grid-template-columns: 10% 90%;
 }
 
+.main-column {
+	overflow:   hidden;
+	display: grid;
+	min-height: 100vh;
+	grid-template-rows: min-content auto min-content min-content;
+	grid-template-areas:
+		"sitemenu"
+		"main"
+		"footer"
+		"copyright";
+}
+
+@media (min-width: 1000px) {
+	.wide-box {
+/*		width: var(--wide-box-width); */
+		padding: 3rem;
+		width: 100%;
+
+		/* Weird centring trick */
+		left: 50%;
+		transform: translateX(-50%);
+
+		margin: auto;
+
+		grid-template-columns: 15% 70% 15%;
+		grid-template-areas:
+			"left-column"
+			"main-column"
+			"right-column";
+	}
+
+	.right-column {
+		padding-top: 20pt;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.main-box {
+		grid-template-columns: 100%;
+	}
+
+	.left-column {
+		display: none;
+	}
+
+	.right-column {
+		display: none;
+	}
+}
+
+.tab-widget {
+	padding: 6pt;
+}
+
+.tab-header {
+	border-bottom: 1pt solid var(--menu-bar-background-color);
+	padding: 1rem;
+	display: inline-block;
+}
+
+.tab-headers {
+	margin-bottom: 1rem;
+}
+
+.tab-body {
+	padding: 1rem;
+	background-color: #f2f2f2;
+}
 
 /* Code for CSS menus */
 .menu-bar {

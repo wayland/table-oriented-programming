@@ -19,33 +19,107 @@ speed along the development process.  </p>
 
 <h3>Comparison of Office &amp; RAD</h3>
 
+<p>In the following, a Vista is a view of code and/or data in a widget on your screen.  
+Vistas will be detailed further on.  </p>
+
 <table>
 	<tr>
+		<th>Widget</th>
 		<th>Office Suite</th>
+		<th></th>
 		<th>Code Editor</th>
 		<th>UI Editor</th>
+		<th>Operations Editor</th>
 	</tr>
 	<tr>
-		<td>Word Processor / DTP</td>
-		<td>Standard Code Editor; documentation writing</td>
+	  <th rowspan="3">Rich Text</th>
+		<td rowspan="3">Word Processor / DTP</td>
+	  <th>App</th>
+		<td>Standard Code Editor</td>
 		<td>Reports</td>
+		<td>Maybe something a bit like Lens crossed with YAML, and tree/table editors; edits planned deployments, not currently running ones (it may do that too, but it's not the main purpose)</td>
 	</tr>
 	<tr>
-		<td>Spreadsheet</td>
+	  <th>Documentation</th>
+		<td>API Reference (both individual text, and overall big-picture layout)</td>
+		<td>User references (for various target audiences) for Reports</td>
+		<td>Operator Reference (including installation)</td>
+	</tr>
+	<tr>
+	  <th>Test</th>
+		<td>Unit, Integration</td>
+		<td>Acceptance Tests for Reports</td>
+		<td>System (capacity, performance, security, including backup/monitoring)</td>
+	</tr>
+	<tr>
+	  <th rowspan="3">Table</th>
+		<td rowspan="3">Spreadsheet</td>
+	  <th>App</th>
 		<td>Relation Code Editor</td>
-		<td>Can we let the user do spreadsheeting stuff based on the tables?</td>
+		<td>Widget Comparison?  </td>
+		<td>Tables of eg. containers or software that can be edited to change the setup</td>
 	</tr>
 	<tr>
-		<td>Drawing / Presentation</td>
+	  <th>Documentation</th>
+		<td>API Reference (overview of entries)</td>
+		<td>User references (for various target audiences) -- overview of entries</td>
+		<td>Operator Reference?</td>
+	</tr>
+	<tr>
+	  <th>Test</th>
+		<td>Unit, Integration (overview)</td>
+		<td>Acceptance (overview)</td>
+		<td>System (overview)</td>
+	</tr>
+	<tr>
+	  <th rowspan="3">Drawing</th>
+		<td rowspan="3">Drawing / Presentation</td>
+		<th>App</th>
 		<td>Dataflow Code Editor</td>
 		<td>Forms</td>
+		<td>"Network" diagram that will automatically generate docker-compose.yml</td>
 	</tr>
 	<tr>
+		<th>Documentation</th>
+		<td>?Integration Documentation</td>
+		<td>User Reference for Forms</td>
+		<td>Operator Reference?</td>
+	</tr>
+	<tr>
+		<th>Test</th>
+		<td>How does automated testing work on these?  Simulated test runs, I guess.  </td>
+		<td>Acceptance Tests for Forms (Selenium)</td>
+		<td>System (not sure how this works)</td>
+	</tr>
+	<tr>
+	  <th>Ticketing</th>
 		<td>Communication Tools</td>
-		<td>?Ticketing</td>
+		<th>App?</th>
 		<td></td>
 	</tr>
 </table>
+
+<p>In the table above:</p>
+<ul>
+  <li>The Documentation rows are answering the question "When documentation is entered in this tool,
+    where will it end up?</li>
+  <li>The Test rows above are answering the question "For the code written here, what kind of test are we
+    looking at?  </li>
+</ul>
+
+<p>Documentation is an independent axis -- Tests need documentation too, 
+though these are done in the ticketing system as "Testing Steps".  
+A ticket can lead to code, documentation, and tests.  In particular,
+the ticket is often the documentation written before the code.  Where 
+possible, this material should be integrated into the Reference documentation
+and the testing documentation.  Tickets might also be an independent axis.  
+</p>
+
+<p>Acceptance Critera can probably be recycled into the relevant Reference 
+works.  </p>
+
+<p>Higher-level tickets such as epics and themes might be usable for 
+documentation overview.  </p>
 
 
 <p>Our goals here are:</p>
@@ -100,186 +174,6 @@ be implemented in an IDE that fully supports Programming Productivity:</p>
 		be made into a report.  This would be influenced by word processors, 
 		and by the Notebook model (cf. Jupyter)</li>
 </ul>
-
-<h3 id="UI-churn">UI Churn/Volatility</h3>
-
-<p>One final lesson -- this isn't from RAD or DSLs, but from the SmartDB 
-advocates.  </p>
-
-<div class="blockquote">
-
-<img src="TechnologyStackStabilityJava.png" style="width: 80%; margin: auto; 
-display: block"/>
-
-<div class="reference" style="display: flex">
-<div style="display: inline-table">Slides for <i>The Database: Persistence Layer 
-(NoPlsql) or Processing Engine (SmartDB)?</i>, Toon Koppelaars</div>
-</div>
-</div>
-
-<p>In the talk referenced, Toon Koppelaars made points similar to the following:
-</p>
-<ul>
-	<li>The closer the technology is to the user, the higher the technology 
-		churn rate.  The closer it is to the database, the lower the technology 
-		churn rate.  The image given specifically references Java, but his 
-		slides showed that the rate for Javascript was even higher.  On the 
-		other hand, the closer the technology is to the database, the lower the 
-		technology churn rate.  </li>
-	<li>If layers in your chosen technology stacks are volatile, then you ought 
-		to use them "thinly".  Do not do business logic in them; instead, push 
-		business logic further down into code-stack where stable layers exist.  
-		Why? Because the top-layers change more quickly than does your business 
-		logic.  If you don't, you'll end up with a maintenance nightmare (ie. 
-		old technology that doesn't upgrade well)</li> 
-	<li>UI and Database developers have quite different focuses:</li>
-	<ul>
-		<li>Database developers focus on: correctness, maintainability, 
-			performance and scalability (solid)</li>
-		<li>UI developers focus on: extremely friendly UI experience (UX) 
-			(hip, trendy)</li>
-	</ul>
-	<li>Organisationally, Backend and Frontend must co-operate.  Database 
-		developers will need to understand UI-developers' world, but NOT <i>vice 
-		versa</i></li> 
-	<ul>
-		<li>Frontend will be "decoupled" via API's</li>
-		<li>Frontend only need to know enough architectural concepts to 
-			communicate effectively and jointly design API-layer</li>
-	</ul>
-	<li>Thus, database developers, <b>must</b> be in the lead.  Why?  They own 
-		the database design and business logic</li>
-</ul>
-
-<p>This is why I added a database design tool to the list of editors</p>
-
-<h1>Code Panoramas</h1>
-
-<h2>Old Overview</h2>
-
-<table>
-  <tr>
-    <th colspan="3">Level</th>
-    <th colspan="2">Ticket</th>
-    <th colspan="2">Code</th>
-    <th colspan="2">Test/Catch</th>
-  </tr>
-  <tr>
-    <th>Classes/Roles</th>
-    <th>Grammars</th>
-    <th>Both</th>
-    <th>Type</th>
-    <th>Doco</th>
-    <th>Actual</th>
-    <th>Doco</th>
-    <th>Code</th>
-    <th>Doco</th>
-  </tr>
-  <tr>
-    <th colspan="3">User Story</th>
-    <td>User Story</td>
-    <td>Acceptance Criteria</td>
-    <td>-</td>
-    <td>Writeup for [User] Reference</td>
-    <td>Acceptance Testing (Selenium)</td>
-    <td>Testing Steps</td>
-  </tr>
-  <tr>
-    <th colspan="3">Epic</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-In the above, [User] refers to any of Admin, Content Creator (if relevant), and End User.  
-
-<h3>Kinds of documentation</h3>
-
-4 kinds of documenation
-https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/
-
-vs. Audience.  Audiences should be end user, content creator, admin, developer
-<table>
-  <tr>
-    <th>Type of Documentation</th>
-    <th>Orientation</th>
-    <th>Developers</th>
-    <th>Admin</th>
-    <th>Content Creator</th>
-    <th>End User</th>
-  </tr>
-  <tr>
-    <th>Reference Material</th>
-    <td>Information</td>
-    <td>API Reference</td>
-    <td>Admin Reference</td>
-    <td>Content Creator Reference</td>
-    <td>End User Reference</td>
-  </tr>
-  <tr>
-    <th>Tutorials</th>
-    <td>Learning</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <th>How-To Guides</th>
-    <td>Goal</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <th>Discussion</th>
-    <td>Understanding</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<h3>4 levels of testing:</h3>
-<ul>
-  <li>Unit</li>
-  <li>Integration</li>
-  <li>System</li>
-  <li>Acceptance</li>
-</ul>
-
-<table>
-  <tr>
-    <th></th>
-    <th>Code Editor</th>
-    <th>UI Editor</th>
-    <th>DevOps Editor</th>
-  </tr>
-  <tr>
-    <th>Editor</th>
-    <td>Code</td>
-    <td>UI</td>
-    <td>Maybe something a bit like Lens crossed with YAML, and tree/table editors; edits planned deployments, not currently running ones (it may do that too, but it's not the main purpose)</td>
-  </tr>
-  <tr>
-    <th>Documentation</th>
-    <td>API Reference</td>
-    <td>User references (for various target audiences)</td>
-    <td>Operator Reference (including installation)</td>
-  </tr>
-  <tr>
-    <th>Test</th>
-    <td>Unit, Integration</td>
-    <td>Acceptance</td>
-    <td>System (capacity, performance, security, including backup/monitoring)</td>
-  </tr>
-</table>
-
 
 </content>
 </page>
