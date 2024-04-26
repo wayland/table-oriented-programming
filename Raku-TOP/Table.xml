@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Raku/Table.xml</filename>
+<filename>Raku-TOP/Table.xml</filename>
 <content>
 
-<p>This class does <a href="TOP/Raku/Relation">Relation</a>, so it can do all the things a Relation can do.  </p>
+<p>This class does <a href="Raku-TOP/Relation">Relation</a>, so it can do all the things a Relation can do.  </p>
 
 <p>The Relation is a role that represents all features common to Tables and 
 Views.  </p>

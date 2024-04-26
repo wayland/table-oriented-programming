@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Raku/Relation.xml</filename>
+<filename>Raku-TOP/Relation.xml</filename>
 <content>
 <p>The Relation is a role that represents all features common to Tables and 
 Views.  </p>
@@ -296,7 +296,7 @@ of a full SQL select, you'd need to add some other functions.  </p>
 
 <h3>method cursor(--> Cursor)</h3>
 
-<p>Returns a <a href="TOP/Raku/Cursor.xml">Cursor</a> on the current relation.  </p>
+<p>Returns a <a href="Raku-TOP/Cursor.xml">Cursor</a> on the current relation.  </p>
 
 <h3>method used_by(Cursor --> Bool)</h3>
 
@@ -308,7 +308,7 @@ of a full SQL select, you'd need to add some other functions.  </p>
 
 <h2>Aggregator Functions</h2>
 
-<p>For more information, see the <a href="TOP/Raku/Field.xml">Aggregate Functions section of Field</a>.  </p>
+<p>For more information, see the <a href="Raku-TOP/Field.xml">Aggregate Functions section of Field</a>.  </p>
 
 <h3>method group(Array[Str] @grouping, &amp;aggregating-function)</h3>
 

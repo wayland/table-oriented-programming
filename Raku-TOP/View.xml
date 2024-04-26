@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Raku/View.xml</filename>
+<filename>Raku-TOP/View.xml</filename>
 <content>
 
 <h3><code>method new()</code></h3>
@@ -23,7 +23,7 @@ $view = $database.ensure(
 );
 </code></div>
 <p>The examples above are both similar to the example given in the <code>select</code> section of the
-<a href="TOP/Raku/Relation.xml">Relation</a> page.  </p>
+<a href="Raku-TOP/Relation.xml">Relation</a> page.  </p>
 
 </content>
 </page>

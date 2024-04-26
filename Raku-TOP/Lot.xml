@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Raku/Lot.xml</filename>
+<filename>Raku-TOP/Lot.xml</filename>
 <content>
 
 <p>This field does Section, so it should be able to do anything a section can 
@@ -34,7 +34,7 @@ do.  </p>
     expanded out to represent the actual fields.  </li>
   <li>There should be some predefined Lots (built in by default) that make it 
     easy to construct a data dictionary like the example one on the 
-    <code><a href="TOP/Raku/DataDictionary.xml">DataDictionary</a></code>
+    <code><a href="Raku-TOP/DataDictionary.xml">DataDictionary</a></code>
     page.</li>
   <li>PostgreSQL's composite types (cf. 
     <a href="https://www.postgresql.org/docs/current/sql-createtype.html">CREATE

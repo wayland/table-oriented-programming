@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
 <page>
-<filename>TOP/Raku/Field.xml</filename>
+<filename>Raku-TOP/Field.xml</filename>
 <content>
 <p>The Field is a class that represents one column in a Relation.  It does Section, so it can 
 do everything a Section can.  </p>
@@ -16,7 +16,7 @@ By "components", we mean a) the initialisation, b) the per-row action, and c) th
 not sure about d) the windowing/grouping -- hopefully that can be done separately.  </p>
 
 <p>Aggregate functions can only usefully be called in a block passed to the <code>group</code> and 
-<code>window</code> functions on the <code><a href="TOP/Raku/Relation.xml">Relation</a></code> class.  </p>
+<code>window</code> functions on the <code><a href="Raku-TOP/Relation.xml">Relation</a></code> class.  </p>
 
 <p>In this section, it will be necessary to distinguish between the following:</p>
 
