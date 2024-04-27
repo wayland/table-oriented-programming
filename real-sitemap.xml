@@ -2,7 +2,7 @@
 <sitemap>
   <section>
     <title>Progamming Productivity</title>
-    <link name="Introduction to Programming Productivity" href="Programming-Productivity.xml"/>
+    <link name="Introduction to Programming Productivity" href="/"/>
   </section>
   <!--section>
     <title></title>

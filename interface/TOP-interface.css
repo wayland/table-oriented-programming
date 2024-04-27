@@ -59,11 +59,6 @@ body {
 	display: grid;
 }
 
-.wide-box.huge {
-	width: 100%;
-	grid-template-columns: 10% 90%;
-}
-
 .main-column {
 	overflow:   hidden;
 	display: grid;
@@ -81,6 +76,7 @@ body {
 /*		width: var(--wide-box-width); */
 		padding: 3rem;
 		width: 100%;
+		max-width: 1400px;
 
 		/* Weird centring trick */
 		left: 50%;
@@ -94,6 +90,12 @@ body {
 			"main-column"
 			"right-column";
 	}
+
+	.wide-box.huge {
+ 		width: 100%;
+		grid-template-columns: 10% 90%;
+	}
+
 
 	.right-column {
 		padding-top: 20pt;

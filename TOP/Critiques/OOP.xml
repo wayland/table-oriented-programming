@@ -169,7 +169,7 @@ in his own words</a> unprovable.  </p>
 			<li> <span class="smallquote">Myth: OOP does multi-tasking better</span>. 
 				Dataflow is the best programming style for this.  Dataflow (like 
 				OOP and TOP) can theoretically be done in any language, but 
-				useful are tools that enable it, such as <a href="RAD/Code-Editors.html#Dataflow">
+				useful are tools that enable it, such as <a href="RAD/Program-Editors.xml#Dataflow">
 				Dataflow Code Editors</a>.</li>
 			<li> <span class="smallquote">Myth: OOP scales better</span></li>
 			<li> <span class="smallquote">Myth: OOP is more "event driven"</span></li>

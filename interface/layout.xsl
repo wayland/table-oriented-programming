@@ -195,7 +195,7 @@
     </xsl:param>
     <li><a href="{$filename}#{$id}"><xsl:copy-of select="./text()"/></a></li>
     <ul>
-      <xsl:apply-templates select="following::h2[generate-id(preceding::h1[1]) = $id]" mode="toc"/>
+      <xsl:apply-templates select="following::h2[preceding::h1[1]/@id = $id] | following::h2[generate-id(preceding::h1[1]) = $id]" mode="toc"/>
     </ul>
   </xsl:template>
   

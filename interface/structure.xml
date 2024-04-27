@@ -5,7 +5,7 @@
   <menubar>
     <menu>
       <title>Progamming Productivity</title>
-      <menuitem name="Introduction to Programming Productivity" href="Programming-Productivity.xml"/>
+      <menuitem name="Introduction to Programming Productivity" href="/"/>
     </menu>
     <menu>
       <title>Table-Oriented Programming</title>

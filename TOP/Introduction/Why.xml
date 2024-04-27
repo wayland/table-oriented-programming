@@ -30,7 +30,7 @@ Each paradigm not available is one less tool in your toolbox.  </p>
 <p>With this in mind, the best way to get the benefits of table-oriented 
 programming (TOP) is not to use a TOP programming language, but to integrate TOP 
 into a language which is already multi-paradigm.  My personal preference is 
-Raku (see <a href="Other-Items/Paradigm-Comparisons.html">Paradigm 
+Raku (see <a href="TOP/Comparisons/Paradigm-Comparisons.xml">Paradigm 
 Comparisons</a> for more information).  </p>
 
 <p>In short, most programming deals with tables at some point, and the 
@@ -80,7 +80,7 @@ would just add more columns to our existing table.</p>
 
 <p>The goal here is that, when your collection needs to scale, you just 
 substitute a new backend, and barely change your code at all.  This is what 
-<a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> 
+<a href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml">Database Engine Neutrality</a> 
 is all about.  In our example above, when we want to change from our structures 
 in memory to using an SQL database, we just change the backend of the table, and 
 carry on.  Need to switch to a replicating setup?  Just change backends again.  

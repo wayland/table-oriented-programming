@@ -3,7 +3,7 @@
 <page>
 <filename>Introduction/What.xml</filename>
 <sitedir>TOP</sitedir>
-<prevnode><link name="Introduction to Programming Productivity" href="Programming-Productivity.xml"/></prevnode>
+<prevnode><link name="Introduction to Programming Productivity" href="/"/></prevnode>
 <content>
 <p>Table-oriented programming is, on the surface, an extremely high level of 
 programming language support for tables.  Most languages don't even get 
@@ -19,7 +19,7 @@ level of support, SQL, doesn't support all the features desired by the TOP
 		replicating SQL database</li>
 </ul>
 
-<p>So far so good -- but now you may be wondering <a href="Introduction/Why.html">
+<p>So far so good -- but now you may be wondering <a href="TOP/Introduction/Why.xml">
 Why Table-Oriented Programming?</a></p>
 </content>
 </page>

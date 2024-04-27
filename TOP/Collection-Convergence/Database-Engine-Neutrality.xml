@@ -75,7 +75,7 @@ aspect of OOP.
 </div>
 
 <p>Note that the quote above observes that OOP doesn't go in for the features 
-mentioned in <a href="Collection-Convergence/Database-Engine-Neutrality.html">
+mentioned in <a href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml">
 Database Engine Neutrality</a>.  </p>
 
 <div class="blockquote">
@@ -95,7 +95,7 @@ and troubleshooting.</p>
 </div>
 
 <p>For a partial explanation of why they're a snap, see 
-<a href="RAD/UI-Editors.html#GUI-Editor">GUI Editors</a>.</p>
+<a href="RAD/UI-Editors.xml#GUI-Editor">GUI Editors</a>.</p>
 
 <h2>File-Based Tables</h2>
 

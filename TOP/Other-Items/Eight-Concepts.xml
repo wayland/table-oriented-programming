@@ -64,7 +64,7 @@ of the collections world.)</p>
 </div>
 </div>
 
-<p>For further information, see <a href="Concepts/Collection-Convergence.html">Collection 
+<p>For further information, see <a href="TOP/Collection-Convergence/Introduction/">Collection 
 Convergence</a>.</p>
 
 <p>Raku has this built in</p>
@@ -83,7 +83,7 @@ Tablizer/TOPMind, 1998-2002
 <p>Raku doesn't support this out of the box, but should be implementable using 
 an appropriate set of classes</p>
 
-<p>See <a href="Concepts/Table-Friendly-Syntax-Data.html">Table Friendly Syntax - Data</a></p>
+<p>See <a href="TOP/Language-Support/Table-Friendly-Syntax.xml">Table Friendly Syntax</a></p>
 
 <h2>Implementation Features</h2>
 
@@ -102,7 +102,7 @@ mind.
 classes.  Also, this should be read as "backends" -- not all of them need be 
 what we would call a "database engine" today.</p>
 
-<p>See <a href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> for details</p>
+<p>See <a href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml">Database Engine Neutrality</a> for details</p>
 
 <h3>Data Dictionaries</h3>
 
@@ -120,7 +120,7 @@ built-in introspection system (cf. the <a
 href="https://docs.raku.org/language/mop">Metaobject Protocol</a>).  We might be 
 able to leverage this as well.  </p>
 
-<p>See <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a> for details</p>
+<p>See <a href="TOP/Collection-Convergence/Data-Dictionaries.xml">Data Dictionaries</a> for details</p>
 
 <h3>Memory-Mapping Reduction</h3>
 

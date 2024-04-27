@@ -16,7 +16,7 @@ that a row does not have to actually contain a given field or even a placeholder
 for it.</p>
 
 <p>Potential fields are kept in a central list [the 
-<a href="file:///home/wayland/src/TOP/TOP-doco/generated/Collection-Convergence/Data-Dictionaries.html">
+<a href="TOP/Collection-Convergence/Data-Dictionaries.xml">
 Data Dictionary</a>], meaning that each row does not necessarily have to know of 
 the entire potential field list. If a request is made for a field that is in the 
 potential list, but that the row does not actually contain, then a blank or 

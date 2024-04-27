@@ -6,21 +6,21 @@
 <content>
 <h2>Overview</h2>
 
-<div class="blockquote" style="margin-left: 25%; margin-right: 25%">
+<div class="blockquote" style="margin-left: 20%; margin-right: 20%">
 
 <div style="float:right; margin-left: 6pt; margin-bottom: 6pt">
 <img src="TOP/Collection-Convergence/Introduction/converge.gif" 
 	border="0" alt="convergence diagram"/>
 </div>
-<p>There is a pattern to many of the recommendations (ie. <a 
-href="Concepts/Database-Engine-Neutrality.html">Database Engine Neutrality</a> 
-and <a href="Concepts/Data-Dictionaries.html">Data Dictionaries</a>): 
+<p>There is a pattern to many of the recommendations [ie. <a 
+href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml">Database Engine Neutrality</a> 
+and <a href="TOP/Collection-Convergence/Data-Dictionaries.xml">Data Dictionaries</a>]: 
 Collection Convergence.</p>
 
 <p>...</p>
 
 <p>Besides morphability and scalability [described in the refactoring section of 
-<a href="file:///home/wayland/src/TOP/TOP-doco/generated/Introduction/Why.html"> 
+<a href="TOP/Introduction/Why.xml"> 
 Why Table-Oriented Programming</a>], another benefit is <b>easier training</b>. 
 Instead of learning four or more <b>different</b> collection management systems, 
 one should only have to learn a single protocol. Fine adjustments and 

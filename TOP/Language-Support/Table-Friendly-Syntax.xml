@@ -11,12 +11,12 @@ first-class citizens.  </p>
 
 <p>The main collection classes/roles are:</p>
 <ul>
-	<li><b><a href="Collection-Convergence/Relation.html">role Relation</a>:</b> 
+	<li><b><a href="TOP/Collection-Convergence/Relation.xml">role Relation</a>:</b> 
 		Implements everything common to Tables and Views</li>
-	<li><b><a href="Language-Support/Table.html">class Table</a>:</b> A set of 
+	<li><b><a href="TOP/Language-Support/Table.xml">class Table</a>:</b> A set of 
 		named columns and unnamed rows; like an SQL table, but with multiple 
 		possible backends</li> 
-	<li><b><a href="Language-Support/View.html">class View</a>:</b> Like an SQL 
+	<li><b><a href="TOP/Language-Support/View.xml">class View</a>:</b> Like an SQL 
 		view, but local, and an object</li>
 </ul>
 

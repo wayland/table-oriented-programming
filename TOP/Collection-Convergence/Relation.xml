@@ -47,7 +47,7 @@ another.
 
 <p>Transferring and export/import are essentially the same; we just have to 
 write drivers for all the things (as per 
-<a href="Collection-Convergence/Database-Engine-Neutrality.html">
+<a href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml">
 Database Engine Neutrality</a>).  </p>
 
 <div class="blockquote">

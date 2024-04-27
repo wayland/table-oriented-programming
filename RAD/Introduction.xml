@@ -154,9 +154,9 @@ can best express this by making a bullet list of the things that I think should
 be implemented in an IDE that fully supports Programming Productivity:</p>
 
 <ul>
-	<li><b><a href="RAD/Database-Design-Editor.html">Database Design 
+	<li><b><a href="RAD/Database-Design-Editor.xml">Database Design 
 		Editor</a></b>: Lets you visually edit the design of your database</li>
-	<li><b><a href="RAD/Code-Editors.html">Code Editors</a></b></li>
+	<li><b><a href="RAD/Program-Editors.xml">Code Editors</a></b></li>
 	<ul>
 		<li><b>Regular Code Editor:</b> These are standard; no explanation 
 			needed</li>
@@ -170,9 +170,9 @@ be implemented in an IDE that fully supports Programming Productivity:</p>
 			the diagram have code inside them.  We should be able to edit it.  
 			</li> 
 	</ul>
-	<li><b><a href="RAD/GUI-Editor.html">GUI Editor</a>:</b> Something that allows editing the GUI in a visual, 
+	<li><b><a href="RAD/UI-Editors.xml#GUI-Editor">GUI Editor</a>:</b> Something that allows editing the GUI in a visual, 
 		drag-and-drop manner (Forms)</li>
-	<li><b><a href="RAD/Document-Editor.html">Document Editor</a>:</b> This allows people to edit a document that could 
+	<li><b><a href="RAD/UI-Editors.xml#Document-Editor">Document Editor</a>:</b> This allows people to edit a document that could 
 		be made into a report.  This would be influenced by word processors, 
 		and by the Notebook model (cf. Jupyter)</li>
 </ul>
