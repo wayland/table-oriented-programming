@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Critiques/OOP.xml</filename>
+<filename>Critiques/OOP.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 <p>Tablizer/TOPMind has put a lot of effort into criticing things that he 
 thought should be table-oriented programming but weren't.  I'm going to  work 
@@ -86,7 +87,6 @@ in his own words</a> unprovable.  </p>
 		<li> <span class="smallquote">Myth: Most things fit nicely into hierarchical taxonomies</span></li>
 		<li> <span class="smallquote">Myth: Most operations have one natural "primary noun"</span></li>
 		<li> <span class="smallquote">Myth: OOP better hides persistence mechanisms</span></li>
-		<li> <span class="smallquote">Myth: C and Pascal are the best procedural can get</span></li>
 		<li> <span class="smallquote">Myth: Only OOP offers automatic initialization</span></li>
 		<li> <span class="smallquote">Myth: Implementation changes significantly more often than interfaces</span></li>
 		<li> <span class="smallquote">Myth: OOP models human thought better (Which human?)</span>  
@@ -146,6 +146,7 @@ in his own words</a> unprovable.  </p>
 	<ul>
 		<li><i>Procedural vs. TOP confusion</i></li>
 		<ul>
+		  <li> <span class="smallquote">Myth: C and Pascal are the best procedural can get</span></li>
 			<li> <span class="smallquote">Myth: Procedural cannot do components well</span> </li>
 			<li> <span class="smallquote">Myth: OOP models the real world better</span></li>
 			<li> <span class="smallquote">Myth: OOP makes programming easier and faster</span></li>

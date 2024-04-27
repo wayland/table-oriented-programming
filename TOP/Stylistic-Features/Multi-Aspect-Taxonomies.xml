@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml</filename>
+<filename>Stylistic-Features/Multi-Aspect-Taxonomies.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 <div class="blockquote">
 

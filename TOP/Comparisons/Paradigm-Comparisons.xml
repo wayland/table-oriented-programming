@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Comparisons/Paradigm-Comparisons.xml</filename>
+<filename>Comparisons/Paradigm-Comparisons.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 
 <p>Each programming paradigm is a tool in your toolbox.  The more paradigms a 

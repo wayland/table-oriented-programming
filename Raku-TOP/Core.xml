@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Core.xml</filename>
+<filename>Core.xml</filename>
+<sitedir>Raku-TOP</sitedir>
 <content>
 
 <style>

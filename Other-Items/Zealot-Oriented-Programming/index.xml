@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Other-Items/Zealot-Oriented-Programming/</filename>
+<filename>Zealot-Oriented-Programming/</filename>
+<sitedir>Other-Items</sitedir>
 <content>
 <p>Just had to quote this in full...</p>
 

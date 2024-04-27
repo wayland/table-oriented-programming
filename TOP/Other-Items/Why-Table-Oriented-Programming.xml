@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Other-Items/Why-Table-Oriented-Programming.xml</filename>
+<filename>Other-Items/Why-Table-Oriented-Programming.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 
 <p>I leave it to Tablizer/TOPMind to say this:</p>

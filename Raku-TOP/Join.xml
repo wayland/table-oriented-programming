@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Join.xml</filename>
+<filename>Join.xml</filename>
+<sitedir>Raku-TOP</sitedir>
 <content>
 
 <p>This represents a saved join that can be used with the ▵ operator to join multiple relations.  </p>

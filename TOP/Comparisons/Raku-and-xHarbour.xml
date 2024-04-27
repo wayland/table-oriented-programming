@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Comparisons/Raku-and-xHarbour.xml</filename>
+<filename>Comparisons/Raku-and-xHarbour.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 
 <p>This is a page which is designed to compare Raku TOP (ie. Raku with the TOP module) with xBase/xHarbour.  </p>

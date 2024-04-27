@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/ControlFlow.xml</filename>
+<filename>ControlFlow.xml</filename>
+<sitedir>Raku-TOP</sitedir>
 <content>
 
 <p>This will provide an introduction to a few Raku TOP features that add new 

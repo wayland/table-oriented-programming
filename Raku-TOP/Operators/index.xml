@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Operators.xml</filename>
+<filename>Operators/</filename>
+<sitedir>Raku-TOP</sitedir>
+<nextnode><link name="Introduction to RAD" href="RAD/Introduction.xml"/></nextnode>
 <content>
 
 <h1>Precedence</h1>

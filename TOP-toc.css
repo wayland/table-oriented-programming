@@ -46,3 +46,13 @@
 		text-decoration-style: solid;
 	}
 }
+
+.left-column {
+	margin: 4pt;
+	overflow-y: scroll;
+}
+
+.left-column ul {
+	list-style-type: none;	
+	padding: 5pt;
+}

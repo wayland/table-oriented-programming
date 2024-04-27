@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Introduction/Terminology.xml</filename>
+<filename>Introduction/Terminology.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 <h2>Comparison of Terminology</h2>
 

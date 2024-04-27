@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Introduction.xml</filename>
+<filename>Introduction.xml</filename>
+<sitedir>Raku-TOP</sitedir>
+<prevnode><link name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/></prevnode>
 <content>
 
 <style>

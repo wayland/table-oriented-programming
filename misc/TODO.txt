@@ -5,7 +5,6 @@ Content
 -------
 
 -	Document Raku classes
-	-	Change the left bar so that we have table of contents for the site there (like Confluence)
 	-	Start work
 		-	For each class, write a guide for people doing backend classes, telling them not to read the whole thing 
 			into memory, because we want to be able to work with really large data
@@ -19,12 +18,6 @@ Content
 		-	Draw fields from:
 			https://www.stonybrook.edu/commcms/irpe/about/data_governance/_files/DataDictionaryStandards.pdf
 			Typical Attributes section of: https://en.wikipedia.org/wiki/Data_dictionary
-
-Currently expecting we'll effectively end up with the following semi-separate sites (maybe sharing the first menu)
--	Programming Productivity, which introduces TOP and RAD
--	TOP
--	Raku TOP
--	RAD
 
 
 -	Make the Language Analogy a separate page; pull in the noun-verb priority stuff

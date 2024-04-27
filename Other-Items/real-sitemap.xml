@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sitemap>
+    <section>
+      <title>Other Material</title>
+      <link name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+      <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+    </section>
+    <!--menu>
+      <title></title>
+      <menuitem name="" href=""/>
+      <menuitem name="" href=""/>
+      <menuitem name="" href=""/>
+      <menuitem name="" href=""/>
+      <menuitem name="" href=""/>
+      <menuitem name="" href=""/>
+    </menu -->
+</sitemap>

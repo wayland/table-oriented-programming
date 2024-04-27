@@ -1,117 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<window>
-  <base href="http://localhost:8000/"/>
-  <!-- base href="https://wayland.github.io/table-oriented-programming/"/ -->
-  <menubar>
-    <menu>
-      <title>Progamming Productivity</title>
-      <menuitem name="Introduction to Programming Productivity" href="Programming-Productivity.xml"/>
-    </menu>
-    <dropmenu>
-      <title>Table-Oriented Programming</title>
-      <menu>
-        <title>Overview</title>
-        <menuitem name="What is Table-Oriented Programming?" href="TOP/Introduction/What.xml"/>
-        <menuitem name="Why Table-Oriented Programming" href="TOP/Introduction/Why.xml"/>
-        <menuitem name="Terminology" href="TOP/Introduction/Terminology.xml"/>
-        <menuitem name="History" href="TOP/Introduction/History.xml"/>
-        <!-- item title="TOP and the Language Analogy" href="TOP/Introduction/Language-Analogy.xml" width="huge"/ -->
-      </menu>
-      <menu>
-        <title>Collection Convergence</title>
-        <menuitem name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
-        <menuitem name="role Relation" href="TOP/Collection-Convergence/Relation.xml"/>
-        <menuitem name="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
-        <menuitem name="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
-        <menuitem name="Data Dictionaries" href="TOP/Collection-Convergence/Data-Dictionaries.xml"/>
-      </menu>
-      <menu>
-        <title>Language Support</title>
-        <menuitem name="Table-Friendly Syntax" href="TOP/Language-Support/Table-Friendly-Syntax.xml"/>
-        <menuitem name="class Table" href="TOP/Language-Support/Table.xml"/>
-        <menuitem name="class View" href="TOP/Language-Support/View.xml"/>
-      </menu>
-      <menu>
-        <title>Stylistic Features</title>
-        <menuitem name="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
-        <menuitem name="Multi-Aspect Taxonomies" href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml"/>
-        <menuitem name="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
-        <menuitem name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
-      </menu>
-      <menu>
-        <title>Critiques</title>
-        <menuitem name="OOP" href="TOP/Critiques/OOP.xml"/>
-        <menuitem name="SQL" href="TOP/Critiques/SQL.xml"/>
-        <menuitem name="Trees" href="TOP/Critiques/Trees.xml"/>
-      </menu>
-      <menu>
-        <title>Comparisons</title>
-        <menuitem name="Comparison of Raku TOP and xBase" href="TOP/Comparisons/Raku-and-xHarbour.xml" width="huge"/>
-        <menuitem name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/>
-      </menu>
-      <menu>
-        <title>Raku</title>
-        <menuitem name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/>
-        <menuitem name="TOP::ControlFlow" href="Raku-TOP/ControlFlow.xml"/>
-        <menuitem name="role TOP::Core" href="Raku-TOP/Core.xml"/>
-        <menu>
-          <title>Relations</title>
-          <menuitem name="role Relation" href="Raku-TOP/Relation.xml"/>
-          <menuitem name="class Table" href="Raku-TOP/Table.xml"/>
-          <menuitem name="class View" href="Raku-TOP/View.xml"/>
-          <menuitem name="class DataDictionary" href="Raku-TOP/DataDictionary.xml"/>
-          <menuitem name="class TupleSet" href="Raku-TOP/TupleSet.xml"/>
-        </menu>
-        <menu>
-          <title>Section</title>
-          <menuitem name="role Section" href="Raku-TOP/Section.xml"/>
-          <menuitem name="class Field" href="Raku-TOP/Field.xml"/>
-          <menuitem name="class Lot" href="Raku-TOP/Lot.xml"/>
-        </menu>
-        <menuitem name="class Cursor" href="Raku-TOP/Cursor.xml"/>
-        <menuitem name="class Database" href="Raku-TOP/Database.xml"/>
-        <menuitem name="class Tuple" href="Raku-TOP/Tuple.xml"/>
-        <menuitem name="class Join" href="Raku-TOP/Join.xml"/>
-        <menuitem name="TOP::Operators" href="Raku-TOP/Operators.xml"/>
-      </menu>
-      <menu>
-        <title>Other Material</title>
-        <menuitem name="Eight Concepts" href="TOP/Other-Items/Eight-Concepts.xml"/>
-        <menuitem name="Why Table-Oriented Programming?" href="TOP/Other-Items/Why-Table-Oriented-Programming.xml"/>
-        <menuitem name="Scalar Type Convergence" href="TOP/Other-Items/Scalar-Type-Convergence.xml"/>
-        <menuitem name="Merging TOP and OOP" href="TOP/Other-Items/Merging-TOP-and-OOP.xml"/>
-      </menu>
-    </dropmenu>
-    <menu>
-      <title>RAD</title>
-      <menuitem name="Introduction" href="RAD/Introduction.xml"/>
-      <menu>
-        <title>Editors</title>
-        <menuitem name="Database Design Editor" href="RAD/Database-Design-Editor.xml"/>
-        <menuitem name="Program Editors" href="RAD/Program-Editors.xml"/>
-        <menuitem name="UI editors (Forms &amp; Reports)" href="RAD/UI-Editors.xml"/>
-      </menu>
-      <menuitem name="Backend-to-Frontend Design" href="RAD/Backend-to-Frontend-Design.xml"/>
-      <menuitem name="Documentation Generation" href="RAD/Documentation-Generation.xml"/>
-    </menu>
-    <menu>
-      <title>AI</title>
-      <menuitem name="AI and coding" href="AI/AI-and-Coding.xml"/>
-    </menu>
-    <menu>
-      <title>Other Material</title>
-      <menuitem name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
-      <!-- item title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
-    </menu>
-    <!--menu>
-      <title></title>
-      <menuitem name="" href=""/>
-      <menuitem name="" href=""/>
-      <menuitem name="" href=""/>
-      <menuitem name="" href=""/>
-      <menuitem name="" href=""/>
-      <menuitem name="" href=""/>
-    </menu -->
-
-  </menubar>
-</window>
+<sitemap>
+  <section>
+    <title>Progamming Productivity</title>
+    <link name="Introduction to Programming Productivity" href="Programming-Productivity.xml"/>
+  </section>
+  <!--section>
+    <title></title>
+    <link name="" href=""/>
+    <link name="" href=""/>
+    <link name="" href=""/>
+    <link name="" href=""/>
+    <link name="" href=""/>
+    <link name="" href=""/>
+  </section -->
+</sitemap>

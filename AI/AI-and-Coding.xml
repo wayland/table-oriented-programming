@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>AI/AI-and-Coding.xml</filename>
+<filename>AI-and-Coding.xml</filename>
+<sitedir>AI</sitedir>
+<prevnode><link name="Documentation Generation" href="RAD/Documentation-Generation.xml"/></prevnode>
+<nextnode><link name="Zealot-oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/></nextnode>
 <content>
 <p>Pythagora.io, on their <a href="https://github.com/Pythagora-io/gpt-pilot">
 GPT-Pilot</a> page used to have a writeup on their page (you can still see it at 

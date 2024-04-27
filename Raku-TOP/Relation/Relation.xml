@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Relation.xml</filename>
+<filename>Relation/Relation.xml</filename>
+<sitedir>Raku-TOP</sitedir>
 <content>
 <p>The Relation is a role that represents all features common to Tables and 
 Views.  </p>

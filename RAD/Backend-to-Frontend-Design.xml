@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>RAD/Backend-to-Frontend-Design.xml</filename>
+<filename>Backend-to-Frontend-Design.xml</filename>
+<sitedir>RAD</sitedir>
 <content>
 <p>As per <a href="Programming-Productivity.html#UI-churn">Introduction to 
 Programming Productivity</a>, the database experts should be in control of the 

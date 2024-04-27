@@ -1,3 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<page>
+<filename>English-Analysis.xml</filename>
+<sitedir>Other-Items</sitedir>
+<content>
+
 <h3>Parts of Speech Grid</h3>
 
 <p>The classic 8/9 parts of speech are a useful base, though there are more (see 
@@ -555,9 +562,13 @@ subordinating.  Also, we should be looking for adconjunctions (ie.
 		<td>Fear</td>
 		<td></td>
 		<td>Lest, for fear of</td>
+  </tr>
 </table>
 
 Integrate with 
 https://www.researchgate.net/figure/Types-of-Conjunctions_tbl1_320911525
 
 https://en.wiktionary.org/wiki/Category:English_conjunctions
+
+</content>
+</page>

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>RAD/Program-Editors.xml</filename>
+<filename>Program-Editors.xml</filename>
+<sitedir>RAD</sitedir>
 <content>
 <h1>Overview</h1>
 

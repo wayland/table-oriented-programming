@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Language-Support/View.xml</filename>
+<filename>Language-Support/View.xml</filename>
+<sitedir>TOP</sitedir>
 <content>
 <p>Much like in SQL, views are selections of data from one or more collections 
 (descendents of Relation).  However, unlike SQL, we should expect views to be 

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Raku-TOP/Section.xml</filename>
+<filename>Section/Section.xml</filename>
+<sitedir>Raku-TOP</sitedir>
 <content>
 <p>The Section role represents a vertical column or set of columns in a Relation</p>
 

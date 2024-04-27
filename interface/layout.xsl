@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:svg="http://www.w3.org/2000/svg">
   <!-- Get filename -->
-  <xsl:param name="filename" select="page/filename"/>
+  <xsl:param name="sitedir" select="page/sitedir"/>
+  <xsl:param name="sitedir_string">
+    <xsl:choose>
+      <xsl:when test="$sitedir != ''"><xsl:value-of select="$sitedir"/>/</xsl:when>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:param name="filename" select="concat($sitedir_string, page/filename)"/>
+  <xsl:param name="interface_structure" select="document('structure.xml')"/>
   <!-- Get sitemap -->
-  <xsl:param name="realsitemap" select="document('interface-structure.xml')"/>
+  <xsl:param name="realsitemap" select="document(concat('../', $sitedir, '/real-sitemap.xml'))"/>
   <!-- Set up node variables -->
-  <xsl:param name="currentnode" select="$realsitemap//menubar//menuitem[@href=$filename]"/>
-  <xsl:param name="prevnode" select="$currentnode/preceding::menuitem[position()=1]"/>
-  <xsl:param name="nextnode" select="$currentnode/following::menuitem[position()=1]"/>
+  <xsl:param name="currentnode" select="$realsitemap//link[@href=$filename]"/>
+  <xsl:param name="prevnode" select="page/prevnode/link | $currentnode/preceding::link[position()=1]"/>
+  <xsl:param name="nextnode" select="page/nextnode/link | $currentnode/following::link[position()=1]"/>
   <!-- Set up usable text variables -->
   <xsl:param name="title" select="$currentnode/@name"/>
 
@@ -25,9 +32,9 @@
 </script>
 
 <!-- Links and stylesheet -->
-<base href="{$realsitemap/window/base/@href}"/>
+<base href="{$interface_structure/window/base/@href}"/>
 
-<link rel="stylesheet" href="TOP-interface.css"/>
+<link rel="stylesheet" href="interface/TOP-interface.css"/>
 <link rel="stylesheet" href="TOP-toc.css"/>
 <link rel="stylesheet" href="TOP-content.css"/>
 
@@ -37,12 +44,15 @@
 <div class="wide-box {$currentnode/@width}">
 
 <div class="left-column">
-left
+  <ul>
+    <xsl:apply-templates select="$realsitemap" mode="site-toc"/>
+  </ul>
+
 </div>
 
 <div class="main-column">
   <div class="menu-bar"><ul>
-    <xsl:apply-templates select="$realsitemap//menubar/*"/>
+    <xsl:apply-templates select="$interface_structure//menubar/*"/>
   </ul></div>
 
 <div class="main-box">
@@ -228,6 +238,17 @@ left
         </xsl:if>
       </xsl:element>
     </a>
+  </xsl:template>
+
+  <xsl:template match="section" mode="site-toc">
+    <li><xsl:value-of select="title"/></li>
+    <ul>
+      <xsl:apply-templates select="section|link" mode="site-toc"/>
+    </ul>
+  </xsl:template>
+  
+  <xsl:template match="link" mode="site-toc">
+    <li><a href="{@href}"><xsl:value-of select="@name"/></a></li>
   </xsl:template>
   
 </xsl:stylesheet>

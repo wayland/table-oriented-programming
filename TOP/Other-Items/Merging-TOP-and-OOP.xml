@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>TOP/Other-Items/Merging-TOP-and-OOP.xml</filename>
+<filename>Other-Items/Merging-TOP-and-OOP.xml</filename>
+<sitedir>TOP</sitedir>
+<nextnode><link name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/></nextnode>
 <content>
 
 <h2>Merging TOP and OOP?</h2>
