@@ -48,10 +48,18 @@ Is it possible to:
 -	Pass a signature to an object on creation
 -	Later use that signature to constrain a set of values passed in
 
+My answer: cf. https://stackoverflow.com/questions/73070976/checking-whether-signature-accepts-capture-removes-attribute-values-from-invocan
+-	Note that I might be able to use the method in the question, rather than the one in Jonathan's answer
+	(because I have different goals than the question asker)
+
 Question 2
 ----------
 How do Sets know whether items are the same or not?  Partial Answer: ACCEPTS does the comparison between sets; not sure about 
 comparison between items
+
+ANswer: https://stackoverflow.com/questions/40814933/how-do-the-perl-6-set-operations-compare-elements
+
+Specifically, see also the .WHICH method and https://docs.perl6.org/type/ObjAt
 
 
 Two-dimensional Programming
@@ -72,3 +80,21 @@ Raku
 
 Code
 Office
+
+
+CSS Widgets comparison
+----------------------
+
+Summary: None of them had as many components as PrimeVue, but it may be that the 
+Gutenberg one will be useful for the Print side of things.  
+
+For the Print side of things: https://github.com/BafS/Gutenberg
+
+https://www.lambdatest.com/blog/best-css-frameworks/ says there are 5 different kinds of frameworks.  The kinds
+that caught my eye are:
+-	Component-based: Bootstrap, Primer, Halfmoon
+-	Modular: UIKit
+
+It may end up that Mdash ( https://m-docs.org/ ) ends up being the least bad option
+
+

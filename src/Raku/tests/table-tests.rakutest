@@ -1,0 +1,35 @@
+#!/usr/bin/raku
+
+use v6.c;
+
+use	Test;
+use	lib 'lib/raku';
+use	TOP;
+
+plan 11;
+
+use-ok 'TOP';
+
+my $tm = TOP::TableMaker.new();
+isa-ok($tm, TOP::TableMaker, 'TOP::TableMaker.new() returns a TOP::TableMaker');
+
+my Table $countries = $tm.createTable(
+	type => 'csv',
+	filename => '/home/wayland/src/finance/raw-data/General/Countries/all.csv'
+);
+isa-ok($countries, Table, 'TOP::TableMaker.createTable returns a Table');
+does-ok($countries, Relation, 'TOP::TableMaker.createTable returns a Relation');
+
+is($countries[0]<name>, 'Afghanistan', 'Test access by row, then column');
+is($countries<name>[0], 'Afghanistan', 'Test access by column,then row');
+
+# Now need to test setting
+lives-ok({ $countries[0]<name> = 'Narnia' }, "Didn't die when setting by row, then column");
+is($countries<name>[0], 'Narnia', "...and when fetching by column, then row, got the same result");
+
+lives-ok({ $countries<name>[0] = 'Middle-Earth' }, "Didn't die when setting by column, then row");
+is($countries[0]<name>, 'Middle-Earth', "...and when fetching by row, then column, got the same result");
+
+is($countries.fields.elems, 11, "Found 11 fields in the CSV file");
+
+done-testing;

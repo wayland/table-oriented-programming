@@ -176,7 +176,7 @@ $field = $user{$column-name};                 # Fetch a relation column with the
 $surname = $user&lt;surname&gt;[$row-number];       # Fetch cell contents by column, then row
 $user&lt;surname&gt;[$row-number] = $value;         # Set cell contents by column, then row
 
-$user.elems :column;                          # Count columns in $user relation
+$user.fields.elems;                           # Count columns in $user relation
 </code></div>
 
 <h3>DataDictionary</h3>

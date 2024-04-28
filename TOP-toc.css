@@ -47,7 +47,7 @@
 	}
 }
 
-.left-column {
+.left-column, .right-column {
 	margin: 4pt;
 	overflow-y: scroll;
 }

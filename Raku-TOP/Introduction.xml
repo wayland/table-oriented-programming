@@ -134,6 +134,7 @@ th h2, th h3 {
       <li>Database, including inheriting from TOP::Core</li>
       <li>Table, including Field and Tuple, and inheriting from Relation and TOP::Core.  
         Note https://docs.raku.org/language/subscripts#Binding</li>
+      <li>Implement backends for CSV and DBI</li>
     </ul>
     <li>Joining</li>
     <ul>
