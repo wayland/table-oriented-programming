@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
 <filename>Introduction.xml</filename>
 <sitedir>Raku-TOP</sitedir>
@@ -48,7 +48,7 @@ th h2, th h3 {
   does Relation</code></td>
     <td>All the functionality specific to Tables</td>
     <td>First pass done</td>
-    <td>Not started</td>
+    <td>Basic functionality works</td>
   </tr>
   <tr>
     <td><code>class View
@@ -95,7 +95,7 @@ th h2, th h3 {
     <td><code>class Field</code></td>
     <td>Data is actually stored in table, but this references a column</td>
     <td>First pass done</td>
-    <td>Not started</td>
+    <td>Basic Functionality Works</td>
   </tr>
   <tr>
     <td><code>class Lot</code></td>
@@ -126,15 +126,24 @@ th h2, th h3 {
 
 <h1>Implementation order</h1>
 
+<style>
+.done {
+  background-color: green;
+  color: white;
+  padding: 2pt;
+  border-radius: 4pt;
+}
+</style>
+
 <ul>
   <li>Basic functionality</li>
   <ul>
     <li>Very basic functionality</li>
     <ul>
-      <li>Database, including inheriting from TOP::Core</li>
-      <li>Table, including Field and Tuple, and inheriting from Relation and TOP::Core.  
-        Note https://docs.raku.org/language/subscripts#Binding</li>
+      <li><span class="done">Table, including Field and Tuple, and inheriting from Relation and TOP::Core</span></li>
+      <li><span class="done">Database, including inheriting from TOP::Core</span></li>
       <li>Implement backends for CSV and DBI</li>
+      <li>Look at having a Signature for a Table, and linking each Field to a Parameter in the Signature</li>
     </ul>
     <li>Joining</li>
     <ul>
@@ -144,10 +153,12 @@ th h2, th h3 {
     </ul>
     <li>Cursor</li>
     <li>DataDictionary</li>
+    <li>Lot, Section</li>
   </ul>
   <li>Perspectives</li>
   <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
-  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions</li>
+  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions
+    ...or maybe we should just let people use multi-dimensional arrays for this</li>
 </ul>
 
 </content>
