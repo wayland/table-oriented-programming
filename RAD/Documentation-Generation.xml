@@ -3,7 +3,7 @@
 <page>
 <filename>Documentation-Generation.xml</filename>
 <sitedir>RAD</sitedir>
-<nextnode><link name="AI and Coding" href="http://localhost:8000/AI/AI-and-Coding.xml"/></nextnode>
+<nextnode><link name="AI and Coding" href="AI/AI-and-Coding.xml"/></nextnode>
 <content>
 <p></p>
 
