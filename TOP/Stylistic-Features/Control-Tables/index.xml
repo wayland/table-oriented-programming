@@ -34,6 +34,25 @@ used to protect such tables from direct access by users if needed.</p>
 </div>
 </div>
 
+<p/>
+
+<div class="blockquote">
+
+<p>Multiway branching is an important programming technique which is all too 
+often replaced by an inefficient sequence of if tests. Peter Naur recently wrote me 
+that he considers the use of tables to control program flow as a basic idea of 
+computer science that has been nearly forgotten; but he expects it will be 
+ripe for rediscovery any day now. It is the key to efficiency in all the best 
+compilers I have studied.</p>
+
+<div class="reference">
+  <i><a href="https://pic.plover.com/knuth-GOTO.pdf">Structured Programming 
+  with go to Statements</a>, Donald Knuth; note that Knuth's title was 
+  provocative, like <a href="http://www.wordyard.com/2006/11/17/knuth-go-to/">
+  Vegetarianism with Pork Chops</a></i>
+</div>
+</div>
+
 <h1>Benefits</h1>
 
 <p>The following are some of the benefits of Control Tables.</p>
@@ -185,12 +204,20 @@ running out of analogies).</p>
 
 <p>See also:</p>
 <ul>
-	<li><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></li>
-	<li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/bank.htm">Bank Example</a></li>
-	<li><a href="https://web.archive.org/web/20121111043956/http://www.geocities.com/tablizer/allway.htm">Going All the Way with Control Tables</a></li>
-	<li>For ideas about what could be done with control tables, see 
-		<a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm#future">
-		Table Oriented Programming - Future of TOP and ITOP</a></li>
+  <li>From Wikipedia:</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Control_table">Control table</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Decision_table">Decision table</a></li>
+  </ul>
+  <li>From Tablizer/TOPMind:</li>
+  <ul>
+    <li><a href="https://web.archive.org/web/20120918011533/http://geocities.com/tablizer/cntrl1.htm">Control Tables - Examples and Power</a></li>
+    <li><a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/bank.htm">Bank Example</a></li>
+    <li><a href="https://web.archive.org/web/20121111043956/http://www.geocities.com/tablizer/allway.htm">Going All the Way with Control Tables</a></li>
+    <li>For ideas about what could be done with control tables, see 
+      <a href="https://web.archive.org/web/20121024051826/http://www.geocities.com/tablizer/top.htm#future">
+      Table Oriented Programming - Future of TOP and ITOP</a></li>
+  </ul>
 </ul>
 </content>
 </page>
