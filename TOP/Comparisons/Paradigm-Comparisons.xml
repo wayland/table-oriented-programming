@@ -32,7 +32,7 @@ Wikipedia: Comparison of multi-paradigm programming languages</a></p>
 	</tr>
 	<tr>
 		<td>Raku</td>
-		<td>10</td>
+		<td>9</td>
 		<td>11</td>
 		<td></td>
 	</tr>
@@ -100,134 +100,257 @@ Comparison of multi-paradigm programming languages</a></p>
 		<th>Raku</th>
 		<th>SQL</th>
 		<th>xHarbour</th>
+		<th>Spreadsheets</th>
+		<th>XSLT, XPath, XML</th>
+		<th>Lazarus</th>
 	</tr>
 	<tr>
 		<th>Paradigm Count</th>
-		<td>10</td>
+		<td>9</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr><th colspan="7"><h2>Code-Focussed Paradigms</h2></th></tr>
+	<tr><th colspan="7"><h3>Imperative Paradigms</h3></th></tr>
+	<tr>
+		<th>Imperative</th>
+		<td>Yes</td>
+		<td></td>
+		<td>Yes</td>
+		<td></td>
+		<td>Yes</td>
+		<td>Yes</td>
+	</tr>
+	<tr><th colspan="7"><h4>Object-oriented Paradigms</h4></th></tr>
+	<tr>
+		<th>Object-oriented</th>
+		<td>Yes<ref href="https://docs.perl6.org/language/classtut" title="Classes and Roles, Raku Documentation"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>???</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<th>Generic</th>
+		<td>Yes<ref href="https://perl6advent.wordpress.com/2009/12/18/day-18-roles/" title="Parameterised Roles, Raku Documentation"/></td>
+		<td></td>
+		<td></td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<th>Concurrent</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://docs.perl6.org/language/concurrency">
-				Channels and Other Mechanisms</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
+		<th><a href="https://en.wikipedia.org/wiki/Agent-oriented_programming">Agent-Oriented</a></th>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
 	</tr>
 	<tr>
-		<th>Constraints</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://docs.perl6.org/type/Signature#Type_Constraints">
-				Class Signature</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
+		<th><a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented</a></th>
+		<td>Could Library</td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
+		<td>No</td>
+		<td>???</td>
 	</tr>
 	<tr>
-		<th>Dataflow</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://docs.perl6.org/routine/==%3E">
-				Feed Operator</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
+		<th>Iterative</th>
+		<td>Yes</td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
+		<td>???</td>
+		<td>???</td>
 	</tr>
+	<tr><th colspan="7"><h3>Declarative Paradigms</h3></th></tr>
 	<tr>
 		<th>Declarative</th>
 		<td>No</td>
 		<td>Yes</td>
 		<td></td>
-	</tr>
-	<tr>
-		<th>Distributed</th>
-		<td>Library<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://github.com/perl6/doc/issues/1744#issuecomment-360565196">
-				Cro Module</a></span>
-		</span></td>
 		<td></td>
-		<td></td>
+		<td>???</td>
+		<td>No</td>
 	</tr>
+	<tr><th colspan="7"><h4>Functional Paradigms</h4></th></tr>
 	<tr>
 		<th>Functional</th>
 		<td>Yes</td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td>???</td>
+		<td>No</td>
 	</tr>
+	<tr><th colspan="7"><h4>Logic Paradigms</h4></th></tr>
 	<tr>
-		<th>Metaprogramming</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2011/12/14/meta-programming-what-why-and-how/">
-				Meta-programming: What, why and how</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Generic</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://perl6advent.wordpress.com/2009/12/18/day-18-roles/">
-				Parameterised Roles</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Imperative</th>
-		<td>Yes</td>
-		<td></td>
-		<td></td>
+		<th>Constraints</th>
+		<td>Library<ref href="https://raku.land/github:FCO/ProblemSolver" title="ProblemSolver Library"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
 	</tr>
 	<tr>
 		<th>Logic</th>
 		<td>No</td>
-		<td></td>
-		<td></td>
+		<td>No</td>
+		<td>No</td>
+		<td>?Goal seeking</td>
+		<td>No</td>
+		<td>No</td>
 	</tr>
 	<tr>
-		<th>Reflection</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://docs.perl6.org/language/mop">
-				Meta-object Protocol (MOP)</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
+		<th>Rule-based</th>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
 	</tr>
+	<tr><th colspan="7"><h2>Data-Focussed Paradigms</h2></th></tr>
 	<tr>
-		<th>Object-oriented</th>
-		<td>Yes<span class="hover-parent">
-			<span class="hover-anchor">[ref]</span>
-			<span class="hover-text"><a href="https://docs.perl6.org/language/classtut">
-				Classes and Roles</a></span>
-		</span></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Pipelines</th>
+		<th>Array languages</th>
+		<td>Yes<ref href="https://docs.raku.org/language/operators#Metaoperators" title="Metaoperators, Raku Documentation"/></td>
+		<td>No</td>
+		<td>?No</td>
 		<td>Yes</td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Reactive</th>
-		<td>Yes</td>
-		<td></td>
-		<td></td>
+		<td>No</td>
+		<td>No</td>
 	</tr>
 	<tr>
 		<th>Table-oriented</th>
 		<td>Library Soon (hopefully)</td>
 		<td>Yes</td>
 		<td>Yes</td>
+		<td>Yes</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<th>Tree-oriented languages</th>
+		<td>Could Library</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>Yes</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<th><a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">Stack-based languages</a></th>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr><th colspan="7"><h2>Concurrency-Focussed Paradigms</h2></th></tr>
+	<tr>
+		<th><a href="https://en.wikipedia.org/wiki/Concatenative_programming_language">Concatenative</a></th>
+		<td>Yes<ref href="https://docs.perl6.org/routine/==%3E" title="Feed Operator, Raku Documentation"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<th><a href="https://en.wikipedia.org/wiki/Category:Concurrent_programming_languages">Concurrent</a></th>
+		<td>Yes<ref href="https://docs.perl6.org/language/concurrency" title="Channels and Other Mechanisms, Raku Documentation"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<th><a href="https://en.wikipedia.org/wiki/Dataflow_programming">Dataflow</a></th>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr><th colspan="7"><h2>Metaprogramming-Focussed Paradigms</h2></th></tr>
+	<tr>
+		<th>Metaprogramming</th>
+		<td>Yes <ref 
+		  href="https://perl6advent.wordpress.com/2011/12/14/meta-programming-what-why-and-how/" 
+		  title="Meta-programming: What, why and how"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>???</td>
+		<td>IDE-based</td>
+	</tr>
+	<tr>
+		<th>Reflection</th>
+		<td>Yes<ref href="https://docs.perl6.org/language/mop" title="Meta-object Protocol (MOP), Raku Documentation"/></td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>???</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<th>Syntax-handling</th>
+		<td>Yes</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+		<td>No</td>
+	</tr>
+	<tr><th colspan="7"><h2>Tooling-Focussed Paradigms</h2></th></tr>
+	<tr>
+		<th>4GL/RAD</th>
+		<td>No</td>
+		<td>No</td>
+		<td>A little</td>
+		<td>No</td>
+		<td>No</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<th>Interactive-mode</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr><th colspan="7"><h2>Transformation-Focussed Paradigms</h2></th></tr>
+	<tr>
+		<th>Macro languages</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Transformation languages</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr><th colspan="7"><h2>Other Paradigms</h2></th></tr>
+	<tr>
+		<th>Reactive</th>
+		<td>Yes</td>
+		<td></td>
+		<td></td>
 	</tr>
 	<tr>
 		<th>Visual</th>
@@ -236,11 +359,149 @@ Comparison of multi-paradigm programming languages</a></p>
 		<td></td>
 	</tr>
 	<tr>
-		<th>Rule-based</th>
-		<td>No</td>
+		<th>Authoring</th>
+		<td></td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 </table>
+
+<h1>Categorisation of Paradigms</h1>
+
+<p>Data Structures vs. Algorithms</p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Imperative Group</th>
+    <th>Declarative Group</th>
+    <th>Uncategorised</th>
+  </tr>
+  <tr>
+    <th>Functions/Procedures</th>
+    <td>Procedural Languages</td>
+    <td>Functional Languages (without OOP, etc)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Objects</th>
+    <td></td>
+    <td></td>
+    <td>In this row are included Aspect-oriented, and the Class-based vs. Prototype-based ones</td>
+  </tr>
+  <tr>
+    <th>Tables</th>
+    <td>Table-Oriented Programming, including Decision Table Languages and 4GLs</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Trees</th>
+    <td>XSLT/XPath</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<h1>Categorising Table-Oriented Programming</h1>
+
+<div class="blockquote">
+Of making many [programming paradigms] there is no end, and much study is wearisome to the flesh.
+
+<div class="reference">
+  <i>A reference to <a href="https://www.biblegateway.com/passage/?search=Ecclesiastes+12%3A12&amp;version=KJV">
+  Ecclesiasties 12:12</a>, King James authorised translation of the Bible, 
+  translated 1611 (revised 1769), from the Hebrew manuscript, originating around 900BC</i>
+</div>
+
+</div>
+
+<p>There are many programming paradigms.  There are also multiple ways of 
+categorising said paradigms.  Paradigm categorisations can be code-focussed 
+and data-focussed.  </p>
+
+<h1>Code-Focussed Paradigms</h1>
+
+<h2>Imperative</h2>
+<ul>
+	<li>Procedural Programming</li>
+	<li><a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Group</a></li>
+	<ul>
+	  <li>Object-oriented has two major ways of grouping languages:</li>
+	  <ul>
+      <li>Class-based vs. Prototype-based</li>
+      <li>Procedural vs. <a href="https://en.wikipedia.org/wiki/Actor_model">Actor model</a> <ref
+        href="http://stereobooster.github.io/two-big-schools-of-object-oriented-programming"
+        title="Two Big Schools of Object-Oriented Programming"/></li>
+	  </ul>
+	  <li>There are also sub-paradigms, such as:</li>
+	  <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Agent-oriented_programming">Agent-Oriented Programming Languages</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a></li>
+	  </ul>
+  </ul>
+  <li><a href="https://en.wikipedia.org/wiki/Category:Concurrent_programming_languages">Concurrent Languages</a></li>
+  <li>Dataflow Group</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Concatenative_programming_language">Concatenative Languages</a> (sometimes called Pipelines)</li>
+    <li><a href="https://en.wikipedia.org/wiki/Dataflow_programming">Dataflow Programming</a></li>
+  </ul>
+</ul>
+
+<h2>Declarative</h2>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Functional_programming">Functional</a></li>
+  <ul>
+    <li>List-based (cf. <a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#List-based_languages_%E2%80%93_LISPs">List-based languages</a>)</li>
+  </ul>
+  <li>Logic Group</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Logic_programming">Logic</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Constraint_programming">Constraint</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Rule-based_languages">Rule-based</a></li>
+  </ul>
+  <li>Reactive</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Synchronous_programming_language">Synchronous</a></li>
+  </ul>
+  <li><a href="https://en.wikipedia.org/wiki/Query_language">Query</a></li>
+</ul>
+
+<h1>Uncategorised</h1>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Metaprogramming">Metaprogramming Languages</a></li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Reflective_programming">Reflective Languages</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Syntax-handling_languages">Syntax-handling</a></li>
+  </ul>
+  <li><a href="https://en.wikipedia.org/wiki/Transformation_language">Transformation languages</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Visual_programming_language">Visual languages</a></li>
+  <li>Inclusion Group</li>
+  <ul>
+    <li>Embeddable</li>
+    <li>Extension</li>
+    <li>Interactive</li>
+    <li>Often <i>Little Languages (DSLs)</i></li>
+    <li><a href="https://en.wikipedia.org/wiki/Authoring_language">Authoring Languages</a></li>
+  </ul>
+</ul>
+
+<h1>Data-Focussed Paradigms</h1>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Table-oriented_programming">Table-Oriented Programming</a></li>
+  <ul>
+    <li>General-purpose <a href="https://en.wikipedia.org/wiki/Table-oriented_programming">Table-Oriented Programming</a></li>
+    <li>Decision Table Languages</li>
+  </ul>
+  <li>Jungle-Oriented Programming (tree programming, but it's really a directed graph, not a tree)</li>
+  <li>Fourth Generation</li>
+  <li>Array Languages</li>
+  <li>Stack-based</li>
+</ul>
+
+
 </content>
 </page>
