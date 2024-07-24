@@ -20,14 +20,38 @@ Content
 			Typical Attributes section of: https://en.wikipedia.org/wiki/Data_dictionary
 
 
--	Make the Language Analogy a separate page; pull in the noun-verb priority stuff
--	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
-
 #TODO Maybe write an article about why Raku is the perfect programming language for research, because:
 #-       Flexible grammar, slangs
 #-       Already has many paradigms -- no need to reinvent the wheel
 
 
+Stuff to write up in the Other Material section (with Zealot-Oriented Programming):
+-	Categorisation of Paradigms (the less relevant part at the bottom)
+	Possibly Merge also the following:
+	-	cf. http://localhost:8000/TOP/Introduction/Paradigm-Placement.xml (not linked from anywhere yet)
+	-	./TOP/Comparisons/Paradigm-Comparisons.xml
+-	The English Analogy stuff
+-	Write up the Kitchen analogy for computers
+
+Also, on the RAD page, include references to Pharo (modern Smalltalk)
+
+Really need to create a programming language for people who understand a dictionary and a kitchen, that:
+-	Uses verbs and nouns instead of functions and variables
+-	Uses written English as a guide instead of mathematics
+-	Distinguishes different kinds of nouns -- Proper nouns are objects, and have a capital letter.  
+	classes are lower case, etc, etc
+-	Prepositional phrases will feature strongly.  Function parameters are:
+	-	Subject/Object
+	-	Various prepositions
+-	Make the Language Analogy a separate page; pull in the noun-verb priority stuff
+-	Pull in material from https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/oopbad.htm#isa
+
+
+Each class (eg. "man") has a context variable associated with it, which is set whenever something of that
+class is referenced.  This will be a pain with class hierarchies, but means that whenever someone says 
+"the X" (eg. "the man"), then this will reference the context variable.  
+
+Maybe go on with Programming Paradigms book
 
 Interface
 ---------
