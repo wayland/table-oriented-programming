@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Declarative-Raku-Comparison.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<h1>Declarative Raku vs. Logic Programming</h1>
+
+<p>This sections is somewhat sketchy, and should be skipped unless you're 
+particularly interested.  </p>
+
+<h2>Logic Programming to Raku</h2>
+
+<ul>
+  <li>Query = predicate call</li>
+  <li>Backtracking = backtracking</li>
+  <li>Unification = Matching a predicate call to a predicate (including 
+    Capture/Signature matching)</li>
+  <li>Function definition line = head</li>
+  <li>Function body = clause</li>
+</ul>
+
+--
+
+<ul>
+  <li>Raku classes represent the values in logic programming</li>
+  <li>Predicates define relations between classes</li>
+  <li>All predicates derive from base predicate class (from Routine?)</li>
+  <li>Predicates definitions match predicate calls with something like 
+    multiple dispatch, but reversed</li>
+</ul>
+
+<h2>Understanding Logic Programming</h2>
+
+<p>In Prolog, facts, rules, and queries are all based on predicates.  </p>
+<ul>
+  <li>Fact is a predicate that is assumed true</li>
+  <li>Query is an attempt to prove or disprove (not provable = disproved)</li>
+  <li>rules are predicates that have the definition on the left, and the body on the right</li>
+</ul>
+
+According to https://stackoverflow.com/questions/6337778/predicate-vs-functions-in-first-order-logic
+
+<ul>
+  <li>Predicates are functions that return true or false</li>
+  <li>Functions are predicates that return an object</li>
+</ul>
+
+<p>Objects are ... objects (nouns)</p>
+<p>Relations are either boolean attributes of the object (ie. red, round), or 
+  n-ary attributes (ie. brotherOf) (ie. there might be more than one item in the result set)</p>
+<p>Functions are unary attributes of objects (arity might be eg. 2, but there 
+will only be one item in the result set)</p>
+
+<ul>
+  <li>Prolog has a "term", which can be an atom, a number, a variable, or a compound term (functor + arguments)</li>
+  <li>Atoms are either labels with no inherent meaning, or are the name of a functor</li>
+  <li>Functors can be declared as operators</li>
+  <li>To translate these into Raku, we get:</li>
+  <ul>
+    <li>Numbers: regular Raku numeric types</li>
+    <li>Atom: Can just use strings</li>
+    <li>Variable: This is an as-yet undefined variable (free variable); could we use Nil?  But Nil isn't named.  What about a Pair with the value Nil?  </li>
+    <li>Functor: Can we reuse functions somehow?  That'd be really handy.  </li>
+  </ul>
+</ul>
+
+<h1>Declarative Raku queries/predicates vs. Other Concepts</h1>
+
+<p>cf. <a href="Queries.xml">Queries</a> page for this comparison</p>
+
+<h1>Features vs. Declarative Languages</h1>
+
+
+<table>
+  <tr>
+    <th rowspan="2">Name</th>
+    <th rowspan="2">Description</th>
+    <th rowspan="2">Grouping</th>
+    <th colspan="3">Logic Resolution</th>
+    <th colspan="3">Database</th>
+    <th rowspan="2">Covered by Declaraku</th>
+  </tr>
+  <tr>
+    <th>Backtracking</th>
+    <th>Unification</th>
+    <th>Pattern/Action</th>
+    <th>Uses Tables</th>
+    <th>Uses Trees</th>
+    <th>Stores other data</th>
+  </tr>
+  <tr><th colspan="10"><h3>Document Specification</h3></th></tr>
+  <tr>
+    <th>HTML</th>
+    <td>Specifies what the page looks like, but not control flow for rendering, nor user interations</td>
+    <td>Nesting</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Not really</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr><th colspan="10"><h3>Document Transformation</h3></th></tr>
+  <tr>
+    <th>Regex/Grammars</th>
+    <td>Transform source document to destination document.  Builds Tree from text</td>
+    <td>Grammar</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>XSLT</th>
+    <td>Transform a document to a destination document</td>
+    <td>Modes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr><th colspan="10"><h3>Query-resolving</h3></th></tr>
+  <tr>
+    <th>Prolog</th>
+    <td>Given facts and functors, solve a query for an unknown</td>
+    <td>?? Problem, Module, Factbase</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes (kinda)</td>
+    <td>Yes (Facts)</td>
+    <td>No</td>
+    <td>Yes (Functors)</td>
+    <td>Do after SQL</td>
+  </tr>
+  <tr>
+    <th>SQL</th>
+    <td>Given tables and a query specifying relationships between them, return another tabular dataset</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Specify table-walking stuff more; specify a unified database model (tree + table; include relations)</td>
+  </tr>
+  <tr><th colspan="10"><h3>System Programming</h3></th></tr>
+  <tr>
+    <th>Puppet Resources</th>
+    <td>Set up a system in the desired way</td>
+    <td>Manifests</td>
+    <td>?</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes (resources/manifests)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Make</th>
+    <td>Given certain filenames, performs certain actions to produce other filenames</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+</content>
+</page>

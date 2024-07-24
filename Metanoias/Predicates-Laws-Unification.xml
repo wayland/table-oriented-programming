@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Predicates-Laws-Unification.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<h1>Predicates and Joins</h1>
+
+<h2>Overview</h2>
+
+<p>A Predicate is a descendent of Set (or maybe does Set), but also of proto
+methods.  The Predicate has an attached Signature (ie. a list of names with 
+types, but no bound variables).  The elements of the Predicate are items that 
+do Callable (mostly laws -- see below).  This means that each
+element will have a Capture method.  They should only be placed in the set if
+that Capture matches the Signature of the Predicate.  </p>
+
+<p>Predicates function as Relations (with a few additional pieces).  </p>
+
+<h2>Joins</h2>
+
+<p>Join operations should be defined for Predicates.  For the individual join 
+operators, see the "Concatenation" row in
+<a href="../Raku-TOP/Operators/">TOP::Operators</a> (and the related 
+documentation under "Column-based Operators".  Some of these already exist
+in Raku, but we should make at least most of the others.  The Join operators
+produce another predicate (although usually a more concrete one).  </p>
+
+<h1>Laws</h1>
+
+<p>The idea with a Law is that, when you define it,
+you specify values for the parameters (and it's a multi, so multiple defintions
+are likely).  This makes the parameter definition more like a Capture than a
+Signature.  When you make a call to a law/predicate, you use a Signature in 
+the call, and it 
+returns all the definitions that matched.  This makes it useful for queries
+-- you can put in a query with some undefined (free) variables and it will return all 
+items (Laws) that match.  </p>
+
+<p>The matching logic (traditionally called "unification") is almost exactly 
+what's used for Multiple Dispatch, with the following exceptions:</p>
+
+<ul>
+  <li>When a definition matches, the body is run (and this is where the power 
+    of this approach comes from).  The body will return a Match object; if the 
+    Match object evaluates to True, the Match is added to the array of return 
+    values</li>
+</ul>
+
+<p>Here's a comparison table:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Function Definition</th>
+    <th>Function Call</th>
+    <th>Law Definition</th>
+    <th>Law Call</th>
+  </tr>
+  <tr><th colspan="5">Routine Parts</th></tr>
+  <tr>
+    <th>Routine Name</th>
+    <td>Identifier</td>
+    <td>Identifier</td>
+    <td>Identifier</td>
+    <td>Identifier</td>
+  </tr>
+  <tr>
+    <th>Routine Inputs</th>
+    <td>Signature</td>
+    <td>Capture</td>
+    <td>Capture</td>
+    <td>Signature</td>
+  </tr>
+  <tr>
+    <th>Routine Outputs</th>
+    <td colspan="2">Return Value + rw Parameters</td>
+    <td colspan="2">Match Object</td>
+  </tr>
+  <tr>
+    <th>Routine Body</th>
+    <td>Raku Code Block</td>
+    <td>-</td>
+    <td>Raku Law Code Block</td>
+    <td>-</td>
+  </tr>
+  <tr><th colspan="5">Matching process</th></tr>
+  <tr>
+    <th>Overview</th>
+    <td colspan="2">Take a single Capture (in call), and compare against each 
+      available signature (in definition)</td>
+    <td colspan="2">Take a single Signature (in call), and compare against 
+      each available Capture (in definition)</td>
+  </tr>
+  <tr>
+    <th>Stop matching after</th>
+    <td colspan="2">First match</td>
+    <td colspan="2">All that match (ie. each function has an implied "nextsame" at the end)</td>
+  </tr>
+</table>
+
+<p>The first thing to note in the table above is the reversing of the 
+Signature and the Capture.  A Capture has the values filled in already, and 
+the Signature is full of named unknowns (free variables) where the values can 
+be put (if binding succeeds).  In this case, Law calls will be 
+used in the Query, so they are full of unknowns (Signature) that want to match 
+something (Capture).  As per the "role BirthdayCongrats" example near the 
+bottom of <a href="https://docs.raku.org/syntax/multi">multi</a>, it's already
+possible for a Signature to contain actuals as well, which will need to match
+the actuals in the Capture as well.  </p>
+
+<p>The second thing to note is that in both cases, the search process takes the
+call, and matches it against the definition looking for matches, but in the 
+second case, it includes everything that matches, not just the first.  </p>
+
+<p>Naturally, the body of this kind of routine can't be quite like the body
+of a regular routine.  The relevant changes are:</p>
+
+<ul>
+  <li>Any code called should be predicates/queries, not other kinds of routine</li>
+  <li>The law should return a Match object that is true if the item matches, 
+    and false if not.  </li>
+  <li>If no body is supplied, the default is to return true</li>
+</ul>
+
+<p>Now for an example.  To see the family tree modelled here as a diagram, see
+<a href="https://www.chegg.com/homework-help/questions-and-answers/consider-following-family-tree-represent-family-tree-prolog-define-cousin-relationship-not-q52199342">
+Family Tree Question</a>.  </p>
+
+<code class="block"># A Database is a group of relations
+database Kinships {
+  # Declare a proto for fatherOf -- could use objects instead of strings
+  relation  fatherOf(Str, Str);
+  law fatherOf("Alex", "John");
+  law fatherOf("Bob", "John");
+  law fatherOf("Mick", "Alex");
+  ...
+}
+
+# A query
+say Kinships.fatherOf(Str $name, "John");    # OUTPUT: «name => "Alex"␤name => "Bob"␤»
+
+# ...and the continuation of Kinships database
+  ...
+
+  relation  grandfatherOf(Str, Str);
+  law grandfatherOf($x, $y) {
+    my Str $z;  # Because it's in the body of a law, this declares a 
+                # free variable that will take on all the returned values in turn
+    
+    # Using ≜ as a natural join operator defined on Match objects (or on the Captures returned)
+    return fatherOf($x, $z) ≜ fatherOf($z, $y);
+  }
+}
+
+say Kinships.grandfatherOf('Mick', Str $x);
+</code>
+
+<h1>Equality Unification</h1>
+
+<p>Borrowed from Alma-0, there will be a new Unification Equals operator, 
+≛ (U+225B 	STAR EQUALS), which has the following properties:</p>
+
+<ul>
+  <li>If both sides are known (non-Nil), then it functions as a Boolean 
+    <code>==</code></li>
+  <li>If one side is known, and the other is unknown (Nil), then it functions 
+    as a symmetric assignment operator (the Nil side is assigned to the non-Nil
+    side)</li>
+  <li>If both sides are unknown (Nil), then it throws an error</li>
+</ul>
+
+<p>The stringish equivalent is <code>equ</code>.</p>
+
+<p>The goal here is that we be able to use the same functions for both setting
+data and testing whether data is set.  </p>
+
+<div style="background-color: red">-</div>
+
+<div style="background-color: #ffefdf">
+<h4>Implementation Notes</h4>
+
+<ul>
+  <li>On Predicate, add functions for:</li>
+  <ul>
+    <li>Signature: fetches Signature</li>
+    <li>Override CALL-ME to change candidate-matching behaviour.  </li>
+    <li>In future,
+      the following functions/attributes would enable the candidate-matching
+      behaviour to all be put in one place:</li>
+    <ul>
+      <li>On Callable, a DefinitionSpecification method that returns Captures/
+        Signatures depending on whether the method is a descendent of 
+        Predicate or not</li>
+      <li>On Code, a CallSpecification method that returns the opposite of 
+        whatever DefintionSpecification returns</li>
+      <li>A match-halt attribute (not sure on what, but assume Code for now).  
+        If it's set to 1 (as it would be on Code), then it stops after the 
+        first candidate is matched (unless someone uses nextsame, etc).  If 
+        it's undefined (as it would be on Predicate), then <i>all</i> 
+        candidates are matched.  </li>
+    </ul>
+  </ul>
+  <li>Any parameters not a definite item should be seekables</li>
+</ul>
+
+<p>A quick comparison of existing Raku function candidate selection vs. Prolog
+(though if Gödel does something similar, that might be a better process.  
+The matching works as follows:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Unification</th>
+    <th>Raku Function Calling</th>
+  </tr>
+  <tr>
+    <td>Are both items parameters with a value?  </td>
+    <td>If values are the same, succeed (whatever that means)</td>
+    <td>If values are the same, succeed (ie. progress towards running function)</td>
+  </tr>
+  <tr>
+    <td>Are call terms both non-scalar?</td>
+    <td>If not, fail</td>
+    <td>Won't match because of type mismatch</td>
+  </tr>
+  <tr>
+    <td>Do they have the same function/relation name and arity?</td>
+    <td>If not, fail</td>
+    <td>Won't match because of arity or function name mismatch</td>
+  </tr>
+  <tr>
+    <td>Can Capture/Signature be unified?</td>
+    <td>If not, fail</td>
+    <td>If not, fail</td>
+  </tr>
+</table>
+
+</div>
+
+</content>
+</page>

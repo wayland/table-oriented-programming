@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Backtracking-Transactions.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<h1>Backtracking and Transactions</h1>
+
+<p>Sources of inspiration for backtracking should include:</p>
+
+<ul>
+  <li>Raku grammars, obviously</li>
+  <li>Anyone who has tried to integrate backtracking into an imperative 
+    language, such as <a href="https://en.wikipedia.org/wiki/Alma-0">Alma-0</a>
+    (Alma Zero).  </li>
+</ul>
+
+<p>On the assumption that we already know more about grammars, let's start by
+looking at the features that Alma-0 added to Modula 2.  </p>
+
+<div class="blockquote">
+<p>In this article, we ... introduced the following nine extensions:</p>
+
+<ul>
+  <li><b>BES</b>: Add boolean expressions to statements.</li>
+  <li><b>SBE</b>: Add statement sequences to boolean expressions.</li>
+  <li><b>ORELSE</b>: Add the <code>ORELSE</code> statement.</li>
+  <li><b>SOME</b>: Add the <code>SOME</code> statement.</li>
+  <li><b>COMMIT</b>: Add the <code>COMMIT</code> statement.</li>
+  <li><b>FORALL</b>: Add the <code>FORALL</code> statement.</li>
+  <li><b>EQ</b>: Generalise equality</li>
+  <li><b>MIX</b>: Introduce a new parameter mechanism: call by mixed form</li>
+  <li><b>KNOWN</b>: Introduce the <code>KNOWN</code> relation, to test whether
+    a variable of simple type is initialized.</li>
+</ul>
+
+<div class="reference">
+  <i><a href="http://www.cwi.nl/~apt/alma.ps">Alma-0: An Imperative Language 
+  that Supports Declarative Programming</a>, Krzysztof R. Apt, Jacob 
+  Brunekreef, Vincent Partington, Andrea Schaerf (1998), p. 26-27.</i>
+</div>
+</div>
+
+<p>It's useful to divide these up into:</p>
+
+<ul>
+  <li>Features that are already in Raku: SBE, KNOWN</li>
+  <li>Features that require new syntax and are useful for backtracking: 
+    ORELSE (like given/when), SOME (like for), COMMIT, FORALL (like for)</li>
+  <li>Features used for unification: EQ, MIX</li>
+  <li>Can be implemented trivially: BES (just add "or fail" to the end of
+    the boolean expression)</li>
+</ul>
+
+<p>Having done this, we now should investigate the best way to achieve the
+backtracking-related features in Raku.  </p>
+
+<h3>either blocks</h3>
+
+<p>If you're following the Alma-0 features, this is equivalent to the ORELSE
+feature, and also covers the SOME feature.  </p>
+
+<p>The first is a new control structure we'll be calling the either 
+block.  It functions a bit like like given/when, but for transactions.  </p>
+
+<code class="block"># Setting up some variables
+my $a = 1;
+my $b = 2;
+my $c = 3;
+
+# First set of attempts
+either($c) {
+  when {
+    $c--;
+    say "C is $c";  # OUTPUT: "C is 2"
+    if $c &lt; 3 { leave; }  # The revert will go to the next transaction
+    say "C is $c";  # Never runs
+  }{}
+  when {
+    $c++;
+    say "C is $c";  # OUTPUT: "C is 4" (because we're starting from 3 again)
+    if $c &lt; 3 { leave; }  # The condition isn't true, so no-op
+    say "C is $c";  # OUTPUT: "C is 4"
+  }{}
+}
+say "C is $c";  # OUTPUT: "C is 4"
+
+# Second set of attempts
+either($c) {
+  when {
+    $c++;
+    say "C is $c";  # OUTPUT: "C is 4"
+    rollback;       # Rolls $c back to 3
+    say "C is $c";  # OUTPUT: "C is 3"
+  }{}
+}
+say "C is $c";  # OUTPUT: "C is 3"
+
+# Third set of attempts
+my @d = &lt;1 2 4 3 5&gt;
+EITHER_BLOCK: either($c) {
+  for @d -> $d {
+    EITHER_BLOCK.when {
+      ($d % 2) == 0 and $c++;
+      say "Loop C is $c, D is $d";
+      $d > $c or Nil;
+    }{}
+  }
+}
+say "END C is $c";
+</code>
+...and that final set of attempts has the output:
+<code class="block">Loop C is 3, D is 1
+Loop C is 4, D is 2
+Loop C is 3, D is 4
+End C is 3
+</code>
+
+<p>Now to define the control flow items used in the example above:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Description</th>
+    <th>Nearest SQL equivalent</th>
+    <th>Nearest Alma-0 equivalent</th>
+  </tr>
+  <tr>
+    <th><code>either</code></th>
+    <td>This control structure will run its statements, but
+      before each <code>when</code> or <code>if</code> statement, it will set 
+      <code>let</code> variables for the "passed" variables (<code>$c</code>) 
+      so that they will revert to the value they had when the 
+      <code>either</code> began.  As usual with <code>let</code>, if the 
+      block returns 
+      successfully, then the passed variables are not reset at the end, but if
+      the block fails, then they're reset to the original values at the end.  
+      It also sets the topic to True, to keep the <code>when</code> clauses 
+      happy.  
+    </td>
+    <td>BEGIN (transaction)</td>
+    <td>COMMIT</td>
+  </tr>
+  <tr>
+    <th><code>when</code></th>
+    <td>This is almost the usual <code>when</code> statement, but note that the 
+      matcher is a codeblock, and the usual <code>when</code> codeblock is
+      actually empty.  That's actually currently implemented.  However, note
+      that it's called on a <code>Label</code> (not currently implemented).  
+      This will mean that, if the condition matches as per usual, then rather
+      than exiting the containing block, it will exit the labelled block
+      (as though <code>leave</code> were called at the end of the 
+      <code>when</code> block).</td>
+    <td>COMMIT or ABORT, depending</td>
+    <td>EITHER, ORELSE, END (commit)</td>
+  </tr>
+  <tr>
+    <th><code>leave</code></th>
+    <td>This is the not-yet-implemented <code>leave</code>
+      command.  It's apparently on the list of things to do, but unlikely to 
+      happen soon.  </td>
+    <td>ABORT</td>
+  </tr>
+  <tr>
+    <th><code>rollback</code></th>
+    <td>This is also a control exception that will be caught by an either 
+      block; the attempt will reset the <code>let</code> variables and then 
+      <code>.resume</code>.  </td>
+    <td>ROLLBACK</td>
+  </tr>
+</table>
+
+<p>Because <code>attempt</code> and <code>either</code> blocks don't need to 
+be immediately nested, it's possible to put a <code>for</code> loop (or other
+structure) inside the <code>either</code> block, but around the 
+<code>attempt</code> block.  This means that we also get the SOME feature for
+free, thanks to Raku's flexibility.  </p>
+
+<p>To get the equivalent of the Alma-0 FORALL feature, we can:</p>
+<ul>
+  <li>Use <code>if</code> statements instead of <code>when</code> statements, OR</li>
+  <li>Use <code>proceed</code> statements in our <code>when</code> statements</li>
+</ul>
+
+<p>The down side of doing FORALL this way is that the code is specific to 
+either way of doing things; if we instead set an :all adverb on the either 
+command, and could then set it programmatically, it would give us additional
+flexibility in certain directions.  That might be one for Raku 8 though.  </p>
+
+<p>The idea of only using <code>let</code> on the variables passed to 
+<code>either</code> was an attempt to a) make it easier to implement, and b)
+to save some RAM on arrays/tables.  </p>
+
+</content>
+</page>

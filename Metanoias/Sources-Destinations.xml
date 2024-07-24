@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Sources-Destinations.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<h1>Source Data Structures</h1>
+
+<p>In declarative Raku Sources and Destinations are both data structures.  As
+a reminder, the three standard structures are:</p>
+
+<ul>
+  <li>A Stream</li>
+  <li>A Table</li>
+  <li>A Tree</li>
+</ul>
+
+<h2>Source Structuring for Logic Programming</h2>
+
+<p>We're all familiar with Raku 6 grammars (aka Queries) being made of rules.
+Logic programming has a different approach to rules; they're mainly defined 
+in the Source (which Prolog calls a database, and Gödel would refer to as a
+module).  </p>
+
+<p>This means that if we want to support logic programming in Raku, we need 
+not only some extra facilities in the language, but we need some extra 
+facilities in the matching process that matches the source and the query.  To
+understand what these extra facilities might be, let us look at an example of
+what might be in the Source.  </p>
+
+<p>This is a comparison of the contents of a Source with items that might 
+already be familiar.  </p>
+
+<table>
+  <tr>
+    <th>Declarative Raku</th>
+    <th>Imperative Raku</th>
+    <th>Raku Grammars</th>
+    <th>SQL</th>
+    <th>Prolog</th>
+    <th>Gödel</th>
+    <th>Comments</th>
+  </tr>
+  <tr>
+    <th>database</th>
+    <td>class</td>
+    <td>grammar</td>
+    <td>database</td>
+    <td>database</td>
+    <td>module</td>
+  </tr>
+  <tr>
+    <th>predicate</th>
+    <td>proto</td>
+    <td>proto</td>
+    <td>TABLE/Relation</td>
+    <td>(rule set)</td>
+    <td>predicate</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>law</th>
+    <td>multi method</td>
+    <td>rule/token</td>
+    <td>Tuple, or part of a view that generates a Tuple</td>
+    <td>rule</td>
+    <td>rule</td>
+    <td>In all relevant cases, <br/>this is the name/ <br/>parameters, not the body</td>
+  </tr>
+  <tr>
+    <th>law body</th>
+    <td>-</td>
+    <td>rule/token body</td>
+    <td>-</td>
+    <td>rule body</td>
+    <td>rule body</td>
+    <td></td>
+  </tr>
+</table>
+
+<p>I would happliy have used the word "rule" instead of "law", but "rule" is
+already in use by the regex/grammar.  If there's a desire to rename this, I'm 
+in favour, but will use the word "law" until that decision is made.  </p>
+
+<p>Note that the key thing about the law body is that, if it returns false, 
+the match fails.  This is why a method body is excluded, because it'll match
+based on the header, not the body.  </p>
+
+<p>Having given equivalences for laws and various familiar structures, it's 
+important to note some of the <i>differences</i> as well:</p>
+
+<ul>
+  <li>There's a new type of Routine called a <b>Law</b> (because Rule was taken -- 
+    unless we want to redefine it).  A Law <i>definition</i> has a Capture 
+    instead of a Signature, and a Law <i>call</i> has a Signature instead of a 
+    Capture.  Think of the definition as data (but with an attached code 
+    block), and the call as a query on the data.  It may or may not help to 
+    think of it as a reverse function.  </li>
+  <li>Laws are always multi.  The proto is called a predicate</li>
+</ul>
+
+<p>For more details on these structures, see 
+<a href="Predicates-Laws-Unification.xml">Predicates, Laws, and 
+Unification</a>.  </p>
+
+<h1>Destination Data Structures</h1>
+
+<p>These will be covered a little more under Producers.  They're essentially 
+the same as Source data structures, but will be processed by the next item in 
+the processing chain.  </p>
+
+</content>
+</page>

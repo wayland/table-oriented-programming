@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Two-dimensional-Data.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>Perl in its day was inspirational in its data structures was flexible and
+somewhat inspirational.  We were all of course familiar with zero-dimensional 
+data structures (which Perl lumped together under the "scalars" heading),
+and arrays, but hash arrays were likely a revelation to C programmers (but not
+to those who had experienced SNOBOL 4).  Perl's arrays and hash arrays
+(Positional and Associative) were generally one-dimensional.  </p>
+
+<p>Raku has beefed up its support for zero-dimensional and one-dimensional data
+structures, but has done little to advance into two-dimensional data structures, 
+other than better support for multi-dimensional positional arrays.  While it's 
+true that all the common two-dimensional data structures can be represented
+using one-dimensional structures, it's also possible to represent all one-
+dimensional data structures using zero-dimensional ones, this isn't nearly as
+usable as having the one-dimensional structures.  Raku is partly about making 
+the easy things easy.  </p>
+
+<p>For those not familiar with two-dimensional data structures, the primary 
+ones are:</p>
+<ul>
+  <li>The two-dimensional array</li>
+  <li>The Table</li>
+  <li>The Tree</li>
+</ul>
+
+<h1>2D Arrays</h1>
+
+<p>These are already relatively well-supported -- cf. 
+<a href="https://docs.raku.org/language/operators#Metaoperators">
+Metaoperators</a>, but there are still definitely some weaknesses on this 
+front -- see 
+<a href="https://www.reddit.com/r/apljk/comments/oh63jr/would_you_consider_raku_to_be_an_array_language/">
+Would you consider Raku to be an array language?</a>.  To address the points
+made by moon-chilled:</p>
+
+<ul>
+  <li><b>Arguments that might be valid:</b></li>
+  <ul>
+    <li><i>No rank operator [moon-chilled]</i> -- I've no idea, so could be true</li>
+    <li><i>No user-defined meta-operators [moon-chilled]</i> -- seems to be true</li>
+    <li><i>Meta-operators don't compose well [moon-chilled]</i> -- could be; not sure</li>
+    <li><i>No tacit programming [moon-chilled]</i> codesections argued that 
+      this is incorrect, but there was no reply from the array-oriented 
+      programming people</li>
+    <li><i>Arrays are distinct from lists, vectors, sets [GodSpiral]</i></li>
+  </ul>
+  <li><b>Arguments only applicable to pure (mono-paradigm) array-oriented 
+    languages:</b></li>
+  <ul>
+    <li><i>Array is not a fundamental data type [moon-chilled]</i></li>
+    <li><i>Syntactic Irregularity [moon-chilled]</i></li>
+  </ul>
+</ul>
+
+<p>I don't have any proposals here; would like to see some though.  </p>
+
+<h1>Tables</h1>
+
+<p>We build in <a href="TOP/Introduction/What.xml">Table-Orieinted 
+Programming</a>, as per the material at <a href="Raku-TOP/Introduction.xml">
+Raku TOP</a>.  </p>
+
+<h1>Trees</h1>
+
+<p>This paradigm doesn't seem to have a name (Tree-Oriented Programming has 
+the same initials as Table-Oriented Programming, so maybe Jungle-Oriented
+Programming?).  </p>
+
+<p>The only languages that I can think of that follow this are:</p>
+
+<ul>
+  <li>XSLT would be the prime example.  Despite the unsuitability of XML for
+    transmitting generic data over the Internet (where JSON has won out), XML
+    still has good uses; representing documents (HTML anyone), and XPath and
+    XSLT are both also good in their own ways.  </li>
+  <li>Makefiles and Puppet both transform trees into other trees, but aren't as
+    inherently tree-oriented as XSLT</li>
+</ul>
+
+<p>The plan is that we'll build into the language:</p>
+
+<ul>
+  <li>Objects representing trees, including a selection language for the trees</li>
+  <li>Unlike XML/XPath, there should be multiple <b>perspectives</b> on a tree; if 
+    there are two interleaved (non-nested) sets of tags in the document, each can be 
+    queried without reference to the other.  An example would be one layer of 
+    tags for marking up the physical (eg. page/line beginnnings/endings), and
+    another to mark up the logical blocks (stanzas, or bible verses or 
+    whatever), and another for critical annotations (eg. "Omitted in 
+    manuscript C).  The raw text belongs to all perspectives; nodes generally
+    belong to one, but may belong to multiple.  Thus it should be possible to
+    build multiple trees from the one document.  </li>
+</ul>
+
+</content>
+</page>

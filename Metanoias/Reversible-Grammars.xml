@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Reversible-Grammars.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>Some of us remember with fondness Perl 5's <code>pack</code> and 
+<code>unpack</code> routines<ref>Included in Raku via the 
+<a href="https://github.com/lizmat/P5pack">P5Pack</a> module</ref>.  
+I even remember trying to figure out whether these or regular expressions were 
+better for a particular problem.  </p>
+
+<p>The advantage of regular expressions was their greater flexibility.  The 
+advantages of <code>pack</code>/<code>unpack</code> were their direct handling
+of binary, and their reversibility.  But what if we could combine the 
+advantages of both into one?  While attempts are being made that Raku 
+regular expressions handle binary, I want to address reversibility.  </p>
+
+<p>Since, in Raku, regular expressions are part of grammars, we want to be able
+to use that functionality as well.  Since grammars transform a stream of text
+(or bytes) into a tree, a reversible grammar should be able to transform a 
+correctly-structured tree into a stream of text or bytes.  This would achieve 
+the reversibility goal.  It would also mean that a grammar for eg. YAML, JSON,
+or CSV would be able to write files in those formats as well as read them.  </p>
+
+<p>What does this look like?  I'm not sure at the moment, but I have a lurking 
+suspicion that we will be feeding a Match object to a grammar, and having it 
+render that match object into a stream of text using the regular expressions.</p>
+
+<p>It might sound like a pain to construct a carefully crafted Match object,
+and that's true, but with some proper (reversible) tree-transformation tools, 
+it should be possible to transform a relatively normal tree into a tree of
+Match objects, and from there, to a stream of bytes.  </p>
+
+<p>Why is this so short on details?  I definitely need to learn more about
+tree transformation and how we can implement it in Raku before I suggest any
+designs here.  The only comment I'll make is that XSLT is likely a good 
+starting point for a tree transformation language (though we want to 
+incorporate its features, but not its restrictions).  </p>
+
+</content>
+</page>

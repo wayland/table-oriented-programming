@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <!-- base href="http://localhost:8000/"/ -->
-  <base href="https://wayland.github.io/table-oriented-programming/"/>
+  <base href="http://localhost:8000/"/>
+  <!-- base href="https://wayland.github.io/table-oriented-programming/"/  -->
   <menubar>
     <menu>
       <title>Progamming Productivity</title>
@@ -24,9 +24,12 @@
       <menuitem name="AI and coding" href="AI/AI-and-Coding.xml"/>
     </menu>
     <menu>
+      <title>Metanoias</title>
+      <menuitem name="Introduction: Metanoias and Other Paradigms" href="Metanoias/Introduction.xml"/>
+    </menu>
+    <menu>
       <title>Other Material</title>
       <menuitem name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
-      <!-- item title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
     </menu>
     <!--menu>
       <title></title>

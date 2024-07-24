@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Introduction.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>The (Koine) Greek work <a href="https://en.wiktionary.org/wiki/%CE%BC%CE%B5%CF%84%CE%AC%CE%BD%CE%BF%CE%B9%CE%B1">
+μετάνοια</a> (metanoia) etmologically means "after-mind", and is usually 
+translated "afterthought", "repentance", or "change of mind".  </p>
+
+<p>These are my calls for changes in the next major version of Raku (ie. the 
+one that will finally break backwards compatibility).  This would likely be
+version 6.1 or 7.  I would assume we'll 
+follow the same pattern as the early process, with Apocalypses from Larry, and
+hopefully Exegeses from someone; these are precursors to that -- they are my 
+personal feature pre-requests (and hopefully the Apocalyses will take them into
+account).  </p>
+
+<p>The main driver for this is that I think that Raku, while doing a good job
+of integrating material from a wide range of programming paradigms, has missed 
+a few that I think would be useful.  A quick summary of these is:</p>
+
+<ul>
+  <li>The various <b>Data-Oriented Programming</b> paradigms, such as:</li>
+  <ul>
+    <li><a href="TOP/Introduction/What.xml">
+      Table-Orieinted Programming</a></li>
+    <li>Jungle-oriented Programming for managing trees.  Not a named paradigm 
+      -- the only example language I can think of is XSLT.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Array_programming">Array Programming</a>:
+      We already mostly do this</li>
+  </ul>
+  <li>The various <b><a href="https://en.wikipedia.org/wiki/Declarative_programming">
+    Declarative Programming</a></b> paradigms, including:</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Logic_programming">Logic Programming</a>.</li>
+    <li>Transformation Languages, such as Raku Grammars and XSLT</li>
+    <li>Declarative Systems Programming languages such as Puppet and Makefiles</li>
+  </ul>
+</ul>
+
+<p>As a precursor to these additions in future versions of Raku, attempts will 
+be made towards Raku 6.0.x modules that will handle these -- hopefully the 
+concepts will be integrated into a future version of the core language (just 
+as Perl's DateTime module was included in Raku 6).  </p>
+
+<p>As Raku 6 cleaned up some of the messes in Perl 5, so we want Raku 7 to 
+clean up some of the messes in Raku 6.  These also deserve their own 
+Metanoias.  </p>
+
+<h1>Data-Oriented Programming -- a Raku-focussed Overview</h1>
+
+<p>The plan is that we'll build into the language:</p>
+
+<ul>
+  <li>Objects representing databases, tables and views (as per the 
+    <a href="Raku-TOP/Introduction.xml">Raku TOP</a> documents).  These could
+    have a variety of backends, including both managing in-memory tables
+    and fetching data from database backends.  This won't be as low-level
+    as DBI -- we'll have objects that represent data, and we can fetch data by
+    using the Associative and Positional roles on the tables/rows/columns.  </li>
+  <li>Objects representing trees, including a selection language for the trees</li>
+</ul>
+
+<p>More detail will be given in the Metanoia on two-dimensional data structures.  </p>
+
+<h1>Declarative Programming -- a Framework</h1>
+
+<p>It will be noted that the Logic Programming paradigm is heavily relied on.
+This is because it's one of the most generic and flexible declarative 
+paradigms, and will serve as a suitable base for building other declarative
+languages.  </p>
+
+<h2>Existing Almost-Declarative Features</h2>
+
+<p>Raku already has a moderate amount of almost declarative programming built 
+in.  The almost-declarative features include:</p>
+<ul>
+  <li>Grammars are declarative programming, and already have a backtracking 
+    engine built in (useful for Logic Programming), but need a bit of 
+    generalisation to make them even more flexible.  </li>
+  <li>Multiple dispatch is a lot like unification (another key component of
+    Logic Programming), but with a few key differences.  </li>
+</ul>
+<p>These facilities get us about 90% of the way there, but 90% is not 100%.  
+</p>
+
+<h2>Declarative Abstractions</h2>
+
+<p>To make Raku suitable for declarative programming, we have to 
+abstract out some core features that are widely used across declarative 
+programming languages.  A number of the sections below will begin with 
+abstracting.  </p>
+
+<h2>Basic Structures</h2>
+
+<p>The basic structures of declarative programming are:</p>
+<ul>
+  <li>A <b>Source</b> data structure of some kind</li>
+  <li>A <b>Query</b> (made of patterns) that walks the source, matching 
+    against it (and triggering actions)</li>
+  <li>Possibly a <b>Producer</b> (made of actions) triggered by the query that outputs
+    the Target; this is a way of making the query results Streamable (ie.
+  	dealing with it a chunk at a time instead of as a whole).  Raku grammars do 
+	  this.  </li>
+  <li>An <b>Target</b> data structure (ie. the results of the query)</li>
+</ul>
+
+<p>There are already some languages which you may have used which support at 
+least some of these structures.  For familiarity purposes, a skim through the 
+following might be useful for comparison at this point:</p>
+
+<style>
+div.datatype {
+  background-color: #dfffdf;
+  padding: 4pt;
+  border: 1pt dotted black;
+}
+td {
+  vertical-align: top;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Language</th>
+    <th>Source Data Structure</th>
+    <th>Query (pattern part)</th>
+    <th>Query (action part)</th>
+    <th>Result Data Structure</th>
+  </tr>
+  <tr><th colspan="5"><h3>Document Transformation</h3></th></tr>
+  <tr>
+    <th>Raku Grammars</th>
+    <td><div class="datatype"><b>Stream</b></div>Text to be parsed ($target passed to Grammar.parse())</td>
+    <td>The grammar is the "query" -- we're asking the source questions using the grammar</td>
+    <td>The Actions object</td>
+    <td><div class="datatype"><b>Tree</b></div><br/>Whatever comes out of the grammar, usually an AST</td>
+  </tr>
+  <tr>
+    <th>XSLT</th>
+    <td><div class="datatype"><b>Tree</b> (automatically pre-parsed)</div>
+      The source .xml document (already transformed into a tree)</td>
+    <td>XPath</td>
+    <td>The xsl:template entries</td>
+    <td><div class="datatype"><b>Tree</b> (automatically post-serialised)</div>
+      The output .xml file (as a tree; it's later serialised to disk)</td>
+  </tr>
+  <tr><th colspan="5"><h3>Systems Programming</h3></th></tr>
+  <tr>
+    <th>Makefile</th>
+    <td><div class="datatype"><b>Filetree</b></div>Source directory tree</td>
+    <td>The glob-like selectors at the top of each Makefile entry</td>
+    <td>The commands run in the Makefile</td>
+    <td><div class="datatype"><b>Filetree</b></div>Destination directory tree</td>
+  </tr>
+  <tr>
+    <th>Puppet</th>
+    <td><div class="datatype"><b>OS Config</b></div>Initial OS config</td>
+    <td>Puppet manifests (the selection parts)</td>
+    <td>Puppet manifests (the action parts)</td>
+    <td><div class="datatype"><b>OS Config</b></div>Final OS config</td>
+  </tr>
+  <tr><th colspan="5"><h3>Query Resolving</h3></th></tr>
+  <tr>
+    <th>SQL</th>
+    <td><div class="datatype"><b>Table</b></div>The existing database</td>
+    <td>The Query</td>
+    <td></td>
+    <td><div class="datatype"><b>Table</b></div>The result set, or changes to the database</td>
+  </tr>
+  <tr>
+    <th>Prolog</th>
+    <td><div class="datatype"><b>Table</b> with selection code</div>Database of facts, predicates, functors, and the like</td>
+    <td>Query</td>
+    <td></td>
+    <td><div class="datatype"><b>Table</b> with selection code</div>Result</td>
+  </tr>
+</table>
+
+<p>For those of you familiar with compiler theory, this sounds a bit like
+a tombstone diagram with an extra Producer step, and you'd be right.  </p>
+
+<p>If we combine this concept with concatenative programming (ie. feed 
+operators, etc), then we can end up with a chain of 
+source/query+producer/result chains, where each result is the source for the 
+next query.  </p>
+
+<p>From this, it can be seen that it'd be useful to have standardised 
+language (or languages) built in to handle conversions between some of the 
+standard data formats, specifically, streams, tables, and trees.  </p>
+
+<p>The following shows examples of existing languages that do the particular
+types of conversion.  </p>
+
+<table>
+  <tr>
+    <th>Source-type</th>
+    <th>Destination-type</th>
+    <th>Languages</th>
+  </tr>
+  <tr>
+    <td>Stream</td>
+    <td>Tree</td>
+    <td>Raku Grammar</td>
+  </tr>
+  <tr>
+    <td>Tree</td>
+    <td>Tree</td>
+    <td>XSLT, Makefile</td>
+  </tr>
+  <tr>
+    <td>Table</td>
+    <td>Table</td>
+    <td>SQL, Prolog</td>
+  </tr>
+</table>
+
+<p>Some of the above languages <i>can</i> do other types of conversions (eg.
+XSLT can generate HTML tables), but the ones in the table above are the ones
+they're best adapted to.  </p>
+
+</content>
+</page>

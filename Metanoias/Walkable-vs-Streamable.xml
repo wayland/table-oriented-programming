@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Walkable-vs-Streamable.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>There are at least two models for navigating data sources.  I've named 
+these models "Walkable" and "Streamable".  While Raku has leaned strongly 
+towards the Streamable model (due to the benefits in concurrency), it uses 
+the Walkable model for grammars -- that's what backtracking is all about.</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Walkable</th>
+    <th>Streamable</th>
+  </tr>
+  <tr>
+    <th>Movement through data source</th>
+    <td>Forwards, backwards, absolute, relative</td>
+    <td>Forwards only</td>
+  </tr>
+  <tr>
+    <th>Advantages</th>
+    <td>More flexible in coding; makes the easy things easy</td>
+    <td>Better for large data sources, and for concurrency</td>
+  </tr>
+  <tr>
+    <th>Disadvantages</th>
+    <td>Doesn't scale as well</td>
+    <td>Comes with restrictions that make it more difficult to use</td>
+  </tr>
+  <tr>
+    <th>Pointer</th>
+    <td>Cursor</td>
+    <td>Iterator/Supply</td>
+  </tr>
+  <tr>
+    <th>Comparable XSLT mode</th>
+    <td>Non-streaming</td>
+    <td>Streaming</td>
+  </tr>
+  <tr>
+    <th>Where does Raku use it?</th>
+    <td>Grammars</td>
+    <td>Most other things, including Iterators and Supplies</td>
+  </tr>
+</table>
+
+<h2>Walkables and Cursors</h2>
+
+<p>Two new roles will need to be added to Raku to support the generic sources
+(rather than just the grammar-specific Str).  These are:</p>
+
+<ul>
+  <li>The <b><code>Walkable</code></b>.  This indicates that the data structure is 
+    walkable, and has a method that provides a <code>Cursor</code>.  The
+    data structure in question might be a <code>Str</code>, a <code>Tree</code>,
+    or a <code>Table</code>.</li>
+  <li>Each <code>Walkable</code> has one or more <code>Cursor</code>s that 
+    indicates the current point in a walkthrough of the data structure.  The 
+    difference between a Cursor and a Iterator
+    is that a Cursor can be walked backwards, and can skip forwards/backwards
+    through the Walkable.  This is less parallelisable than an 
+    <code>Iterator</code>, but is necessary for backtracking (which is 
+    important both in Regexes and in Logic Programming).  </li>
+</ul>
+
+<p>In this case, it's useful to compare the sources by type:</p>
+
+<table>
+  <tr>
+    <th>does Walkable</th>
+    <th>Parent Type</th>
+    <th>Indicator Type</th>
+    <th>Walks by</th>
+    <th>Comments</th>
+  </tr>
+  <tr>
+    <th>Str or Stream</th>
+    <td></td>
+    <td>StreamCursor (?)</td>
+    <td>Character</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Relation</th>
+    <td></td>
+    <td>TOP::Cursor</td>
+    <td>Tuple</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>XML Tree</th>
+    <td>Tree</td>
+    <td>JOP::Cursor</td>
+    <td>Node (or Element?)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>File Tree</th>
+    <td>Tree</td>
+    <td>JOP::Cursor</td>
+    <td>File</td>
+    <td></td>
+  </tr>
+</table>
+
+
+</content>
+</page>

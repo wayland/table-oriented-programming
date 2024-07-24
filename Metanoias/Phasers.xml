@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Phasers.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>This one is not part of either data-oriented programming or declarative
+programming, but the capacity to define phasers will come in handy when setting
+up for declarative programming.  </p>
+
+<h1>Philosophy</h1>
+
+<p>One well-known part of the Raku philosophy is "Make the easy things easy, 
+and the hard things possible".  I'd like to propose a small addendum "...and 
+the orthogonal things orthogonal".</p>
+
+<h1>Overview</h1>
+
+<p>I love phasers.  I love the idea of them, anyway.  Once you actually start 
+using them, reality shows up.  My experience with phasers is that the ones 
+that I want to use often don't exist anyway, because the orthogonal things 
+haven't been kept orthogonal.</p>
+
+<p>This proposal will make phasers much more flexible.  The things added will 
+be:</p>
+
+<ul>
+  <li>User-defined phasers</li>
+  <li>Info about various Phasables such as <code>BLOCK</code> (new methods, etc)</li>
+  <li>A new control structure: <code>once-per</code></li>
+  <li>An additional (optional) parameter to <code>throw</code></li>
+</ul>
+
+<p>Note that I'm not proposing that we eliminate the existing phasers.  It may 
+be advantageous to rewrite some(but probably not all) in the new syntax.</p>
+
+<p>Given that my knowledge of Raku internals (or even asynchronous phasers) 
+ranges from none to minimal, this proposal should be considered merely a 
+beginning for discussion.  But it may spark some ideas about orthogonality.</p>
+
+<h1>Proposal</h1>
+
+<p>It should be possible for a user to define their own phasers.</p>
+
+<h1>Demonstration</h1>
+
+<p>None of the existing phasers will be ... phased out.  But it might be 
+illustrative to define existing phasers using the newly-proposed syntax.</p>
+
+<pre><code>phaser	CATCH(Block &amp;passed-block) trigger BLOCK Exception {
+	when .fine.not {
+		&amp;passed-block(.done) 
+	}
+}
+
+phaser	PRE(Block &amp;passed-block) trigger BLOCK Entry {
+	if ! &amp;passed-block() {
+		X::Phaser::PrePost.new(phaser =&gt; "PRE", condition =&gt; "\{ 1 == 3 }").throw(OUTER);
+	}
+}
+</code></pre>
+
+<p>I'm not proposing that we actually do such a rewrite, merely noting that it's possible.</p>
+
+<p>In the examples above, you will have noticed the new keyword 'trigger', followed by a Phasable and a queue type.</p>
+
+<h1>Queue types</h1>
+
+<p>The following queue types may be deemed useful:</p>
+
+<ul>
+  <li>Entry -- This happens right after the entry to the setting, and before anything else.</li>
+  <li>Exit -- this happens just before the exit from the block.</li>
+</ul>
+
+<p>Note that each of these types intersects with all the Phasables below, so that the actual queues have names like "The BLOCK Entry queue".</p>
+
+<h1>Phasables</h1>
+
+<p>The Phasable is one of the following:</p>
+
+<ul>
+  <li>Many of the Pseudo-packages mentioned at 
+    <a href="https://docs.raku.org/language/packages#index-entry-OUTER_(package)">
+    https://docs.raku.org/language/packages#index-entry-OUTER_(package)</a> including:</li>
+  <ul>
+    <li><code>UNIT</code>: The module</li>
+    <li><code>GLOBAL</code>: The entire execution (ie. runtime)</li>
+    <li><code>COMPILING</code>: The compile phase</li>
+    <li><code>OUTER</code>: The next outer scope</li>
+    <li>Comments:</li>
+    <ul>
+      <li>Some of the others may also be useful, but that's probably a detail best left for later</li>
+      <li>Yes, I know this wasn't the intended use of the Pseudo-packages; I'm suggesting expanding that in some cases</li>
+    </ul>
+  </ul>
+  <li>Derived from these, we have:</li>
+  <ul>
+    <li><code>DOC-COMPILE</code>: Like COMPILE, but in doco mode</li>
+    <li><code>DOC-GLOBAL</code>: Like GLOBAL, but in doco mode</li>
+  </ul>
+  <li>The following additional Phasables can also be used:</li>
+  <ul>
+    <li><code>BLOCK</code>: The block</li>
+    <li><code>LOOP</code>: The loop that wraps around a block.  This also includes supply and react blocks.</li>
+    <li><code>ROUTINE</code>: The current routine</li>
+    <li><code>COMPOSE</code>: A role being composed into a class</li>
+  </ul>
+</ul>
+
+<p>There may be other Phasables.  These Phasables are also the topic for the phaser definition block.  This is why <code>CATCH</code>, in the above example, can use .fine, for example (which is <code>BLOCK.fine</code>).</p>
+
+<p>It may be useful to break down the Phasables and their methods.</p>
+
+<h2>The BLOCK Phasable</h2>
+
+<p>To support the necessary functionality, the following methods will be useful on the <code>BLOCK</code> Phasable.</p>
+
+<h3>method done</h3>
+
+<p><code>method done(--&gt; Bool|Exception)</code></p>
+
+<p>How was the block exited?</p>
+
+<p>Possible return values and meanings are:</p>
+
+<ul>
+  <li><code>Bool False</code>: Not complete yet, or no entry-success (see entry-success, below)</li>
+  <li><code>Bool True</code>: No Exception (ie. normal exit)</li>
+  <li><code>Exception</code>: How the block exited.  Note that this is not throwing an exception, but returning one.</li>
+</ul>
+
+<h3>method entry-success</h3>
+
+<p><code>method entry-success(--&gt; Bool)</code></p>
+
+<p>Was the the block successfully entered?  This is necessary because LEAVE routines can run even if a block was never entered.</p>
+
+<p>Returns True for BLOCK.</p>
+
+<h3>method fine</h3>
+
+<p><code>method fine(Exception @exceptions --&gt; Bool)</code></p>
+
+<p>Did the block exit fine (if you'll pardon the English/Italian pun)?</p>
+
+<p>The funtion is trivial, but convenient.  Pseudo-code is:</p>
+
+<pre><code>method	fine(Exception @exceptions) {
+	@exceptions or @exceptions = (X::Control);
+	given self.done {
+		when Bool { return $_; }
+		when any(@exceptions) { return True; }
+		default { return False; }
+	}
+}
+</code></pre>
+
+<h3>method success</h3>
+
+<p><code>method success(--&gt; Bool)</code></p>
+
+<p>What was the success value of the block?</p>
+
+<p>This takes the Defintion of Success (see <a href="https://design.raku.org/S04.html#Definition_of_Success" rel="nofollow">https://design.raku.org/S04.html#Definition_of_Success</a> ) and makes it no longer implementation-defined.  It adds the idea that, if <code>entry-success</code> is <code>False</code>, then it's <code>False</code>.  The short (pseudo-code) version is:</p>
+
+<pre><code>.done ~~ all(Bool, True) ?? $return-value !! False</code></pre>
+
+<h2>The LOOP Phasable</h2>
+
+<h3>method done</h3>
+
+<p><code>method done(--&gt; Bool|Exception)</code></p>
+
+<p>How was the LOOP exited?</p>
+
+<p>The possible return values are the same as for <code>BLOCK.done()</code>, except that they apply to the completeness of the LOOP, and not the completeness of the block.</p>
+
+<h3>method entry-success</h3>
+
+<p><code>method entry-success(--&gt; Bool)</code></p>
+
+<p>Was the the block successfully entered?</p>
+
+<p>This is <code>True</code> when the LOOP has had at least one item provided to it, but is <code>False</code> if the LOOP has no items provided to it.</p>
+
+<h3>method fine</h3>
+
+<p><code>method fine(Exception @exceptions --&gt; Bool)</code></p>
+
+<p>Did the LOOP exit fine?</p>
+
+<p>This is the same as <code>BLOCK.fine</code> (but on LOOP).</p>
+
+<h2>The ROUTINE Phasable</h2>
+
+<p>Same as BLOCK, but with the following exception:</p>
+
+<h3>method entry-success</h3>
+
+<p><code>method entry-success(--&gt; Bool)</code></p>
+
+<p>Currently, <code>LEAVE</code> blocks in a Routine currently run even if the parameter binding fails (with no currently-documented way of avoiding this).  To avoid this problem, use <code>LEAVE  { when .entry-success {} }</code></p>
+
+<h1>Control Flow Structures</h1>
+
+<h2>once-per</h2>
+
+<p>This is a modified version of <code>once</code>.  It's like <code>once</code>, but takes a block label or Phasable as a parameter, and happens only once within that block.  It will reset (to run again) after the specified block is completed (or when the next one starts).</p>
+
+<p>The default value is <code>&amp;?LOOP</code>.</p>
+
+<p>First example: how the new structure would work without a block label:</p>
+
+<pre><code>for [1, 2, 3] -&gt; $outeritem {
+	for &lt;a b c&gt; -&gt; $inneritem {
+		print "$outeritem"
+		once-per { print "--" }
+		print "$inneritem, ";
+	}
+}
+say;
+
+# 1--a, 1b, 1c, 2--a, 2b, 2c, 3--a, 3b, 3c
+</code></pre>
+
+<p>The exact same code, but we pass a block label</p>
+
+<pre><code>OUTER: for [1, 2, 3] -&gt; $outeritem {
+	for &lt;a b c&gt; -&gt; $inneritem {
+		print "$outeritem"
+		once-per OUTER { print "--" }
+		print "$inneritem, ";
+	}
+}
+say;
+
+# 1--a, 1b, 1c, 2a, 2b, 2c, 3a, 3b, 3c
+</code></pre>
+
+<h2>throw/rethrow</h2>
+
+<p>They should take an extra parameter that's a phasable, and indicate that we should drop out to that scope before throwing the exception.  I can't see any good uses for this except OUTER (for the PRE and POST phasers).</p>
+
+<h2>leave</h2>
+
+<p>There's a proposal for a <code>leave</code> operator.  This should finally 
+be implemented.  The only information I can find about it is:</p>
+
+<ul>
+  <li><a href="https://github.com/Raku/old-issue-tracker/issues/4112">The 
+    GitHub issue</a> (no actual information)</li>
+  <li>A <a href="https://stackoverflow.com/questions/70281827/raku-last-on-non-loops">
+    Stack Overflow question</a> where this missing feature was the suggested 
+    answer</li>
+</ul>
+
+<h1>New Features Available</h1>
+
+<p>The Phaser Definition Syntax provides a number of advantages.  Some have already been shown, but a couple more examples might be useful.</p>
+
+<p>Only run the <code>LEAVE</code> code if the exit was a fallthrough, rather than a Control Exception.</p>
+
+<pre><code>phaser	NATURAL_LEAVE(Block &amp;passed-block) trigger BLOCK Exit {
+	when .done ~~ all(Bool, True) {
+		&amp;passed-block()
+	}
+}
+
+for [1, 2, 3, 4, 5] -&gt; $item {
+	if $item == 6 {
+		last;
+	}
+	NATURAL_LEAVE {
+		say "No items match the special six";
+	}
+}
+</code></pre>
+
+<p>That feature alone should practically justify the new system.  However, there are many others.</p>
+
+<p>For example:</p>
+
+<pre><code>phaser	INSTEAD(Block &amp;passed-block) trigger LOOP Exit {
+	.entry-success or do { &amp;passed-block() }
+}
+
+@array = ();
+for @array -&gt; $item {
+	say "Item is $item";
+	INSTEAD {
+		say "I wannan Item!  Gimmie Item!  .... no Item :(";
+	}
+}
+</code></pre>
+
+<p>The code inside the <code>INSTEAD</code> only runs if there are no items in <code>@array</code>.</p>
+
+<h1>Alternative Ideas</h1>
+
+<p>Things that might need changing are:</p>
+
+<ul>
+  <li>If we also need an <code>is ASYNC</code> modifier to declare a Phaser 
+    asynchronous, that's an option too.</li>
+</ul>
+
+<h1>Conclusion</h1>
+
+<p>Hopefully this will provide a starting point for a discussion about phasers, and how they might be made easier to work with.</p>
+
+<h1>Authors</h1>
+
+<ul>
+  <li>Tim Nelson: original document (0.1) &amp; 1.0 rewrite</li>
+  <li>Clifton Wood: syntax improvements</li>
+  <li>yary: suggestion about LOOP</li>
+  <li>Vadim Belman (vrurg): Extensive criticism of early versions of the propsal, resulting in a rewrite of the majority of it</li>
+</ul>
+
+<h1>Appendix A: Phasers in the Phaser Definition Syntax</h1>
+
+<p>I'm not going to do the COMPILING/GLOBAL/COMPOSE ones (such as BEGIN/END/INIT/CHECK/COMPOSE) because they're probably best left alone.  And again note that I'm not saying the following should be rewritten this way, just that it's illustrative to see how they could be rewritten.</p>
+
+<pre><code>phaser  ENTER(Block &amp;passed-block) trigger BLOCK Entry {
+    &amp;passed-block();
+}
+phaser  LEAVE(Block &amp;passed-block) trigger BLOCK Leave {
+    &amp;passed-block();
+}
+phaser  KEEP(Block &amp;passed-block) trigger BLOCK Leave {
+    when .success { &amp;passed-block(); }
+}
+phaser  UNDO(Block &amp;passed-block) trigger BLOCK Leave {
+    when not(.success) { &amp;passed-block(); }
+}
+phaser  FIRST(Block &amp;passed-block) trigger LOOP Entry {
+    once-per $_ { &amp;passed-block(); }
+}
+phaser  NEXT(Block &amp;passed-block) trigger LOOP Exit {
+    when not(.done) { &amp;passed-block(); }
+}
+# Synchronous LAST
+phaser  LAST(Block &amp;passed-block) trigger LOOP Exit {
+    when .fine { &amp;passed-block(); }
+}
+phaser	PRE(Block &amp;passed-block) trigger BLOCK Entry {
+	if ! &amp;passed-block() {
+		X::Phaser::PrePost.new(phaser =&gt; "PRE", condition =&gt; &amp;passed-block.raku).throw(OUTER);
+	}
+}
+phaser	POST(Block &amp;passed-block) trigger BLOCK Exit {
+	if ! &amp;passed-block() {
+		X::Phaser::PrePost.new(phaser =&gt; "POST", condition =&gt; &amp;passed-block.raku).throw(OUTER);
+	}
+}
+phaser	CONTROL(Block &amp;passed-block) trigger BLOCK Exit {
+	when .done ~~ X::Control {
+		&amp;passed-block(.done) 
+	}
+}
+phaser	CATCH(Block &amp;passed-block) trigger BLOCK Exit {
+	when .fine.not {
+		&amp;passed-block(.done) 
+	}
+}
+# Not sure about this one
+phaser  QUIT(Block &amp;passed-block) trigger BLOCK Exit {
+	if not(.fine) and .done ~~ X::Proc::Async {
+		&amp;passed-block(.done) 
+	}
+}
+# Asynchronous LAST
+phaser  LAST(Block &amp;passed-block) trigger BLOCK Exit {
+	if .fine(CX::Done) {
+		&amp;passed-block(.done) 
+	}
+}
+phaser  CLOSE(Block &amp;passed-block) trigger BLOCK Exit {
+	if .done ~~ CX::Done {
+		&amp;passed-block(.done) 
+	}
+}
+</code></pre>
+      
+</content>
+</page>
