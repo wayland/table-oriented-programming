@@ -392,7 +392,7 @@ $user.select('*[id = $value and given_name ~ "^Jo"]/(@id, @given_name, @surname 
 
 <p>Note that the ordering above is derived from the following.  </p>
 
-<h5>Select Stages</h5>
+<h3 id="Select-Stages">Select Stages</h3>
 
 <table>
   <tr>

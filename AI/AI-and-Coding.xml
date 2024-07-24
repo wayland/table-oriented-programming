@@ -27,5 +27,10 @@ at.  However, a ticketing system is just (you guessed it) a set of tables.  So
 it'd be useful to have a system like this in a table-oriented RAD environment, 
 so that we could put useful interfaces on it.  </p>
 
+<p>No doubt this ties in with <a href="https://en.wikipedia.org/wiki/Agent-oriented_programming">
+Agent-Oriented Programming</a>, which is a revamped iteration of the 
+<a href="https://en.wikipedia.org/wiki/Actor_model">Actor Model</a>; event-driven
+programming also ties in here to a certain extent.  </p>
+
 </content>
 </page>

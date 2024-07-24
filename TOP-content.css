@@ -141,6 +141,11 @@ h6 {	font-size: 1em;	}
 	margin-bottom: 5pt;
 }
 
+.references-reference {
+	font-size: -10%;
+	margin: 0 10pt;
+}
+
 table {
 	margin: auto;
 }
@@ -167,7 +172,7 @@ td ul {
 	padding-left: 10pt;
 }
 
-th h2, th h3 {
+th h2, th h3, th h4 {
 	margin: 0px;
 }
 
@@ -195,7 +200,8 @@ code {
 code.block {
 	display: block;
 	overflow-y: scroll;
-	padding: 4pt;
+	padding: 10pt;
+	border: 1px solid #cccccc;
 }
 
 .blockquote .sidebar {
@@ -217,6 +223,7 @@ code.block {
 
 /* Code for CSS hover text */
 .hover-parent {
+	position: relative;
 	display: inline;
 }
 
@@ -239,8 +246,8 @@ code.block {
 	display: none;
 
 	width: 400px;
-	margin-left: 36pt;
-	margin-top: -14pt;
+	left: 10pt;
+	top: 0pt;
 	border: 2px solid var(--blockquote-border-color);
 	border-radius: 4pt;
 	padding: 10px;

@@ -398,5 +398,9 @@ it.  Relevant attributes include:</p>
   <li>Format: Is it CSV, HTML, JSON, binary, etc</li>
 </ul>
 
+<p>This will tie in well with the <a href="https://en.wikipedia.org/wiki/Actor_model">
+Actor Model</a> of OOP -- see <a href="http://stereobooster.github.io/two-big-schools-of-object-oriented-programming">
+Two big schools of Object-Oriented Programming</a> for more information.  </p>
+
 </content>
 </page>

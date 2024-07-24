@@ -287,16 +287,16 @@ a superset of both operands.  </p>
     <td>Include all of the rows in both relations, matching up where possible</td>
   </tr>
 
-  <tr><th colspan="3"><h3>Other</h3></th></tr>
+  <tr><th colspan="3"><h3>Other Join Operators</h3></th></tr>
 
   <tr>
-    <td></td>
+    <td>▷=◁</td>
     <td>Equjoin</td>
     <td>Like an inner join, but the only comparison allowed is the <code>=</code> sign</td>
   </tr>
   <tr>
-    <td></td>
-    <td>Natural</td>
+    <td>≜ U+225C</td>
+    <td>Natural Join</td>
     <td>Like Equijoin, but the column names have to be the same in both tables</td>
   </tr>
   <tr>

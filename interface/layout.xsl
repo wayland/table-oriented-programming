@@ -11,6 +11,7 @@
   <xsl:param name="interface_structure" select="document('structure.xml')"/>
   <!-- Get sitemap -->
   <xsl:param name="realsitemap" select="document(concat('../', $sitedir, '/real-sitemap.xml'))"/>
+  <xsl:param name="sitecontents" select="document('site-contents.xml')"/>
   <!-- Set up node variables -->
   <xsl:param name="currentnode" select="$realsitemap//link[@href=$filename]"/>
   <xsl:param name="prevnode" select="page/prevnode/link | $currentnode/preceding::link[position()=1]"/>
@@ -63,6 +64,10 @@
 
 <xsl:apply-templates select="page/content/node()" mode="content"/>
 
+<xsl:if test="//ref">
+  <h1>References</h1>
+  <xsl:apply-templates select="//ref" mode="references"/>
+</xsl:if>
 </div> <!-- main-box -->
 
 <div class="footer">
@@ -154,6 +159,46 @@
       <xsl:apply-templates  select="@* | node()" mode="content"/>
     </xsl:copy>
   </xsl:template>
+  
+  <xsl:template match="ref" mode="content">
+    <span class="hover-parent">
+			<span class="hover-anchor"><sup>[<xsl:number count="ref" level="any"/>]</sup></span>
+			<span class="hover-text">
+        <xsl:call-template name="ReferenceContent"/>
+        <xsl:value-of select="comment"/>
+      </span>
+		</span>
+  </xsl:template>
+  
+  <xsl:template match="ref" mode="references">
+    <div class="references-reference">
+      <xsl:number count="ref" level="any"/>. 
+      <xsl:call-template name="ReferenceContent"/>
+    </div>
+  </xsl:template>
+  
+  <!-- Almost-Chicago "Notes and Bibliography" style -->
+  <xsl:template name="ReferenceContent">
+    <xsl:if test="authors"><xsl:value-of select="authors"/>, </xsl:if>
+    <i>
+      <xsl:choose>
+        <xsl:when test="@href">
+          <xsl:element name="a">
+            <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
+            <xsl:value-of select="@title"/>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="@title"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </i><xsl:if test="@publishinglocation">,
+      (<xsl:value-of select="@publishinglocation"/>: <xsl:value-of select="@publishinghouse"/>,
+      <xsl:value-of select="@publishingdate"/>)
+    </xsl:if><xsl:if test="@pages">,
+      <xsl:value-of select="@pages"/>
+    </xsl:if>.
+  </xsl:template>
 
   <xsl:template match="xtlinclude" mode="content">
     <xsl:variable name="svgdoc" select="document(@href)/svg:svg"/>
@@ -232,7 +277,7 @@
     <a class="pre-heading" name="{$id}"/>
     <a class="heading-link" href="{$filename}#{$id}">
       <xsl:element name="{name()}">
-        <xsl:copy-of select="./text()"/>
+        <xsl:copy-of select="./text() | ./*"/>
         <xsl:if test="@id">
           <span style="font-family: 'Noto Emoji'">⚓</span>
         </xsl:if>
