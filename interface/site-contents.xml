@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<site-contents>
+  <section>
+    <section>
+      <title>Progamming Productivity</title>
+      <article name="Introduction to Programming Productivity" href="/"/>
+    </section>
+  </section>
+  <section>
+    <title>Table-Oriented Programming</title>
+    <section>
+      <title>Overview</title>
+      <article name="What is Table-Oriented Programming?" href="TOP/Introduction/What.xml"/>
+      <article name="Why Table-Oriented Programming" href="TOP/Introduction/Why.xml"/>
+      <article name="Terminology" href="TOP/Introduction/Terminology.xml"/>
+      <article name="History" href="TOP/Introduction/History.xml"/>
+      <!-- item title="TOP and the Language Analogy" href="TOP/Introduction/Language-Analogy.xml" width="huge"/ -->
+    </section>
+    <section>
+      <title>Collection Convergence</title>
+      <article name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
+      <article name="role Relation" href="TOP/Collection-Convergence/Relation.xml"/>
+      <article name="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
+      <article name="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
+      <article name="Data Dictionaries" href="TOP/Collection-Convergence/Data-Dictionaries.xml"/>
+    </section>
+    <section>
+      <title>Language Support</title>
+      <article name="Table-Friendly Syntax" href="TOP/Language-Support/Table-Friendly-Syntax.xml"/>
+      <article name="class Table" href="TOP/Language-Support/Table.xml"/>
+      <article name="class View" href="TOP/Language-Support/View.xml"/>
+    </section>
+    <section>
+      <title>Stylistic Features</title>
+      <article name="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
+      <article name="Multi-Aspect Taxonomies" href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml"/>
+      <article name="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
+      <article name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
+    </section>
+    <section>
+      <title>Critiques</title>
+      <article name="OOP" href="TOP/Critiques/OOP.xml"/>
+      <article name="SQL" href="TOP/Critiques/SQL.xml"/>
+      <article name="Trees" href="TOP/Critiques/Trees.xml"/>
+    </section>
+    <section>
+      <title>Comparisons</title>
+      <article name="Comparison of Raku TOP and xBase" href="TOP/Comparisons/Raku-and-xHarbour.xml" width="huge"/>
+      <article name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/>
+    </section>
+    <section>
+      <title>Other Material</title>
+      <article name="Eight Concepts" href="TOP/Other-Items/Eight-Concepts.xml"/>
+      <article name="Why Table-Oriented Programming?" href="TOP/Other-Items/Why-Table-Oriented-Programming.xml"/>
+      <article name="Scalar Type Convergence" href="TOP/Other-Items/Scalar-Type-Convergence.xml"/>
+      <article name="Merging TOP and OOP" href="TOP/Other-Items/Merging-TOP-and-OOP.xml"/>
+    </section>
+  </section>
+  <section>
+    <article name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/>
+    <article name="TOP::ControlFlow" href="Raku-TOP/ControlFlow.xml"/>
+    <article name="role TOP::Core" href="Raku-TOP/Core.xml"/>
+    <section>
+      <title>Relations</title>
+      <article name="role Relation" href="Raku-TOP/Relation/Relation.xml"/>
+      <article name="class Table" href="Raku-TOP/Relation/Table.xml"/>
+      <article name="class View" href="Raku-TOP/Relation/View.xml"/>
+      <article name="class DataDictionary" href="Raku-TOP/Relation/DataDictionary.xml"/>
+      <article name="class TupleSet" href="Raku-TOP/Relation/TupleSet.xml"/>
+    </section>
+    <section>
+      <title>Section</title>
+      <article name="role Section" href="Raku-TOP/Section/Section.xml"/>
+      <article name="class Field" href="Raku-TOP/Section/Field.xml"/>
+      <article name="class Lot" href="Raku-TOP/Section/Lot.xml"/>
+    </section>
+    <article name="class Cursor" href="Raku-TOP/Cursor.xml"/>
+    <article name="class Database" href="Raku-TOP/Database.xml"/>
+    <article name="class Tuple" href="Raku-TOP/Tuple.xml"/>
+    <article name="class Join" href="Raku-TOP/Join.xml"/>
+    <article name="TOP::Operators" href="Raku-TOP/Operators/"/>
+  </section>
+  <section>
+    <title>RAD</title>
+    <article name="Introduction" href="RAD/Introduction.xml"/>
+    <section>
+      <title>Editors</title>
+      <article name="Database Design Editor" href="RAD/Database-Design-Editor.xml"/>
+      <article name="Program Editors" href="RAD/Program-Editors.xml"/>
+      <article name="UI editors (Forms &amp; Reports)" href="RAD/UI-Editors.xml"/>
+    </section>
+    <article name="Backend-to-Frontend Design" href="RAD/Backend-to-Frontend-Design.xml"/>
+    <article name="Documentation Generation" href="RAD/Documentation-Generation.xml"/>
+  </section>
+  <section>
+    <section>
+      <title>General Metanoias</title>
+      <article name="Metanoia 1.0: Proposals for Raku 7" href="Metanoias/Introduction.xml"/>
+    </section>
+    <section>
+      <title>Data-Oriented Metanoias</title>
+      <article name="Metanoia 2.0: Introduction to Two-dimensional Structures" href="Metanoias/Two-dimensional-Data.xml"/>
+      <article 
+        name="Metanoia 2.1: Tabular Data Structures: Table-oriented Programming and Array-Oriented Programming" 
+        href="Metanoias/Tabular-Data-Structures.xml"
+      />
+      <article name="Metanoia 2.2: Tree Data Structures: Jungles and Perspectives" href="Metanoias/Two-dimensional-Data.xml"/>
+      <article name="Metanoia 2.3: Walkable vs. Streamable" href="Metanoias/Walkable-vs-Streamable.xml"/>
+    </section>
+    <section>
+      <title>Fundamental Declarative Metanoias</title>
+      <article name="Metanoia 3.0: Introduction to Declarative Programming" href="Metanoias/Declarative.xml"/>
+      <article name="Metanoia 3.1: Predicates, Laws, and Unification" href="Metanoias/Predicates-Laws-Unification.xml"/>
+      <article name="Metanoia 3.2: Backtracking and Transactions" href="Metanoias/Backtracking-Transactions.xml"/>
+    </section>
+    <section>
+      <title>Transformation Tree Metanoias</title>
+      <article name="Metanoia 4.0: Transformation Jungles" href="Metanoias/Transformation-Jungles.xml"/>
+      <article name="Metanoia 4.1: Sources and Destinations" href="Metanoias/Sources-Destinations.xml"/>
+      <article name="Metanoia 4.2: Queries" href="Metanoias/Queries.xml"/>
+    </section>
+    <section>
+      <title>Cleanups</title>
+      <article name="Metanoia 5.1: User-defined Phasers" href="Metanoias/Phasers.xml"/>
+      <article name="Metanoia 5.2: Orthogonal Redispatch" href="Metanoias/Redispatch.xml"/>
+      <article name="Metanoia 5.3: Reversible Grammars" href="Metanoias/Reversible-Grammars.xml"/>
+    </section>
+    <section>
+      <title>Reference Material</title>
+      <article name="Declarative Raku Compared" href="Metanoias/Declarative-Raku-Comparison.xml" width="huge"/>
+    </section>
+  </section>
+  <section>
+    <title>AI</title>
+    <article name="AI and coding" href="AI/AI-and-Coding.xml"/>
+  </section>
+  <section>
+    <title>Other Material</title>
+    <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+    <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>
+    <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+  </section>
+</site-contents>
