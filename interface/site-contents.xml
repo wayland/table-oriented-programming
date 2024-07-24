@@ -6,7 +6,7 @@
       <article name="Introduction to Programming Productivity" href="/"/>
     </section>
   </section>
-  <section>
+  <section sitedir="TOP">
     <title>Table-Oriented Programming</title>
     <section>
       <title>Overview</title>
@@ -56,7 +56,7 @@
       <article name="Merging TOP and OOP" href="TOP/Other-Items/Merging-TOP-and-OOP.xml"/>
     </section>
   </section>
-  <section>
+  <section sitedir="Raku-TOP">
     <article name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/>
     <article name="TOP::ControlFlow" href="Raku-TOP/ControlFlow.xml"/>
     <article name="role TOP::Core" href="Raku-TOP/Core.xml"/>
@@ -80,7 +80,7 @@
     <article name="class Join" href="Raku-TOP/Join.xml"/>
     <article name="TOP::Operators" href="Raku-TOP/Operators/"/>
   </section>
-  <section>
+  <section sitedir="RAD">
     <title>RAD</title>
     <article name="Introduction" href="RAD/Introduction.xml"/>
     <section>
@@ -92,7 +92,7 @@
     <article name="Backend-to-Frontend Design" href="RAD/Backend-to-Frontend-Design.xml"/>
     <article name="Documentation Generation" href="RAD/Documentation-Generation.xml"/>
   </section>
-  <section>
+  <section sitedir="Metanoias">
     <section>
       <title>General Metanoias</title>
       <article name="Metanoia 1.0: Proposals for Raku 7" href="Metanoias/Introduction.xml"/>
@@ -130,11 +130,11 @@
       <article name="Declarative Raku Compared" href="Metanoias/Declarative-Raku-Comparison.xml" width="huge"/>
     </section>
   </section>
-  <section>
+  <section sitedir="AI">
     <title>AI</title>
     <article name="AI and coding" href="AI/AI-and-Coding.xml"/>
   </section>
-  <section>
+  <section sitedir="Other-Items">
     <title>Other Material</title>
     <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
     <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>

@@ -10,12 +10,11 @@
   <xsl:param name="filename" select="concat($sitedir_string, page/filename)"/>
   <xsl:param name="interface_structure" select="document('structure.xml')"/>
   <!-- Get sitemap -->
-  <xsl:param name="realsitemap" select="document(concat('../', $sitedir, '/real-sitemap.xml'))"/>
   <xsl:param name="sitecontents" select="document('site-contents.xml')"/>
   <!-- Set up node variables -->
-  <xsl:param name="currentnode" select="$realsitemap//link[@href=$filename]"/>
-  <xsl:param name="prevnode" select="page/prevnode/link | $currentnode/preceding::link[position()=1]"/>
-  <xsl:param name="nextnode" select="page/nextnode/link | $currentnode/following::link[position()=1]"/>
+  <xsl:param name="currentnode" select="$sitecontents//article[@href=$filename]"/>
+  <xsl:param name="prevnode" select="page/prevnode/article | $currentnode/preceding::article[position()=1]"/>
+  <xsl:param name="nextnode" select="page/nextnode/article | $currentnode/following::article[position()=1]"/>
   <!-- Set up usable text variables -->
   <xsl:param name="title" select="$currentnode/@name"/>
 
@@ -46,7 +45,7 @@
 
 <div class="left-column">
   <ul>
-    <xsl:apply-templates select="$realsitemap" mode="site-toc"/>
+    <xsl:apply-templates select="$sitecontents//section[@sitedir=$sitedir]" mode="site-toc"/>
   </ul>
 
 </div>
@@ -288,11 +287,11 @@
   <xsl:template match="section" mode="site-toc">
     <li><xsl:value-of select="title"/></li>
     <ul>
-      <xsl:apply-templates select="section|link" mode="site-toc"/>
+      <xsl:apply-templates select="section|article" mode="site-toc"/>
     </ul>
   </xsl:template>
   
-  <xsl:template match="link" mode="site-toc">
+  <xsl:template match="article" mode="site-toc">
     <li><a href="{@href}"><xsl:value-of select="@name"/></a></li>
   </xsl:template>
   
