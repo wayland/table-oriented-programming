@@ -4,10 +4,50 @@
 <filename>Introduction/History.xml</filename>
 <sitedir>TOP</sitedir>
 <content>
-<h1>Quick History</h1>
 
-<p>Table-Oriented Programming was an as then unnamed paradigm that was popular in 
-the 80s and 90s.  Common languages that used it were:</p>
+<div class="blockquote">
+The thing that hath been, it is that which shall be; 
+and that which is done is that which shall be done: 
+and there is no new thing under the sun.
+<div class="reference">
+  <i><a href="https://www.biblegateway.com/passage/?search=Ecclesiastes+1&amp;version=KJV#en-KJV-17325">
+  Ecclesiasties 1:9</a>, King James authorised translation of the Bible, 
+  translated 1611 (revised 1769), from the Hebrew manuscript, originating around 900BC</i>
+</div>
+
+</div>
+
+<p>For those not interested in History, move on to <a href="TOP/Collection-Convergence/Introduction/">
+Introduction to Collection Convergence</a></p>
+
+<h1>Mainframe Era: Decision Table Programming (1960s-1980)</h1>
+
+<p>The earliest iteration I found of table-oriented programming is the paper
+<a href="https://www.rand.org/content/dam/rand/pubs/papers/2006/P2608-1.pdf">
+What is DETAB-X?</a> published by Solomon L. Pollack in October 1962.  It 
+details DETAB, a table-oriented variant of COBOL.  </p>
+
+<p>This led to languages such as <a href="https://en.wikipedia.org/wiki/Filetab">
+Filetab</a> in the late 60s, whose descendents continued in the 70s and 80s,
+and a Linux version was even released in 2001.  The company owning Filetab
+was liquidated in 2010.  </p>
+
+<p>This early iteration is often labelled 
+<a href="https://en.wikipedia.org/wiki/Decision_table">Decision Table</a>
+programming.  </p>
+
+<h1>PC Era: Data-Oriented Programming (1980-1995)</h1>
+
+<p>The Term "Data-oriented Programming" has been used in various ways around
+the web, but the one we're using here is the one on Wikipedia about
+<a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Data-oriented_languages">
+Data-oriented languages</a>.  These seem to be divided into table and tree
+types, but the common theme is a close integration with a database, rather 
+than keeping it at arm's length as SQL-using systems do (but PL/SQL, or even 
+SQL, would be an example of Data-oriented Programming).  </p>
+
+<p>Popularity of the table branch of data-oriented programming surged in the 
+80s with the use of languages like:</p>
 
 <ul>
 	<li>dBase</li>
@@ -17,16 +57,19 @@ the 80s and 90s.  Common languages that used it were:</p>
 </ul>
 
 <p>These languages had useful features that are not seen in modern programming 
-languages.  </p>
+languages, primarily the tight integration of database features into the 
+language.  </p>
+
+<h1>Web 1.0 Era: Table-Oriented Programming (1995-2008)</h1>
 
 <p>With the advent of the internet, and the popularity of Object-Oriented 
 Programming, these languages fell out of use.  </p>
 
 <p>In 1998-2002, as the table-oriented languages were falling out of use, 
 Tablizer/TOPMind (aka Tablizer/TOPMind) wrote a series of articles 
-on "Table-Oriented Programming".  These were, in their own words, unstructured 
-and piecemeal.  These advocated for various features prevalent in these 
-languages, and a few ideas of their own.  </p>
+on "Table-Oriented Programming" (TOP).  These were, in their own words, 
+unstructured and piecemeal.  These advocated for various features prevalent in 
+these languages, and a few ideas of their own.  </p>
 
 <p>Unfortunately, at the time, TOP was seen (especially by the biggest TOP 
 advocate, Tablizer/TOPMind/TOPMind) as a competitor to OOP.  This meant he spent a lot 
@@ -38,10 +81,23 @@ camp, without considering a multi-paradigm approach.  Had more effort been put
 into integrating TOP into modern programming languages, everyone's lives 
 would've been a lot easier (or at least most programmers).  </p>
 
+<h1>Web 2.0 Era: The Interregnum (2008-2022)</h1>
+
+<p>As a part of the interregnum, Table-Oriented Programming was pushed into 
+the database, but then the common methodology was that code was moved out of
+the database, mainly for efficiency reasons (though the Smart DB/Thick DB 
+people argue that this was often just a case of bad programmers).  </p>
+
+<h1>AI Era: Rebirth (2024+)</h1>
+
 <p>This site is an attempt to make use of the good parts of TOP while hopefully 
 leaving behind the oppositional nature of previous discourse on the topic; 
 there may still be some pointing out of the weaknesses of various technologies, 
 but only with the intent of showing the power of multi-paradigm programming, not 
 with the intent of making anyone abandon the named technologies.</p>
+
+<p>I will consider this a success if more languages adopt table-oriented 
+programming as one of their available paradigms.  </p>
+
 </content>
 </page>
