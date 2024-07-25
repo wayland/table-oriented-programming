@@ -11,11 +11,13 @@ translated "afterthought", "repentance", or "change of mind".  </p>
 
 <p>These are my calls for changes in the next major version of Raku (ie. the 
 one that will finally break backwards compatibility).  This would likely be
-version 6.1 or 7.  I would assume we'll 
-follow the same pattern as the early process, with Apocalypses from Larry, and
-hopefully Exegeses from someone; these are precursors to that -- they are my 
-personal feature pre-requests (and hopefully the Apocalyses will take them into
-account).  </p>
+version 6.1 or 7.  I would assume we'll follow the same pattern as the early 
+Raku process, with something like:</p>
+<ul>
+  <li>RFCs (maybe these Metanoias can be a precursor to some of those)</li>
+  <li>Apocalypses from ... maybe the committee unless Larry is enticed back</li>
+  <li>Hopefully Exegeses from someone</li>
+</ul>
 
 <p>The main driver for this is that I think that Raku, while doing a good job
 of integrating material from a wide range of programming paradigms, has missed 
@@ -40,7 +42,7 @@ a few that I think would be useful.  A quick summary of these is:</p>
   </ul>
 </ul>
 
-<p>As a precursor to these additions in future versions of Raku, attempts will 
+<p>As a precursor to these suggested additions in future versions of Raku, attempts will 
 be made towards Raku 6.0.x modules that will handle these -- hopefully the 
 concepts will be integrated into a future version of the core language (just 
 as Perl's DateTime module was included in Raku 6).  </p>
