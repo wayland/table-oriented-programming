@@ -1,13 +1,6 @@
 TODO
 ====
 
-real-sitemap.xml cleanup
-------------------------
--	Remove real-sitemap.xml files
--	Adjust the menus to use site-contents
--	Adjust menus to use section names as menu items; either I should write intro articles for each section 
-	(probably a good idea), or I should just link to the first article in each section
-
 Content
 -------
 
@@ -37,6 +30,7 @@ Stuff to write up in the Other Material section (with Zealot-Oriented Programmin
 	Possibly Merge also the following:
 	-	cf. http://localhost:8000/TOP/Introduction/Paradigm-Placement.xml (not linked from anywhere yet)
 	-	./TOP/Comparisons/Paradigm-Comparisons.xml
+	-	Double-check with https://www.oocities.org/tablizer/paradgms.htm
 -	The English Analogy stuff
 -	Write up the Kitchen analogy for computers
 
