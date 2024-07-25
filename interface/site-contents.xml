@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <site-contents>
   <section>
+    <title>Programming Productivity</title>
     <section>
       <title>Progamming Productivity</title>
       <article name="Introduction to Programming Productivity" href="/"/>
@@ -57,6 +58,7 @@
     </section>
   </section>
   <section sitedir="Raku-TOP">
+    <title>Raku TOP</title>
     <article name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/>
     <article name="TOP::ControlFlow" href="Raku-TOP/ControlFlow.xml"/>
     <article name="role TOP::Core" href="Raku-TOP/Core.xml"/>
@@ -93,6 +95,7 @@
     <article name="Documentation Generation" href="RAD/Documentation-Generation.xml"/>
   </section>
   <section sitedir="Metanoias">
+    <title>Metanoias</title>
     <section>
       <title>General Metanoias</title>
       <article name="Metanoia 1.0: Proposals for Raku 7" href="Metanoias/Introduction.xml"/>
@@ -132,12 +135,18 @@
   </section>
   <section sitedir="AI">
     <title>AI</title>
-    <article name="AI and coding" href="AI/AI-and-Coding.xml"/>
+    <section>
+      <title>AI and Coding</title>
+      <article name="AI and coding" href="AI/AI-and-Coding.xml"/>
+    </section>
   </section>
   <section sitedir="Other-Items">
     <title>Other Material</title>
-    <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
-    <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>
-    <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+    <section>
+      <title>Other Material</title>
+      <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+      <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>
+      <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+    </section>
   </section>
 </site-contents>

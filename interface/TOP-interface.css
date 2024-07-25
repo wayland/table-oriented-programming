@@ -97,8 +97,10 @@ body {
 	}
 
 
-	.right-column {
-		padding-top: 20pt;
+	.left-column #site-contents > li {
+		list-style-type: none;
+		text-align: center;
+		font-weight: bold;
 	}
 }
 

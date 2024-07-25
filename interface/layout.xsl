@@ -44,15 +44,22 @@
 <div class="wide-box {$currentnode/@width}">
 
 <div class="left-column">
-  <ul>
-    <xsl:apply-templates select="$sitecontents//section[@sitedir=$sitedir]" mode="site-toc"/>
-  </ul>
+  <div class="tab-widget">
+    <div class="tab-headers">
+      <span class="tab-header">Section Contents</span>
+    </div>
+    <div class="tab-body">
+      <div id="site-contents">
+        <xsl:apply-templates select="$sitecontents/site-contents/section[@sitedir=$sitedir]" mode="site-toc"/>
+      </div>
+    </div>
+  </div>
 
 </div>
 
 <div class="main-column">
   <div class="menu-bar"><ul>
-    <xsl:apply-templates select="$interface_structure//menubar/*"/>
+    <xsl:apply-templates select="$sitecontents/site-contents/section" mode="menubar"/>
   </ul></div>
 
 <div class="main-box">
@@ -86,7 +93,7 @@
 <div class="right-column">
   <div class="tab-widget">
     <div class="tab-headers">
-      <span class="tab-header">Table of Contents</span>
+      <span class="tab-header">Page Contents</span>
     </div>
     <div class="tab-body">
       <div id="table-of-contents">
@@ -111,11 +118,11 @@
     <a href="{$node/@href}"><xsl:if test="$type = 'prev' and $node/@href != ''">&lt;&lt; </xsl:if><xsl:value-of select="$node/@name"/><xsl:if test="$type = 'next'"> &gt;&gt;</xsl:if></a>
   </xsl:template>
   
-  <xsl:template match="menubar/menu">
+  <xsl:template match="section" mode="menubar">
 	<span class="menu-container">
 	  <xsl:apply-templates select="title"/>
     <div class="menu-content">
-      <xsl:apply-templates select="*[self::menu or self::menuitem]"/>
+      <xsl:apply-templates select="./section" mode="menu"/>
     </div>
 	</span>
   </xsl:template>
@@ -129,11 +136,11 @@
 	</li>
   </xsl:template>
   
-  <xsl:template match="menu/title|dropmenu/title">
+  <xsl:template match="section/title">
 		<a href="javascript:void(0)" class="menu-bar-button"><xsl:value-of select="."/></a>
   </xsl:template>
     
-  <xsl:template match="menu" mode="submenu">
+  <xsl:template match="section" mode="menu--">
 	  <span class="menu-container">
       <a href="javascript:void(0)" class="menu-bar-button"><xsl:value-of select="title"/></a>
       <div class="menu-content">
@@ -142,15 +149,15 @@
     </span>
   </xsl:template>
   
-  <xsl:template match="menu">
+  <xsl:template match="section" mode="menu">
 			<section>
-				<span class="menu-subheader"><xsl:value-of select="title"/></span>
-				<xsl:apply-templates select="menuitem"/>
+        <xsl:variable name="href" select="article[1]/@href"/>
+        <a href="{$href}"><xsl:value-of select="title"/></a>
 			</section>
   </xsl:template>
   
-  <xsl:template match="menuitem">
-			<a href="{@href}"><xsl:value-of select="@name"/></a>
+  <xsl:template match="article">
+			<a href="{@href}">a <xsl:value-of select="@name"/></a>
   </xsl:template>
    
   <xsl:template match="@* | node()" mode="content">
