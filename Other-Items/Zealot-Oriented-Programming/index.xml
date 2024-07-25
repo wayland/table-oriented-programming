@@ -43,7 +43,7 @@ Most would say that this is
 silly. However, this is almost exactly what is being done with
 OOP. Paradigms are about organizing software information to make
 it easier for <b>developers</b> to work with it. It has nothing
-to do with users nor the <a href="#model">outside world</a>
+to do with users nor the <a href="https://www.oocities.org/tablizer/model.htm">outside world</a>
 (as long as specifications
 and good UI design principles are followed). It is all about
 modeling the developer's mind, and no OO proponent knows my
@@ -58,7 +58,7 @@ for themself in the end. (There are issues of maintenance teams,
 but this is too involved to discuss here).</p>
 <p>
 There are 
-<a href="paradgms.htm">other paradigms</a>
+<a href="https://www.oocities.org/tablizer/paradgms.htm">other paradigms</a>
  that are not heard about in the press
 and brochures, or perhaps not yet fully explored, that could be
 an equal or better approach for an entity 
@@ -88,8 +88,8 @@ just did not have a name for it. Then OOP formally came along
 and I was happy to see it built into the language."</p>
 <p>
 I, on the other hand, think best in terms of
-<a href="top.htm">tables</a> and like to organize software projects using 
-<a href="cntrl1.htm">control tables</a>. I have seen others do the same without ever
+<a href="../TOP/Introduction/What.xml">tables</a> and like to organize software projects using 
+<a href="../TOP/Stylistic-Features/Control-Tables/">control tables</a>. I have seen others do the same without ever
 knowing that they were using a "table paradigm." 
 While OOP attempts to keep you on course by putting up edge 
 barriers, control tables keep you on course by giving you a better view of the course.
@@ -111,7 +111,7 @@ the only one who 'thinks' in tables. ...
 
 <div align="center">
 See Also:
-<a href="goals.htm#mental">Physical vs. Mental Metrics</a>
+<a href="https://www.oocities.org/tablizer/goals.htm#mental">Physical vs. Mental Metrics</a>
 </div>
 
 
@@ -143,7 +143,7 @@ or paradigm.</p>
 My personal experience tends to confirm this. When
 given tools that allow me to maximize
 my use of 
-<a href="https://web.archive.org/web/20121102222751/http://www.geocities.com/tablizer/top.htm">
+<a href="../TOP/Introduction/What.xml">
 Table Oriented Programming</a>, for example,
 I seem to get things done much faster and am more
 satisfied with the results. I have heard fans of
