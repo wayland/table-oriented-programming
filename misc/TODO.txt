@@ -1,6 +1,13 @@
 TODO
 ====
 
+real-sitemap.xml cleanup
+------------------------
+-	Remove real-sitemap.xml files
+-	Adjust the menus to use site-contents
+-	Adjust menus to use section names as menu items; either I should write intro articles for each section 
+	(probably a good idea), or I should just link to the first article in each section
+
 Content
 -------
 
