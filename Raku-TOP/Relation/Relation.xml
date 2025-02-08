@@ -169,7 +169,7 @@ this will defer to the data in the underlying tables.  </p>
 to access Fields (columns).  For more information, see <a href="https://docs.raku.org/language/hashmap">Hashes and maps</a>.</p>
 <p>That means all of the following are possible:</p>
 
-<div class="not-implemented"><code class="block">
+<code class="block">
 $surname-field = $user&lt;surname&gt;;              # Fetch a relation column with a hardcoded name
 $field = $user{$column-name};                 # Fetch a relation column with the name in a variable
 
@@ -177,7 +177,7 @@ $surname = $user&lt;surname&gt;[$row-number];       # Fetch cell contents by col
 $user&lt;surname&gt;[$row-number] = $value;         # Set cell contents by column, then row
 
 $user.fields.elems;                           # Count columns in $user relation
-</code></div>
+</code>
 
 <h3>DataDictionary</h3>
 
@@ -193,7 +193,7 @@ TupleSet).  </p>
 
 <p>That means all of the following are possible:</p>
 
-<div class="not-implemented"><code class="block">
+<code class="block">
 $row = $user[$rownum];                         # Get a row from a relation
 
 for $user { .... }                             # Iterate over the rows in a relation
@@ -202,6 +202,9 @@ $surname = $user[$row-number]&lt;surname&gt;;        # Get cell contents by row,
 $user[$row-number]&lt;surname&gt; = $surname;        # Set cell contents by row, then column
 
 $user.elems;                                   # Count rows (users) in relation $user
+</code>
+
+<div class="not-implemented"><code class="block">
 $relation = Empty;                             # Remove all users
 </code></div>
 

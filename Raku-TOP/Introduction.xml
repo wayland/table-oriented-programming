@@ -41,7 +41,7 @@ th h2, th h3 {
   does TOP::Core</code></td>
     <td>Contains the functions common to Table, View, DataDictionary, and TupleSet</td>
     <td>First pass done</td>
-    <td>Not started</td>
+    <td>Not Started</td>
   </tr>
   <tr>
     <td><code>class Table

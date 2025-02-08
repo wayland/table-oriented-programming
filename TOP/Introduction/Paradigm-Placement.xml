@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Introduction/Paradigm-Placement.xml</filename>
+<sitedir>TOP</sitedir>
+<content>
+
+<div class="blockquote">
+Of making many [programming paradigms] there is no end, and much study is wearisome to the flesh.
+
+<div class="reference">
+  <i>A reference to <a href="https://www.biblegateway.com/passage/?search=Ecclesiastes+12%3A12&amp;version=KJV">
+  Ecclesiasties 12:12</a>, King James authorised translation of the Bible, 
+  translated 1611 (revised 1769), from the Hebrew manuscript, originating around 900BC</i>
+</div>
+
+</div>
+
+<p>There are many programming paradigms.  There are also multiple ways of 
+categorising said paradigms.  Paradigm categorisations can be code-focussed 
+and data-focussed.  </p>
+
+<h1>Code-Focussed Paradigms</h1>
+
+<h2>Imperative</h2>
+<ul>
+	<li>Procedural Programming</li>
+	<li>Object-Oriented Group</li>
+	<ul>
+	  <li>Object-oriented has two major ways of grouping languages:</li>
+	  <ul>
+      <li>Class-based vs. Prototype-based</li>
+      <li>Procedural vs. Actor <span class="hover-parent">
+        <span class="hover-anchor">[ref]</span>
+        <span class="hover-text"><a href="http://stereobooster.github.io/two-big-schools-of-object-oriented-programming">Two Big Schools of Object-Oriented Programming</a></span>
+      </span></li>
+	  </ul>
+	  <li>There are also sub-paradigms, such as:</li>
+	  <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Agent-oriented_programming">Agent-Oriented Programming Languages</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a></li>
+	  </ul>
+  </ul>
+  <li><a href="https://en.wikipedia.org/wiki/Category:Concurrent_programming_languages">Concurrent Languages</a></li>
+  <li>Dataflow Group</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Concatenative_programming_language">Concatenative Languages</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Dataflow_programming">Dataflow Programming</a></li>
+  </ul>
+</ul>
+
+<h2>Declarative</h2>
+<ul>
+  <li>Functional</li>
+  <ul>
+    <li>List-based</li>
+  </ul>
+  <li>Logic Group</li>
+  <ul>
+    <li>Logic</li>
+    <li><a href="https://en.wikipedia.org/wiki/Constraint_programming">Constraint</a></li>
+    <li>Rule-based</li>
+  </ul>
+  <li>Reactive</li>
+  <ul>
+    <li>Synchronous</li>
+  </ul>
+  <li>Query</li>
+</ul>
+
+<h1>Uncategorised</h1>
+
+<ul>
+  <li>Metaprogramming Languages</li>
+  <li>Reflective Languages</li>
+  <li>Syntax-handling</li>
+  <li>Transformation languages</li>
+  <li>Two dimensional languages</li>
+  <li>Inclusion Group</li>
+  <ul>
+    <li>Embeddable</li>
+    <li>Extension</li>
+    <li>Interactive</li>
+    <li>Often <i>Little Languages (DSLs)</i></li>
+    <li><a href="https://en.wikipedia.org/wiki/Authoring_language">Authoring Languages</a></li>
+  </ul>
+</ul>
+
+<h1>Data-Focussed Paradigms</h1>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Table-oriented_programming">Table-Oriented Programming</a></li>
+  <ul>
+    <li>General-purpose <a href="https://en.wikipedia.org/wiki/Table-oriented_programming">Table-Oriented Programming</a></li>
+    <li>Decision Table Languages</li>
+  </ul>
+  <li>Jungle-Oriented Programming (tree programming, but it's really a directed graph, not a tree)</li>
+  <li>Fourth Generation</li>
+  <li>Array Languages</li>
+  <li>Stack-based</li>
+</ul>
+
+
+</content>
+</page>

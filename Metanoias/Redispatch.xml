@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
 <filename>Redispatch.xml</filename>
 <sitedir>Metanoias</sitedir>
 <content>
+
+<h1>Overview</h1>
 
 <p>The problem with the redispatch in Raku 6 is that each keyword (except wrap)
 combines three separate concepts into one.  Those concepts are:</p>
@@ -29,7 +31,10 @@ ways that aren't possible in Raku 6, and can use them separately where useful.</
     away with the distinction between “callsame” and “callwith”.  I've assumed 
     we'd use a :reuse adverb, butI suspect there's a better idea of which I 
     haven't thought.  </li>
-  <li><b>Referee:</b> We need only two items:</li>
+  <li><b>Referee:</b> We need only one item: <code>callee</code>.  This is an 
+	array (or at least, it does Positional) that lists all the callable
+	items in the stack.  <code>callee[0]</code> is the one we'll use to 
+	replace</li>
   <ul>
     <li>nextcallee (no change)</li>
     <li>selfcallee (so we can replace samewith)</li>
@@ -40,6 +45,17 @@ ways that aren't possible in Raku 6, and can use them separately where useful.</
 
 <p>On the down side, this ends up being a bit more wordy, but on the up side, 
 a good bit more flexible:</p>
+
+<h1>Method Call Modifiers</h1>
+
+<p>We need to be able to specify some keywords that alter *how* a method is called.  
+I'm going to suggest the syntax ::&lt;keyword&gt;.  Examples could include:</p>
+
+<ul>
+  <li><code>::reuse</code> -- </li>
+</ul>
+
+<h1>Comparison of Raku 6 and Raku 7</h1>
 
 <p>The following table will compare some Raku 6 code with Raku 7:</p>
 
