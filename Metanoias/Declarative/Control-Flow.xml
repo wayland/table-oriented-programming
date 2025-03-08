@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Backtracking-Transactions.xml</filename>
+<filename>Declarative/Control-Flow.xml</filename>
 <sitedir>Metanoias</sitedir>
 <content>
 
@@ -191,6 +191,8 @@ flexibility in certain directions.  That might be one for Raku 8 though.  </p>
 <p>The idea of only using <code>let</code> on the variables passed to 
 <code>either</code> was an attempt to a) make it easier to implement, and b)
 to save some RAM on arrays/tables.  </p>
+
+<div style="color: red">Add some more things; do we need an Operators page?  Read the Constraint Logic Programming page and the Rule-Bases Systems Page</div>
 
 </content>
 </page>

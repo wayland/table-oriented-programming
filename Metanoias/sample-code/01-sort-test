@@ -1,0 +1,15 @@
+#!/usr/bin/raku
+
+my @a = <1 2 3 4>;
+my @b = <1 2 4 3>;
+
+sub	check_sort(@c) {
+	@c.say;
+	for 0..@a.elems-2 -> $i {
+		@c[$i] <= @c[$i+1] or fail "Not sorted";
+	}
+	say "Sorted"
+}
+
+check_sort(@a);
+check_sort(@b);

@@ -1,0 +1,23 @@
+#!/usr/bin/raku
+
+my $answer = 42;
+
+say "Answer 1 is $answer";
+
+{
+	let $answer = 84;
+	say "Answer 2 is $answer";
+
+	1;
+}
+
+say "Answer 3 is $answer";
+
+{
+	let $answer = 63;
+	say "Answer 4 is $answer";
+
+	Nil;
+}
+
+say "Answer 5 is $answer";

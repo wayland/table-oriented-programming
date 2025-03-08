@@ -1,0 +1,104 @@
+#!/usr/bin/raku
+
+GROUP1: do {
+	say "here 1";
+	default { say "here 2"; }
+	say "here 3";
+}
+
+say "===";
+
+my $a = 1;
+my $b = 2;
+my $c = 3;
+
+GROUP2: do {
+	say "here 1";
+	GROUP3: for 1 {
+		say "here 2";
+		$a > $b and do {
+			my $c++;
+			say "\$a greater ($c)";
+			last GROUP2;
+		};
+		$a < $b and -> :$c is copy {
+			$c--;
+			say "\$a less ($c)";
+			last GROUP3;
+		}();
+	};
+	say "here 3";
+}
+
+say "\$c is $c";
+
+say "\n\n===  ROUND 2  ===";
+
+class	CX::Revert does X::Control {
+	has $.message;
+}
+
+class	CX::Commit does X::Control {
+	has $.message;
+}
+
+ATTEMPT1: {
+	CONTROL {
+		when CX::Revert {
+			say "Reverted";
+		}
+		when CX::Commit {
+			say "Committed";
+		}
+	}
+	KEEP {
+		say "Keeping C at $c";
+	}
+	UNDO {
+		say "Undoing C -- $c";
+	}
+
+#	temp $c;
+	say "here 1";
+	$_ = True;
+#	my $foo = try {
+#		let $c;
+#		LEAVE {
+#			say "Leaving...";
+#		}
+#		$c++;
+#		say "C1 is $c";
+#		$a > $b and CX::Revert.new(message => "Reverted").throw;
+#		True;
+#	}
+#	say "Foo is $foo";
+#	say $_ ~~ $foo;
+	when (try {
+		let $c;
+		LEAVE {
+			say "Leaving...";
+		}
+		$c++;
+		say "C2 is $c";
+		$a > $b and CX::Revert.new(message => "Reverted").throw;
+		True;
+	}) {
+		say "When 1";
+	};
+	when try {
+		let $c;
+		LEAVE {
+			say "Leaving...";
+		}
+		$c++;
+		say "C3 is $c";
+		$a < $b and CX::Revert.new(message => "Reverted").throw;
+		0;
+	} { say "When 2"; }
+}
+
+my $failure = $!;
+
+$failure and say "Failed: $failure";
+
+say "\$c is $c";

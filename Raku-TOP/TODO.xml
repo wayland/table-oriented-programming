@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<page>
+<filename>TODO.xml</filename>
+<sitedir>Raku-TOP</sitedir>
+<content>
+
+<h1>Implementation order</h1>
+
+<style>
+.done {
+  background-color: green;
+  color: white;
+  padding: 2pt;
+  border-radius: 4pt;
+}
+</style>
+
+<h3>Basic Functionality</h3>
+<ul>
+  <li>Basic functionality</li>
+  <ul>
+    <li>Very basic functionality</li>
+    <ul>
+      <li><span class="done">Table, including Field and Tuple, and inheriting from Relation and TOP::Core</span></li>
+      <li><span class="done">Database, including inheriting from TOP::Core</span></li>
+      <li><span class="done">Implement backends for CSV and DBI</span></li>
+      <li>Look at having a Signature for a Relation, and linking each Field to a Parameter in the Signature</li>
+    </ul>
+    <li>Joining</li>
+    <ul>
+      <li>Join</li>
+      <li>View</li>
+      <li>TupleSet</li>
+    </ul>
+    <li>Cursor</li>
+    <li>DataDictionary</li>
+    <li>Lot, Section</li>
+  </ul>
+  <li>Perspectives</li>
+  <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
+  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions
+    ...or maybe we should just let people use multi-dimensional arrays for this</li>
+</ul>
+
+<h3>Iterations</h3>
+
+<ul>
+	<li>Cleanups 1</li>
+	<ul>
+		<li>Change "Driver" to "Storage"</li>
+		<li>Look at the TODO items in the code (ie. to be moved to TODO list)</li>
+		<li>cf. also https://wayland.github.io/table-oriented-programming/Raku-TOP/Introduction.xml</li>
+		<li>In Database::Storage::Memory, change makeTuple(@) to read existing fields before making up its own;
+			cf. also $!field-mode</li>
+		<li>Duplicate Database::Storage::Memory::add-row to Postgres (and put template in frontend)</li>
+	</ul>
+	<li>CLI: Create table</li>
+	<ul>
+		<li>Command line tool to read things in/out of tables</li>
+		<li>Start with the "tester" tool</li>
+		<li>Look at options to the following tools Raku and Perl to see which ones I want to copy:</li>
+		<ul>
+			<li>Raku</li>
+			<li>Perl</li>
+			<li>csvcut and other similar tools</li>
+		</ul>
+	</ul>
+	<li>CSV (Storage, Parser, and Formatter)</li>
+	<li>Or should I backend onto those other 2 things (Dan and DataQueryWorkflows)</li>
+	<li>WithBorders Formatter (must be after CSV Parser)</li>
+	<ul>
+		<li>Use the CSV Parser to read the table characters for use in the WithBorders Formatter -- see 
+			data/BoxDrawingCharacters.csv.  </li>
+		<li>Make a script to check that none of the characters have 
+			identical descriptions (this will catch errors in my 
+			input)</li>
+		<li>Make .get-character support ASCII box-drawing characters as well</li>
+	</ul>
+	<li>Basic Colour:</li>
+	<ul>
+		<li>Add colour to WithBorders and HalfHuman (strictly not allowed for HalfHuman, but could still be handy)</li>
+		<li>cf. https://github.com/jc21/clitable/blob/master/src/jc21/CliTable.php</li>
+		<li>At the end, see if there's anything from jc21/clitable that we still haven't included; field
+		formatters, for example</li>
+	</ul>
+	<li>Postgres improvements</li>
+	<ul>
+		<li>Implement Postgres DDL; cf. Table::Driver::Postgres::TWEAK()</li>
+		<li>Implement the Fill from Table idea; cf. Table::Driver::Postgres::fill_from_aoh()</li>
+		<li>On Table::Driver::Postgres, consider moving the various functions to the Database object, as mentioned</li>
+	</ul>
+	<li>On Table, look at .new() and .TWEAK() to see if we can remove them; also, see if I can make .grep() do other return types</li>
+	<li>Check TODO items in codebase</li>
+</ul>
+
+<h3>Iterations after POP (Plex-Oriented Programming)</h3>
+<ul>
+	<li>HTML</li>
+	<li>Spreadsheet</li>
+	<ul>
+		<li>Do early because it's so different from Database; this will require less rewriting in future</li>
+		<li>Spreadsheet (OpenOffice format)</li>
+	</ul>
+	<li>Better colours</li>
+	<ul>
+		<li>Add colour to HTML/Spreadsheet (and cf. WithBorders colours)</li>
+		<li>If conditional formatting were supported, that'd be even cooler</li>
+	</ul>
+	<li>Pod6 (just the tables)</li>
+	<li>XML (like HTML Tables, but more generic support of turning XML into tables)</li>
+	<li>JSON (like XML, but with JSON)</li>
+	<li>Start hooking the CLI table command to eg. GraphQL</li>
+</ul>
+
+</content>
+</page>

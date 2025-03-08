@@ -1,0 +1,8 @@
+#!/usr/bin/raku
+
+sub	win($x) {
+	my $y;
+
+	move($x, $y);
+	win($y) and die "Winning!";
+}

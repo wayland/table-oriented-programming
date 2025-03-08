@@ -124,42 +124,5 @@ th h2, th h3 {
   </tr>
 </table>
 
-<h1>Implementation order</h1>
-
-<style>
-.done {
-  background-color: green;
-  color: white;
-  padding: 2pt;
-  border-radius: 4pt;
-}
-</style>
-
-<ul>
-  <li>Basic functionality</li>
-  <ul>
-    <li>Very basic functionality</li>
-    <ul>
-      <li><span class="done">Table, including Field and Tuple, and inheriting from Relation and TOP::Core</span></li>
-      <li><span class="done">Database, including inheriting from TOP::Core</span></li>
-      <li>Implement backends for CSV and DBI</li>
-      <li>Look at having a Signature for a Table, and linking each Field to a Parameter in the Signature</li>
-    </ul>
-    <li>Joining</li>
-    <ul>
-      <li>Join</li>
-      <li>View</li>
-      <li>TupleSet</li>
-    </ul>
-    <li>Cursor</li>
-    <li>DataDictionary</li>
-    <li>Lot, Section</li>
-  </ul>
-  <li>Perspectives</li>
-  <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
-  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions
-    ...or maybe we should just let people use multi-dimensional arrays for this</li>
-</ul>
-
 </content>
 </page>

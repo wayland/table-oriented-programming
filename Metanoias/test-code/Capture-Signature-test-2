@@ -1,0 +1,213 @@
+#!/usr/bin/raku
+
+use v6.e.PREVIEW;
+
+use	nqp;
+
+# From the Raku codebase: t/12-rakuast/signature.rakutest
+#sub ast(RakuAST::Node:D $node --> Nil) {
+#    $ast      := $node;
+#    $deparsed := $node.DEPARSE;
+#    $raku     := 'use experimental :rakuast; ' ~ $node.raku;
+#    diag $deparsed.chomp;
+#}
+
+role	Predicate::Grammar {
+	# Overrides
+#	token term:sym<multi-declarator>   {
+#		<?before <.multi-multi> | <.multi-proto> | <.multi-only> | <.multi-predicate> | <.multi-law>>
+#		<multi-declarator>
+#	}
+
+	# New items
+	token routine-law	{ law}
+	token term:sym<law-declarator> { <law-declarator> }
+	# May need to edit token scoped # FIX
+
+	proto token	law-declarator {*}
+	token		law-declarator:sym<law> {
+		<.routine-law>
+		<.end-keyword>
+		<law-def=.key-origin('law-def', 'law')>
+	}
+
+	rule	law-def($declarator) {
+		:my $*BORG := {}; # Do we need this?
+		:my $*IN-DECL := $declarator;
+		:my $*BLOCK;
+
+		<.enter-block-scope(nqp::tclc($declarator))>
+
+		$<specials>=[<[ ! ^ ]>?]<deflongname('has')>?
+		[ '(' <signature(1)> ')' ]?
+		<trait($*BLOCK)>* :!s
+		{ $*IN-DECL := ''; }
+		[
+			|| <onlystar>
+			|| <blockoid>
+		]
+		<.leave-block-scope>
+	}
+}
+class	Predicate::Actions {
+	method routine-declarator:sym<law>($/) {
+		self.attach: $/, $<law-def>.ast;
+	}
+
+	method law-def($/) {
+		my $law := $*BLOCK;
+
+		# Handle localizations for BUILD, TWEAK, ACCEPTS, etc
+#		if $law.name.simple-identifier -> $name {
+#			my $sys-name := $/.system2str($name);
+#			$law.replace-name(Nodify('Name').from-identifier($sys-name))
+#			unless $sys-name eq $name;
+#		}
+
+#		if $<signature> {
+#			$law.replace-signature($<signature>.ast);
+#		}
+#		if $<specials> {
+#			my $specials := ~$<specials>;
+#			if $specials eq '^' {
+#				$law.set-meta(1);
+#			} elsif $specials eq '!' {
+#				$law.set-private(1);
+#			}
+#		}
+#		$law.replace-body($<onlystar>
+#			?? Nodify('OnlyStar').new
+#			!! $<blockoid>.ast
+#		);
+#		$law.IMPL-CHECK($*R, $*CU.context, 1);
+#		$law.ensure-begin-performed($*R, $*CU.context);
+#		self.attach: $/, $law;
+	}
+}
+use	Slangify Predicate::Grammar, Predicate::Actions;
+
+class	Breaker {}
+
+class	LawMatch {
+	has	Routine	$!routine is built;
+
+	submethod	TWEAK() {
+		say $!routine.name;
+		say $!routine.signature;
+	}
+
+	method	Str() {
+		return $!routine.signature.raku;
+	}
+}
+
+
+class	Kinship {
+	sub	compare-sigs($name, $prefix, $sig1, $sig2) {
+		say "$name";
+		say "{$prefix}arity: {$sig1.arity} vs. {$sig2.arity}";
+		say "{$prefix}count: {$sig1.count} vs. {$sig2.count}";
+		say "{$prefix}returns: {$sig1.returns.WHICH} vs. {$sig2.returns.WHICH} = {$sig1.returns =:= $sig2.returns}";
+		say "{$prefix}returns: {$sig1.returns.raku} vs. {$sig2.returns.raku} = {$sig1.returns =:= $sig2.returns}";
+		say "{$prefix}sig1: {$sig1.raku} vs. {$sig2.raku}";
+		my $b = $sig1.ACCEPTS($sig2);
+		say "{$prefix}ACCEPTS: {$sig1.ACCEPTS($sig2)}";
+	}
+
+	submethod	TWEAK() {
+		say "TWEAKing Kinship";
+
+		my $mainsub = self.^method_table()<fatherOf>;
+		$mainsub.wrap: method (Signature $signature, :$question) {
+			say "wrap: " ~ $mainsub.raku;
+			say "candidates: " ~ $mainsub.candidates().raku;
+			say "args: " ~ $signature.raku;
+			say "items" ~ $signature.params.map({ .sigil }).join('##');
+			my @items = $signature.params;
+
+			my constant $SIG_ELEM_INVOCANT           = 1 +<  6;
+
+			my @paramlist = (
+				# Might someday be able to replace with nqp::const::SIG_ELEM_INVOCANT
+				Parameter.new(type => 'Kinship', flags => $SIG_ELEM_INVOCANT),
+				|@items,
+#				Parameter.new(name => '*%_', type => 'Mu')
+			);
+			my Int $arity = @paramlist.elems-1;
+
+			say @paramlist;
+			my $fullsig = Signature.new(
+				params => @paramlist,
+				returns => Nil,
+				arity => $arity,
+				count => $arity.Num,
+			);
+			my $ast = Q:qq| {$fullsig.raku} |.AST; say $ast.statements[0].expression.signature.parameters;
+#			$fullsig = ast RakuAST::Sub.new(
+#				signature => RakuAST::Signature.new(
+#					parameters => (
+#						@paramlist.map: {
+#							RakuAST::Parameter.new(
+#								type => RakuAST::Type::Simple.new()
+#									)
+#						}
+#					)
+#			);
+#			my $fullsig = Signature.new(params => (Kinship: @items, Parameter.new(name => '*%_')));
+say "a2";
+			say "args2: " ~ $fullsig.raku;
+			my $test-sig = :(Kinship: Mu, 'John', *%_);
+			say "test-sig: {$test-sig.raku}";
+			for $mainsub.candidates() -> $candidate {
+				say "\tcandidate: {$candidate.raku} -- {$candidate.signature.raku}";
+#				say "\trets: {$candidate.signature.returns.raku} -- { Mu =:= $candidate.signature.returns }";
+#				say "\t\tMatching {($fullsig.ACCEPTS($candidate.signature))} -- {$fullsig.returns =:= $candidate.signature.returns}";
+#				say "\t\tMatching 2 {($test-sig.ACCEPTS($candidate.signature))} -- {$test-sig.returns =:= $candidate.signature.returns}";
+				compare-sigs("\tsignature:", "\t\t", $fullsig, $candidate.signature);
+				compare-sigs("\ttest-sig:", "\t\t", $test-sig, $candidate.signature);
+			}
+			callwith(|$fullsig)
+		}
+	}
+
+#	proto		fatherOf(Signature $signature) { return 'p', True };
+#	multi	method	fatherOf(Signature $signature) { say "fs " ~ &?ROUTINE.raku; }
+	proto		fatherOf(Str $name, Str $father) { return 'p', True };
+	multi method	fatherOf('Alex', 'John') {
+		my $lm = LawMatch.new(routine => &?ROUTINE);
+		return $lm;
+	};
+	multi method	fatherOf('Bob', 'John') { &?ROUTINE.signature };
+	multi method	fatherOf('Mick', 'Alex') { return True };
+
+	proto		grandfatherOf(Str, Str) {*};
+	multi method	grandfatherOf($x, $y) {
+		my	Str	$z;
+		return fatherOf($x, $z) and fatherOf($y, $z);
+	}
+}
+
+my $kin = Kinship.new();
+
+say $kin.^method_table();
+
+my $name;
+my $name2;
+
+my $breaker = Breaker.new();
+
+#my $sig1 = :(Kinship: Mu, 'John', *%_);
+my $sig1 = :(Mu, 'John');
+
+my $proto = $kin.^lookup('fatherOf');
+say $proto;
+say "---";
+
+my $val = $kin.fatherOf: :(Mu, 'John'), :question;
+#my $val = $kin.fatherOf(Mu, 'John');
+say "---";
+#say $val.Str;
+say "t2 ---";
+say $kin.fatherOf('Bob', 'John');
+say "---";
+say	$kin.grandfatherOf('Mick', $name2);

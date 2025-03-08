@@ -1,0 +1,128 @@
+#!/usr/bin/raku
+
+use	nqp;
+
+role	Predicate::Grammar {
+	# Overrides
+#	token term:sym<multi-declarator>   {
+#		<?before <.multi-multi> | <.multi-proto> | <.multi-only> | <.multi-predicate> | <.multi-law>>
+#		<multi-declarator>
+#	}
+
+	# New items
+	token routine-law	{ law}
+	token term:sym<law-declarator> { <law-declarator> }
+	# May need to edit token scoped # FIX
+
+	proto token	law-declarator {*}
+	token		law-declarator:sym<law> {
+		<.routine-law>
+		<.end-keyword>
+		<law-def=.key-origin('law-def', 'law')>
+	}
+
+	rule	law-def($declarator) {
+		:my $*BORG := {}; # Do we need this?
+		:my $*IN-DECL := $declarator;
+		:my $*BLOCK;
+
+		<.enter-block-scope(nqp::tclc($declarator))>
+
+		$<specials>=[<[ ! ^ ]>?]<deflongname('has')>?
+		[ '(' <signature(1)> ')' ]?
+		<trait($*BLOCK)>* :!s
+		{ $*IN-DECL := ''; }
+		[
+			|| <onlystar>
+			|| <blockoid>
+		]
+		<.leave-block-scope>
+	}
+}
+class	Predicate::Actions {
+	method routine-declarator:sym<law>($/) {
+		self.attach: $/, $<law-def>.ast;
+	}
+
+	method law-def($/) {
+		my $law := $*BLOCK;
+
+		# Handle localizations for BUILD, TWEAK, ACCEPTS, etc
+#		if $law.name.simple-identifier -> $name {
+#			my $sys-name := $/.system2str($name);
+#			$law.replace-name(Nodify('Name').from-identifier($sys-name))
+#			unless $sys-name eq $name;
+#		}
+
+#		if $<signature> {
+#			$law.replace-signature($<signature>.ast);
+#		}
+#		if $<specials> {
+#			my $specials := ~$<specials>;
+#			if $specials eq '^' {
+#				$law.set-meta(1);
+#			} elsif $specials eq '!' {
+#				$law.set-private(1);
+#			}
+#		}
+#		$law.replace-body($<onlystar>
+#			?? Nodify('OnlyStar').new
+#			!! $<blockoid>.ast
+#		);
+#		$law.IMPL-CHECK($*R, $*CU.context, 1);
+#		$law.ensure-begin-performed($*R, $*CU.context);
+#		self.attach: $/, $law;
+	}
+}
+use	Slangify Predicate::Grammar, Predicate::Actions;
+
+class	Breaker {}
+
+class	LawMatch {
+	has	Routine	$!routine is built;
+
+	submethod	TWEAK() {
+		say $!routine.name;
+		say $!routine.signature;
+	}
+
+	method	Str() {
+		return $!routine.signature.raku;
+	}
+}
+
+class	Kinship {
+	proto		fatherOf(Signature $capture) { return 'p', True };
+#	proto		fatherOf(Str $name, Str $father) { return 'p', True };
+	multi method	fatherOf('Alex', 'John') {
+		my $lm = LawMatch.new(routine => &?ROUTINE);
+		return $lm;
+	};
+	multi method	fatherOf('Bob', 'John') { &?ROUTINE.Capture };
+	multi method	fatherOf('Mick', 'Alex') { return True };
+
+	proto		grandfatherOf(Str, Str) {*};
+	multi method	grandfatherOf($x, $y) {
+		my	Str	$z;
+		return fatherOf($x, $z) and fatherOf($y, $z);
+	}
+}
+
+my $name;
+my $name2;
+
+my $breaker = Breaker.new();
+
+my $sig1 = :($name, 'John');
+
+my $proto = Kinship.^lookup('fatherOf');
+say $proto;
+say "---";
+
+my $val = Kinship.fatherOf($sig1);
+say "---";
+say $val.Str;
+say "---";
+say Kinship.fatherOf('Bob', 'John');
+say "---";
+say	Kinship.grandfatherOf('Mick', $name2);

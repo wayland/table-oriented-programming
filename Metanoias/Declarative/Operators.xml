@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Declarative/Operators.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<p>Introducing part 2 of the example, the Kinships database continues; 
+imagine that the following appears in the above example where the ... is:</p>
+
+<code class="block">
+# ...and the continuation of Kinships database
+  ...
+
+  predicate grandfatherOf(Str, Str);
+  law grandfatherOf($x, $y) {
+    my Str $z;  # Because it's in the body of a law, this declares a 
+                # free variable that will take on all the returned values in turn
+    
+    # Using ≜ as a natural join operator defined on Match objects (or on the Captures returned)
+    return fatherOf($x, $z) ≜ fatherOf($z, $y);
+  }
+}
+</code>
+
+<p>In this example, we see a new predicate.  </p>
+
+<code class="block">
+say Kinships.grandfatherOf('Mick', Str $x);
+</code>
+
+
+-	cover:
+	-	Then talk about how the same law can be used for different purposes (Equality Unification, but also draw on Alma-0 for the purposes)
+	-	Then talk about Joins.  
+	
+
+Next structuring:
+- Operators (include both Joins and the Equality thingy); when doing this, expand on the Family Tree 
+- 	
+
+
+<h1>Comparitive Terminology</h1>
+
+<p>If you're familiar with one of the following fields, the following table 
+may be helpful; if not, just skip it.  </p>
+
+<table>
+  <tr>
+    <th>Declaraku</th>
+    <th>SQL.</th>
+    <th>Relation Algebra</th>
+    <th>Logic Programming</th>
+    <th>XML</th>
+  </tr>
+  <tr>
+    <td>database</td>
+    <td>Database</td>
+    <td>Database</td>
+    <td>(database)</td>
+    <td>Document</td>
+  </tr>
+  <tr>
+    <td>predicate</td>
+    <td>Table-Type Declaration (cf. PostgreSQL Type declaration)</td>
+    <td>Relation</td>
+    <td>Predicate</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Law (or query result?)</td>
+    <td>Record</td>
+    <td>Tuple</td>
+    <td>rule/fact</td>
+    <td>Element</td>
+  </tr>
+  <tr>
+    <td>Query</td>
+    <td>Query</td>
+    <td></td>
+    <td>Query</td>
+    <td>Query</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+<h1>Predicates and Joins</h1>
+
+<h2>Overview</h2>
+
+<p>A Predicate is a descendent of Set (or maybe does Set), but also of proto
+methods.  The Predicate has an attached Signature (ie. a list of names with 
+types, but no bound variables).  The elements of the Predicate are items that 
+do Callable (mostly laws -- see below).  This means that each
+element will have a Capture method.  They should only be placed in the set if
+that Capture matches the Signature of the Predicate.  </p>
+
+<p>Predicates function as Relations (with a few additional pieces).  </p>
+
+<h2>Joins</h2>
+
+<p>Join operations should be defined for Predicates.  For the individual join 
+operators, see the "Concatenation" row in
+<a href="../Raku-TOP/Operators/">TOP::Operators</a> (and the related 
+documentation under "Column-based Operators".  Some of these already exist
+in Raku, but we should make at least most of the others.  The Join operators
+produce another predicate (although usually a more concrete one).  </p>
+
+<h1>Equality Unification</h1>
+
+<p>Borrowed from Alma-0, there will be a new Unification Equals operator, 
+≛ (U+225B 	STAR EQUALS), which has the following properties:</p>
+
+<ul>
+  <li>If both sides are known (non-Nil), then it functions as a Boolean 
+    <code>==</code></li>
+  <li>If one side is known, and the other is unknown (Nil), then it functions 
+    as a symmetric assignment operator (the Nil side is assigned to the non-Nil
+    side)</li>
+  <li>If both sides are unknown (Nil), then it throws an error</li>
+</ul>
+
+<p>The stringish equivalent is <code>equ</code>.</p>
+
+<p>The goal here is that we be able to use the same functions for both setting
+data and testing whether data is set.  </p>
+
+<div style="background-color: red">-</div>
+
+<div style="background-color: #ffefdf">
+<h4>Implementation Notes</h4>
+
+<ul>
+  <li>On Predicate, add functions for:</li>
+  <ul>
+    <li>Signature: fetches Signature</li>
+    <li>Override CALL-ME to change candidate-matching behaviour.  </li>
+    <li>In future,
+      the following functions/attributes would enable the candidate-matching
+      behaviour to all be put in one place:</li>
+    <ul>
+      <li>On Callable, a DefinitionSpecification method that returns Captures/
+        Signatures depending on whether the method is a descendent of 
+        Predicate or not</li>
+      <li>On Code, a CallSpecification method that returns the opposite of 
+        whatever DefintionSpecification returns</li>
+      <li>A match-halt attribute (not sure on what, but assume Code for now).  
+        If it's set to 1 (as it would be on Code), then it stops after the 
+        first candidate is matched (unless someone uses nextsame, etc).  If 
+        it's undefined (as it would be on Predicate), then <i>all</i> 
+        candidates are matched.  </li>
+    </ul>
+  </ul>
+  <li>Any parameters not a definite item should be seekables</li>
+</ul>
+
+<p>A quick comparison of existing Raku function candidate selection vs. Prolog
+(though if Gödel does something similar, that might be a better process.  
+The matching works as follows:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Unification</th>
+    <th>Raku Function Calling</th>
+  </tr>
+  <tr>
+    <td>Are both items parameters with a value?  </td>
+    <td>If values are the same, succeed (whatever that means)</td>
+    <td>If values are the same, succeed (ie. progress towards running function)</td>
+  </tr>
+  <tr>
+    <td>Are call terms both non-scalar?</td>
+    <td>If not, fail</td>
+    <td>Won't match because of type mismatch</td>
+  </tr>
+  <tr>
+    <td>Do they have the same function/relation name and arity?</td>
+    <td>If not, fail</td>
+    <td>Won't match because of arity or function name mismatch</td>
+  </tr>
+  <tr>
+    <td>Can Capture/Signature be unified?</td>
+    <td>If not, fail</td>
+    <td>If not, fail</td>
+  </tr>
+</table>
+
+</div>
+
+<h3>Tree Selection</h3>
+
+<p>Because we want to be able to select data from trees as well as lists/sets,
+we need a more powerful selection language than just regular signatures.  Thus
+we need to introduce a sublanguage which we will call RaQuery.  </p>
+
+<p>Conceptually it's inspired by XPath and JSONPath and Raku.  </p>
+
+Note: Doesn't work as well as I'd like.  Problems are:
+- Tables: What if someone wants to match just a few fields from a record?  How do we make the rest match any without extra verbosity
+- Trees: Allows the selection of nodes into a Set/Array, but doesn't do a good job of selecting from tree structures
+
+Grammars and XPath and SQL are much more powerful /query/ languages than Logic Programming, though
+Logic Programming has its strengths (ie. code inside data).  
+
+SQL is like the part of XPath inside []
+
+Therefore we should be looking at having an XPath-like language in Raku.  
+
+Put them inside tortoise-shell brackets (U+2773, etc); actually, just use Q language, and have 
+the quoting as query or qu.  
+
+
+
+
+</content>
+</page>

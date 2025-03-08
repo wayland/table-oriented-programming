@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Declarative/Data-Simple-Queries.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<h1>Predicate and Laws: Multi functions/methods in reverse</h1>
+
+<h3>Conceptual</h3>
+
+<p><i>Predicates and laws are multi functions in reverse</i></p>
+
+<p>In a function call, you provide <i>data</i> which are matched against the 
+<i>criteria</i> in the function definition.  If they match, then the body of 
+the function is executed.  </p>
+
+<p>In a query, you provide <i>criteria</i> which are matched against the 
+<i>data</i> in the table/database.  If they match, the relevant data records are
+returned</p>
+
+<h3>Raku</h3>
+
+<p><i>Predicates are the reverse of proto.  Laws are the reverse of the multi candidates.</i></p>
+
+<p>In a <i>method call</i>, you provide a <code>Capture</code> which is matched 
+against the <code>Signature</code> in the method definition.  If they 
+match, the variables are bound, and the function body is run, returning
+a return value.  </p>
+
+<p>In a <i>query</i>, you provide a <code>Signature</code> which is matched
+against the <code>Capture</code> or <code>Signature</code> provided in the 
+<code>law</code>s specified in the predicate (which is in a database).  </p>
+
+
+<h2>Laws: Data for a Predicate</h2>
+
+<p>When you define a law,
+you specify values for the parameters (and it's a multi, so multiple law 
+defintions within the predicate are likely).  This makes the parameter 
+definition more like a Capture than a Signature.  When you run a query (ie. 
+make a call to a law/predicate), you use a Signature in the query, and it 
+returns all the definitions that matched.  This makes it useful for queries
+-- you can put in a query with some undefined (free) variables and it will return all 
+items (Laws) that match.  </p>
+
+<p>The matching logic (traditionally called "unification") is almost exactly 
+what's used for Multiple Dispatch, with the exception that, when a definition 
+matches, the body is run (and this is where the power of this approach comes 
+from).  The body will return a Match object; if the Match object evaluates to 
+True, the Match is added to the array of return values.  </p>
+
+<p>Here's a comparison table:</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Function Definition</th>
+    <th>Function Call</th>
+    <th>Law (aka Law Definition)</th>
+    <th>Query (aka Law Call)</th>
+  </tr>
+  <tr><th colspan="5">Routine Parts</th></tr>
+  <tr>
+    <th>Routine Name</th>
+    <td>Identifier</td>
+    <td>Identifier</td>
+    <td>Identifier</td>
+    <td>Identifier</td>
+  </tr>
+  <tr>
+    <th>Routine Inputs</th>
+    <td>Signature</td>
+    <td>Capture</td>
+    <td>Capture</td>
+    <td>Signature</td>
+  </tr>
+  <tr>
+    <th>Routine Outputs</th>
+    <td colspan="2">Return Value + rw Parameters</td>
+    <td colspan="2">Match Object</td>
+  </tr>
+  <tr>
+    <th>Routine Body</th>
+    <td>Raku Code Block</td>
+    <td>-</td>
+    <td>Raku Law Code Block</td>
+    <td>-</td>
+  </tr>
+  <tr><th colspan="5">Matching process</th></tr>
+  <tr>
+    <th>Overview</th>
+    <td colspan="2">Take a single Capture (in call), and compare against each 
+      available signature (in definition)</td>
+    <td colspan="2">Take a single Signature (in call), and compare against 
+      each available Capture/Signature (in definition)</td>
+  </tr>
+  <tr>
+    <th>Stop matching after</th>
+    <td colspan="2">First match</td>
+    <td colspan="2">All that match (ie. each function has an implied "nextsame" at the end)</td>
+  </tr>
+</table>
+
+<h3>Reversal of Capture and Signature</h3>
+
+<p>The first thing to note in the table above is the reversing of the 
+Signature and the Capture.  A Capture has the values filled in already, and 
+the Signature is full of named unknowns (free variables) where the values can 
+be put (if binding succeeds).  In this case, Law calls will be 
+used in the Query, so they are full of unknowns (Signature) that want to match 
+something (Capture).  As per the "role BirthdayCongrats" example near the 
+bottom of <a href="https://docs.raku.org/syntax/multi">multi</a>, it's already
+possible for a Signature to contain actuals as well, which will need to match
+the actuals in the Capture as well.  </p>
+
+<h3>Multiple Bindings</h3>
+
+<p>The second thing to note is that in both cases, the binding process takes the
+call, and matches it against the definition looking for matches, but functions 
+will execute the first match, and just return that value, whereas in the 
+case of queries, it executes every law that matches, not just the first.  </p>
+
+<h3>Law bodies</h3>
+
+<p>Naturally, the body of this kind of routine can't be quite like the body
+of a regular routine.  The relevant changes are:</p>
+
+<ul>
+  <li>Any code called should be predicates/queries, not other kinds of routine</li>
+  <li>The law should return a Match object that is true if the item matches, 
+    and false if not.  </li>
+  <li>If no body is supplied, the default is to return a Match that's the same
+    as the Capture in the law specification, and also Match.Bool returns 
+    True</li>
+</ul>
+
+<h2>The Family Tree Example</h2>
+
+<p>Now for an example.  To see the family tree modelled here as a diagram, see
+<a href="https://www.chegg.com/homework-help/questions-and-answers/consider-following-family-tree-represent-family-tree-prolog-define-cousin-relationship-not-q52199342">
+Family Tree Question</a>.  </p>
+
+<p>First, let's look at the initial setup of the database:</p>
+<code class="block"># A Database is a group of predicates/laws, just as a class is a group of methods and attributes
+database Kinships {
+  # Declare a proto for fatherOf -- could use objects instead of strings
+  predicate  fatherOf(Str $name, Str $fathersname);
+  law fatherOf("Alex", "John");
+  law fatherOf("Bob", "John");
+  law fatherOf("Mick", "Alex");
+  ...
+}
+</code>
+<p>In the above, we can see that the predicate called <code>fatherOf</code> 
+says that it returns pairs of strings with the field names <code>$name</code>
+and <code>$fathersname</code>.  </p>
+
+<p>As instances of the predicate, we can see three <code>fatherOf</code> laws 
+being declared.  </p>
+
+<p>The laws have Captures, and the predicate has a Signature.  The return 
+values of the laws are Match classes that evaluate to True, and have the data
+from the Capture in them.  This means that when the predicate is queried, 
+the Captures will be returned.  </p>
+
+<p>Now that we've declared our data, the question is how to query it.  </p>
+
+<code class="block"># A query
+say Kinships.fatherOf(Str $name, "John").raku;    
+# OUTPUT: 
+# «[
+#   Match.new(name => "Alex", fathersname => "John"),
+#   Match.new(name => "Bob", fathersname => "John")
+# ]»
+</code>
+
+<p>We can see that the query has is a Signature, which matches the Signature 
+in the predicate, and some of the Captures in the laws, but not all of them.  
+</p>
+
+<p>So far, nothing that special; the special sauce comes from the accretion
+of all the declarative features.  </p>
+
+
+<h1>Comparitive Terminology</h1>
+
+<p>If you're familiar with one of the following fields, the following table 
+may be helpful; if not, just skip it.  </p>
+
+<table>
+  <tr>
+    <th>Declaraku</th>
+    <th>SQL.</th>
+    <th>Relation Algebra</th>
+    <th>Logic Programming</th>
+    <th>XML</th>
+  </tr>
+  <tr>
+    <td>database</td>
+    <td>Database</td>
+    <td>Database</td>
+    <td>(database)</td>
+    <td>Document</td>
+  </tr>
+  <tr>
+    <td>predicate</td>
+    <td>Table-Type Declaration (cf. PostgreSQL Type declaration)</td>
+    <td>Relation</td>
+    <td>Predicate</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Law (or query result?)</td>
+    <td>Record</td>
+    <td>Tuple</td>
+    <td>rule/fact</td>
+    <td>Element</td>
+  </tr>
+  <tr>
+    <td>Query</td>
+    <td>Query</td>
+    <td></td>
+    <td>Query</td>
+    <td>Query</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+<h1>Predicates and Joins</h1>
+
+<h2>Overview</h2>
+
+<p>A Predicate is a descendent of Set (or maybe does Set), but also of proto
+methods.  The Predicate has an attached Signature (ie. a list of names with 
+types, but no bound variables).  The elements of the Predicate are items that 
+do Callable (mostly laws -- see below).  This means that each
+element will have a Capture method.  They should only be placed in the set if
+that Capture matches the Signature of the Predicate.  </p>
+
+<p>Predicates function as Relations (with a few additional pieces).  </p>
+
+
+</content>
+</page>

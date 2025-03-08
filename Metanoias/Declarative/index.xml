@@ -1,66 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Introduction.xml</filename>
+<filename>Declarative/index.xml</filename>
 <sitedir>Metanoias</sitedir>
 <content>
 
-<p>The (Koine) Greek work <a href="https://en.wiktionary.org/wiki/%CE%BC%CE%B5%CF%84%CE%AC%CE%BD%CE%BF%CE%B9%CE%B1">
-μετάνοια</a> (metanoia) etmologically means "after-mind", and is usually 
-translated "afterthought", "repentance", or "change of mind".  </p>
+<h1>Declarative Features in Raku</h1>
 
-<p>These are my calls for changes in the next major version of Raku (ie. the 
-one that will finally break backwards compatibility).  This would likely be
-version 6.1 or 7.  I would assume we'll follow the same pattern as the early 
-Raku process, with something like:</p>
-<ul>
-  <li>RFCs (maybe these Metanoias can be a precursor to some of those)</li>
-  <li>Apocalypses from ... maybe the committee unless Larry is enticed back</li>
-  <li>Hopefully Exegeses from someone</li>
-</ul>
-
-<p>The main driver for this is that I think that Raku, while doing a good job
-of integrating material from a wide range of programming paradigms, has missed 
-a few that I think would be useful.  A quick summary of these is:</p>
-
-<ul>
-  <li>The various <b><a href="https://en.wikipedia.org/wiki/Declarative_programming">
-    Declarative Programming</a></b> paradigms, including:</li>
-  <ul>
-    <li><a href="https://en.wikipedia.org/wiki/Logic_programming">Logic Programming</a>.</li>
-    <li>Transformation Languages, such as Raku Grammars and XSLT</li>
-    <li>Declarative Systems Programming languages such as Puppet and Makefiles</li>
-  </ul>
-  <li>The various <b>Data-Oriented Programming</b> paradigms, such as:</li>
-  <ul>
-    <li><a href="TOP/Introduction/What.xml">
-      Table-Orieinted Programming</a></li>
-    <li>Jungle-oriented Programming for managing trees.  Not a named paradigm 
-      -- the only example language I can think of is XSLT.</li>
-    <li><a href="https://en.wikipedia.org/wiki/Array_programming">Array Programming</a>:
-      We already mostly do this</li>
-  </ul>
-</ul>
-
-<p>As a precursor to these suggested additions in future versions of Raku, attempts will 
-be made towards Raku 6.0.x modules that will handle these -- hopefully the 
-concepts will be integrated into a future version of the core language (just 
-as Perl's DateTime module was included in Raku 6).  </p>
-
-<p>Additionally, as Raku 6 cleaned up some of the messes in Perl 5, so we want Raku 7 to 
-clean up some of the messes in Raku 6.  These also deserve their own 
-Metanoias; hence the Cleanups section.  </p>
-
-<h1>Declarative Programming -- a Framework</h1>
-
-<p>It will be noted that, in what follows, the Logic Programming paradigm is heavily relied on.
-This is because it's one of the most generic and flexible declarative 
-paradigms, and will serve as a suitable base for building other declarative
-languages.  </p>
-
-<h2>Existing Almost-Declarative Features</h2>
-
-<p>Raku already has a moderate amount of almost declarative programming built 
+<p>Raku already has a moderate amount of declarative programming built 
 in.  The almost-declarative features include:</p>
 <ul>
   <li>Grammars are declarative programming, and already have a backtracking 
@@ -69,8 +16,41 @@ in.  The almost-declarative features include:</p>
   <li>Multiple dispatch is a lot like unification (another key component of
     Logic Programming), but with a few key differences.  </li>
 </ul>
-<p>These facilities get us about 90% of the way there, but 90% is not 100%.  
-</p>
+
+<p>However, the goal of this proposal is that we be able to do general-purpose
+declarative programming, not specific-purpose declarative programming.</p>
+
+<p>The facilities mentioned above get us about 90% of the way there, but 90% 
+is not 100%, so the obvious question is "What else do we need to adopt from
+declarative languages to allow general-purpose declarative programming?"</p>
+
+<h1>Introduction to Declarative Programming</h1>
+
+<p>Declarative programming has a long history of producing very powerful 
+languages for which it is difficult to find applications, and which 
+programmers don't understand.  </p>
+
+<p>...with the exception of SQL.  Why is that?  Well, SQL had a number of
+things going for it, but the biggest requires a tiny dive into its history.
+The original name was SEQUEL, which stood for Structured English Query
+Language (the name was abandoned for copyright reasons).  The key work here is 
+English.  There was a movement in earlier days to make programming more 
+accessible to non-programmers.  This meant moving away from mathematical 
+language, and towards languages with more English-like tokens.  I'm assuming 
+SEQUEL was a part of that movement.  </p>
+
+<p>In particular, its references to tables, records and fields was more 
+accessible than backtracking and unification.  </p>
+
+<p>So the question here is, how can we make a kind of declarative programming
+that will be as accessible as SQL, but as flexible as the more 
+general-purpose declarative programming.  The first place to look for 
+concepts (but not terminology!) is Logic Programming.  This is because it's 
+one of the most generic and flexible declarative paradigms, and a few 
+borrowed features will serve as a suitable base for building other 
+declarative structures.  </p>
+
+<h1>Declarative Programming -- a Survey</h1>
 
 <h2>Declarative Abstractions</h2>
 
@@ -86,7 +66,7 @@ abstracting.  </p>
   <li>A <b>Source</b> data structure of some kind</li>
   <li>A <b>Query</b> (made of patterns) that walks the source, matching 
     against it (and triggering actions, either locally, or in the Producer)</li>
-  <li>Possibly a <b>Producer</b> (made of actions) triggered by the query that outputs
+  <li>Optionally a <b>Producer</b> (made of actions) triggered by the query that outputs
     the Target; this is a way of making the query results Streamable (ie.
   	dealing with it a chunk at a time instead of as a whole).  Raku grammars do 
 	  this.  </li>
@@ -207,22 +187,12 @@ types of conversion.  </p>
 XSLT can generate HTML tables), but the ones in the table above are the ones
 they're best adapted to.  </p>
 
-<h1>Data-Oriented Programming -- a Raku-focussed Overview</h1>
-
-<p>The plan is that we'll build into the language:</p>
-
+<p>Ideally, we'd like to include enough functionality to support the following paradigms:</p>
 <ul>
-  <li>Objects representing databases, tables and views (as per the 
-    <a href="Raku-TOP/Introduction.xml">Raku TOP</a> documents).  These could
-    have a variety of backends, including both managing in-memory tables
-    and fetching data from database backends.  This won't be as low-level
-    as DBI -- we'll have objects that represent data, and we can fetch data by
-    using the Associative and Positional roles on the tables/rows/columns.  </li>
-  <li>Objects representing trees, including a selection language for the trees</li>
+  <li><a href="https://en.wikipedia.org/wiki/Logic_programming">Logic Programming</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Constraint_programming">Constraint Programming</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Rule-based_system">Rule-based Systems</a></li>
 </ul>
-
-<p>More detail will be given in the Metanoia on two-dimensional data structures.  </p>
-
 
 </content>
 </page>

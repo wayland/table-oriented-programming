@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<page>
+<filename>Declarative/Object-Model.xml</filename>
+<sitedir>Metanoias</sitedir>
+<content>
+
+<table>
+  <tr>
+    <th>Declaraku</th>
+    <th>Raku Grammars</th>
+    <th>XQuery/XPath</th>
+    <th>SQL</th>
+    <th>Spreadsheet</th>
+    <th>Logic Programming</th>
+  </tr>
+  <tr>
+    <th colspan="6"><h3>Data Objects (Source/Destination)</h3></th>
+  </tr>
+  <tr>
+    <td>Node</td>
+    <td>Match</td>
+    <td>Element Node</td>
+    <td>Record</td>
+    <td>Row</td>
+    <td>?Result</td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>Source Text</td>
+    <td>???</td>
+    <td>Database</td>
+    <td>Spreadsheet (all sheets)</td>
+    <td>Database</td>
+  </tr>
+  <tr>
+    <td>Predicate</td>
+    <td>???</td>
+    <td>Document Node</td>
+    <td>Table</td>
+    <td>Sheet</td>
+    <td>Predicate</td>
+  </tr>
+  <tr>
+    <td>Attribute on a match (or an assoc key?)</td>
+    <td></td>
+    <td>Attribute Node</td>
+    <td>?Cell</td>
+    <td>Cell</td>
+    <td>Value?</td>
+  </tr>
+  <tr>
+    <td>(Other)</td>
+    <td></td>
+    <td>Namespace, Processing Instruction, Comment, Text</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>NodeSet</td>
+    <td>Match Tree</td>
+    <td>NodeSet</td>
+    <td>Relation</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<h1>Comparitive Terminology</h1>
+
+<p>If you're familiar with one of the following fields, the following table 
+may be helpful; if not, just skip it.  </p>
+
+<table>
+  <tr>
+    <th>Declaraku</th>
+    <th>SQL.</th>
+    <th>Relation Algebra</th>
+    <th>Logic Programming</th>
+    <th>XML</th>
+  </tr>
+  <tr>
+    <td>database</td>
+    <td>Database</td>
+    <td>Database</td>
+    <td>(database)</td>
+    <td>Document</td>
+  </tr>
+  <tr>
+    <td>predicate</td>
+    <td>Table-Type Declaration (cf. PostgreSQL Type declaration)</td>
+    <td>Relation</td>
+    <td>Predicate</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Law (or query result?)</td>
+    <td>Record</td>
+    <td>Tuple</td>
+    <td>rule/fact</td>
+    <td>Element</td>
+  </tr>
+  <tr>
+    <td>Query</td>
+    <td>Query</td>
+    <td></td>
+    <td>Query</td>
+    <td>Query</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+<h1>Predicates and Joins</h1>
+
+<h2>Overview</h2>
+
+<p>A Predicate is a descendent of Set (or maybe does Set), but also of proto
+methods.  The Predicate has an attached Signature (ie. a list of names with 
+types, but no bound variables).  The elements of the Predicate are items that 
+do Callable (mostly laws -- see below).  This means that each
+element will have a Capture method.  They should only be placed in the set if
+that Capture matches the Signature of the Predicate.  </p>
+
+<p>Predicates function as Relations (with a few additional pieces).  </p>
+
+
+</content>
+</page>

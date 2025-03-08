@@ -1,0 +1,28 @@
+#!/usr/bin/raku
+
+my $a = 1;
+my $b = 2;
+my $c = 3;
+
+say "Beginning (C is $c)";
+given True {
+	say "Attempt 1 (C is $c)";
+	when {
+		let $c;
+		$c++;
+		say "\tMid-attempt (C is $c)";
+		$a > $b or Nil;
+	} {
+		say "When 1";
+	}
+	say "Attempt 2 (C is $c)";
+	when {
+		let $c;
+		$c--;
+		say "\tMid-attempt (C is $c)";
+		$a < $b or Nil;
+	} {
+		say "When 2";
+	}
+}
+say "End (C is $c)";
