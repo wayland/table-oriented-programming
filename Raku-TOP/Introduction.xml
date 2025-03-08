@@ -16,7 +16,8 @@ th h2, th h3 {
 }
 </style>
 
-<p>None of this has been started yet; I'm documenting what I'd like to see as a learning exercise.  </p>
+<p>Have made a start on this at <a href="https://raku.land/zef:wayland/TOP">TOP</a>.  
+Please install that module to use what I have so far.  </p>
 
 <h1>Classes</h1>
 
