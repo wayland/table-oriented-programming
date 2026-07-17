@@ -8,11 +8,15 @@
 
 <h1>Precedence</h1>
 
+<p>The precedence levels mentioned here are the same as the ones at Raku 
+<a href="https://docs.raku.org/language/operators#Operator_precedence">Operator Precedence</a>.</p>
+
 <table>
   <tr>
     <th>Precedence Level</th>
     <th>Associativity</th>
     <th>Examples</th>
+    <th>Comments</th>
   </tr>
   <tr>
     <td>Replication</td>
@@ -23,6 +27,18 @@
     <td>Concatenation</td>
     <td>list</td>
     <td>⋉ ⋊ ▷ ◁ ⨝ ⟕ ⟖ ⟗ ÷ ▵ X</td>
+  </tr>
+  <tr>
+    <td>Junctive Exponentiation</td>
+    <td>right</td>
+    <td>𝒫</td>
+    <td>Tighter than Junctive unary</td>
+  </tr>
+  <tr>
+    <td>Junctive unary</td>
+    <td>left</td>
+    <td>⧩</td>
+    <td>Tighter than Junctive and</td>
   </tr>
   <tr>
     <td>Junctive and</td>
@@ -108,6 +124,49 @@
 
 <h3>Operators that Return a <code>TupleSet</code></h3>
 
+<h4><code>TupleSet</code>-Returning Overview</h4>
+
+<table>
+  <tr>
+    <th></th>
+    <th>is </th>
+    <th>is not</th>
+    <th>Operands</th>
+  </tr>
+  <tr>
+    <td>Intersection</td>
+    <td>Intersection, AND</td>
+    <td>Intersection Complement, NAND</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>Union</td>
+    <td>Union, OR</td>
+    <td>Union Complement, NOR</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>Symmetric Set Difference</td>
+    <td>Symmetric Set Difference, XOR</td>
+    <td>Symmetric Set Difference Complement, XNOR</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>Set Difference</td>
+    <td>Set Difference</td>
+    <td>Set Difference Complement</td>
+    <td>Relations</td>
+  </tr>
+  <tr>
+    <td>Complement</td>
+    <td></td>
+    <td>Complement</td>
+    <td>A Relation</td>
+  </tr>
+</table>
+
+<h4>General <code>TupleSet</code> Operations</h4>
+
 <p>cf. <a href="https://docs.raku.org/language/setbagmix">Sets, bags, and mixes</a></p>
 
 <p>The operators without a dot in them ensure each row is unique; the ones with a dot 
@@ -117,7 +176,7 @@ accept duplicates</p>
   <tr>
     <th>Operator</th>
     <th>Set Theory Term</th>
-    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Comparative Boolean<br/>Algebra Term</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -144,15 +203,9 @@ accept duplicates</p>
     <td></td>
     <td><xtlinclude href="SetOperatorsDifference.svg" width="74" height="52"/></td>
   </tr>
-  <tr>
-    <td>σ</td>
-    <td>Selection</td>
-    <td></td>
-    <td>Choose some Tuples; equivalent to the WHERE clause in SQL</td>
-  </tr>
 </table>
 
-<h3>Universe-based Operators</h3>
+<h4>Universe-based Operators</h4>
 
 <p>These operators don't make sense without the existence of a Universe set that encompasses both 
 Relations.  If there exists U such that A and B are subsets of U, then these operators will make sense.  
@@ -163,7 +216,7 @@ a superset of both operands.  </p>
   <tr>
     <th>Operator</th>
     <th>Set Theory Term</th>
-    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Comparative Boolean<br/>Algebra Term</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -204,16 +257,54 @@ a superset of both operands.  </p>
   <tr>
     <th>Operator</th>
     <th>Set Theory Term</th>
-    <th>Comparitive Boolean<br/>Algebra Term</th>
+    <th>Comparative Boolean<br/>Algebra Term</th>
     <th>Description</th>
   </tr>
   <tr>
-    <td>℘ U+2118</td>
+    <td>℘  (U+2118)</td>
     <td>Power Set</td>
     <td></td>
     <td>Unary.  Make a set whose members are all possible subsets of the Relation</td>
   </tr>
 </table>
+
+<h3>Map-Reduce and Aggregation Operators</h3>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Set Theory Term</th>
+    <th>Comparative Boolean<br/>Algebra Term</th>
+    <th>Traditional Perl/Map-Reduce term</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>σ, 𜸈 (U+1CE08)</td>
+    <td>Selection</td>
+    <td></td>
+    <td><code>grep</code></td>
+    <td>Choose some Tuples; equivalent to the WHERE clause in SQL</td>
+  </tr>
+  <tr>
+    <td>⇅ (U+21C5)</td>
+    <td></td>
+    <td>sort</td>
+    <td>Sorts tuples</td>
+  </tr>
+  <tr>
+    <td>».</td>
+    <td></td>
+    <td>map</td>
+    <td>The Hyper operator (core Raku) is equivalent to a Map call, but with a few advantages (differences)</td>
+  </tr>
+  <tr>
+    <td>⌿ (U+233F)</td>
+    <td></td>
+    <td>reduce</td>
+    <td>Reduces a set of tuples by repeatedly applying a function/operation</td>
+  </tr>
+</table>
+
 
 <h2>Column-based Operators</h2>
 

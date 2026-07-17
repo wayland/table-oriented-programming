@@ -27,7 +27,9 @@ imagine that the following appears in the above example where the ... is:</p>
 
 <code class="block">
 say Kinships.grandfatherOf('Mick', Str $x);
+# OUTPUT: ('Mick', 'John')
 </code>
+
 
 
 -	cover:
@@ -39,10 +41,20 @@ Next structuring:
 - Operators (include both Joins and the Equality thingy); when doing this, expand on the Family Tree 
 - 	
 
+---
 
-<h1>Comparitive Terminology</h1>
+Another thing we need to cover is that Grammars do a terrible job of operator precedence, whereas
+tables would probably do a pretty good job, so we should be looking at how to integrate tables
+with grammars in a useful way.  We'd need tables for:
+-	Individual operators
+-	Precedence levels
 
-<p>If you're familiar with one of the following fields, the following table 
+We'd still want to have rules for prefix, infix, and postfix operators, but these rules would be
+triggered from the tables somehow.  
+
+<h1>Comparative Terminology</h1>
+
+<p>If you're familiar with one (or more) of the following fields, the following table 
 may be helpful; if not, just skip it.  </p>
 
 <table>
@@ -162,6 +174,13 @@ data and testing whether data is set.  </p>
   <li>Any parameters not a definite item should be seekables</li>
 </ul>
 
+Note that post-circumfix () is a call operator; it treats the previous 
+item as a callable and calls it.  We might need to modify it so it can
+handle a Signature.  
+
+Also useful: https://blogs.perl.org/users/vadim_belman/2019/12/post.html
+(especially the part on WALK).  
+
 <p>A quick comparison of existing Raku function candidate selection vs. Prolog
 (though if Gödel does something similar, that might be a better process.  
 The matching works as follows:</p>
@@ -204,7 +223,7 @@ we need to introduce a sublanguage which we will call RaQuery.  </p>
 
 <p>Conceptually it's inspired by XPath and JSONPath and Raku.  </p>
 
-Note: Doesn't work as well as I'd like.  Problems are:
+Note: Just using predicates doesn't work as well as I'd like.  Problems are:
 - Tables: What if someone wants to match just a few fields from a record?  How do we make the rest match any without extra verbosity
 - Trees: Allows the selection of nodes into a Set/Array, but doesn't do a good job of selecting from tree structures
 

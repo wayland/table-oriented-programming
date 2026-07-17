@@ -1,6 +1,53 @@
 TODO
 ====
 
+-	Solve how to set up a site at wayland.github.io; Different project sites for the different projects
+	-	Probably the next thing to do is to incorporate the whole TOP site (not the Raku part, just the main part)
+		into the TOP book, and then I can stop worrying about it so much
+	-	As the TOP posts get written, they can be incorporated into the book, but in a more organised fashion
+	-	Once the DOP books are done, I can go on to the other sites
+-	Make a front landing page for the multiple sites I'll need:
+	-	Raku DOP
+		-	Include Metanoias
+	-	Programming Productivity
+		-	Programming Productivity
+		-	"Other Material", including AI and RAD
+	-	Data-Oriented Programming (but the books will replace this)
+		-	Table-Oriented
+		-	Tree-Oriented
+		-	Logic
+	-	OTTTER (Office Toolkit): The concept, the tools (replaces RAD, AI)
+	-	Blog: Done.  See misc/TODO.txt on the Blog site
+-	Rewrite this document:
+	-	Moving anything specific to Raku TOP out into a separate document
+	-	Thinking about the place of Raku-TOP/TODO.xml
+	-	In fact, moving out anything that isn't specific to the current website
+-	Under OTTTER, in the AI section, add https://raku.land/zef:raku-community-modules/OO::Actors
+
+
+Questions I'm trying to answer for DOP
+--------------------------------------
+-	How does Logic Programming integrate with Tables/Trees
+	-	How do we use the Equality Unification operator in Raku?  
+-	Idea: When querying a Predicate, the generics that are passed in should also set the return values
+	-	While conceptually a Signature, maybe a different syntax would be better; can we just use different parentheses?  
+-	Declarative callables should have 2 extra components; see below
+-	
+
+Block Components
+----------------
+
+| Component                             | Existing | Comments                  |
+| ------------------------------------- | -------- | ------------------------- |
+| Type (proto, method, multi, sub, etc) | Exists   | Add predicate/law         |
+| Name (for proto/multi/whatever)       | Exists   |                           |
+| Input Signature                       | Exists   |                           |
+| Return Signature                      | New      | If names are specified, then these are available in the block, and whatever they're set to is used in the return value.  They're also passed in from outside, so that we can eg. pass in a table that will hold the return values |
+| Match Block                           | Newish   | Only used in grammars.  If Match block fails, then the return value is false.  If True, then it returns the return value of the action block (if any), otherwise True |
+| Action Block                          | Exists   | The block of any callable |
+
+Also useful (maybe for predicates?): https://docs.raku.org/type/Metamodel/ClassHOW
+
 Content
 -------
 

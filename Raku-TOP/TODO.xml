@@ -18,43 +18,28 @@
 
 <h3>Basic Functionality</h3>
 <ul>
-  <li>Basic functionality</li>
+  <li>Functionality</li>
   <ul>
     <li>Very basic functionality</li>
     <ul>
       <li><span class="done">Table, including Field and Tuple, and inheriting from Relation and TOP::Core</span></li>
       <li><span class="done">Database, including inheriting from TOP::Core</span></li>
       <li><span class="done">Implement backends for CSV and DBI</span></li>
-      <li>Look at having a Signature for a Relation, and linking each Field to a Parameter in the Signature</li>
     </ul>
     <li>Joining</li>
     <ul>
-      <li>Join</li>
-      <li>View</li>
-      <li>TupleSet</li>
+	<li>Basic joins: NodeList and Join operators; cf. https://glot.io/snippets/h5t1sg55xd</li>
+      <li>Join objects</li>
+      <li>Views</li>
     </ul>
-    <li>Cursor</li>
     <li>DataDictionary</li>
     <li>Lot, Section</li>
   </ul>
-  <li>Perspectives</li>
-  <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
-  <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions
-    ...or maybe we should just let people use multi-dimensional arrays for this</li>
 </ul>
 
-<h3>Iterations</h3>
+<h3>Backends &amp; Detail</h3>
 
 <ul>
-	<li>Cleanups 1</li>
-	<ul>
-		<li>Change "Driver" to "Storage"</li>
-		<li>Look at the TODO items in the code (ie. to be moved to TODO list)</li>
-		<li>cf. also https://wayland.github.io/table-oriented-programming/Raku-TOP/Introduction.xml</li>
-		<li>In Database::Storage::Memory, change makeTuple(@) to read existing fields before making up its own;
-			cf. also $!field-mode</li>
-		<li>Duplicate Database::Storage::Memory::add-row to Postgres (and put template in frontend)</li>
-	</ul>
 	<li>CLI: Create table</li>
 	<ul>
 		<li>Command line tool to read things in/out of tables</li>
@@ -66,8 +51,22 @@
 			<li>csvcut and other similar tools</li>
 		</ul>
 	</ul>
+	<li>Inheritance Cleanup</li>
+	<ul>
+		<li>Big idea: Make classes use the inheritance specified in the Umbrello diagram (~src/raku/DataPath/DataOrientedProgramming.xmi)</li>
+		<li>Signatures for Relations</li>
+		<ul>
+			<li>Look at having a Signature for a Relation, and linking each Field to 
+			an Associative Parameter in the Signature.  Note that Signatures don't
+			seem to be able to be be modified dynamically; might have to generate a 
+			new one based on the old one plus the new params.  </li>
+			<li>Make Tuple descend from Capture; possibly just rename the whole 
+			thing to Node, which can be either in a table or a tree (the difference
+			is that nodes can have children); this would also mean we could then
+			replace TupleSet with NodeList.  </li>
+		</ul>
+	</ul>
 	<li>CSV (Storage, Parser, and Formatter)</li>
-	<li>Or should I backend onto those other 2 things (Dan and DataQueryWorkflows)</li>
 	<li>WithBorders Formatter (must be after CSV Parser)</li>
 	<ul>
 		<li>Use the CSV Parser to read the table characters for use in the WithBorders Formatter -- see 
@@ -79,10 +78,11 @@
 	</ul>
 	<li>Basic Colour:</li>
 	<ul>
+		<li>Possibly should wait until after the basics of the HTML formatter</li>
 		<li>Add colour to WithBorders and HalfHuman (strictly not allowed for HalfHuman, but could still be handy)</li>
 		<li>cf. https://github.com/jc21/clitable/blob/master/src/jc21/CliTable.php</li>
 		<li>At the end, see if there's anything from jc21/clitable that we still haven't included; field
-		formatters, for example</li>
+			formatters, for example</li>
 	</ul>
 	<li>Postgres improvements</li>
 	<ul>
@@ -90,11 +90,27 @@
 		<li>Implement the Fill from Table idea; cf. Table::Driver::Postgres::fill_from_aoh()</li>
 		<li>On Table::Driver::Postgres, consider moving the various functions to the Database object, as mentioned</li>
 	</ul>
-	<li>On Table, look at .new() and .TWEAK() to see if we can remove them; also, see if I can make .grep() do other return types</li>
-	<li>Check TODO items in codebase</li>
+	<li>Cleanups 2</li>
+	<ul>
+		<li>See if we can't rename Database::Storage::* to TOP::Storage</li>
+		<li>On Table, look at .new() and .TWEAK() to see if we can remove them; also, see if I can make .grep() do other return types</li>
+		<li>Check TODO items in codebase</li>
+	</ul>
 </ul>
 
-<h3>Iterations after POP (Plex-Oriented Programming)</h3>
+<h2>After Tree-Oriented Programming</h2>
+
+<h3>Functionality</h3>
+
+  <ul>
+    <li>Perspectives</li>
+    <li>Allow transactions (with <code>atom</code> structure), and TOP::Slang, and locking</li>
+    <li>Allow numbered columns as well as named.  Note https://docs.raku.org/language/subscripts#Multiple_dimensions
+      ...or maybe we should just let people use multi-dimensional arrays for this</li>
+    <li>Cursor</li>
+  </ul>
+
+<h3>Backends &amp; Detail</h3>
 <ul>
 	<li>HTML</li>
 	<li>Spreadsheet</li>
@@ -111,6 +127,13 @@
 	<li>XML (like HTML Tables, but more generic support of turning XML into tables)</li>
 	<li>JSON (like XML, but with JSON)</li>
 	<li>Start hooking the CLI table command to eg. GraphQL</li>
+</ul>
+
+<h2>Further down the list</h2>
+
+<ul>
+	<li>Visual table editor (web-based; Raku can run in the browser because it targets the JS VM; use that as the basis)</li>
+	<li>Maybe OpenFormula support (Raku is the default, but OpenFormula is an option)</li>
 </ul>
 
 </content>

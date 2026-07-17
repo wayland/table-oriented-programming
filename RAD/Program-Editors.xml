@@ -87,8 +87,14 @@ are:</p>
     <td>Can be multi-line</td>
   </tr>
   <tr>
-    <th>Testing</th>
+    <th>Error Handling</th>
     <td>Catch</td>
+    <td>Code</td>
+    <td>Can be multi-line</td>
+  </tr>
+  <tr>
+    <th>Testing</th>
+    <td>Test</td>
     <td>Code</td>
     <td>Can be multi-line</td>
   </tr>

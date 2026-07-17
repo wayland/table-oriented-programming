@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+h1 code, h2 code, h3 code {
+	font-size: 1.1em;
+}
+
 /* Positions headings so they're not behind the menubar */
 .pre-heading {
 	position: relative;
@@ -80,6 +84,9 @@ h4, h5, h6 {
 h4 {	font-size: 1.5em;	}
 h5 {	font-size: 1.17em;	}
 h6 {	font-size: 1em;	}
+h4 code { font-size: 1.2em; }
+h5 code { font-size: 1em; }
+h6 code { font-size: 0.8em; }
 
 .blockquote h1,
 .blockquote h2,
