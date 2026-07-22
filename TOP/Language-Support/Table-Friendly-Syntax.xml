@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Language-Support/Table-Friendly-Syntax.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Table-Friendly Syntax</title>
+<description>Table-friendly syntax includes supporting collections (tables and views) as first-class citizens.</description>
+<category>TOP, Language-Support</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Language-Support/Table-Friendly-Syntax.xml</filename>
 <content>
 <h1>Overview</h1>
-
 <p>Table-friendly syntax includes supporting collections (tables and views) as 
 first-class citizens.  </p>
 

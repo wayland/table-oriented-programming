@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Declarative/Data-Simple-Queries.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 1.1: Data and Simple Queries</title>
+<description>Predicates and laws are multi functions in reverse</description>
+<category>Metanoias, Declarative</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Declarative/Data-Simple-Queries.xml</filename>
 <content>
-
 <h1>Predicate and Laws: Multi functions/methods in reverse</h1>
-
 <h3>Conceptual</h3>
 
 <p><i>Predicates and laws are multi functions in reverse</i></p>

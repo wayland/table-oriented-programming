@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Documentation-Generation.xml</filename>
-<sitedir>RAD</sitedir>
+<title>Documentation Generation</title>
+<description>There are various kinds of documentation, and various audiences. The table below represents some of these. It should be possible to generate the items in the Reference Material row from the code/doco created in the…</description>
+<category>RAD</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>RAD/Documentation-Generation.xml</filename>
 <nextnode><link name="AI and Coding" href="AI/AI-and-Coding.xml"/></nextnode>
 <content>
 <p></p>

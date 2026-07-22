@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Declarative-Raku-Comparison.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Declarative Raku Compared</title>
+<description>This sections is somewhat sketchy, and should be skipped unless you're particularly interested.</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Declarative-Raku-Comparison.xml</filename>
 <content>
-
 <h1>Declarative Raku vs. Logic Programming</h1>
-
 <p>This sections is somewhat sketchy, and should be skipped unless you're 
 particularly interested.  </p>
 

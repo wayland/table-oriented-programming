@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Introduction/Terminology.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Terminology</title>
+<description>Different languages and communities use different terminology for similar things. The translation table below is provided so that you can ensure you're on the same page as this site. This site will use the Raku TOP…</description>
+<category>TOP, Introduction</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Introduction/Terminology.xml</filename>
 <content>
 <h2>Comparison of Terminology</h2>
 

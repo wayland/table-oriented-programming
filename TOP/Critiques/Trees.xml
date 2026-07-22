@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Critiques/Trees.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Trees</title>
+<description>[Even though...] it has been known since 1847 that classifications are dependent on the purpose of the classification, people continue to believe that it is possible to create a classification system that is…</description>
+<category>TOP, Critiques</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Critiques/Trees.xml</filename>
 <content>
 <div class="blockquote">
 

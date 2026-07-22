@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Sources-Destinations.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 3.1: Sources and Destinations</title>
+<description>In declarative Raku Sources and Destinations are both data structures. As a reminder, the three standard structures are:</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Sources-Destinations.xml</filename>
 <content>
-
 <h1>Source Data Structures</h1>
-
 <p>In declarative Raku Sources and Destinations are both data structures.  As
 a reminder, the three standard structures are:</p>
 

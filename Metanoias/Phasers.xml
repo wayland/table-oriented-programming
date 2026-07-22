@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Phasers.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 10.1: User-defined Phasers</title>
+<description>This one is not part of either data-oriented programming or declarative programming, but the capacity to define phasers will come in handy when setting up for declarative programming.</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Phasers.xml</filename>
 <content>
 
 <p>This one is not part of either data-oriented programming or declarative

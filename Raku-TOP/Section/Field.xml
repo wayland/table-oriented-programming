@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Section/Field.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>class Field</title>
+<description>The Field is a class that represents one column in a Relation. It does Section, so it can do everything a Section can.</description>
+<category>Raku-TOP, Section</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Section/Field.xml</filename>
 <content>
 <p>The Field is a class that represents one column in a Relation.  It does Section, so it can 
 do everything a Section can.  </p>

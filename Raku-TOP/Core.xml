@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Core.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>role TOP::Core</title>
+<description>td { padding: 6pt; vertical-align: top; } th h2, th h3 { margin: 0px; } TOP::Core Functions Raku TOP Item When called on a database, these functions are similar to xHarbour db*All, except that this only closes…</description>
+<category>Raku-TOP</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Core.xml</filename>
 <content>
 
 <style>

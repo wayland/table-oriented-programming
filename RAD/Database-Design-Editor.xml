@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Database-Design-Editor.xml</filename>
-<sitedir>RAD</sitedir>
+<title>Database Design Editor</title>
+<description>Lets you visually edit the design of your database</description>
+<category>RAD</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>RAD/Database-Design-Editor.xml</filename>
 <content>
 <h1>Overview</h1>
 <p>Lets you visually edit the design of your database</p>

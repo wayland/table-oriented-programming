@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Introduction/What.xml</filename>
-<sitedir>TOP</sitedir>
+<title>What is Table-Oriented Programming?</title>
+<description>Table-oriented programming is, on the surface, an extremely high level of programming language support for tables. Most languages don't even get close to this level of support. The common language which has the…</description>
+<category>TOP, Introduction</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Introduction/What.xml</filename>
 <prevnode><link name="Introduction to Programming Productivity" href="/"/></prevnode>
 <content>
 <p>Table-oriented programming is, on the surface, an extremely high level of 

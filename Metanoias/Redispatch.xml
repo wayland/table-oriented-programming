@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Redispatch.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 10.2: Orthogonal Redispatch</title>
+<description>The problem with the redispatch in Raku 6 is that each keyword (except wrap) combines three separate concepts into one. Those concepts are:</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Redispatch.xml</filename>
 <content>
-
 <h1>Overview</h1>
-
 <p>The problem with the redispatch in Raku 6 is that each keyword (except wrap)
 combines three separate concepts into one.  Those concepts are:</p>
 
@@ -48,7 +50,7 @@ a good bit more flexible:</p>
 
 <h1>Method Call Modifiers</h1>
 
-<p>We need to be able to specify some keywords that alter <b>how<b> a method is called.  
+<p>We need to be able to specify some keywords that alter <b>how</b> a method is called.  
 I'm going to suggest the syntax ::&lt;keyword&gt;.  Examples could include:</p>
 
 <ul>

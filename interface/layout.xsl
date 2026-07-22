@@ -3,13 +3,16 @@
 <!-- Overall Page Layout -->
 
   <!-- Get filename -->
+  <!-- Stage 4 interim: page/filename is already the deploy-relative path
+       matching site-contents @href (D5). Do not prefix page/sitedir
+       (now the deploy slug table-oriented-programming). Retired at Stage 6. -->
   <xsl:param name="sitedir" select="page/sitedir"/>
-  <xsl:param name="sitedir_string">
+  <xsl:param name="filename" select="page/filename"/>
+  <xsl:param name="content-sitedir">
     <xsl:choose>
-      <xsl:when test="$sitedir != ''"><xsl:value-of select="$sitedir"/>/</xsl:when>
+      <xsl:when test="contains($filename, '/')"><xsl:value-of select="substring-before($filename, '/')"/></xsl:when>
     </xsl:choose>
   </xsl:param>
-  <xsl:param name="filename" select="concat($sitedir_string, page/filename)"/>
   <xsl:param name="interface_structure" select="document('structure.xml')"/>
   <!-- Get sitemap -->
   <xsl:param name="sitecontents" select="document('site-contents.xml')"/>
@@ -52,7 +55,7 @@
     </div>
     <div class="tab-body">
       <div id="site-contents">
-        <xsl:apply-templates select="$sitecontents/site-contents/section[@sitedir=$sitedir]" mode="site-toc"/>
+        <xsl:apply-templates select="$sitecontents/site-contents/section[@sitedir=$content-sitedir]" mode="site-toc"/>
       </div>
     </div>
   </div>

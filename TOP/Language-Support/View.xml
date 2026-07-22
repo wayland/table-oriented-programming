@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Language-Support/View.xml</filename>
-<sitedir>TOP</sitedir>
+<title>class View</title>
+<description>Much like in SQL, views are selections of data from one or more collections (descendents of Relation). However, unlike SQL, we should expect views to be local, writable, and objects. Another notable difference is…</description>
+<category>TOP, Language-Support</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Language-Support/View.xml</filename>
 <content>
 <p>Much like in SQL, views are selections of data from one or more collections 
 (descendents of Relation).  However, unlike SQL, we should expect views to be 

@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Collection-Convergence/Memory-Mapping-Reduction.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Memory-Mapping Reduction</title>
+<description>Another feature that is invisible to the programmer, but saves lots of work.</description>
+<category>TOP, Collection-Convergence</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Collection-Convergence/Memory-Mapping-Reduction.xml</filename>
 <content>
 <div class="blockquote">
 The goal of reducing or eliminating the need to manually map and/or transfer 

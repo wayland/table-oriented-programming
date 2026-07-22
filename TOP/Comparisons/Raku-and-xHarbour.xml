@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Comparisons/Raku-and-xHarbour.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Comparison of Raku TOP and xBase/xHarbour</title>
+<description>This is a page which is designed to compare Raku TOP (ie. Raku with the TOP module) with xBase/xHarbour.</description>
+<category>TOP, Comparisons</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Comparisons/Raku-and-xHarbour.xml</filename>
 <content>
 
 <p>This is a page which is designed to compare Raku TOP (ie. Raku with the TOP module) with xBase/xHarbour.  </p>

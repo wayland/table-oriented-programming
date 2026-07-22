@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Other-Items/Eight-Concepts.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Eight Concepts</title>
+<description>In 1998-2002, as the table-oriented languages were falling out of use, Tablizer/TOPMind, aka "Tablizer/TOPMind" wrote a series of articles on "Table-Oriented Programming". These were, in their own words, unstructured…</description>
+<category>TOP, Other-Items</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Other-Items/Eight-Concepts.xml</filename>
 <content>
 <p>In 1998-2002, as the table-oriented languages were falling out of use, 
 Tablizer/TOPMind, aka "Tablizer/TOPMind" wrote a series of articles 

@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Relation/Table.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>class Table</title>
+<description>This class does Relation, so it can do all the things a Relation can do.</description>
+<category>Raku-TOP, Relation</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Relation/Table.xml</filename>
 <content>
 
 <p>This class does <a href="Raku-TOP/Relation">Relation</a>, so it can do all the things a Relation can do.  </p>

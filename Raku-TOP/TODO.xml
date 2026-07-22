@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>TODO.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>To Do</title>
+<description>Implementation order .done { background-color: green; color: white; padding: 2pt; border-radius: 4pt; } Basic Functionality Functionality Very basic functionality Table, including Field and Tuple, and inheriting from…</description>
+<category>Raku-TOP</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/TODO.xml</filename>
 <content>
-
-<h1>Implementation order</h1>
 
 <style>
 .done {
@@ -15,6 +17,8 @@
   border-radius: 4pt;
 }
 </style>
+
+<h1>Implementation order</h1>
 
 <h3>Basic Functionality</h3>
 <ul>

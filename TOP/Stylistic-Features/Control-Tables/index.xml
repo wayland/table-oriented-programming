@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../interface/layout.xsl"?>
 <page>
-<filename>Stylistic-Features/Control-Tables/</filename>
-<sitedir>TOP</sitedir>
+<title>Control Tables</title>
+<description>Control Tables are tables that control the program flow or play a major part in program control. Control Tables often have expressions or function references stored in them. Control Tables reduce the need for…</description>
+<category>TOP, Stylistic-Features/Control-Tables</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Stylistic-Features/Control-Tables/index.xml</filename>
 <content>
 <h1>Overview</h1>
-
 <div class="blockquote">
 
 <p> Control Tables are tables that control the program flow or play a major part 

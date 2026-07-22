@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Queries.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 3.2: Queries</title>
+<description>An instance of a query will sit in a feed operator pipeline or something similar, and will be fed a source, and use an Producer to produce output.</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Queries.xml</filename>
 <content>
 
 <p>An instance of a query will sit in a feed operator pipeline or something 

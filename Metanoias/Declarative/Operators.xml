@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Declarative/Operators.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 1.2: Declarative Operators</title>
+<description>Introducing part 2 of the example, the Kinships database continues; imagine that the following appears in the above example where the ... is:</description>
+<category>Metanoias, Declarative</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Declarative/Operators.xml</filename>
 <content>
 
 <p>Introducing part 2 of the example, the Kinships database continues; 

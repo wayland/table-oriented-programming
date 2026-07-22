@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Other-Items/Merging-TOP-and-OOP.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Merging TOP and OOP</title>
+<description>The originators of Table-Oriented Programming, Tablizer/TOPMind, were interested in the possibility of merging TOP and OOP. Their thought that objects be stored in a relational format have been borne out by many of…</description>
+<category>TOP, Other-Items</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Other-Items/Merging-TOP-and-OOP.xml</filename>
 <nextnode><link name="Introduction to Raku TOP" href="Raku-TOP/Introduction.xml"/></nextnode>
 <content>
 

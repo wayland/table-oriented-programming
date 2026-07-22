@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Database.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>class Database</title>
+<description>The Database class represents a whole database.</description>
+<category>Raku-TOP</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Database.xml</filename>
 <content>
 
 <p>The Database class represents a whole database.  </p>

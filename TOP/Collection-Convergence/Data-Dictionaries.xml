@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Collection-Convergence/Data-Dictionaries.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Data Dictionaries</title>
+<description>Data dictionaries (DD's) are sort of a table describing a table(s). A DD differs from a common table structure list in that it may apply to more than one table, and it can also assign functions or behavior to handle…</description>
+<category>TOP, Collection-Convergence</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Collection-Convergence/Data-Dictionaries.xml</filename>
 <content>
 <div class="blockquote">
 

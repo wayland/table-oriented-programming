@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Introduction/Why.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Why Table-Oriented Programming</title>
+<description>Have any of the following ever happened to you? If so, you would have benefitted from Table-Oriented Programming</description>
+<category>TOP, Introduction</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Introduction/Why.xml</filename>
 <content>
 <h1>Benefits of Table-Oriented Programming (TOP)</h1>
-
 <p>Have any of the following ever happened to you?  If so, you would have 
 benefitted from Table-Oriented Programming</p>
 

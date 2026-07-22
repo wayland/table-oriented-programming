@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Stylistic-Features/Code-Management.xml</filename>
-<sitedir>TOP</sitedir>
+<title>TOP Code Management</title>
+<description>One of the key components to Table-Oriented Programming is that tables aren't just for data -- you can also store your code in a table, just like a spreadsheet.</description>
+<category>TOP, Stylistic-Features</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Stylistic-Features/Code-Management.xml</filename>
 <content>
 <h1>Overview</h1>
-
 <p>One of the key components to Table-Oriented Programming is that tables aren't 
 just for data -- you can also store your <i>code</i> in a table, just like a 
 spreadsheet.  </p>

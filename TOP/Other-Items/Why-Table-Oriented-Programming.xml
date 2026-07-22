@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Other-Items/Why-Table-Oriented-Programming.xml</filename>
-<sitedir>TOP</sitedir>
+<title>Why Table-Oriented Programming?</title>
+<description>I leave it to Tablizer/TOPMind to say this:</description>
+<category>TOP, Other-Items</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Other-Items/Why-Table-Oriented-Programming.xml</filename>
 <content>
 
 <p>I leave it to Tablizer/TOPMind to say this:</p>

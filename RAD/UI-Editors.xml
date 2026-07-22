@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>UI-Editors.xml</filename>
-<sitedir>RAD</sitedir>
+<title>UI editors (Forms &amp; Reports)</title>
+<description>Less reliance on WYSIWYG screen and report builders. Most data-entry and grid screens can almost build themselves based on DD information.</description>
+<category>RAD</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>RAD/UI-Editors.xml</filename>
 <content>
 <h1>Overview</h1>
-
 <p>Our goals here are:</p>
 <ul>
 	<li>As much as possible, get the UIs to build themselves based on the Data 

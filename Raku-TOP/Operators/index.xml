@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Operators/</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>TOP::Operators</title>
+<description>The precedence levels mentioned here are the same as the ones at Raku Operator Precedence.</description>
+<category>Raku-TOP, Operators</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Operators/index.xml</filename>
 <nextnode><link name="Introduction to RAD" href="RAD/Introduction.xml"/></nextnode>
 <content>
-
 <h1>Precedence</h1>
-
 <p>The precedence levels mentioned here are the same as the ones at Raku 
 <a href="https://docs.raku.org/language/operators#Operator_precedence">Operator Precedence</a>.</p>
 

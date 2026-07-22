@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../interface/layout.xsl"?>
 <page>
-<filename>Collection-Convergence/Introduction/</filename>
-<sitedir>TOP</sitedir>
+<title>Introduction to Collection Convergence</title>
+<description>There is a pattern to many of the recommendations [ie. Database Engine Neutrality and Data Dictionaries]: Collection Convergence.</description>
+<category>TOP, Collection-Convergence/Introduction</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Collection-Convergence/Introduction/index.xml</filename>
 <content>
 <h2>Overview</h2>
 

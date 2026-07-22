@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Language-Support/Table.xml</filename>
-<sitedir>TOP</sitedir>
+<title>class Table</title>
+<description>I define a relational table as a collection of "rows". Rows are basically [associative arrays] with field names and corresponding values. Rows have "potential" fields. (I prefer "field" over "column" because column…</description>
+<category>TOP, Language-Support</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Language-Support/Table.xml</filename>
 <content>
 <h3> Definition of "Table" </h3>
 

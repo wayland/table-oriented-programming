@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Introduction.xml</filename>
-<sitedir>RAD</sitedir>
+<title>Introduction</title>
+<description>Programming languages are nice. But as tools, they're only the basics. To be effective as programmers, there are quite a number of other tools that speed along the development process.</description>
+<category>RAD</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>RAD/Introduction.xml</filename>
 <prevnode><link name="TOP::Operators" href="Raku-TOP/Operators/"/></prevnode>
 <content>
 <h1>Overview</h1>
-
 <p>Programming languages are nice.  But as tools, they're only the basics.  
 To be effective as programmers, there are quite a number of other tools that 
 speed along the development process.  </p>

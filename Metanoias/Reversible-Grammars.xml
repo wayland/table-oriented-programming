@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Reversible-Grammars.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 10.3: Reversible Grammars</title>
+<description>Some of us remember with fondness Perl 5's pack and unpack routinesIncluded in Raku via the P5Pack module. I even remember trying to figure out whether these or regular expressions were better for a particular problem.</description>
+<category>Metanoias</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Reversible-Grammars.xml</filename>
 <content>
 
 <p>Some of us remember with fondness Perl 5's <code>pack</code> and 

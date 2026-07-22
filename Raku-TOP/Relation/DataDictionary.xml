@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Relation/DataDictionary.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>class DataDictionary</title>
+<description>If there are no other ideas about table naming, then we should probably have something like the following:</description>
+<category>Raku-TOP, Relation</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Relation/DataDictionary.xml</filename>
 <content>
 
 <style>

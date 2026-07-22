@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
 <page>
-<filename>Introduction.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>Introduction to Raku TOP</title>
+<description>Have made a start on this at TOP. Please install that module to use what I have so far.</description>
+<category>Raku-TOP</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Introduction.xml</filename>
 <prevnode><link name="Paradigm Comparisons" href="TOP/Comparisons/Paradigm-Comparisons.xml"/></prevnode>
 <content>
 

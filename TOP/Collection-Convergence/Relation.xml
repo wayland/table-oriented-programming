@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Collection-Convergence/Relation.xml</filename>
-<sitedir>TOP</sitedir>
+<title>role Relation</title>
+<description>The Relation is a role that represents all features common to Tables and Views. Features include:</description>
+<category>TOP, Collection-Convergence</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>TOP/Collection-Convergence/Relation.xml</filename>
 <content>
 <h1>The Relation</h1>
-
 <p>The Relation is a role that represents all features common to Tables and 
 Views.  Features include:</p>
 

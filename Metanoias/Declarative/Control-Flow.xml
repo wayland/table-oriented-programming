@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Declarative/Control-Flow.xml</filename>
-<sitedir>Metanoias</sitedir>
+<title>Metanoia 1.3: Control Flow</title>
+<description>Sources of inspiration for backtracking should include:</description>
+<category>Metanoias, Declarative</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Metanoias/Declarative/Control-Flow.xml</filename>
 <content>
-
 <h1>Backtracking and Transactions</h1>
-
 <p>Sources of inspiration for backtracking should include:</p>
 
 <ul>

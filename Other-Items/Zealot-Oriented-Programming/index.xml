@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Zealot-Oriented-Programming/</filename>
-<sitedir>Other-Items</sitedir>
+<title>Zealot-Oriented Programming</title>
+<description>It seems that paradigms are like colors, cars, and clothes--everybody has their favorite. What works for one person, culture, or application may not work well for another. To say that object paradigms are the best…</description>
+<category>Other-Items, Zealot-Oriented-Programming</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Other-Items/Zealot-Oriented-Programming/index.xml</filename>
 <content>
 <p>Just had to quote this in full...</p>
 

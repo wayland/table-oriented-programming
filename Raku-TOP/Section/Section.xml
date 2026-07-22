@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>Section/Section.xml</filename>
-<sitedir>Raku-TOP</sitedir>
+<title>role Section</title>
+<description>The Section role represents a vertical column or set of columns in a Relation</description>
+<category>Raku-TOP, Section</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Raku-TOP/Section/Section.xml</filename>
 <content>
 <p>The Section role represents a vertical column or set of columns in a Relation</p>
 

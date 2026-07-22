@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
 <page>
-<filename>History-of-Programming.xml</filename>
-<sitedir>Other-Items</sitedir>
+<title>History of Programming</title>
+<description>This is a fairly focussed history of programming. Its purposes are:</description>
+<category>Other-Items</category>
+<author name="Tim Nelson"/>
+<sitedir>table-oriented-programming</sitedir>
+<filename>Other-Items/History-of-Programming.xml</filename>
 <content>
 
 <div class="blockquote">

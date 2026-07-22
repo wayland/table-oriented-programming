@@ -4,7 +4,7 @@
     <title>Programming Productivity</title>
     <section>
       <title>Progamming Productivity</title>
-      <article name="Introduction to Programming Productivity" href="/"/>
+      <article name="Introduction to Programming Productivity" href="index.xml"/>
     </section>
   </section>
   <section sitedir="TOP">
@@ -19,7 +19,7 @@
     </section>
     <section>
       <title>Collection Convergence</title>
-      <article name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/"/>
+      <article name="Introduction to Collection Convergence" href="TOP/Collection-Convergence/Introduction/index.xml"/>
       <article name="role Relation" href="TOP/Collection-Convergence/Relation.xml"/>
       <article name="Database Engine Neutrality" href="TOP/Collection-Convergence/Database-Engine-Neutrality.xml"/>
       <article name="Memory-Mapping Reduction" href="TOP/Collection-Convergence/Memory-Mapping-Reduction.xml"/>
@@ -36,7 +36,7 @@
       <article name="Introduction to TOP Style" href="TOP/Stylistic-Features/Introduction.xml"/>
       <article name="Multi-Aspect Taxonomies" href="TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml"/>
       <article name="TOP Code Management" href="TOP/Stylistic-Features/Code-Management.xml"/>
-      <article name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/"/>
+      <article name="Control Tables" href="TOP/Stylistic-Features/Control-Tables/index.xml"/>
     </section>
     <section>
       <title>Critiques</title>
@@ -80,7 +80,7 @@
     <article name="class Database" href="Raku-TOP/Database.xml"/>
     <article name="class Tuple" href="Raku-TOP/Tuple.xml"/>
     <article name="class Join" href="Raku-TOP/Join.xml"/>
-    <article name="TOP::Operators" href="Raku-TOP/Operators/"/>
+    <article name="TOP::Operators" href="Raku-TOP/Operators/index.xml"/>
   </section>
   <section sitedir="RAD">
     <title>RAD</title>
@@ -147,7 +147,7 @@
     <title>Other Material</title>
     <section>
       <title>Other Material</title>
-      <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/"/>
+      <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/index.xml"/>
       <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>
       <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
     </section>
