@@ -11,8 +11,8 @@
 <content>
 
 <p>Some of us remember with fondness Perl 5's <code>pack</code> and 
-<code>unpack</code> routines<ref>Included in Raku via the 
-<a href="https://github.com/lizmat/P5pack">P5Pack</a> module</ref>.  
+<code>unpack</code> routines<footnote>Included in Raku via the 
+<a href="https://github.com/lizmat/P5pack">P5Pack</a> module</footnote>.  
 I even remember trying to figure out whether these or regular expressions were 
 better for a particular problem.  </p>
 
