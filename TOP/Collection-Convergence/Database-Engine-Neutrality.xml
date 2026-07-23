@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Database Engine Neutrality</title>
 <description>TOP does not propose or expect any particular file format or physical table grouping. The source or storage technique of tables should be assumed to take on many different forms. TOP should be able to access and…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Collection-Convergence/Database-Engine-Neutrality.xml</filename>
+<nav-order>2.3</nav-order>
 <content>
 <div class="blockquote">
 	<p>TOP does not propose or expect any particular file format or physical 

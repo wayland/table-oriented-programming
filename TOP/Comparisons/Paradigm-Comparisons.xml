@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Paradigm Comparisons</title>
 <description>Each programming paradigm is a tool in your toolbox. The more paradigms a programming language allows for, the more tools you have in your toolbox. Each paradigm not available is one less tool in your toolbox.</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Comparisons/Paradigm-Comparisons.xml</filename>
+<nav-order>6.2</nav-order>
 <content>
 
 <p>Each programming paradigm is a tool in your toolbox.  The more paradigms a 

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Program Editors</title>
 <description>A great RAD needs the following program editors:</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>RAD/Program-Editors.xml</filename>
+<nav-order>2.2</nav-order>
 <content>
 <h1>Overview</h1>
 <p>A great RAD needs the following program editors:</p>

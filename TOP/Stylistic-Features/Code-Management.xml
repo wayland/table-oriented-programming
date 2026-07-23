@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>TOP Code Management</title>
 <description>One of the key components to Table-Oriented Programming is that tables aren't just for data -- you can also store your code in a table, just like a spreadsheet.</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Stylistic-Features/Code-Management.xml</filename>
+<nav-order>4.3</nav-order>
 <content>
 <h1>Overview</h1>
 <p>One of the key components to Table-Oriented Programming is that tables aren't 
@@ -54,10 +55,10 @@ easily store code in tables.  </p>
 	<a name="sql_eval"></a>
 
 <p>Ability to evaluate table processing calls with internal expressions and 
-functions, not just SQL. For example, in XBase a statement like <code>replace 
-all pay with CalcRate() * hours</code> calculates all employee paychecks in a 
-table. In SQL this could resemble: <code>"Update emp set pay = CalcRate() * 
-hours"</code>.  However, in standard SQL you cannot "pass" the CalcRate function 
+functions, not just SQL. For example, in XBase a statement like 
+<code>replace all pay with CalcRate() * hours</code> calculates all employee paychecks in a 
+table. In SQL this could resemble: <code>"Update emp set pay = CalcRate() * hours"</code>.  
+However, in standard SQL you cannot "pass" the CalcRate function 
 to the SQL processor; you are stuck with SQL's built-in functions or proprietary 
 "stored" procedure calls that are separate from your code. (Note that CalcRate 
 may use many fields in a record.  Thus, it cannot be "blind" to the "current" 

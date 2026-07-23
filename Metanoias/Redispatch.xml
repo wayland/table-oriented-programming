@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 10.2: Orthogonal Redispatch</title>
 <description>The problem with the redispatch in Raku 6 is that each keyword (except wrap) combines three separate concepts into one. Those concepts are:</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Redispatch.xml</filename>
+<nav-order>10.2</nav-order>
 <content>
 <h1>Overview</h1>
 <p>The problem with the redispatch in Raku 6 is that each keyword (except wrap)

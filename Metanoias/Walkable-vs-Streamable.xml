@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 2.3: Walkable vs. Streamable</title>
 <description>There are at least two models for navigating data sources. I've named these models "Walkable" and "Streamable". While Raku has leaned strongly towards the Streamable model (due to the benefits in concurrency), it…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Walkable-vs-Streamable.xml</filename>
+<nav-order>2.3</nav-order>
 <content>
 
 <p>There are at least two models for navigating data sources.  I've named 

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Introduction to TOP Style</title>
 <description>Thinking in terms of ITOP is more than just storing data, it is using tables to organize programs and program logic. Often big programs are nothing more than repeated code with slight variations. Rather than store…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Stylistic-Features/Introduction.xml</filename>
+<nav-order>4.1</nav-order>
 <content>
 <h1> Thinking "Tablely" </h1>
 <div class="blockquote">

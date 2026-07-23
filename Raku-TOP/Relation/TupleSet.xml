@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>class TupleSet</title>
 <description>At the moment, just inherits directly from Relation. If you think something belongs here, first ask whether it belongs on Relation instead.</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Raku-TOP/Relation/TupleSet.xml</filename>
+<nav-order>4.5</nav-order>
 <content>
 
 <p>At the moment, just inherits directly from Relation.  If you think something belongs here, first ask 

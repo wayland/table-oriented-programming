@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page hidden="1">
 <title>TOP and the Language Analogy</title>
+<width>huge</width>
 <description>Warning: This page is definitely incomplete; probably skip it for now</description>
 <category>TOP, Introduction</category>
 <author name="Tim Nelson"/>

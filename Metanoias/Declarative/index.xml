@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 1.0: Introduction to Declarative Programming</title>
 <description>Raku already has a moderate amount of declarative programming built in. The almost-declarative features include:</description>
@@ -7,6 +7,8 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Declarative/index.xml</filename>
+<nav-order>1.0</nav-order>
+<nav-title>Fundamental Declarative Metanoias</nav-title>
 <content>
 <h1>Declarative Features in Raku</h1>
 <p>Raku already has a moderate amount of declarative programming built 

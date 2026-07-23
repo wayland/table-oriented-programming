@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Introduction to Programming Productivity</title>
 <description>If you're a developer, wouldn't you like to get more done? And if you're a manager, wouldn't you like your developers to be more productive?</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>index.xml</filename>
+<nav-order>1</nav-order>
 <nextnode><link name="Introduction to Table-Oriented Programming" href="TOP/Introduction/What.xml"/></nextnode>
 <content>
 <p>If you're a developer, wouldn't you like to get more done?  And if you're a 
@@ -244,7 +245,7 @@ advocates.  </p>
 
 <div class="blockquote">
 
-<img src="TechnologyStackStabilityJava.png" style="width: 80%; margin: auto; 
+<img src="table-oriented-programming/TechnologyStackStabilityJava.png" style="width: 80%; margin: auto; 
 display: block"/>
 
 <div class="reference" style="display: flex">

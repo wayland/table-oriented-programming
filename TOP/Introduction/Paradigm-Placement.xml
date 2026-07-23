@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
-<page>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
+<page hidden="1">
 <title>Paradigm Placement</title>
 <description>There are many programming paradigms. There are also multiple ways of categorising said paradigms. Paradigm categorisations can be code-focussed and data-focussed.</description>
 <category>TOP, Introduction</category>
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Introduction/Paradigm-Placement.xml</filename>
+<nav-order>1.5</nav-order>
 <content>
 
 <div class="blockquote">

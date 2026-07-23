@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
-<page>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
+<page hidden="1">
 <title>To Do</title>
 <description>Implementation order .done { background-color: green; color: white; padding: 2pt; border-radius: 4pt; } Basic Functionality Functionality Very basic functionality Table, including Field and Tuple, and inheriting from…</description>
 <category>Raku-TOP</category>

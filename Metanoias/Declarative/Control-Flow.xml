@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 1.3: Control Flow</title>
 <description>Sources of inspiration for backtracking should include:</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Declarative/Control-Flow.xml</filename>
+<nav-order>1.3</nav-order>
 <content>
 <h1>Backtracking and Transactions</h1>
 <p>Sources of inspiration for backtracking should include:</p>
@@ -15,7 +16,8 @@
   <li>Raku grammars, obviously</li>
   <li>Anyone who has tried to integrate backtracking into an imperative 
     language, such as <a href="https://en.wikipedia.org/wiki/Alma-0">Alma-0</a>
-    (Alma Zero).  </li>
+    (Alma Zero -- not to be confused with Carl Mäsak's Alma language), or 
+	<a href="https://picat-lang.org/">Picat</a>.  </li>
 </ul>
 
 <p>On the assumption that we already know more about grammars, let's start by

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Control Tables</title>
 <description>Control Tables are tables that control the program flow or play a major part in program control. Control Tables often have expressions or function references stored in them. Control Tables reduce the need for…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Stylistic-Features/Control-Tables/index.xml</filename>
+<nav-order>4.4</nav-order>
 <content>
 <h1>Overview</h1>
 <div class="blockquote">
@@ -149,7 +150,7 @@ have to slog through information or structures about diesel
 combustion in order to find the arrival times.</p>
 
 <div align="center">
-<img src="TOP/Stylistic-Features/Control-Tables/knobs.gif" alt="Control Panel" border="0"/>
+<img src="table-oriented-programming/TOP/Stylistic-Features/Control-Tables/knobs.gif" alt="Control Panel" border="0"/>
 <br/>
 <small>
   <font face="arial">

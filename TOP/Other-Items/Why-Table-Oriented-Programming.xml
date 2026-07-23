@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Why Table-Oriented Programming?</title>
 <description>I leave it to Tablizer/TOPMind to say this:</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Other-Items/Why-Table-Oriented-Programming.xml</filename>
+<nav-order>7.2</nav-order>
 <content>
 
 <p>I leave it to Tablizer/TOPMind to say this:</p>

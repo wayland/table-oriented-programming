@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Introduction to Collection Convergence</title>
 <description>There is a pattern to many of the recommendations [ie. Database Engine Neutrality and Data Dictionaries]: Collection Convergence.</description>
@@ -7,13 +7,14 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Collection-Convergence/Introduction/index.xml</filename>
+<nav-order>2.1</nav-order>
 <content>
 <h2>Overview</h2>
 
 <div class="blockquote" style="margin-left: 20%; margin-right: 20%">
 
 <div style="float:right; margin-left: 6pt; margin-bottom: 6pt">
-<img src="TOP/Collection-Convergence/Introduction/converge.gif" 
+<img src="table-oriented-programming/TOP/Collection-Convergence/Introduction/converge.gif" 
 	border="0" alt="convergence diagram"/>
 </div>
 <p>There is a pattern to many of the recommendations [ie. <a 

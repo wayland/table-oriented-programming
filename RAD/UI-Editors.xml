@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>UI editors (Forms &amp; Reports)</title>
 <description>Less reliance on WYSIWYG screen and report builders. Most data-entry and grid screens can almost build themselves based on DD information.</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>RAD/UI-Editors.xml</filename>
+<nav-order>2.3</nav-order>
 <content>
 <h1>Overview</h1>
 <p>Our goals here are:</p>

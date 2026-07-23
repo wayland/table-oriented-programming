@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>OOP</title>
 <description>Tablizer/TOPMind has put a lot of effort into criticing things that he thought should be table-oriented programming but weren't. I'm going to work through some of his critiques, and try to divide them into those that…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Critiques/OOP.xml</filename>
+<nav-order>5.1</nav-order>
 <content>
 <p>Tablizer/TOPMind has put a lot of effort into criticing things that he 
 thought should be table-oriented programming but weren't.  I'm going to  work 

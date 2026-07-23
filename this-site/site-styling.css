@@ -1,3 +1,6 @@
 :root {
 	--site-hue: 120;
+	/* Match former TOP-content.css #ffffee / #eede8c via shared hsl() recipe */
+	--blockquote-background-hue: 60;
+	--blockquote-border-hue: 50;
 }

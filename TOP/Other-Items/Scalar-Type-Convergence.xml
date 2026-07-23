@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Scalar Type Convergence</title>
 <description>The short version of this page is "Raku already does these things".</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>TOP/Other-Items/Scalar-Type-Convergence.xml</filename>
+<nav-order>7.3</nav-order>
 <content>
 <p>The short version of this page is "Raku already does these things".</p>
 

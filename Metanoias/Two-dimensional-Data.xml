@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 2.0: Introduction to Two-dimensional Structures</title>
 <description>Perl in its day was inspirational in its data structures was flexible and somewhat inspirational. We were all of course familiar with zero-dimensional data structures (which Perl lumped together under the "scalars"…</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Two-dimensional-Data.xml</filename>
+<nav-order>2.0</nav-order>
 <content>
 
 <p>Perl in its day was inspirational in its data structures was flexible and

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 0.0: Proposals for Raku 7</title>
 <description>The (Koine) Greek work μετάνοια (metanoia) etmologically means "after-mind", and is usually translated "afterthought", "repentance", or "change of mind".</description>
@@ -7,6 +7,7 @@
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
 <filename>Metanoias/Introduction.xml</filename>
+<nav-order>0.0</nav-order>
 <content>
 
 <p>The (Koine) Greek work <a href="https://en.wiktionary.org/wiki/%CE%BC%CE%B5%CF%84%CE%AC%CE%BD%CE%BF%CE%B9%CE%B1">
