@@ -15,7 +15,8 @@
       <article name="Why Table-Oriented Programming" href="TOP/Introduction/Why.xml"/>
       <article name="Terminology" href="TOP/Introduction/Terminology.xml"/>
       <article name="History" href="TOP/Introduction/History.xml"/>
-      <!-- item title="TOP and the Language Analogy" href="TOP/Introduction/Language-Analogy.xml" width="huge"/ -->
+      <!-- article name="TOP and the Language Analogy" href="TOP/Introduction/Language-Analogy.xml" width="huge"/ -->
+      <article name="Paradigm Placement" href="TOP/Introduction/Paradigm-Placement.xml"/>
     </section>
     <section>
       <title>Collection Convergence</title>
@@ -81,6 +82,7 @@
     <article name="class Tuple" href="Raku-TOP/Tuple.xml"/>
     <article name="class Join" href="Raku-TOP/Join.xml"/>
     <article name="TOP::Operators" href="Raku-TOP/Operators/index.xml"/>
+    <!-- article name="Implementation order" href="Raku-TOP/TODO.xml"/ -->
   </section>
   <section sitedir="RAD">
     <title>RAD</title>
@@ -149,7 +151,7 @@
       <title>Other Material</title>
       <article name="Zealot-Oriented Programming" href="Other-Items/Zealot-Oriented-Programming/index.xml"/>
       <article name="History of Programming" href="Other-Items/History-of-Programming.xml" width="huge"/>
-      <!-- link title="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
+      <!-- article name="English Analysis" href="Other-Items/English-Analysis.xml" width="huge"/ -->
     </section>
   </section>
 </site-contents>

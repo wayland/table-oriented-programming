@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../interface/layout.xsl"?>
-<page>
+<page hidden="1">
 <title>English Analysis</title>
 <description>The classic 8/9 parts of speech are a useful base, though there are more (see How many parts of speech are covered in English for a list of 16 or so). Much more useful as a base are the following:</description>
 <category>Other-Items</category>

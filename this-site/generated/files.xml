@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filesystem-info xml:base="../..">
+	<lastBuildDate>Thu, 23 Jul 2026 10:18:50 +1000</lastBuildDate>
+	<file-list>
+		<file src="table-oriented-programming/TOP/Introduction/Why.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Introduction/Terminology.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Introduction/History.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Introduction/Language-Analogy.xml" created="2024-04-06" modified="2026-07-23" />
+		<file src="table-oriented-programming/TOP/Introduction/What.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Introduction/Paradigm-Placement.xml" created="2024-05-10" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Other-Items/Merging-TOP-and-OOP.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Other-Items/Scalar-Type-Convergence.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Other-Items/Why-Table-Oriented-Programming.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Other-Items/Eight-Concepts.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Critiques/OOP.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Critiques/SQL.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Critiques/Trees.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Introduction/Relation.svg.xml" created="2024-04-06" modified="2024-04-13" />
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Introduction/index.xml" created="2024-04-06" modified="2026-07-22" is-index="1"/>
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Database-Engine-Neutrality.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Relation.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Data-Dictionaries.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Collection-Convergence/Memory-Mapping-Reduction.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Language-Support/Table-Friendly-Syntax.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Language-Support/View.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Language-Support/Table.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Stylistic-Features/Control-Tables/index.xml" created="2024-04-06" modified="2026-07-22" is-index="1"/>
+		<file src="table-oriented-programming/TOP/Stylistic-Features/Multi-Aspect-Taxonomies.xml" created="2024-04-08" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Stylistic-Features/Introduction.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Stylistic-Features/Code-Management.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Comparisons/Raku-and-xHarbour.xml" created="2024-04-08" modified="2026-07-22" />
+		<file src="table-oriented-programming/TOP/Comparisons/Paradigm-Comparisons.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/Other-Items/English-Analysis.xml" created="2024-04-06" modified="2026-07-23" />
+		<file src="table-oriented-programming/Other-Items/History-of-Programming.xml" created="2024-04-30" modified="2026-07-22" />
+		<file src="table-oriented-programming/Other-Items/Zealot-Oriented-Programming/index.xml" created="2024-04-06" modified="2026-07-22" is-index="1"/>
+		<file src="table-oriented-programming/index.xml" created="2024-04-05" modified="2026-07-22" is-index="1"/>
+		<file src="table-oriented-programming/RAD/Database-Design-Editor.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/RAD/Documentation-Generation.xml" created="2024-04-26" modified="2026-07-22" />
+		<file src="table-oriented-programming/RAD/Backend-to-Frontend-Design.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/RAD/Program-Editors.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/RAD/Introduction.xml" created="2024-04-20" modified="2026-07-22" />
+		<file src="table-oriented-programming/RAD/UI-Editors.xml" created="2024-04-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Declarative/Operators.xml" created="2025-02-15" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Declarative/Object-Model.xml" created="2025-02-15" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Declarative/Control-Flow.xml" created="2024-06-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Declarative/index.xml" created="2025-02-14" modified="2026-07-22" is-index="1"/>
+		<file src="table-oriented-programming/Metanoias/Declarative/Data-Simple-Queries.xml" created="2024-06-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Sources-Destinations.xml" created="2024-05-22" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Declarative-Raku-Comparison.xml" created="2024-06-08" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Phasers.xml" created="2024-05-22" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Queries.xml" created="2024-05-22" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Reversible-Grammars.xml" created="2024-07-24" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Redispatch.xml" created="2024-07-24" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Introduction.xml" created="2024-05-22" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Two-dimensional-Data.xml" created="2024-05-22" modified="2026-07-22" />
+		<file src="table-oriented-programming/Metanoias/Walkable-vs-Streamable.xml" created="2024-06-06" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Operators/index.xml" created="2024-04-19" modified="2026-07-23" is-index="1"/>
+		<file src="table-oriented-programming/Raku-TOP/TODO.xml" created="2025-03-08" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Database.xml" created="2024-04-14" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Tuple.xml" created="2024-04-18" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Section/Section.xml" created="2024-04-25" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Section/Field.xml" created="2024-04-18" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Section/Lot.xml" created="2024-04-19" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Cursor.xml" created="2024-04-18" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Join.xml" created="2024-04-14" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Core.xml" created="2024-04-12" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Introduction.xml" created="2024-04-14" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/ControlFlow.xml" created="2024-04-16" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Relation/TupleSet.xml" created="2024-04-14" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Relation/Relation.xml" created="2024-04-12" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Relation/View.xml" created="2024-04-16" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Relation/Table.xml" created="2024-04-16" modified="2026-07-22" />
+		<file src="table-oriented-programming/Raku-TOP/Relation/DataDictionary.xml" created="2024-04-16" modified="2026-07-22" />
+		<file src="table-oriented-programming/AI/AI-and-Coding.xml" created="2024-04-06" modified="2026-07-22" />
+	</file-list>
+</filesystem-info>

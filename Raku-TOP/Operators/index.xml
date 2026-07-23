@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../interface/layout.xsl"?>
-<page>
+<page hidden="1">
 <title>TOP::Operators</title>
 <description>The precedence levels mentioned here are the same as the ones at Raku Operator Precedence.</description>
 <category>Raku-TOP, Operators</category>
