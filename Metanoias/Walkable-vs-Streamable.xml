@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/all-sites/layout.xsl"?>
 <page>
 <title>Metanoia 2.3: Walkable vs. Streamable</title>
-<description>There are at least two models for navigating data sources. I've named these models "Walkable" and "Streamable". While Raku has leaned strongly towards the Streamable model (due to the benefits in concurrency), it…</description>
+<description>Discusses various models for navigating data sources</description>
 <category>Metanoias</category>
 <author name="Tim Nelson"/>
 <sitedir>table-oriented-programming</sitedir>
@@ -10,46 +10,105 @@
 <nav-order>2.3</nav-order>
 <content>
 
-<p>There are at least two models for navigating data sources.  I've named 
-these models "Walkable" and "Streamable".  While Raku has leaned strongly 
-towards the Streamable model (due to the benefits in concurrency), it uses 
-the Walkable model for grammars -- that's what backtracking is all about.</p>
+<p>There are at least three models for navigating data sources.  I've named 
+these models "Walkable", "Streamable Push", and "Streamable Pull".  While Raku 
+has leaned strongly towards the Streamable models (due to the benefits in 
+concurrency), it uses the Walkable model for grammars -- that's what 
+backtracking is all about.</p>
 
 <table>
   <tr>
     <th>Item</th>
     <th>Walkable</th>
-    <th>Streamable</th>
+    <th>Streamable Push</th>
+    <th>Streamable Pull</th>
+  </tr>
+	<tr>
+		<th colspan="4"><h2>Model</h2></th>
+	</tr>
+	<tr>
+		<th>Parsing style</th>
+		<td>Tree-based</td>
+		<td>Event-driven (push)</td>
+		<td>Event-driven (pull)</td>
+	</tr>
+  <tr>
+    <th>Pointer</th>
+    <td>Cursor</td>
+    <td>Supply</td>
+    <td>Iterator</td>
   </tr>
   <tr>
-    <th>Movement through data source</th>
-    <td>Forwards, backwards, absolute, relative</td>
-    <td>Forwards only</td>
+    <th>Comparable XSLT mode</th>
+    <td>Regular</td>
+    <td>Streaming</td>
+    <td>Streaming</td>
   </tr>
+  <tr>
+    <th>Comparable XSLT API</th>
+    <td>DOM</td>
+    <td>SAX</td>
+    <td>StAX</td>
+  </tr>
+	<tr>
+		<th colspan="4"><h2>Advantages and Disadvantages</h2></th>
+	</tr>
   <tr>
     <th>Advantages</th>
     <td>More flexible in coding; makes the easy things easy</td>
+    <td>Better for large data sources, and for concurrency</td>
     <td>Better for large data sources, and for concurrency</td>
   </tr>
   <tr>
     <th>Disadvantages</th>
     <td>Doesn't scale as well</td>
     <td>Comes with restrictions that make it more difficult to use</td>
+    <td>Comes with restrictions that make it more difficult to use</td>
+  </tr>
+  <tr>
+    <th>Movement through data source</th>
+    <td>✅Forwards, backwards, absolute, relative</td>
+    <td>❌Forwards only</td>
+    <td>❌Forwards only</td>
+  </tr>
+	<tr>
+		<th>Code complexity</th>
+		<td>✅Low</td>
+		<td>❌High</td>
+		<td>❌Medium</td>
+	</tr>
+	<tr>
+		<th>Random access</th>
+		<td>✅Yes</td>
+		<td>❌No</td>
+		<td>❌Limited (sequential)</td>
+	</tr>
+	<tr>
+		<th>Memory usage</th>
+		<td>❌High (whole document)</td>
+		<td>✅Very low</td>
+		<td>✅Low</td>
+	</tr>
+	<tr>
+		<th>Large file performance</th>
+		<td>❌Weak</td>
+		<td>✅Excellent</td>
+		<td>✅Very good</td>
+	</tr>
+	<tr>
+		<th colspan="4"><h2>Where does Raku use it?</h2></th>
+	</tr>
+  <tr>
+    <th>Grammars</th>
+    <td>Input, Model, Output (returned Match)</td>
+    <td>Output (Actions object)</td>
+    <td></td>
   </tr>
   <tr>
     <th>Pointer</th>
-    <td>Cursor</td>
-    <td>Iterator/Supply</td>
-  </tr>
-  <tr>
-    <th>Comparable XSLT mode</th>
-    <td>Non-streaming</td>
-    <td>Streaming</td>
-  </tr>
-  <tr>
-    <th>Where does Raku use it?</th>
-    <td>Grammars</td>
-    <td>Most other things, including Iterators and Supplies</td>
+    <td></td>
+    <td>Supply</td>
+    <td>Iterator</td>
   </tr>
 </table>
 
@@ -72,26 +131,34 @@ the Walkable model for grammars -- that's what backtracking is all about.</p>
     important both in Regexes and in Logic Programming).  </li>
 </ul>
 
-<p>In this case, it's useful to compare the sources by type:</p>
+<p>In this case, it's useful to compare the sources by type.  </p>
 
 <table>
   <tr>
     <th>does Walkable</th>
-    <th>Parent Type</th>
-    <th>Indicator Type</th>
+    <th>Source</th>
+    <th>Pointer</th>
     <th>Walks by</th>
     <th>Comments</th>
   </tr>
   <tr>
-    <th>Str or Stream</th>
+    <th>Str</th>
     <td></td>
-    <td>StreamCursor (?)</td>
-    <td>Character</td>
+    <td>Match (or proposed ConcreteMatch)</td>
+    <td>Regex Match</td>
     <td></td>
   </tr>
   <tr>
-    <th>Relation</th>
+    <th>IO::Handle</th>
     <td></td>
+    <td></td>
+    <td>Character, word, line</td>
+    <td>We can add methods to IO::Handle for eg. <code>.line-cursor</code> and 
+		the like</td> 
+  </tr>
+  <tr>
+    <th>Relation</th>
+    <td>Query, Table, etc</td>
     <td>TOP::Cursor</td>
     <td>Tuple</td>
     <td></td>
@@ -112,6 +179,35 @@ the Walkable model for grammars -- that's what backtracking is all about.</p>
   </tr>
 </table>
 
+<p>It's also useful to look at where they fit into the existing Raku model:</p>
+
+<table>
+	<tr>
+		<th></th>
+		<th>Walkable</th>
+		<th>Streamable Push</th>
+		<th>Streamable Pull</th>
+	</tr>
+	<tr>
+		<th>Pointer</th>
+		<td>Cursor</td>
+		<td>Iterator</td>
+		<td>Supply</td>
+	</tr>
+	<tr>
+		<th>Source</th>
+		<td>Walkable</td>
+		<td>Iterable</td>
+		<td>Supplier</td>
+	</tr>
+</table>
+
+<h2>Understanding the Current Raku Streamable Data Models</h2>
+
+<code>
+Supplier  ────emit────▶  Supply  ─────tap────▶ Consumer
+Iterable  ──iterator──▶ Iterator ──pull-one──▶ Consumer
+</code>
 
 </content>
 </page>

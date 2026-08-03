@@ -18,6 +18,7 @@ TODO
 		-	Logic
 	-	OTTTER (Office Toolkit): The concept, the tools (replaces RAD, AI)
 	-	Blog: Done.  See misc/TODO.txt on the Blog site
+-	When splitting the sites, look at section 10 of the Site-Technology-Unification-Plan.md (in the github-website repo)
 -	Rewrite this document:
 	-	Moving anything specific to Raku TOP out into a separate document
 	-	Thinking about the place of Raku-TOP/TODO.xml
