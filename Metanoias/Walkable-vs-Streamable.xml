@@ -16,6 +16,8 @@ has leaned strongly towards the Streamable models (due to the benefits in
 concurrency), it uses the Walkable model for grammars -- that's what 
 backtracking is all about.</p>
 
+<h1>The Three Models: A Comparison</h1>
+
 <table>
   <tr>
     <th>Item</th>
@@ -112,7 +114,7 @@ backtracking is all about.</p>
   </tr>
 </table>
 
-<h2>Walkables and Cursors</h2>
+<h1>Walkables and Cursors</h1>
 
 <p>Two new roles will need to be added to Raku to support the generic sources
 (rather than just the grammar-specific Str).  These are:</p>
@@ -202,7 +204,7 @@ backtracking is all about.</p>
 	</tr>
 </table>
 
-<h2>Understanding the Current Raku Streamable Data Models</h2>
+<h1>Understanding the Current Raku Streamable Data Models</h1>
 
 <code>
 Supplier  ────emit────▶  Supply  ─────tap────▶ Consumer
